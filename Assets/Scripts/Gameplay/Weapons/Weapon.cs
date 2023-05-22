@@ -25,14 +25,10 @@ namespace DDY_GJM_23
         // The owner of the weapon.
         public Player owner;
 
-        // Constructor
-        public Weapon(weaponType type, Player owner)
+        // Awake is called when the script is being loaded
+        protected virtual void Awake()
         {
-            // Sets the weapon type.
-            weapon = type;
-
-            // Sets the owner.
-            this.owner = owner;
+            // ...
         }
 
         // Start is called before the first frame update

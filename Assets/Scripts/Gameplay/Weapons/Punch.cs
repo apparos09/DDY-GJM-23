@@ -7,13 +7,18 @@ namespace DDY_GJM_23
     // The punch weapon.
     public class Punch : Weapon
     {
-        // The collider for the punch.
+        // The collider for the punch (enable/disable as part of an animation).
         public new BoxCollider2D collider;
 
-        // Constructor
-        public Punch(Player owner, BoxCollider2D collider) : base(weaponType.punch, owner)
+        // The animator for the punch animation.
+        public Animator animator;
+
+        // Awake is called when the script is being loaded
+        protected override void Awake()
         {
-            // The punch is infinite use.
+            base.Awake();
+
+            weapon = weaponType.punch;
             infiniteUse = true;
         }
 
@@ -21,12 +26,48 @@ namespace DDY_GJM_23
         protected override void Start()
         {
             base.Start();
+
+            // Grabs the animator.
+            if (animator == null)
+                animator = GetComponent<Animator>();
         }
 
         // Use the weapon.
         public override void UseWeapon()
         {
-            // TODO: move collider relative to player, active it, and play attack animation.
+            // The direction of the punch.
+            Vector2 direc = owner.FacingDirection;
+
+            // Calcuate the punch angle (in degrees).
+            float angle = 0.0F;
+
+            // Checks the movement direction.
+            if(direc.x != 0.0F && direc.y == 0.0F)
+            {
+                angle = (direc.x > 0) ? 0.0F : 180.0F;
+            }
+            else if(direc.x == 0.0F && direc.y != 0.0F)
+            {
+                angle = (direc.y > 0) ? 90.0F : 270.0F;
+            }
+            else
+            {
+                // Calculate the angle, and convert it to degrees.
+                angle = Mathf.Rad2Deg * Mathf.Atan2(direc.y, direc.x);
+            }
+
+            // Set the rotation of the hitbox.
+            collider.transform.eulerAngles = new Vector3(0, 0, angle);
+
+            // Plays the punch animation.
+            animator.Play("Punch");
+        }
+
+        // Called when the punch is finished.
+        public void OnPunchFinished()
+        {
+            // Reset collider rotation.
+            collider.gameObject.transform.eulerAngles = Vector3.zero;
         }
 
         // Update is called once per frame

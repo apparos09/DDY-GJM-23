@@ -13,30 +13,41 @@ namespace DDY_GJM_23
 
         // The player's collider.
         public new BoxCollider2D collider;
+        
+        // The player's health.
+        public float health = 100.0F;
+
+        // The player's max health.
+        public float healthMax = 100.0F;
+
+        [Header("Movement")]
 
         // The direction the player is facing.
-        private Vector2 forwardDirec = Vector2.down;
+        public Vector2 facingDirec = Vector2.down;
 
         // The movement speed of the player.
-        private float speed = 10.0F;
+        public float speed = 10.0F;
 
         // The movement keys.
-        private KeyCode moveLeftKey = KeyCode.A;
-        private KeyCode moveRightKey = KeyCode.D;
-        private KeyCode moveUpKey = KeyCode.W;
-        private KeyCode moveDownKey = KeyCode.S;
+        public KeyCode moveLeftKey = KeyCode.A;
+        public KeyCode moveRightKey = KeyCode.D;
+        public KeyCode moveUpKey = KeyCode.W;
+        public KeyCode moveDownKey = KeyCode.S;
 
         // The attack key.
-        private KeyCode attackKey = KeyCode.Space;
+        public KeyCode attackKey = KeyCode.Space;
 
         // Weapons
-        [Header("Weapons")]
+        [Header("Player Weapons")]
 
         // The current weapon of the player.
         public Weapon currWeapon;
 
         // The list of weapons.
         public List<Weapon> weapons;
+
+        // The punch weapon.
+        public Punch punchWeapon;
 
         // Start is called before the first frame update
         void Start()
@@ -54,15 +65,18 @@ namespace DDY_GJM_23
             }
 
             // Gives the player the punch weapon.
-            currWeapon = new Punch(this, null);
-            weapons.Add(currWeapon);
+            currWeapon = punchWeapon;
+
+            // The punch.
+            punchWeapon.owner = this;
+            weapons.Add(punchWeapon);
         }
 
         // Gets the forward direction.
         // The values will either be [0] or [1].
-        public Vector2 ForwardDirection
+        public Vector2 FacingDirection
         {
-            get { return forwardDirec; }
+            get { return facingDirec; }
         }
 
         // Updates the inputs for the player.
@@ -72,46 +86,65 @@ namespace DDY_GJM_23
             // The movement directions.
             Vector2 movement = Vector2.zero;
 
+            // TODO: find a way to have gradual slow down for tile movement instead of stopping instantly.
+
             // Movement - Horizontal (Left, Right)
-            if(Input.GetKey(moveLeftKey))
+            if(Input.GetKey(moveLeftKey)) // Left
             {
                 movement.x = -1;
             }
-            else if(Input.GetKey(moveRightKey))
+            else if(Input.GetKey(moveRightKey)) // Right
             {
                 movement.x = 1;
             }
+            //else if(Input.GetKeyUp(moveLeftKey) || Input.GetKeyUp(moveRightKey))
+            //{
+            //    // Stop horizontal velocity.
+            //    Vector2 velocity = new Vector2(0, rigidbody.velocity.y);
+            //    rigidbody.velocity = velocity;
+            //}
+
 
             // Movement - Vertical (Up, Down)
-            if (Input.GetKey(moveUpKey))
+            if (Input.GetKey(moveUpKey)) // Up
             {
                 movement.y = 1;
             }
-            else if (Input.GetKey(moveDownKey))
+            else if (Input.GetKey(moveDownKey)) // Down
             {
                 movement.y = -1;
             }
+            //else if (Input.GetKeyUp(moveUpKey) || Input.GetKeyUp(moveDownKey))
+            //{
+            //    // Stop vertical velocity.
+            //    Vector2 velocity = new Vector2(rigidbody.velocity.x, 0);
+            //    rigidbody.velocity = velocity;
+            //}
+
 
             // There is movement, so apply it.
-            if(movement != Vector2.zero)
+            if (movement != Vector2.zero)
             {
                 // Calculates the force.
                 Vector2 force = movement * speed * Time.deltaTime;
                 
                 // Uses rigidbody for movement.
-                // rigidbody.AddForce(force, ForceMode2D.Impulse);
+                rigidbody.AddForce(force, ForceMode2D.Impulse);
 
                 // Uses transform for movement.
-                transform.Translate(force);
+                // transform.Translate(force);
             }
 
             // ATTACK
             // The user is attacking.
-            if(Input.GetKeyDown(attackKey) && currWeapon != null)
+            if(Input.GetKeyDown(attackKey))
             {
                 // Uses the weapon.
-                if (currWeapon.IsUsable())
-                    currWeapon.UseWeapon();
+                if(currWeapon != null)
+                {
+                    if (currWeapon.IsUsable())
+                        currWeapon.UseWeapon();
+                }
             }
             
         }

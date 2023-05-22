@@ -13,6 +13,9 @@ namespace DDY_GJM_23
         // Gets set to 'true' when the singleton is initialized.
         private bool initialized = false;
 
+        // The game world.
+        public World world;
+
         // The player.
         public Player player;
 
@@ -46,6 +49,10 @@ namespace DDY_GJM_23
         // Start is called just before any of the Update methods is called the first time
         private void Start()
         {
+            // Finds the world component.
+            if (world == null)
+                world = FindObjectOfType<World>();
+
             // Find the player.
             if (player == null)
                 player = FindObjectOfType<Player>();

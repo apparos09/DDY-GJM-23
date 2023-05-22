@@ -25,7 +25,7 @@ namespace DDY_GJM_23
         private void OnTriggerEnter2D(Collider2D collision)
         {
             // Checks for a combat entity.
-            CombatEntity combatEntity = null;
+            Combatant combatEntity = null;
 
             // Checks if the collision object is a combat entity.
             if(collision.TryGetComponent(out combatEntity))
@@ -39,7 +39,7 @@ namespace DDY_GJM_23
         private void OnTriggerStay2D(Collider2D collision)
         {
             // Checks for a combat entity.
-            CombatEntity combatEntity = null;
+            Combatant combatEntity = null;
 
             // Checks if the collision object is a combat entity.
             if (collision.TryGetComponent(out combatEntity))
@@ -57,7 +57,7 @@ namespace DDY_GJM_23
         private void OnTriggerExit2D(Collider2D collision)
         {
             // Checks for a combat entity.
-            CombatEntity combatEntity = null;
+            Combatant combatEntity = null;
 
             // Checks if the collision object is a combat entity.
             if (collision.TryGetComponent(out combatEntity))

@@ -13,6 +13,9 @@ namespace DDY_GJM_23
         // The animator for the punch animation.
         public Animator animator;
 
+        // The amount of power the punch move has.
+        public float power = 10.0F;
+
         // Awake is called when the script is being loaded
         protected override void Awake()
         {
@@ -30,6 +33,21 @@ namespace DDY_GJM_23
             // Grabs the animator.
             if (animator == null)
                 animator = GetComponent<Animator>();
+        }
+
+        // OnTriggerEnter2D - used to damage an enemy.
+        
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            // Enemy component.
+            Enemy enemy;
+
+            // Tries to get the enemy component.
+            if(collision.TryGetComponent(out enemy))
+            {
+                // TODO: trigger animation and invincibility frames.
+                enemy.ApplyDamage(power);
+            }
         }
 
         // Use the weapon.
@@ -92,6 +110,9 @@ namespace DDY_GJM_23
             // Reset collider rotation (this reset isn't working for some reason, should probably be fixed).
             // This function is being called though.
             collider.transform.rotation = Quaternion.identity;
+
+            // Play the empty animation so that the animation switches off and can be replayed properly.
+            animator.Play("Empty");
         }
 
         // Update is called once per frame

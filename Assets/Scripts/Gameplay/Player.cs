@@ -6,7 +6,7 @@ using UnityEngine;
 namespace DDY_GJM_23
 {
     // The player for the game.
-    public class Player : CombatEntity
+    public class Player : Combatant
     {
         // // The amoutn of lives the player has.
         // public int lives = 0;
@@ -44,19 +44,9 @@ namespace DDY_GJM_23
         public Punch punchWeapon;
 
         // Start is called before the first frame update
-        void Start()
+        protected override void Start()
         {
-            // Grabs the 2D rigidbody.
-            if (rigidbody == null)
-            {
-                rigidbody = GetComponent<Rigidbody2D>();
-            }
-
-            // Gets the player's box collider.
-            if (collider == null)
-            {
-                collider = GetComponent<BoxCollider2D>();
-            }
+            base.Start();
 
             // Gives the player the punch weapon.
             currWeapon = punchWeapon;
@@ -152,8 +142,10 @@ namespace DDY_GJM_23
         }
 
         // Update is called once per frame
-        void Update()
+        protected override void Update()
         {
+            base.Update();
+
             // Updates the player's inputs.
             UpdateInputs();
         }

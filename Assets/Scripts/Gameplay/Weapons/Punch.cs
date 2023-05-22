@@ -35,6 +35,9 @@ namespace DDY_GJM_23
         // Use the weapon.
         public override void UseWeapon()
         {
+            // Make sure the punch is finished.
+            OnPunchFinished();
+
             // The direction of the punch.
             Vector2 direc = owner.FacingDirection;
 
@@ -54,6 +57,26 @@ namespace DDY_GJM_23
             {
                 // Calculate the angle, and convert it to degrees.
                 angle = Mathf.Rad2Deg * Mathf.Atan2(direc.y, direc.x);
+
+                // // Manually set the angle (in degrees).
+                // if (direc.x > 0 && direc.y > 0) // Top Right
+                // {
+                //     angle = 45.0F;
+                // }
+                // else if(direc.x > 0 && direc.y < 0) // Bottom Right
+                // {
+                //     angle = 315.0F;
+                // }
+                // else if(direc.x < 0 && direc.y > 0) // Top Left
+                // {
+                //     angle = 135.0F;
+                // }
+                // else if(direc.x < 0 && direc.y < 0) // Bottom Left
+                // {
+                //     angle = 225.0F;
+                // }
+                    
+
             }
 
             // Set the rotation of the hitbox.
@@ -66,8 +89,9 @@ namespace DDY_GJM_23
         // Called when the punch is finished.
         public void OnPunchFinished()
         {
-            // Reset collider rotation.
-            collider.gameObject.transform.eulerAngles = Vector3.zero;
+            // Reset collider rotation (this reset isn't working for some reason, should probably be fixed).
+            // This function is being called though.
+            collider.transform.rotation = Quaternion.identity;
         }
 
         // Update is called once per frame

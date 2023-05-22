@@ -6,19 +6,10 @@ using UnityEngine;
 namespace DDY_GJM_23
 {
     // The player for the game.
-    public class Player : MonoBehaviour
+    public class Player : CombatEntity
     {
-        // The rigidbody for the player.
-        public new Rigidbody2D rigidbody;
-
-        // The player's collider.
-        public new BoxCollider2D collider;
-        
-        // The player's health.
-        public float health = 100.0F;
-
-        // The player's max health.
-        public float healthMax = 100.0F;
+        // // The amoutn of lives the player has.
+        // public int lives = 0;
 
         [Header("Movement")]
 
@@ -27,6 +18,9 @@ namespace DDY_GJM_23
 
         // The movement speed of the player.
         public float speed = 10.0F;
+
+        // The maximum movement speed.
+        public float maxSpeed = 10.0F;
 
         // The movement keys.
         public KeyCode moveLeftKey = KeyCode.A;
@@ -97,12 +91,12 @@ namespace DDY_GJM_23
             {
                 movement.x = 1;
             }
-            //else if(Input.GetKeyUp(moveLeftKey) || Input.GetKeyUp(moveRightKey))
-            //{
-            //    // Stop horizontal velocity.
-            //    Vector2 velocity = new Vector2(0, rigidbody.velocity.y);
-            //    rigidbody.velocity = velocity;
-            //}
+            else if(Input.GetKeyUp(moveLeftKey) || Input.GetKeyUp(moveRightKey))
+            {
+                // Stop horizontal velocity.
+                Vector2 velocity = new Vector2(0, rigidbody.velocity.y);
+                rigidbody.velocity = velocity;
+            }
 
 
             // Movement - Vertical (Up, Down)
@@ -114,22 +108,30 @@ namespace DDY_GJM_23
             {
                 movement.y = -1;
             }
-            //else if (Input.GetKeyUp(moveUpKey) || Input.GetKeyUp(moveDownKey))
-            //{
-            //    // Stop vertical velocity.
-            //    Vector2 velocity = new Vector2(rigidbody.velocity.x, 0);
-            //    rigidbody.velocity = velocity;
-            //}
+            else if (Input.GetKeyUp(moveUpKey) || Input.GetKeyUp(moveDownKey))
+            {
+                // Stop vertical velocity.
+                Vector2 velocity = new Vector2(rigidbody.velocity.x, 0);
+                rigidbody.velocity = velocity;
+            }
 
 
             // There is movement, so apply it.
             if (movement != Vector2.zero)
             {
+                // Set the face direction.
+                facingDirec = movement.normalized;
+
                 // Calculates the force.
                 Vector2 force = movement * speed * Time.deltaTime;
                 
-                // Uses rigidbody for movement.
-                rigidbody.AddForce(force, ForceMode2D.Impulse);
+                // Uses rigidbody for movement (original) (not needed) [OLD]
+                // rigidbody.AddForce(force, ForceMode2D.Impulse);
+
+                // TODO: add factor for slowing down by material.
+
+                // Set velocity.
+                rigidbody.velocity = Vector2.ClampMagnitude(force.normalized * 10.0F, maxSpeed);
 
                 // Uses transform for movement.
                 // transform.Translate(force);

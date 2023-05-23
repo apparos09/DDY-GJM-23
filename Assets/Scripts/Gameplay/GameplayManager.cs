@@ -131,9 +131,6 @@ namespace DDY_GJM_23
         // Called to end the game.
         protected void OnTimeOver()
         {
-            // Checks if the player is in the base.
-            bool inBase = homeBase.IsPlayerInBase();
-
             // NOTE: if the player is in a base area when the timer is over, have it count.
             // TODO: implement time over effects.
 
@@ -145,8 +142,36 @@ namespace DDY_GJM_23
         {
             // ...
 
+            // Checks if the player is in the base.
+            bool inBase = homeBase.IsPlayerInBase();
+
+            // If the player isn't in the base.
+            if(!inBase)
+            {
+                // Grabs the current area.
+                WorldArea currArea = world.GetCurrentArea();
+
+                // Area was set.
+                if (currArea != null)
+                {
+                    // If the player is in a white sector, then it counts as being safe.
+                    inBase = currArea.sector == WorldArea.worldSector.white;
+                }
+            }
+
+            // Creates the results data to be read in on the results screen.
+            GameObject resultsObject = new GameObject("Results Data");
+            DontDestroyOnLoad(resultsObject);
+            ResultsData results = resultsObject.AddComponent<ResultsData>();
+
+            // Sets if the player was alive or not.
+            results.playerAlive = inBase;
+
+            // Scrap count.
+            results.scrapsTotal = scrapsTotal;
+
             // Loads the results scene.
-            // SceneManager.LoadScene("ResultsScene");
+            SceneManager.LoadScene("ResultsScene");
         }
 
         // Update is called once per frame

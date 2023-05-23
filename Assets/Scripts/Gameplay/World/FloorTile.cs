@@ -31,7 +31,8 @@ namespace DDY_GJM_23
             if(collision.TryGetComponent(out combatEntity))
             {
                 // Sets this as the current tile.
-                combatEntity.currentTile = this;
+                if(!combatEntity.currentTiles.Contains(this))
+                    combatEntity.currentTiles.Add(this);
             }
         }
 
@@ -48,8 +49,8 @@ namespace DDY_GJM_23
                 // The tile that the entity entered last is the physics tile.
 
                 // Sets this as the current tile.
-                if(combatEntity.currentTile == null)
-                    combatEntity.currentTile = this;
+                if(combatEntity.currentTiles.Contains(this))
+                    combatEntity.currentTiles.Remove(this);
             }
         }
 
@@ -63,8 +64,8 @@ namespace DDY_GJM_23
             if (collision.TryGetComponent(out combatEntity))
             {
                 // Clears out the tile.
-                if(combatEntity.currentTile == this)
-                    combatEntity.currentTile = null;
+                if(combatEntity.currentTiles.Contains(this))
+                    combatEntity.currentTiles.Remove(this);
             }
         }
 

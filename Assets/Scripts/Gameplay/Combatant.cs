@@ -32,7 +32,7 @@ namespace DDY_GJM_23
         private float iFrameTimer;
 
         // The tile the combat entity is currently on.
-        public FloorTile currentTile;
+        public List<FloorTile> currentTiles;
 
         // Start is called before the first frame update
         protected virtual void Start()

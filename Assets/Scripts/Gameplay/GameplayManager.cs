@@ -13,17 +13,19 @@ namespace DDY_GJM_23
         // Gets set to 'true' when the singleton is initialized.
         private bool initialized = false;
 
+        // The player.
+        public Player player;
+
+        // The total number of scraps the player has created.
+        public int scrapsTotal;
+
+        [Header("World")]
+
         // The game world.
         public World world;
 
         // The world camera.
-        public new Camera camera;
-
-        // The player.
-        public Player player;
-
-
-        public int scrapsTotal;
+        public WorldCamera worldCamera;
 
         // Constructor
         private GameplayManager()
@@ -48,23 +50,24 @@ namespace DDY_GJM_23
             // Run code for initialization.
             if(!initialized)
             {
-                // Set to main camera.
-                camera = Camera.main;
-
                 initialized = true;
             }
         }
 
         // Start is called just before any of the Update methods is called the first time
         private void Start()
-        {
+        { 
+            // Find the player.
+            if (player == null)
+                player = FindObjectOfType<Player>();
+
             // Finds the world component.
             if (world == null)
                 world = FindObjectOfType<World>();
 
-            // Find the player.
-            if (player == null)
-                player = FindObjectOfType<Player>();
+            // Find the world camera.
+            if (worldCamera == null)
+                worldCamera = FindObjectOfType<WorldCamera>();
         }
 
         // Gets the instance.

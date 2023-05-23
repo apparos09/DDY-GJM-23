@@ -13,6 +13,14 @@ namespace DDY_GJM_23
         // The collider for entering and exiting the area.
         public BoxCollider2D areaCollider;
 
+        [Header("Camera")]
+        // Determins if the camera is fixedo r mves.
+        public bool fixedCamera = true;
+
+        // The camera view target when focusing on the area (relative to world size).
+        // (0.5, 0.5) means the middle of the area collider. 
+        public Vector2 camViewTarget = new Vector2(0.5F, 0.5F);
+
         // The limits for the camera.
         public Vector2 cameraLimitsMin;
         public Vector2 cameraLimitsMax;
@@ -50,9 +58,9 @@ namespace DDY_GJM_23
             CalculateCameraLimits();
 
             // Sets the camera position (don't change z).
+
             Vector3 camPos = GetAreaCenter();
-            camPos.z = gameManager.camera.transform.position.z;
-            gameManager.camera.transform.position = camPos;
+            gameManager.worldCamera.SetCameraPosition(camPos.x, camPos.y);
         }
 
         // Called when an area is being closed.
@@ -93,16 +101,23 @@ namespace DDY_GJM_23
         {
             // TODO: check if the calculations are accurate.
 
-            // The minimum and maximum of the area colliders.
-            Vector3 areaColMin = transform.TransformPoint(areaCollider.bounds.min);
-            Vector3 areaColMax = transform.TransformPoint(areaCollider.bounds.max);
-
+            // The area center.
+            // Using area max and min seems to give weird numbers, so we're using center for now.
+            Vector3 areaMin = GetAreaMin();
+            Vector3 areaMax = GetAreaMax();
+            
+            // Calculates the camera target (which normally is the area center).
+            Vector2 camTarget = new Vector2(
+                Mathf.Lerp(areaMin.x, areaMax.x, camViewTarget.x),
+                Mathf.Lerp(areaMin.y, areaMax.y, camViewTarget.y)
+                );
 
             // OLD - maybe change to use viewport instead?
             // Calculates the camera points (relative to world origin).
             // Camera center (in world space).
-            Vector3 camCenter = gameManager.camera.ScreenToWorldPoint(
-                new Vector3(gameManager.camera.pixelWidth / 2.0F, gameManager.camera.pixelHeight / 2.0F, 0));
+            Vector3 camMin = gameManager.worldCamera.GetWorldCameraViewSizeMinWorld();
+            Vector3 camMax = gameManager.worldCamera.GetWorldCameraViewSizeMaxWorld();
+            Vector3 camCenter = gameManager.worldCamera.GetWorldCameraCenterWorld();
 
 
             // // NEW
@@ -123,15 +138,46 @@ namespace DDY_GJM_23
             // Vector3 camMin = gameManager.camera.ScreenToWorldPoint(Vector3.zero);
 
 
+            // NOTE: make sure that the hitbox is big enough so that the camera limits work properly.
+
             // Calculates the camera minimum and maximum.
-            cameraLimitsMin = areaColMin + camCenter;
-            cameraLimitsMax = areaColMax - camCenter;
+            Vector3 temp;
+            
+            // temp = areaMin + (camCenter - camMin); // OLD
+            temp = new Vector3(camTarget.x, camTarget.y, 0) - (camCenter - camMin); // NEW
+            cameraLimitsMin = new Vector2(temp.x, temp.y);
+
+            // temp = areaMax - (camMax - camCenter); // OLD
+            temp = new Vector3(camTarget.x, camTarget.y, 0) + (camMax - camCenter); // NEW
+            cameraLimitsMax = new Vector2(temp.x, temp.y);
         }
 
         // Update is called once per frame
         void Update()
         {
+            // The camera should track the player.
+            if(!fixedCamera)
+            {
+                // Updates the world camera.
+                WorldCamera worldCam = gameManager.worldCamera;
 
+                if(!(worldCam.transform.position.x == gameManager.player.transform.position.x) && 
+                    (worldCam.transform.position.y == gameManager.player.transform.position.y))
+                {
+                    // Sets the camera to the player's position (ignores the z-axis).
+                    worldCam.SetCameraToPlayerPositionXY();
+
+                    // Calculates the new position.
+                    Vector3 newPos = new Vector3(
+                        Mathf.Clamp(worldCam.transform.position.x, cameraLimitsMin.x, cameraLimitsMax.x),
+                        Mathf.Clamp(worldCam.transform.position.y, cameraLimitsMin.y, cameraLimitsMax.y),
+                        worldCam.transform.position.z);
+
+                    // Sets the camera position.
+                    worldCam.SetCameraPosition(newPos);
+                }
+                
+            }
         }
     }
 }

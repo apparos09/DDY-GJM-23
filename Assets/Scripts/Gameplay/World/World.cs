@@ -33,7 +33,7 @@ namespace DDY_GJM_23
         public void SetCurrentArea(WorldArea newArea)
         {
             // Exited the current area.
-            if (currentArea == null)
+            if (currentArea != null)
                 currentArea.OnAreaExit();
 
             // Set area.

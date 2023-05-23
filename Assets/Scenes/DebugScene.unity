@@ -307,7 +307,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &439719314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -931,7 +931,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -976,6 +976,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
   areaCollider: {fileID: 0}
+  cameraLimitsMin: {x: 0, y: 0}
+  cameraLimitsMax: {x: 0, y: 0}
 --- !u!1 &1554336587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,6 +1023,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   world: {fileID: 0}
+  camera: {fileID: 0}
   player: {fileID: 0}
 --- !u!1 &1557840142
 GameObject:

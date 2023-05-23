@@ -5,7 +5,7 @@ using UnityEngine;
 namespace DDY_GJM_23
 {
     // A combat entity in the game world.
-    public class Combatant : MonoBehaviour
+    public abstract class Combatant : MonoBehaviour
     {
         // The rigidbody for the player.
         public new Rigidbody2D rigidbody;
@@ -109,10 +109,7 @@ namespace DDY_GJM_23
         }
 
         // Called when an entity has died.
-        private void OnDeath()
-        {
-
-        }
+        protected abstract void OnDeath();
 
         // Update is called once per frame
         protected virtual void Update()

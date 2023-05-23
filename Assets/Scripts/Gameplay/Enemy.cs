@@ -54,6 +54,12 @@ namespace DDY_GJM_23
             }
         }
 
+        // On the death of the player.
+        protected override void OnDeath()
+        {
+            Destroy(gameObject);
+        }
+
         // Update is called once per frame
         protected override void Update()
         {

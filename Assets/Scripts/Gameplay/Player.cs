@@ -11,6 +11,8 @@ namespace DDY_GJM_23
         // // The amoutn of lives the player has.
         // public int lives = 0;
 
+        public const string PLAYER_TAG = "Player";
+
         [Header("Movement")]
 
         // The direction the player is facing.
@@ -139,6 +141,12 @@ namespace DDY_GJM_23
                 }
             }
             
+        }
+
+        // On the death of the player.
+        protected override void OnDeath()
+        {
+            throw new System.NotImplementedException();
         }
 
         // Update is called once per frame

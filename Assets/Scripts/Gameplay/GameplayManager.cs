@@ -16,6 +16,9 @@ namespace DDY_GJM_23
         // The game world.
         public World world;
 
+        // The world camera.
+        public new Camera camera;
+
         // The player.
         public Player player;
 
@@ -42,6 +45,9 @@ namespace DDY_GJM_23
             // Run code for initialization.
             if(!initialized)
             {
+                // Set to main camera.
+                camera = Camera.main;
+
                 initialized = true;
             }
         }

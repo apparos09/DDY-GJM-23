@@ -8,7 +8,7 @@ namespace DDY_GJM_23
     public class GameplayManager : MonoBehaviour
     {
         // The gameplay manager instance.
-        private GameplayManager instance;
+        private static GameplayManager instance;
 
         // Gets set to 'true' when the singleton is initialized.
         private bool initialized = false;
@@ -59,7 +59,7 @@ namespace DDY_GJM_23
         }
 
         // Gets the instance.
-        public GameplayManager Instance
+        public static GameplayManager Instance
         {
             get
             {

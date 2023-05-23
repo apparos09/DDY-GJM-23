@@ -10,6 +10,10 @@ namespace DDY_GJM_23
         // The current area the player is in.
         private WorldArea currentArea;
 
+        // TODO: maybe have an area list so that each area can be numbered.
+        // // The list of areas.
+        // public List<WorldArea> areas;
+
         // Start is called before the first frame update
         void Start()
         {

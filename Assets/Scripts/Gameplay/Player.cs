@@ -113,6 +113,31 @@ namespace DDY_GJM_23
             }
 
 
+            // ATTACK
+            // The user is attacking.
+            if (Input.GetKeyDown(attackKey))
+            {
+                // Uses the weapon.
+                if (currWeapon != null)
+                {
+                    
+                    // Checks if the weapon is usable.
+                    if (currWeapon.IsUsable())
+                    {
+                        // Uses the weapon.
+                        currWeapon.UseWeapon();
+
+                        // TODO: this implementation isn't the best, so try to improve it.
+
+                        // If the player can't move and attack at the same time, stop their movement.
+                        if (!currWeapon.canMoveAndAttack)
+                            movement = Vector2.zero;
+                    }
+                        
+                }
+            }
+
+
             // There is movement, so apply it.
             if (movement != Vector2.zero)
             {
@@ -132,18 +157,6 @@ namespace DDY_GJM_23
 
                 // Uses transform for movement.
                 // transform.Translate(force);
-            }
-
-            // ATTACK
-            // The user is attacking.
-            if(Input.GetKeyDown(attackKey))
-            {
-                // Uses the weapon.
-                if(currWeapon != null)
-                {
-                    if (currWeapon.IsUsable())
-                        currWeapon.UseWeapon();
-                }
             }
             
         }

@@ -19,7 +19,8 @@ namespace DDY_GJM_23
         // If 'true', a weapon can be used indefinitely.
         public bool infiniteUse = false;
 
-        [Header("Other")]
+        // If 'true', the player can move and attack at the same time using this weapon.
+        public bool canMoveAndAttack = true;
 
         // OTHER
         // The owner of the weapon.

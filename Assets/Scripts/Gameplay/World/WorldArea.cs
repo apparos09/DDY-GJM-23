@@ -7,11 +7,18 @@ namespace DDY_GJM_23
     // A world area.
     public class WorldArea : MonoBehaviour
     {
+        // Shows what sector this world area belongs to.
+        // Sector 'white' doubles as the 'homeBase' sector.
+        public enum worldSector { unknown, white, red, blue, yellow, green}
+
         // The gameplay manager.
         public GameplayManager gameManager;
 
         // The collider for entering and exiting the area.
         public BoxCollider2D areaCollider;
+
+        // The sector of this world area.
+        public worldSector sector = worldSector.unknown;
 
         [Header("Camera")]
         // Determins if the camera is fixedo r mves.

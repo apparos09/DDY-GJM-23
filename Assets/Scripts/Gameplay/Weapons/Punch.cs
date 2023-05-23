@@ -7,6 +7,8 @@ namespace DDY_GJM_23
     // The punch weapon.
     public class Punch : Weapon
     {
+        [Header("Punch")]
+
         // The collider for the punch (enable/disable as part of an animation).
         public new BoxCollider2D collider;
 

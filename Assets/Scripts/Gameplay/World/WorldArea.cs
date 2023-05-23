@@ -47,15 +47,35 @@ namespace DDY_GJM_23
         // Called when an area is being opened.
         public void OnAreaEnter()
         {
-
-
             CalculateCameraLimits();
+
+            // Sets the camera position (don't change z).
+            Vector3 camPos = GetAreaCenter();
+            camPos.z = gameManager.camera.transform.position.z;
+            gameManager.camera.transform.position = camPos;
         }
 
         // Called when an area is being closed.
         public void OnAreaExit()
         {
 
+        }
+
+        public Vector3 GetAreaMin()
+        {
+            // Gets the min of the area in world space.
+            Vector3 areaMin = transform.TransformPoint(areaCollider.bounds.min);
+
+            return areaMin;
+        }
+
+        // Gets the area max.
+        public Vector3 GetAreaMax()
+        {
+            // Gets the max of the area in world space.
+            Vector3 areaMax = transform.TransformPoint(areaCollider.bounds.max);
+
+            return areaMax;
         }
 
 
@@ -77,10 +97,23 @@ namespace DDY_GJM_23
             Vector3 areaColMin = transform.TransformPoint(areaCollider.bounds.min);
             Vector3 areaColMax = transform.TransformPoint(areaCollider.bounds.max);
 
+
+            // OLD - maybe change to use viewport instead?
             // Calculates the camera points (relative to world origin).
             // Camera center (in world space).
             Vector3 camCenter = gameManager.camera.ScreenToWorldPoint(
                 new Vector3(gameManager.camera.pixelWidth / 2.0F, gameManager.camera.pixelHeight / 2.0F, 0));
+
+
+            // // NEW
+            // // The orthographic size is the camera height divided by 2.
+            // float camHeight = gameManager.camera.orthographicSize * 2.0F;
+            // 
+            // // The camera width is the aspect ratio times the half height.
+            // float camWidth = gameManager.camera.orthographicSize * gameManager.camera.aspect * 2.0F;
+            // 
+            // // TODO: maybe put the camera height and width functions in a seperate script.
+            // Vector3 camCenter = new Vector3(camWidth / 2, camHeight / 2, 0.0F);
 
             // // Camera maximum (in world space).
             // Vector3 camMax = gameManager.camera.ScreenToWorldPoint(

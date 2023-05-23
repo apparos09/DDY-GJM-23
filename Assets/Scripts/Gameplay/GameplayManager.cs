@@ -22,6 +22,9 @@ namespace DDY_GJM_23
         // The player.
         public Player player;
 
+
+        public int scrapsTotal;
+
         // Constructor
         private GameplayManager()
         {

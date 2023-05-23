@@ -45,6 +45,11 @@ namespace DDY_GJM_23
         // The punch weapon.
         public Punch punchWeapon;
 
+        [Header("Other")]
+
+        // The amount of scrap the player has on hand.
+        public int scrapCount = 0;
+
         // Start is called before the first frame update
         protected override void Start()
         {

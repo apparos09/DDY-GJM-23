@@ -7,6 +7,9 @@ namespace DDY_GJM_23
     // An enemy in the game world.
     public class Enemy : Combatant
     {
+        // The enemy id.
+        public enum enemyId { none };
+
         // If 'true', the enemy causes damage upon making contact with the player.
         public bool contactDamage = true;
 

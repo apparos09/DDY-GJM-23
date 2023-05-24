@@ -66,13 +66,31 @@ namespace DDY_GJM_23
                 // Checks if the instance exists.
                 if (instance == null)
                 {
-                    // Generate the instance.
-                    GameObject go = new GameObject("Gmae Settings (singleton)");
-                    instance = go.AddComponent<GameSettings>();
+                    // Tries to find the instance.
+                    instance = FindObjectOfType<GameSettings>(true);
+
+
+                    // The instance doesn't already exist.
+                    if (instance == null)
+                    {
+                        // Generate the instance.
+                        GameObject go = new GameObject("Game Settings (singleton)");
+                        instance = go.AddComponent<GameSettings>();
+                    }
+
                 }
 
                 // Return the instance.
                 return instance;
+            }
+        }
+
+        // Returns 'true' if the object has been initialized.
+        public bool Initialized
+        {
+            get
+            {
+                return initialized;
             }
         }
 

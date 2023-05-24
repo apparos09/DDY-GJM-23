@@ -104,13 +104,31 @@ namespace DDY_GJM_23
                 // Checks if the instance exists.
                 if(instance == null)
                 {
-                    // Generate the instance.
-                    GameObject go = new GameObject("Gameplay Manager (singleton)");
-                    instance = go.AddComponent<GameplayManager>();
+                    // Tries to find the instance.
+                    instance = FindObjectOfType<GameplayManager>(true);
+
+
+                    // The instance doesn't already exist.
+                    if(instance == null)
+                    {
+                        // Generate the instance.
+                        GameObject go = new GameObject("Gameplay Manager (singleton)");
+                        instance = go.AddComponent<GameplayManager>();
+                    }
+                    
                 }
 
                 // Return the instance.
                 return instance;
+            }
+        }
+
+        // Returns 'true' if the object has been initialized.
+        public bool Initialized
+        {
+            get
+            {
+                return initialized;
             }
         }
 

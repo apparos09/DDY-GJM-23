@@ -10,6 +10,9 @@ namespace DDY_GJM_23
         // The enemy id.
         public enum enemyId { none };
 
+        // The spawner the enemy came from.
+        public EnemySpawn spawn;
+
         // If 'true', the enemy causes damage upon making contact with the player.
         public bool contactDamage = true;
 
@@ -57,6 +60,52 @@ namespace DDY_GJM_23
             }
         }
 
+        // Adds the enemy to the spawn.
+        public void AddToSpawn(EnemySpawn newSpawn)
+        {
+            // Removes from spawn.
+            if (spawn != null)
+                RemoveFromSpawn();
+
+            // Sets spawn.
+            spawn = newSpawn;
+
+            // Adds the enemy to the list.
+            if (!spawn.spawnedEnemies.Contains(this))
+                spawn.spawnedEnemies.Add(this);
+        }
+
+        // Removes the enemy from the spawner if one is set.
+        // Returns false if no spawn was set, or if the enemy wasn't in the spawn's list.
+        public bool RemoveFromSpawn()
+        {
+            bool result;
+
+            // A spawner was set.
+            if (spawn != null)
+            {
+                // Remove from the spawn list.
+                if (spawn.spawnedEnemies.Contains(this))
+                {
+                    spawn.spawnedEnemies.Remove(this);
+                    result = true;
+                }
+                else
+                {
+                    result = false;
+                }
+
+                // Not part of any spawn now.
+                spawn = null;
+            }
+            else
+            {
+                result = false;
+            }
+
+            return result;
+        }
+
         // On the death of the player.
         protected override void OnDeath()
         {
@@ -67,6 +116,12 @@ namespace DDY_GJM_23
         protected override void Update()
         {
             base.Update();
+        }
+
+        // This function is called when the MonoBehaviour will be destroyed.
+        private void OnDestroy()
+        {
+            RemoveFromSpawn();
         }
     }
 }

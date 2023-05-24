@@ -8,7 +8,7 @@ namespace DDY_GJM_23
     public abstract class WorldItem : MonoBehaviour
     {
         // Item identification.
-        public enum itemId { none, scrap };
+        public enum itemId { none, scrap, weapon };
 
         // The id of the world item.
         public itemId id;

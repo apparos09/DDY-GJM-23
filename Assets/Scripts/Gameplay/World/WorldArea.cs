@@ -32,6 +32,17 @@ namespace DDY_GJM_23
         public Vector2 cameraLimitsMin;
         public Vector2 cameraLimitsMax;
 
+        [Header("Spawners")]
+
+        // The list of enemy spawners.
+        public List<EnemySpawn> enemySpawners = new List<EnemySpawn>();
+
+        // The list of scrap spawners.
+        public List<ScrapSpawn> scrapSpawners = new List<ScrapSpawn>();
+
+        // The list of item spawners.
+        public List<ItemSpawn> itemSpawners = new List<ItemSpawn>();
+
         // Start is called before the first frame update
         void Start()
         {
@@ -42,6 +53,20 @@ namespace DDY_GJM_23
             // Gets the box collider 2D.
             if (areaCollider == null)
                 areaCollider = GetComponent<BoxCollider2D>();
+
+            
+            // Find spawners in children if this is not set.
+            // Searches for enemy spawners.
+            if(enemySpawners.Count == 0)
+                GetComponentsInChildren(true, enemySpawners);
+
+            // Searches for scrap spawners.
+            if (scrapSpawners.Count == 0)
+                GetComponentsInChildren(true, scrapSpawners);
+
+            // Searches for item spawners.
+            if (itemSpawners.Count == 0)
+                GetComponentsInChildren(true, itemSpawners);
         }
 
         // Called when entering the area trigger.
@@ -59,23 +84,10 @@ namespace DDY_GJM_23
             }
         }
 
-        // Called when an area is being opened.
-        public void OnAreaEnter()
-        {
-            CalculateCameraLimits();
 
-            // Sets the camera position (don't change z).
+        // AREA DIMENSIONS //
 
-            Vector3 camPos = GetAreaCenter();
-            gameManager.worldCamera.SetCameraPosition(camPos.x, camPos.y);
-        }
-
-        // Called when an area is being closed.
-        public void OnAreaExit()
-        {
-
-        }
-
+        // Gets the minimum of the area.
         public Vector3 GetAreaMin()
         {
             // Gets the min of the area in world space.
@@ -158,6 +170,61 @@ namespace DDY_GJM_23
             temp = new Vector3(camTarget.x, camTarget.y, 0) + (camMax - camCenter); // NEW
             cameraLimitsMax = new Vector2(temp.x, temp.y);
         }
+
+
+        // Called when an area is being opened.
+        public void OnAreaEnter()
+        {
+            CalculateCameraLimits();
+
+            // Sets the camera position (don't change z).
+
+            Vector3 camPos = GetAreaCenter();
+            gameManager.worldCamera.SetCameraPosition(camPos.x, camPos.y);
+
+            // Spawns dynamic entities.
+            SpawnEnemies();
+            SpawnScraps();
+            SpawnItems();
+        }
+
+        // Called when an area is being closed.
+        public void OnAreaExit()
+        {
+            DespawnEnemies();
+        }
+
+
+        // AREA SPAWNERS //
+        // Spawns the enemies.
+        public void SpawnEnemies()
+        {
+            // Calls the spawns.
+            foreach (EnemySpawn spawn in enemySpawners)
+                spawn.Spawn();
+        }
+
+        // Despawns the enemies.
+        public void DespawnEnemies()
+        {
+            // Despawns all enemies.
+            foreach (EnemySpawn spawn in enemySpawners)
+                spawn.DestroyAllSpawnedEnemies();
+        }
+
+        // Spawns the scraps.
+        public void SpawnScraps()
+        {
+
+        }
+        
+        // Spawn the items.
+        public void SpawnItems()
+        {
+
+        }
+
+
 
         // Update is called once per frame
         void Update()

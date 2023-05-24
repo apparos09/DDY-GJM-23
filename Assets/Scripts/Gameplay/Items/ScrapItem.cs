@@ -19,7 +19,6 @@ namespace DDY_GJM_23
             base.Start();
 
             id = itemId.scrap;
-            destroyOnGet = false;
         }
 
         // On the item get.

@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace DDY_GJM_23
@@ -34,14 +36,20 @@ namespace DDY_GJM_23
 
         [Header("Spawners")]
 
-        // The list of enemy spawners.
-        public List<EnemySpawn> enemySpawners = new List<EnemySpawn>();
+        // The parent that all enemies are parented to.
+        public GameObject enemyParent;
 
-        // The list of scrap spawners.
-        public List<ScrapSpawn> scrapSpawners = new List<ScrapSpawn>();
+        // The list of enemies.
+        public List<Enemy> enemies;
 
-        // The list of item spawners.
-        public List<ItemSpawn> itemSpawners = new List<ItemSpawn>();
+        // The parent that all items are parented to.
+        public GameObject itemParent;
+
+        // The list of scraps.
+        public List<WorldItem> items;
+
+        // The list of area spawners.
+        public List<AreaSpawn> spawners = new List<AreaSpawn>();
 
         // Start is called before the first frame update
         void Start()
@@ -54,19 +62,17 @@ namespace DDY_GJM_23
             if (areaCollider == null)
                 areaCollider = GetComponent<BoxCollider2D>();
 
-            
+
             // Find spawners in children if this is not set.
-            // Searches for enemy spawners.
-            if(enemySpawners.Count == 0)
-                GetComponentsInChildren(true, enemySpawners);
+            if (spawners.Count == 0)
+            {
+                // Grab all the spawners and put them in the list.
+                GetComponentsInChildren(true, spawners);
 
-            // Searches for scrap spawners.
-            if (scrapSpawners.Count == 0)
-                GetComponentsInChildren(true, scrapSpawners);
-
-            // Searches for item spawners.
-            if (itemSpawners.Count == 0)
-                GetComponentsInChildren(true, itemSpawners);
+                // Set the areas.
+                foreach (AreaSpawn spawn in spawners)
+                    spawn.area = this;
+            }
         }
 
         // Called when entering the area trigger.
@@ -183,47 +189,117 @@ namespace DDY_GJM_23
             gameManager.worldCamera.SetCameraPosition(camPos.x, camPos.y);
 
             // Spawns dynamic entities.
-            SpawnEnemies();
-            SpawnScraps();
-            SpawnItems();
+            SpawnEntities();
         }
 
         // Called when an area is being closed.
         public void OnAreaExit()
         {
-            DespawnEnemies();
+            DestroyAllEnemies();
+            DestroyAllItems();
+        }
+
+        // Destroys all entities in the provided list.
+        public static void DestroyAllAreaEntitiesInList(List<AreaEntity> list)
+        {
+            // Destroys all enemies.
+            for (int i = list.Count - 1; i >= 0; i--)
+            {
+                Destroy(list[i]);
+            }
+
+            // Clear the list.
+            list.Clear();
         }
 
 
-        // AREA SPAWNERS //
+        // ENEMIES //
+        // Adds the enemy to the area.
+        public void AddEnemyToArea(Enemy enemy)
+        {
+            // Area has been set.
+            if (enemy.area != null)
+            {
+                // Remove from enemy list.
+                if (enemy.area.enemies.Contains(enemy))
+                {
+                    enemy.area.enemies.Remove(enemy);
+                }
+            }
+
+            // Setting the enemy area.
+            enemy.area = this;
+
+            // Add the enemy to the list.
+            if(!enemies.Contains(enemy)) 
+            {
+                // Add the enemy to the list.
+                enemies.Add(enemy);
+
+                // If the enemy parent exists.
+                if(enemyParent != null)
+                    enemy.transform.parent = enemyParent.transform;
+            }
+
+        }
+
+        // Destroy all enemies tied to this area.
+        public void DestroyAllEnemies()
+        {
+            DestroyAllAreaEntitiesInList(new List<AreaEntity>(enemies));
+            enemies.Clear();
+        }
+
+
+        // ITEM //
+        // Adds the item to the area.
+        public void AddItemToArea(WorldItem item)
+        {
+            // Area has been set.
+            if (item.area != null)
+            {
+                // Remove from item list.
+                if (item.area.items.Contains(item))
+                {
+                    item.area.items.Remove(item);
+                }
+            }
+
+            // Setting the enemy area.
+            item.area = this;
+
+            // Add the enemy to the list.
+            if (!items.Contains(item))
+            {
+                // Add the item to the list.
+                items.Add(item);
+
+                // If the item parent exists, give it to the spawned item.
+                if (itemParent != null)
+                    item.transform.parent = itemParent.transform;
+            }
+
+        }
+
+        // Destroy all enemies tied to this area.
+        public void DestroyAllItems()
+        {
+            DestroyAllAreaEntitiesInList(new List<AreaEntity>(items));
+            items.Clear();
+        }
+
+
+        // SPAWNS
         // Spawns the enemies.
-        public void SpawnEnemies()
+        public void SpawnEntities()
         {
             // Calls the spawns.
-            foreach (EnemySpawn spawn in enemySpawners)
+            foreach (AreaSpawn spawn in spawners)
+            {
                 spawn.Spawn();
+            }
+                
         }
-
-        // Despawns the enemies.
-        public void DespawnEnemies()
-        {
-            // Despawns all enemies.
-            foreach (EnemySpawn spawn in enemySpawners)
-                spawn.DestroyAllSpawnedEnemies();
-        }
-
-        // Spawns the scraps.
-        public void SpawnScraps()
-        {
-
-        }
-        
-        // Spawn the items.
-        public void SpawnItems()
-        {
-
-        }
-
 
 
         // Update is called once per frame

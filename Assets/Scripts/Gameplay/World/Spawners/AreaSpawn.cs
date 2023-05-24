@@ -5,11 +5,8 @@ using UnityEngine;
 namespace DDY_GJM_23
 {
     // Spawns elements when an area is entered.
-    public abstract class AreaSpawn : MonoBehaviour
+    public abstract class AreaSpawn : AreaEntity
     {
-        // The area the spawner is in.
-        public WorldArea area;
-
         // Start is called before the first frame update
         private void Start()
         {

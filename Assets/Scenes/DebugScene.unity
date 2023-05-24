@@ -123,6 +123,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &87362908
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 87362909}
+  - component: {fileID: 87362910}
+  m_Layer: 0
+  m_Name: Item Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &87362909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87362908}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1537309123}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &87362910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 87362908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a04898cb36ad26a40975091ea447a24a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  area: {fileID: 0}
 --- !u!1 &135677721
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,6 +927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88227c5458637cb439fb971dedda447f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  area: {fileID: 0}
   rigidbody: {fileID: 0}
   collider: {fileID: 0}
   health: 100
@@ -1304,6 +1350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b86a3c9f49c0f846a5f9968752033bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  area: {fileID: 0}
   rigidbody: {fileID: 0}
   collider: {fileID: 0}
   health: 100
@@ -1429,6 +1476,11 @@ MonoBehaviour:
   camViewTarget: {x: 0.5, y: 0.5}
   cameraLimitsMin: {x: 0, y: 0}
   cameraLimitsMax: {x: 0, y: 0}
+  enemyParent: {fileID: 0}
+  enemies: []
+  itemParent: {fileID: 0}
+  items: []
+  spawners: []
 --- !u!61 &864299650
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2039,6 +2091,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 405765762}
+  - {fileID: 87362909}
   m_Father: {fileID: 439719315}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2061,6 +2114,11 @@ MonoBehaviour:
   camViewTarget: {x: 0.5, y: 0.5}
   cameraLimitsMin: {x: 0, y: 0}
   cameraLimitsMax: {x: 0, y: 0}
+  enemyParent: {fileID: 0}
+  enemies: []
+  itemParent: {fileID: 0}
+  items: []
+  spawners: []
 --- !u!1 &1554336587
 GameObject:
   m_ObjectHideFlags: 0
@@ -2537,6 +2595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee5b0391735371a4c8a3feda603f13d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  area: {fileID: 0}
   id: 1
   destroyOnGet: 0
   itemTimer: 0

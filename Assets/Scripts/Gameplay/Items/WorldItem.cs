@@ -5,7 +5,7 @@ using UnityEngine;
 namespace DDY_GJM_23
 {
     // An item in the game world.
-    public abstract class WorldItem : MonoBehaviour
+    public abstract class WorldItem : AreaEntity
     {
         // Item identification.
         public enum itemId { none, scrap, weapon };
@@ -14,7 +14,8 @@ namespace DDY_GJM_23
         public itemId id;
 
         // Destroys the item upon being gotten by the player.
-        public bool destroyOnGet = false;
+        [Tooltip("Destroys the item upon it being received if true. Disables the object if false.")]
+        public bool destroyOnGet = true;
 
         // The timer for having items destroy themselves.
         [Header("Timer")]
@@ -63,6 +64,23 @@ namespace DDY_GJM_23
             }
         }
 
+        // Sets the area the item belongs to.
+        public void SetArea(WorldArea newArea)
+        {
+            // The area has been set.
+            if (area != null)
+            {
+                // Remove from the list.
+                if (area.items.Contains(this))
+                    area.items.Remove(this);
+            }
+
+            // Set the area, and puts the item in the list.
+            area = newArea;
+            area.items.Add(this);
+        }
+
+
         // Update is called once per frame
         protected virtual void Update()
         {
@@ -87,6 +105,12 @@ namespace DDY_GJM_23
 
                 }
             }
+        }
+
+        // This function is called when the MonoBehaviour will be destroyed.
+        protected virtual void OnDestroy()
+        {
+            
         }
     }
 }

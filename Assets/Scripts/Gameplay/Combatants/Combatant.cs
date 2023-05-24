@@ -5,7 +5,7 @@ using UnityEngine;
 namespace DDY_GJM_23
 {
     // A combat entity in the game world.
-    public abstract class Combatant : MonoBehaviour
+    public abstract class Combatant : AreaEntity
     {
         // The rigidbody for the player.
         public new Rigidbody2D rigidbody;

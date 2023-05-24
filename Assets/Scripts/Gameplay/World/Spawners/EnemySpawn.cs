@@ -7,8 +7,8 @@ namespace DDY_GJM_23
     // The enemy spawn.
     public class EnemySpawn : AreaSpawn
     {
-        // The ID of the enemy to be spawned by this spawner.
-        public Enemy.enemyId enemyId;
+        // The prefab of the enemy to be instantiated.
+        public Enemy enemyPrefab;
 
         // The position offset of the spawned enemy.
         public Vector3 posOffset = Vector3.zero;
@@ -19,14 +19,19 @@ namespace DDY_GJM_23
         // Spawns an enemy.
         public override void Spawn()
         {
+            // No enemy to instantiate, so don't do anything.
+            if (enemyPrefab == null)
+                return;
+
             // Instantiates an enemy.
-            Enemy enemy = EnemyPrefabs.Instance.InstantiateEnemyByType(enemyId);
+            Enemy enemy = Instantiate(enemyPrefab);
 
             // Give the enemy its position.
             enemy.transform.position = transform.position + posOffset;
 
-            // Set the enemy's spawn.
-            enemy.AddToSpawn(this);
+            // Adds the enemy to the area.
+            if(area != null)
+                area.AddEnemyToArea(enemy);
         }
 
         // Destroys all spawned enemies.

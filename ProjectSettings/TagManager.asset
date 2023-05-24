@@ -10,6 +10,8 @@ TagManager:
   - Weapon
   - Home Base
   - Bullet
+  - Manager
+  - World
   layers:
   - Default
   - TransparentFX

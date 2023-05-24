@@ -16,6 +16,9 @@ namespace DDY_GJM_23
         // The gameplay manager.
         public GameplayManager gameManager;
 
+        // The world this area is part of.
+        public World world;
+
         // The collider for entering and exiting the area.
         public BoxCollider2D areaCollider;
 
@@ -57,6 +60,10 @@ namespace DDY_GJM_23
             // Save the instance.
             if (gameManager == null)
                 gameManager = GameplayManager.Instance;
+
+            // Grabs the world component from the parent.
+            if(world == null)
+                world = GetComponentInParent<World>();
 
             // Gets the box collider 2D.
             if (areaCollider == null)

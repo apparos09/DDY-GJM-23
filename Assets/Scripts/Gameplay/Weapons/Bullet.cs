@@ -8,7 +8,7 @@ namespace DDY_GJM_23
     public class Bullet : MonoBehaviour
     {
         // A rigidbody for the bullet.
-        // public new Rigidbody2D rigidbody;
+        public new Rigidbody2D rigidbody;
 
         // The tags of valid target for the bullet. If no tags are listed, then the bullet hits all targets.
         public List<string> targetTags = new List<string>();
@@ -16,8 +16,8 @@ namespace DDY_GJM_23
         // The movement speed of the bullet. Bullets travel at a FIXED speed.
         public float speed = 1.0F;
 
-        // The movement direction of the bullet.
-        public Vector2 direc = Vector2.right;
+        // The maximum speed of the bullet.
+        public float maxSpeed = 10.0F;
 
         // The amount of damage the bullet does upon contact.
         public float power = 1.0F;
@@ -29,7 +29,7 @@ namespace DDY_GJM_23
         [Header("Life Time")]
 
         // The life time timer for the bullet.
-        public float lifeTimeTimer = 0.0F;
+        public float lifeTimeTimer = 5.0F;
 
         // Pauses the bullet life time timer.
         public bool pausedTimer = false;
@@ -37,7 +37,9 @@ namespace DDY_GJM_23
         // Start is called before the first frame update
         void Start()
         {
-
+            // Grabs rigidbody 2D.
+            if(rigidbody == null)
+                rigidbody = GetComponent<Rigidbody2D>();
         }
 
         // OnCollisionEnter2D
@@ -64,12 +66,23 @@ namespace DDY_GJM_23
             }
         }
         
+        // Sets the bullet's direction.
+        public void SetBulletDirection(Vector2 newDirec)
+        {
+            Vector3 forward = transform.forward;
+            forward.x = newDirec.x;
+            forward.y = newDirec.y;
+
+            transform.forward = forward;
+        }
+
 
         // Moves the bullet.
-        public virtual void MoveBullet()
+        public virtual void TransformBullet()
         {
-            // TODO: maybe use rigidbody.
-            transform.Translate(direc * speed * Time.deltaTime);
+            rigidbody.AddForce(transform.forward * speed * Time.deltaTime);
+            rigidbody.velocity = Vector3.ClampMagnitude(rigidbody.velocity, maxSpeed);
+
         }
 
         // Kills the bullet by destroying the game object.
@@ -81,8 +94,11 @@ namespace DDY_GJM_23
         // Update is called once per frame
         void Update()
         {
+            // Moves the bullet.
+            TransformBullet();
+
             // Lifetime timer.
-            if(!pausedTimer && lifeTimeTimer > 0.0F)
+            if (!pausedTimer && lifeTimeTimer > 0.0F)
             {
                 lifeTimeTimer -= Time.deltaTime;
 
@@ -93,9 +109,6 @@ namespace DDY_GJM_23
                     Kill();
                 }
             }
-
-            // Moves the bullet.
-            MoveBullet();
         }
     }
 }

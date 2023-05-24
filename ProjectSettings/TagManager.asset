@@ -9,6 +9,7 @@ TagManager:
   - Tile
   - Weapon
   - Home Base
+  - Bullet
   layers:
   - Default
   - TransparentFX

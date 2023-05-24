@@ -32,10 +32,10 @@ namespace DDY_GJM_23
             OnItemGet();
         }
 
-        // Update is called once per frame
-        protected override void Update()
-        {
-            base.Update();
-        }
+        //// Update is called once per frame
+        //protected override void Update()
+        //{
+        //    base.Update();
+        //}
     }
 }

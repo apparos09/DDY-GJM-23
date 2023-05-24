@@ -8,7 +8,7 @@ namespace DDY_GJM_23
     public abstract class Weapon : MonoBehaviour
     {
         // The weapon enum type.
-        public enum weaponType { none, punch }
+        public enum weaponType { none, punch, gunSingle }
 
         // The owner of the weapon.
         public Player owner;
@@ -21,6 +21,9 @@ namespace DDY_GJM_23
 
         // The number of uses a weapon has.
         public int uses = -1;
+
+        // The maximum amount of uses.
+        public int maxUses = -1;
 
         // If 'true', a weapon can be used indefinitely.
         public bool infiniteUse = false;
@@ -44,6 +47,12 @@ namespace DDY_GJM_23
         public weaponType WeaponType
         {
             get { return weapon; }
+        }
+
+        // Restores the number of uses for the weapon to its max.
+        public void RestoreUsesToMax()
+        {
+            uses = maxUses;
         }
 
         // If the weapon is usable, return true. If not, return false.

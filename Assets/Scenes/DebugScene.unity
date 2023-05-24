@@ -167,11 +167,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a4881b8f363cee469e4bbdd8b4de131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owner: {fileID: 0}
+  owner: {fileID: 513831724}
   power: 10
-  uses: -1
+  uses: 10
+  maxUses: 10
   infiniteUse: 0
   canMoveAndAttack: 1
+  bulletPrefab: {fileID: 7641477488848020688, guid: 76da58c510e353f4d880578c7a98646f, type: 3}
 --- !u!1 &136600898
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,7 +889,6 @@ MonoBehaviour:
   vulnerable: 1
   useIFrames: 1
   currentTiles: []
-  facingDirec: {x: 0, y: -1}
   speed: 10
   maxSpeed: 10
   moveLeftKey: 97
@@ -897,7 +898,7 @@ MonoBehaviour:
   attackKey: 32
   currentWeapon: {fileID: 0}
   weapons: []
-  punchWeapon: {fileID: 701473290}
+  punch: {fileID: 0}
   gunSingle: {fileID: 135677723}
   leftWeaponKey: 276
   rightWeaponKey: 275
@@ -1221,6 +1222,7 @@ MonoBehaviour:
   owner: {fileID: 513831724}
   power: 10
   uses: 0
+  maxUses: 10
   infiniteUse: 0
   canMoveAndAttack: 0
   collider: {fileID: 701473291}

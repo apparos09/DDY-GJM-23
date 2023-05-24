@@ -16,7 +16,7 @@ namespace DDY_GJM_23
         [Header("Movement")]
 
         // The direction the player is facing.
-        public Vector2 facingDirec = Vector2.down;
+        private Vector2 facingDirec = Vector2.down;
 
         // The movement speed of the player.
         public float speed = 10.0F;
@@ -39,11 +39,12 @@ namespace DDY_GJM_23
         // The current weapon of the player.
         public Weapon currentWeapon;
 
+        // TODO: maybe make it a fixed size and replace the null entries with the proper weapon (set order)?
         // The list of weapons.
         public List<Weapon> weapons;
 
         // The punch weapon.
-        public Punch punchWeapon;
+        public Punch punch;
         public GunSingle gunSingle;
 
         // The left weapon key and the right weapon key.
@@ -60,12 +61,22 @@ namespace DDY_GJM_23
         {
             base.Start();
 
-            // Gives the player the punch weapon.
-            currentWeapon = punchWeapon;
 
-            // The punch (should always be in the list).
-            punchWeapon.owner = this;
-            weapons.Add(punchWeapon);
+            // Finding weapons
+            // Punch
+            if (punch == null)
+                punch = FindObjectOfType<Punch>(true);
+
+            // Gun (Single Shot)
+            if (gunSingle == null)
+                gunSingle = FindObjectOfType<GunSingle>(true);
+
+
+            // Adds the punch weapon to the list.
+            AddWeapon(Weapon.weaponType.punch);
+
+            // Gives the player the punch weapon.
+            currentWeapon = punch;
         }
 
         // Gets the forward direction.
@@ -73,6 +84,110 @@ namespace DDY_GJM_23
         public Vector2 FacingDirection
         {
             get { return facingDirec; }
+        }
+
+        // Gets facing orientation in degrees (z-axis). Facing right means an angle of 0.0.
+        public float GetFacingDirectionAsRotation()
+        {
+            float angle = 0.0F;
+
+            // Gets the facing direction.
+            if(facingDirec.x != 0 && facingDirec.y == 0) // Left/Right
+            {
+                angle = (facingDirec.x > 0) ? 0.0F : 180.0F;
+            }
+            else if (facingDirec.x == 0 && facingDirec.y != 0) // Up/Down
+            {
+                angle = (facingDirec.y > 0) ? 90.0F : 270.0F;
+            }
+            else if(facingDirec == Vector2.zero) // No facing direction set (defaults right).
+            {
+                angle = 0.0F;
+            }
+            else // Diagonals.
+            {
+                // This is propbably really bad, but it works.
+                float x = facingDirec.x;
+                float y = facingDirec.y;
+
+                // Checks the direction.
+                if(x > 0 && y > 0) // Top Right
+                {
+                    angle = 45.0F;
+                }
+                else if (x < 0 && y > 0) // Top Left
+                {
+                    angle = 135.0F;
+                }
+                else if(x > 0 && y < 0) // Bottom Right
+                {
+                    angle = 225.0F;
+                }
+                else if(x < 0 && y < 0) // Bottom Left
+                {
+                    angle = 315.0F;
+                }
+            }
+
+            return angle;
+        }
+
+        // TODO: maybe have the weapons stay in fixed slots?
+        // Adds a weapon to the player.
+        public void AddWeapon(Weapon.weaponType type)
+        {
+            // Checks the type of weapon to add.
+            switch(type)
+            {
+                case Weapon.weaponType.punch:
+
+                    // Put the gun single in the list.
+                    if (!weapons.Contains(punch))
+                    {
+                        weapons.Add(punch);
+                        punch.owner = this;
+                    }
+                        
+                    
+                    break;
+
+                case Weapon.weaponType.gunSingle:
+
+                    // Put the gun single in the list.
+                    if (!weapons.Contains(gunSingle))
+                    {
+                        weapons.Add(gunSingle);
+                        gunSingle.owner = this;
+                    }
+                    else
+                    {
+                        gunSingle.RestoreUsesToMax();
+                    }
+
+                    break;
+            }
+        }
+
+        // Removes a weapon from the player.
+        public void RemoveWeapon(Weapon.weaponType type)
+        {
+            // Checks the type of weapon to remove.
+            switch (type)
+            {
+                case Weapon.weaponType.gunSingle:
+                    // Remove gun single from the list.
+                    if (weapons.Contains(gunSingle))
+                        weapons.Remove(gunSingle);
+
+                    break;
+            }
+        }
+
+
+        // On the death of the player.
+        protected override void OnDeath()
+        {
+            throw new System.NotImplementedException();
         }
 
         // Updates the inputs for the player.
@@ -217,12 +332,6 @@ namespace DDY_GJM_23
                     // TODO: update icon.
                 }
             }
-        }
-
-        // On the death of the player.
-        protected override void OnDeath()
-        {
-            throw new System.NotImplementedException();
         }
 
         // Update is called once per frame

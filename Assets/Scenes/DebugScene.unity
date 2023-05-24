@@ -123,6 +123,55 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &135677721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 135677722}
+  - component: {fileID: 135677723}
+  m_Layer: 0
+  m_Name: Gun (Single)
+  m_TagString: Weapon
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &135677722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135677721}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1557840143}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &135677723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135677721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a4881b8f363cee469e4bbdd8b4de131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 0}
+  power: 10
+  uses: -1
+  infiniteUse: 0
+  canMoveAndAttack: 1
 --- !u!1 &136600898
 GameObject:
   m_ObjectHideFlags: 0
@@ -846,9 +895,12 @@ MonoBehaviour:
   moveUpKey: 119
   moveDownKey: 115
   attackKey: 32
-  currWeapon: {fileID: 0}
+  currentWeapon: {fileID: 0}
   weapons: []
   punchWeapon: {fileID: 701473290}
+  gunSingle: {fileID: 135677723}
+  leftWeaponKey: 276
+  rightWeaponKey: 275
   scrapCount: 0
 --- !u!61 &513831725
 BoxCollider2D:
@@ -1133,7 +1185,7 @@ GameObject:
   - component: {fileID: 701473292}
   m_Layer: 0
   m_Name: Punch
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1166,13 +1218,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e4f97d687db854f87adc0701ba2cde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owner: {fileID: 513831724}
+  power: 10
   uses: 0
   infiniteUse: 0
   canMoveAndAttack: 0
-  owner: {fileID: 513831724}
   collider: {fileID: 701473291}
   animator: {fileID: 701473292}
-  power: 10
 --- !u!61 &701473291
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1877,7 +1929,7 @@ GameObject:
   - component: {fileID: 1401761338}
   m_Layer: 0
   m_Name: Home Base
-  m_TagString: Untagged
+  m_TagString: Home Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2088,6 +2140,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 701473289}
+  - {fileID: 135677722}
   m_Father: {fileID: 513831722}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

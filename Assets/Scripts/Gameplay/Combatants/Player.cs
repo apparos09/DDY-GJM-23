@@ -37,13 +37,18 @@ namespace DDY_GJM_23
         [Header("Player Weapons")]
 
         // The current weapon of the player.
-        public Weapon currWeapon;
+        public Weapon currentWeapon;
 
         // The list of weapons.
         public List<Weapon> weapons;
 
         // The punch weapon.
         public Punch punchWeapon;
+        public GunSingle gunSingle;
+
+        // The left weapon key and the right weapon key.
+        public KeyCode leftWeaponKey = KeyCode.LeftArrow;
+        public KeyCode rightWeaponKey = KeyCode.RightArrow;
 
         [Header("Other")]
 
@@ -56,9 +61,9 @@ namespace DDY_GJM_23
             base.Start();
 
             // Gives the player the punch weapon.
-            currWeapon = punchWeapon;
+            currentWeapon = punchWeapon;
 
-            // The punch.
+            // The punch (should always be in the list).
             punchWeapon.owner = this;
             weapons.Add(punchWeapon);
         }
@@ -73,7 +78,7 @@ namespace DDY_GJM_23
         // Updates the inputs for the player.
         private void UpdateInputs()
         {
-            // MOVEMENT
+            // MOVEMENT INPUT
             // The movement directions.
             Vector2 movement = Vector2.zero;
 
@@ -118,26 +123,26 @@ namespace DDY_GJM_23
             if (Input.GetKeyDown(attackKey))
             {
                 // Uses the weapon.
-                if (currWeapon != null)
+                if (currentWeapon != null)
                 {
                     
                     // Checks if the weapon is usable.
-                    if (currWeapon.IsUsable())
+                    if (currentWeapon.IsUsable())
                     {
                         // Uses the weapon.
-                        currWeapon.UseWeapon();
+                        currentWeapon.UseWeapon();
 
                         // TODO: this implementation isn't the best, so try to improve it.
 
                         // If the player can't move and attack at the same time, stop their movement.
-                        if (!currWeapon.canMoveAndAttack)
+                        if (!currentWeapon.canMoveAndAttack)
                             movement = Vector2.zero;
                     }
                         
                 }
             }
 
-
+            // MOVEMENT CALCULATION
             // There is movement, so apply it.
             if (movement != Vector2.zero)
             {
@@ -158,7 +163,60 @@ namespace DDY_GJM_23
                 // Uses transform for movement.
                 // transform.Translate(force);
             }
-            
+
+            // WEAPON SWITCH
+            // The player has weapons to switch to.
+            if (weapons.Count > 1)
+            {
+                // Weapon button should be switched.
+                if (Input.GetKeyDown(leftWeaponKey) || Input.GetKeyDown(rightWeaponKey))
+                {
+                    // Determines whether to go left or right.
+                    bool left = Input.GetKeyDown(leftWeaponKey) ? true : false;
+
+                    // The index of the new weapon.
+                    int newIndex;
+
+                    // Gets the index of the current weapon.
+                    // Current weapon does not exist.
+                    if (currentWeapon == null)
+                    {
+                        newIndex = 0;
+                    }
+                    else
+                    {
+                        // If weapon is in list, get the index.
+                        if (weapons.Contains(currentWeapon))
+                        {
+                            // Index of the current weapon.
+                            newIndex = weapons.IndexOf(currentWeapon);
+
+                            // Adjust index
+                            newIndex += (left) ? -1 : 1;
+
+                            // Loop around to the end.
+                            if(newIndex < 0)
+                            {
+                                newIndex = weapons.Count - 1;
+                            }
+                            // Loop around back to the start.
+                            else if(newIndex >= weapons.Count)
+                            {
+                                newIndex = 0;
+                            }
+                        }
+                        else
+                        {
+                            newIndex = 0;
+                        }       
+                    }
+
+                    // Set the current weapon.
+                    currentWeapon = weapons[newIndex];
+
+                    // TODO: update icon.
+                }
+            }
         }
 
         // On the death of the player.

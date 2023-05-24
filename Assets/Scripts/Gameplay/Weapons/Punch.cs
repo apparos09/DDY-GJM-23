@@ -15,9 +15,6 @@ namespace DDY_GJM_23
         // The animator for the punch animation.
         public Animator animator;
 
-        // The amount of power the punch move has.
-        public float power = 10.0F;
-
         // Awake is called when the script is being loaded
         protected override void Awake()
         {

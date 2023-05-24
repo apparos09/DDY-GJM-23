@@ -10,8 +10,14 @@ namespace DDY_GJM_23
         // The weapon enum type.
         public enum weaponType { none, punch }
 
+        // The owner of the weapon.
+        public Player owner;
+
         // The type of the weapon.
         protected weaponType weapon = weaponType.none;
+
+        // The power of the weapon.
+        public float power = 10.0F;
 
         // The number of uses a weapon has.
         public int uses = -1;
@@ -21,10 +27,6 @@ namespace DDY_GJM_23
 
         // If 'true', the player can move and attack at the same time using this weapon.
         public bool canMoveAndAttack = true;
-
-        // OTHER
-        // The owner of the weapon.
-        public Player owner;
 
         // Awake is called when the script is being loaded
         protected virtual void Awake()

@@ -7,6 +7,9 @@ namespace DDY_GJM_23
     // Spawns elements when an area is entered.
     public abstract class AreaSpawn : AreaEntity
     {
+        // The position offset of the spawned enemy.
+        public Vector3 posOffset = Vector3.zero;
+
         // Start is called before the first frame update
         private void Start()
         {
@@ -34,5 +37,11 @@ namespace DDY_GJM_23
 
         // Call to spawne the entity tied to this spawner.
         public abstract void Spawn();
+
+        // Gets the spawn position.
+        public Vector3 GetSpawnPosition()
+        {
+            return transform.position + posOffset;
+        }
     }
 }

@@ -10,9 +10,6 @@ namespace DDY_GJM_23
         // The prefab of the enemy to be instantiated.
         public Enemy enemyPrefab;
 
-        // The position offset of the spawned enemy.
-        public Vector3 posOffset = Vector3.zero;
-
         // The list of spawned enemies.
         public List<Enemy> spawnedEnemies = new List<Enemy>();
 
@@ -27,7 +24,7 @@ namespace DDY_GJM_23
             Enemy enemy = Instantiate(enemyPrefab);
 
             // Give the enemy its position.
-            enemy.transform.position = transform.position + posOffset;
+            enemy.transform.position = GetSpawnPosition();
 
             // Adds the enemy to the area.
             if(area != null)

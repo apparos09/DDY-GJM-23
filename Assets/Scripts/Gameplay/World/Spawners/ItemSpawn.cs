@@ -10,9 +10,6 @@ namespace DDY_GJM_23
         // The item to be spawned.
         public WorldItem itemPrefab;
 
-        // The position offset when spawning the item.
-        public Vector3 posOffset = Vector3.zero;
-
         // Start is called before the first frame update
         void Start()
         {
@@ -29,7 +26,16 @@ namespace DDY_GJM_23
             // Instantiates the item.
             WorldItem item = Instantiate(itemPrefab);
 
-            
+            // Activate item.
+            item.gameObject.SetActive(true);
+
+            // Set position.
+            item.transform.position = GetSpawnPosition();
+
+            // Set the area.
+            if (area != null)
+                area.AddItemToArea(item);
+
         }
 
         // Update is called once per frame

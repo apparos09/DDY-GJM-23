@@ -205,7 +205,7 @@ namespace DDY_GJM_23
             // Destroys all enemies.
             for (int i = list.Count - 1; i >= 0; i--)
             {
-                Destroy(list[i]);
+                Destroy(list[i].gameObject);
             }
 
             // Clear the list.

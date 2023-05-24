@@ -11,7 +11,7 @@ namespace DDY_GJM_23
         public GameplayManager gameManager;
 
         // The collider for the home base.
-        public new BoxCollider2D collider;
+        public new CircleCollider2D collider;
 
         // Start is called before the first frame update
         void Start()
@@ -22,7 +22,7 @@ namespace DDY_GJM_23
 
             // Gets the box collider.
             if(collider == null)
-                collider = GetComponent<BoxCollider2D>();
+                collider = GetComponent<CircleCollider2D>();
         }
 
         // OnTriggerEnter2D is called when the Collider2D other enters the trigger (2D physics only)
@@ -35,6 +35,7 @@ namespace DDY_GJM_23
 
                 // Add to the scrap total.
                 gameManager.scrapsTotal += gameManager.player.scrapCount;
+                gameManager.player.scrapCount = 0;
             }
         }
 

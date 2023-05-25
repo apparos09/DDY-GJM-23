@@ -260,13 +260,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 866e6aec01177474694da685a45de654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadOnStart: 1
   sector: 0
   areaNumber: -1
-  fileName: 
+  posOffset: {x: -28, y: 14, z: 0}
+  spacing: {x: 1, y: -1}
+  fileName: x00.csv
   folderPath1: Assets/Resources/Data/Areas/
   folderPath2: Resources/Data/Areas/
   folderPath3: Data/Areas/
   tilesParent: {fileID: 1052125028}
+  grassFloorA: {fileID: 3434389756108487648, guid: aeadf019a55d0bf4f8c09b30ab5ee0ed, type: 3}
+  metalFloorA: {fileID: 4544260119137958150, guid: 8615cb66e1b16504b9bb093c31421286, type: 3}
 --- !u!1 &1972994872
 GameObject:
   m_ObjectHideFlags: 0

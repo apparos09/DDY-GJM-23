@@ -123,6 +123,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &715438039 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1373613927366872055, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+  m_PrefabInstance: {fileID: 1191161422}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &715438043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715438039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 866e6aec01177474694da685a45de654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadOnStart: 1
+  area: {fileID: 0}
+  sector: 0
+  areaNumber: -1
+  posOffset: {x: -13.5, y: 6.5, z: 0}
+  spacing: {x: 1, y: -1}
+  fileName: x00.csv
+  folderPath1: Assets/Resources/Data/Areas/
+  folderPath2: Resources/Data/Areas/
+  folderPath3: Data/Areas/
+  tilesParent: {fileID: 1317463848}
+  grassFloorA: {fileID: 3434389756108487648, guid: aeadf019a55d0bf4f8c09b30ab5ee0ed, type: 3}
+  metalFloorA: {fileID: 4544260119137958150, guid: 8615cb66e1b16504b9bb093c31421286, type: 3}
 --- !u!1 &1052125027
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,6 +191,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1373613927366872052, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1373613927366872054, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -211,10 +245,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1373613927366872055, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+--- !u!4 &1317463848 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6053433344887625498, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+  m_PrefabInstance: {fileID: 1191161422}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1544173697
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +270,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1544173698
 Transform:
   m_ObjectHideFlags: 0
@@ -261,6 +300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadOnStart: 1
+  area: {fileID: 0}
   sector: 0
   areaNumber: -1
   posOffset: {x: -13.5, y: 6.5, z: 0}

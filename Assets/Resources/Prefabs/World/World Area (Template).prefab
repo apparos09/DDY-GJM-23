@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1373613926729921827}
+  - component: {fileID: 13555541453987369}
   m_Layer: 0
   m_Name: Items
   m_TagString: Untagged
@@ -31,6 +32,17 @@ Transform:
   m_Father: {fileID: 1373613927366872054}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &13555541453987369
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373613926729921820}
+  m_Enabled: 1
+  m_SortingLayerID: -1895296425
+  m_SortingLayer: 3
+  m_SortingOrder: 0
 --- !u!1 &1373613926821464259
 GameObject:
   m_ObjectHideFlags: 0
@@ -40,6 +52,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1373613926821464258}
+  - component: {fileID: 8022036985587086771}
   m_Layer: 0
   m_Name: Spawners
   m_TagString: Untagged
@@ -62,6 +75,17 @@ Transform:
   m_Father: {fileID: 1373613927366872054}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &8022036985587086771
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373613926821464259}
+  m_Enabled: 1
+  m_SortingLayerID: -1740485249
+  m_SortingLayer: 2
+  m_SortingOrder: 0
 --- !u!1 &1373613927366872055
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,9 +162,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
-  world: {fileID: 0}
   areaCollider: {fileID: 1373613927366872053}
+  world: {fileID: 0}
   sector: 0
+  areaNumber: 0
   fixedCamera: 1
   camViewTarget: {x: 0.5, y: 0.5}
   cameraLimitsMin: {x: 0, y: 0}
@@ -159,6 +184,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1373613927379518580}
+  - component: {fileID: 9101239560035791990}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Untagged
@@ -181,6 +207,17 @@ Transform:
   m_Father: {fileID: 1373613927366872054}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &9101239560035791990
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373613927379518581}
+  m_Enabled: 1
+  m_SortingLayerID: -1762116483
+  m_SortingLayer: 4
+  m_SortingOrder: 0
 --- !u!1 &6895182880497954192
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,6 +227,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6053433344887625498}
+  - component: {fileID: 514923655907770492}
   m_Layer: 0
   m_Name: Tiles
   m_TagString: Untagged
@@ -212,3 +250,14 @@ Transform:
   m_Father: {fileID: 1373613927366872054}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &514923655907770492
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6895182880497954192}
+  m_Enabled: 1
+  m_SortingLayerID: 11958401
+  m_SortingLayer: 1
+  m_SortingOrder: 0

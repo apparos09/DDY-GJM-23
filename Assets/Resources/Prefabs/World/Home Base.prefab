@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2087052698141390752}
   - component: {fileID: 5822774750765523208}
   - component: {fileID: 4268009829887472995}
+  - component: {fileID: 8124803576567859926}
   m_Layer: 0
   m_Name: Home Base
   m_TagString: Home Base
@@ -64,6 +65,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!210 &8124803576567859926
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3413304175731099559}
+  m_Enabled: 1
+  m_SortingLayerID: 1474315389
+  m_SortingLayer: 5
+  m_SortingOrder: 0
 --- !u!1 &8470278375462236310
 GameObject:
   m_ObjectHideFlags: 0

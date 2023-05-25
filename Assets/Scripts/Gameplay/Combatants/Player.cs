@@ -19,10 +19,10 @@ namespace DDY_GJM_23
         private Vector2 facingDirec = Vector2.down;
 
         // The movement speed of the player.
-        public float speed = 10.0F;
+        public float speed = 75.0F;
 
         // The maximum movement speed.
-        public float maxSpeed = 10.0F;
+        public float maxSpeed = 12.0F;
 
         // The movement keys.
         public KeyCode moveLeftKey = KeyCode.A;
@@ -268,12 +268,12 @@ namespace DDY_GJM_23
                 Vector2 force = movement * speed * Time.deltaTime;
                 
                 // Uses rigidbody for movement (original) (not needed) [OLD]
-                // rigidbody.AddForce(force, ForceMode2D.Impulse);
+                rigidbody.AddForce(force, ForceMode2D.Impulse);
 
                 // TODO: add factor for slowing down by material.
 
-                // Set velocity.
-                rigidbody.velocity = Vector2.ClampMagnitude(force.normalized * 10.0F, maxSpeed);
+                // Clamp velocity.
+                rigidbody.velocity = Vector2.ClampMagnitude(rigidbody.velocity, maxSpeed);
 
                 // Uses transform for movement.
                 // transform.Translate(force);

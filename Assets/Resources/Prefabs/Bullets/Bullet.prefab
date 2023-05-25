@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 7641477488848020690}
   - component: {fileID: 7641477488848020691}
   - component: {fileID: 7641477488848020688}
+  - component: {fileID: 9214440966454732623}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -176,3 +177,14 @@ MonoBehaviour:
   passThrough: 0
   lifeTimeTimer: 5
   pausedTimer: 0
+--- !u!210 &9214440966454732623
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7641477488848020702}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1

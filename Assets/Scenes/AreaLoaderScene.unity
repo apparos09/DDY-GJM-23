@@ -152,7 +152,9 @@ MonoBehaviour:
   folderPath3: Data/Areas/
   tilesParent: {fileID: 1317463848}
   grassFloorA: {fileID: 3434389756108487648, guid: aeadf019a55d0bf4f8c09b30ab5ee0ed, type: 3}
+  grassWallA: {fileID: 4454731560842708540, guid: 7fa3ff96224d99a49936c9eae4b88c19, type: 3}
   metalFloorA: {fileID: 4544260119137958150, guid: 8615cb66e1b16504b9bb093c31421286, type: 3}
+  metalWallA: {fileID: 4537360135732934375, guid: b007d20d52f5ad64595fe574274b78a7, type: 3}
 --- !u!1 &1052125027
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +313,9 @@ MonoBehaviour:
   folderPath3: Data/Areas/
   tilesParent: {fileID: 1052125028}
   grassFloorA: {fileID: 3434389756108487648, guid: aeadf019a55d0bf4f8c09b30ab5ee0ed, type: 3}
+  grassWallA: {fileID: 4454731560842708540, guid: 7fa3ff96224d99a49936c9eae4b88c19, type: 3}
   metalFloorA: {fileID: 4544260119137958150, guid: 8615cb66e1b16504b9bb093c31421286, type: 3}
+  metalWallA: {fileID: 4537360135732934375, guid: b007d20d52f5ad64595fe574274b78a7, type: 3}
 --- !u!1 &1972994872
 GameObject:
   m_ObjectHideFlags: 0

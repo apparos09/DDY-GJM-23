@@ -58,9 +58,11 @@ namespace DDY_GJM_23
 
         // GRASS
         public WorldTile grassFloorA;
+        public WorldTile grassWallA;
 
         // METAL
         public WorldTile metalFloorA;
+        public WorldTile metalWallA;
 
         // Start is called before the first frame update
         void Start()
@@ -214,6 +216,15 @@ namespace DDY_GJM_23
                 }
             }
 
+            // Set the area information.
+            // This doesn't appear to work if this function is called in the Start() function, as it...
+            // Likely gets overwritten by other things.
+            if(area != null)
+            {
+                area.sector = sector;
+                area.areaNumber = areaNumber;
+            }    
+
             // Data loaded successfully.
             return true;
         }
@@ -230,7 +241,7 @@ namespace DDY_GJM_23
             // Checking the tile number.
             switch(number)
             {
-                case 1: // Grass
+                case 1: // Grass Floor
                     // Checking the tile type.
                     switch (type)
                     {
@@ -242,7 +253,21 @@ namespace DDY_GJM_23
                     }
 
                     break;
-                case 2: // Metal
+
+                case 2: // Grass Wall
+                    // Checking the tile type.
+                    switch (type)
+                    {
+                        case 'A':
+                        case 'a':
+                        default:
+                            origTile = grassWallA;
+                            break;
+                    }
+
+                    break;
+
+                case 3: // Metal Floor
                     // Checking the tile type.
                     switch (type)
                     {
@@ -250,6 +275,18 @@ namespace DDY_GJM_23
                         case 'a':
                         default:
                             origTile = metalFloorA;
+                            break;
+                    }
+                    break;
+
+                case 4: // Metal Wall
+                    // Checking the tile type.
+                    switch (type)
+                    {
+                        case 'A':
+                        case 'a':
+                        default:
+                            origTile = metalWallA;
                             break;
                     }
                     break;

@@ -23,9 +23,13 @@ namespace util
         [Tooltip("The original object the copy came from. Set automatically.")]
         public GameObject original;
 
+        // if 'true', the original's parent is used for the copies.
+        [Tooltip("If true, the parent of the original is kept for the copies.")]
+        public bool keepParent = true;
+
         // if 'true', the original is used as the object's parent.
         [Tooltip("If true, the copies have the original as their parent transform. " +
-            "If false, the copies keep the originals parent.")]
+            "If false, the copies keep the originals parent. This overrides keepParent if true.")]
         public bool originalAsParent = false;
 
         // if 'true', the copies are inactive when generated. 
@@ -196,6 +200,10 @@ namespace util
                     copy.transform.parent = original.transform;
                 else
                     copy.transform.parent = transform;
+            }
+            else if(keepParent) // Keep original's parent.
+            {
+                copy.transform.parent = original.transform.parent;
             }
 
             return copy;

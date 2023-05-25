@@ -5,7 +5,7 @@ using UnityEngine;
 namespace DDY_GJM_23
 {
     // A tile the player and enemies travel over.
-    public class FloorTile : MonoBehaviour
+    public class WorldTile : MonoBehaviour
     {
         // The collider for the floor tile.
         public new BoxCollider2D collider;

@@ -263,7 +263,7 @@ MonoBehaviour:
   loadOnStart: 1
   sector: 0
   areaNumber: -1
-  posOffset: {x: -28, y: 14, z: 0}
+  posOffset: {x: -13.5, y: 6.5, z: 0}
   spacing: {x: 1, y: -1}
   fileName: x00.csv
   folderPath1: Assets/Resources/Data/Areas/
@@ -325,7 +325,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

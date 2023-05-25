@@ -14,6 +14,10 @@ namespace DDY_GJM_23
         // Loads the data on start.
         public bool loadOnStart = true;
 
+        // Gives the area the values if this component is set.
+        [Tooltip("Set the area if you want the program to fill in the values.")]
+        public WorldArea area;
+
         // The world sector.
         public WorldArea.worldSector sector = WorldArea.worldSector.unknown;
 
@@ -22,7 +26,7 @@ namespace DDY_GJM_23
 
         // The reference position for loaded content.
         [Tooltip("The offset of the tile positions.")]
-        public Vector3 posOffset = new Vector3(-28, 14, 0);
+        public Vector3 posOffset = new Vector3(-13.5F, 6.5F, 0);
 
         // The spacing for placing tiles.
         [Tooltip("Spacing for tiles [x = col, y = row]")]
@@ -61,6 +65,11 @@ namespace DDY_GJM_23
         // Start is called before the first frame update
         void Start()
         {
+            // Gets the componnet if it's not set.
+            if (area == null)
+                area = GetComponent<WorldArea>();
+
+            // Load the data on start.
             if (loadOnStart)
                 LoadData();
         }
@@ -189,12 +198,15 @@ namespace DDY_GJM_23
                         Vector3 tilePos = posOffset;
                         
                         // The row and column. Var 'col' is -1 since the first line was the area ID.
-                        int row = j;
-                        int col = i - 1;
+                        int row = i - 1;
+                        int col = j;
 
                         // Calculate the tile position.
                         tilePos.x += spacing.x * col;
                         tilePos.y += spacing.y * row;
+
+                        // Set the tile's position.
+                        newTile.transform.position = tilePos;
 
                         // Give it the tiles parent.
                         newTile.transform.parent = tilesParent;

@@ -16,14 +16,20 @@ namespace DDY_GJM_23
         // The gameplay manager.
         public GameplayManager gameManager;
 
-        // The world this area is part of.
-        public World world;
+        
 
         // The collider for entering and exiting the area.
         public BoxCollider2D areaCollider;
 
+        [Header("Area Info")]
+        // The world this area is part of.
+        public World world;
+
         // The sector of this world area.
         public worldSector sector = worldSector.unknown;
+
+        // The area number.
+        public int areaNumber = 0;
 
         [Header("Camera")]
         // Determins if the camera is fixedo r mves.
@@ -96,6 +102,89 @@ namespace DDY_GJM_23
                 }
             }
         }
+
+        // Returns the world sector tied to the specific letter.
+        public static worldSector GetWorldSector(char letter)
+        {
+            // The world sector
+            worldSector ws;
+
+            // Checks the letter.
+            switch (letter)
+            {
+                case 'W':
+                case 'w':
+                    ws = worldSector.white;
+                    break;
+
+                case 'R':
+                case 'r':
+                    ws = worldSector.red;
+                    break;
+
+                case 'B':
+                case 'b':
+                    ws = worldSector.blue;
+                    break;
+
+                case 'Y':
+                case 'y':
+                    ws = worldSector.yellow;
+                    break;
+
+                case 'G':
+                case 'g':
+                    ws = worldSector.green;
+                    break;
+
+                default:
+                    ws = worldSector.unknown;
+                    break;
+            }
+
+            return ws;
+        }
+
+        // Gets the area code, which is the sector plus the area number.
+        public string GetAreaCode()
+        {
+            // The area code.
+            string areaCode = "";
+
+            // Checks what sector the area is part of.
+            switch(sector)
+            {
+                case worldSector.unknown: // Unknown
+                default:
+                    areaCode += "X";
+                    break;
+
+                case worldSector.white: // White
+                    areaCode += "W";
+                    break;
+
+                case worldSector.red: // Red
+                    areaCode += "R";
+                    break;
+
+                case worldSector.blue: // Blue
+                    areaCode += "B";
+                    break;
+
+                case worldSector.yellow: // Yellow
+                    areaCode += "Y";
+                    break;
+                
+                case worldSector.green: // Green
+                    areaCode += "G";
+                    break;
+            }
+
+            // Add the number to the area code.
+            areaCode += areaNumber.ToString("D2");
+
+            return areaCode;
+        }  
 
 
         // AREA DIMENSIONS //

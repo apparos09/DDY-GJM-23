@@ -26,6 +26,9 @@ namespace DDY_GJM_23
         [Tooltip("If 'true', the bullet passes through targets.")]
         public bool passThrough = false;
 
+        // The movement direction of the bullet.
+        public Vector2 moveDirec = Vector2.right;
+
         [Header("Life Time")]
 
         // The life time timer for the bullet.
@@ -69,18 +72,58 @@ namespace DDY_GJM_23
         // Sets the bullet's direction.
         public void SetBulletDirection(Vector2 newDirec)
         {
-            Vector3 forward = transform.forward;
-            forward.x = newDirec.x;
-            forward.y = newDirec.y;
+            //// Changing the forward was iffy, so I'm doing this now.
+            //// TODO: find a way to make the forward work.
 
-            transform.forward = forward;
+            //// No new direction given, so just keep going forward.
+            //if (newDirec == Vector2.zero)
+            //    return;
+
+            //// Normalize the direction.
+            //newDirec.Normalize();
+
+            //// FIXME: there has to be a better way of doing this...
+
+            //// The bullet rotation.
+            //float theta = 0.0F;
+
+            //// Relative to quadrant the direction would fall in.
+            //if (newDirec.x <= 0 && newDirec.y > 0) // Quadrant 2 (Top Left)
+            //{
+            //    theta += 90.0F;
+            //}
+            //else if(newDirec.x < 0 && newDirec.y <= 0) // Quadrant 3 (Bottom Left)
+            //{
+            //    theta += 180.0F;
+            //}
+            //else if(newDirec.x >= 0 && newDirec.y < 0) // Quadrant 4 (Bottom Right)
+            //{
+            //    theta += 270.0F;
+            //}
+
+            //// If both values are not equal to 0, do a calculation.
+            //if(newDirec.x != 0 && newDirec.y != 0)
+            //{
+            //    // Get relative rotation.
+            //    theta += Mathf.Rad2Deg * Mathf.Atan2(newDirec.y, newDirec.x);
+            //}
+
+            //// Get the rotation.
+            //Vector3 eulers = transform.eulerAngles;
+            //eulers.z = theta;
+
+            //// Apply the rotation.
+            //transform.eulerAngles = eulers;
+
+            // Rotating didn't work, so I'm just hardcoding the direction.
+            moveDirec = newDirec.normalized;
         }
 
 
         // Moves the bullet.
         public virtual void TransformBullet()
         {
-            rigidbody.AddForce(transform.forward * speed * Time.deltaTime);
+            rigidbody.AddForce(moveDirec.normalized * speed * Time.deltaTime);
             rigidbody.velocity = Vector3.ClampMagnitude(rigidbody.velocity, maxSpeed);
 
         }

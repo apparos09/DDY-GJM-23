@@ -8,6 +8,8 @@ namespace DDY_GJM_23
     // An enemy that chases the player using seek behaviour.
     public class ChaserEnemy : Enemy
     {
+        [Header("Enemy/Chaser")]
+
         // The movement speed of the chaser.
         [Tooltip("The chaser's speed when pursuing the target.")]
         public float pursueSpeed = 5.0F;

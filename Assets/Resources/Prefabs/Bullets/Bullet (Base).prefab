@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 7641477488848020688}
   - component: {fileID: 9214440966454732623}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: Bullet (Base)
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,8 +171,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 0}
   targetTags: []
-  speed: 1
-  maxSpeed: 10
+  speed: 10
+  maxSpeed: 30
   power: 1
   passThrough: 0
   lifeTimeTimer: 5
@@ -185,6 +185,6 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7641477488848020702}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -1762116483
+  m_SortingLayer: 4
+  m_SortingOrder: 2

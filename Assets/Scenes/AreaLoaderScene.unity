@@ -22261,6 +22261,7 @@ MonoBehaviour:
   folderPath3: Data/Areas/
   fileLoaded: 0
   tilesParent: {fileID: 1317463848}
+  originTransform: {fileID: 0}
   posOffset: {x: -13.5, y: 6.5, z: 0}
   spacing: {x: 1, y: -1}
   setLocalPos: 1
@@ -36359,7 +36360,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1373613927366872055, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
@@ -46146,7 +46147,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1544173698
 Transform:
   m_ObjectHideFlags: 0
@@ -46185,6 +46186,7 @@ MonoBehaviour:
   folderPath3: Data/Areas/
   fileLoaded: 0
   tilesParent: {fileID: 1052125028}
+  originTransform: {fileID: 0}
   posOffset: {x: -13.5, y: 6.5, z: 0}
   spacing: {x: 1, y: -1}
   setLocalPos: 1

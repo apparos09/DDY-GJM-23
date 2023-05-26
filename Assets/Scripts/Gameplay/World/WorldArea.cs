@@ -32,8 +32,11 @@ namespace DDY_GJM_23
         public int areaNumber = 0;
 
         [Header("Camera")]
-        // Determins if the camera is fixedo r mves.
+        // Determins if the camera is fixed mves.
         public bool fixedCamera = true;
+
+        // The area target for the camera. If not set, the camera goes with the object's position.
+        public Transform camTransformPos = null;
 
         // The camera view target when focusing on the area (relative to world size).
         // (0.5, 0.5) means the middle of the area collider. 
@@ -228,7 +231,7 @@ namespace DDY_GJM_23
             Vector3 areaMax = GetAreaMax();
             
             // Calculates the camera target (which normally is the area center).
-            Vector2 camTarget = new Vector2(
+            Vector2 camTargetPos = new Vector2(
                 Mathf.Lerp(areaMin.x, areaMax.x, camViewTarget.x),
                 Mathf.Lerp(areaMin.y, areaMax.y, camViewTarget.y)
                 );
@@ -265,11 +268,11 @@ namespace DDY_GJM_23
             Vector3 temp;
             
             // temp = areaMin + (camCenter - camMin); // OLD
-            temp = new Vector3(camTarget.x, camTarget.y, 0) - (camCenter - camMin); // NEW
+            temp = new Vector3(camTargetPos.x, camTargetPos.y, 0) - (camCenter - camMin); // NEW
             cameraLimitsMin = new Vector2(temp.x, temp.y);
 
             // temp = areaMax - (camMax - camCenter); // OLD
-            temp = new Vector3(camTarget.x, camTarget.y, 0) + (camMax - camCenter); // NEW
+            temp = new Vector3(camTargetPos.x, camTargetPos.y, 0) + (camMax - camCenter); // NEW
             cameraLimitsMax = new Vector2(temp.x, temp.y);
         }
 
@@ -280,8 +283,21 @@ namespace DDY_GJM_23
             CalculateCameraLimits();
 
             // Sets the camera position (don't change z).
+            Vector3 camPos = gameManager.worldCamera.transform.position;
 
-            Vector3 camPos = GetAreaCenter();
+            // Checks if the camera transform position is set.
+            if (camTransformPos != null)
+            {
+                camPos.x = camTransformPos.position.x;
+                camPos.y = camTransformPos.position.y;
+            }
+            else
+            {
+                camPos.x = transform.position.x;
+                camPos.y = transform.position.y;
+            }
+
+            // Sets the camera position.
             gameManager.worldCamera.SetCameraPosition(camPos.x, camPos.y);
 
             // Spawns dynamic entities.

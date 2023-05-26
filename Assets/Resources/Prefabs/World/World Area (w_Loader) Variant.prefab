@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2316964027511733396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6680135308410317116}
+  m_Layer: 0
+  m_Name: Tiles Origin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6680135308410317116
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2316964027511733396}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5992016310053850263}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4627419482583730017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55,6 +86,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: World Area (w_Loader) Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2555970749917244097, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
 --- !u!4 &1456342796081827963 stripped
@@ -62,6 +97,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6053433344887625498, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
   m_PrefabInstance: {fileID: 4627419482583730017}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5992016310053850261 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1373613927366872052, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+  m_PrefabInstance: {fileID: 4627419482583730017}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5992016310053850262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb68b5078baa2954abf91c30d8fbea72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5992016310053850262 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1373613927366872055, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
@@ -80,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadOnStart: 1
-  area: {fileID: 0}
+  area: {fileID: 5992016310053850261}
   sector: 0
   areaNumber: -1
   fileName: 
@@ -89,6 +135,7 @@ MonoBehaviour:
   folderPath3: Data/Areas/
   fileLoaded: 0
   tilesParent: {fileID: 1456342796081827963}
+  originTransform: {fileID: 6680135308410317116}
   posOffset: {x: -13.5, y: 6.5, z: 0}
   spacing: {x: 1, y: -1}
   setLocalPos: 1
@@ -102,3 +149,8 @@ MonoBehaviour:
   pitA: {fileID: 3425458090080549951, guid: 0ec1a9b646f7e3b439ce0cf01f545266, type: 3}
   waterA: {fileID: 3378801974327496830, guid: 4d808909d72281b4dbb6861067e093e0, type: 3}
   poisonA: {fileID: 431505043536562690, guid: e14ea939c27ee9142afbaa4e71338380, type: 3}
+--- !u!4 &5992016310053850263 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1373613927366872054, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+  m_PrefabInstance: {fileID: 4627419482583730017}
+  m_PrefabAsset: {fileID: 0}

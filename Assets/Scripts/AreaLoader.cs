@@ -49,6 +49,10 @@ namespace DDY_GJM_23
         // The parent for the loaded tiles.
         public Transform tilesParent = null;
 
+        // A reference object for placing the tiles. This can be used to adjust posOffset.
+        [Tooltip("An optional object to apply posOffset to for determing the base tile position (origin's world space pos used).")]
+        public Transform originTransform;
+
         // The reference position for loaded content.
         [Tooltip("The offset of the tile positions.")]
         public Vector3 posOffset = new Vector3(-13.5F, 6.5F, 0);
@@ -223,8 +227,15 @@ namespace DDY_GJM_23
                         // TILE POSITIONING //
 
                         // The tile position.
-                        Vector3 tilePos = posOffset;
+                        Vector3 tilePos;
                         
+
+                        // Checks if an origin object has been set.
+                        if(originTransform != null) // Set
+                            tilePos = originTransform.position + posOffset;
+                        else // Not set
+                            tilePos = posOffset;
+
                         // The row and column. Var 'col' is -1 since the first line was the area ID.
                         int row = i - 1;
                         int col = j;
@@ -234,10 +245,14 @@ namespace DDY_GJM_23
                         tilePos.y += spacing.y * row;
 
                         // Set the tile's position.
-                        if(setLocalPos) 
+                        if(setLocalPos)
+                        {
                             newTile.transform.localPosition = tilePos;
+                        }
                         else
+                        {
                             newTile.transform.position = tilePos;
+                        }
 
                         // Give it the tiles parent.
                         newTile.transform.parent = tilesParent;

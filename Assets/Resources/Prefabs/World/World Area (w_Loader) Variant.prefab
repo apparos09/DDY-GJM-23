@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4627419482583730017
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1373613927366872054, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373613927366872054, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373613927366872054, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373613927366872054, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373613927366872054, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373613927366872054, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373613927366872054, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373613927366872054, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373613927366872054, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373613927366872054, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373613927366872054, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373613927366872055, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+      propertyPath: m_Name
+      value: World Area (w_Loader) Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+--- !u!4 &1456342796081827963 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6053433344887625498, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+  m_PrefabInstance: {fileID: 4627419482583730017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5992016310053850262 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1373613927366872055, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+  m_PrefabInstance: {fileID: 4627419482583730017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &738767503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5992016310053850262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 866e6aec01177474694da685a45de654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadOnStart: 1
+  area: {fileID: 0}
+  sector: 0
+  areaNumber: -1
+  fileName: 
+  folderPath1: Assets/Resources/Data/Areas/
+  folderPath2: Resources/Data/Areas/
+  folderPath3: Data/Areas/
+  fileLoaded: 0
+  tilesParent: {fileID: 1456342796081827963}
+  posOffset: {x: -13.5, y: 6.5, z: 0}
+  spacing: {x: 1, y: -1}
+  setLocalPos: 1
+  grassFloorA: {fileID: 3434389756108487648, guid: aeadf019a55d0bf4f8c09b30ab5ee0ed, type: 3}
+  grassWallA: {fileID: 4454731560842708540, guid: 7fa3ff96224d99a49936c9eae4b88c19, type: 3}
+  metalFloorA: {fileID: 4544260119137958150, guid: 8615cb66e1b16504b9bb093c31421286, type: 3}
+  metalWallA: {fileID: 4537360135732934375, guid: b007d20d52f5ad64595fe574274b78a7, type: 3}
+  pavementFloorA: {fileID: 2713584079012256436, guid: 1ebeba2756beaac409a4b02c50a5e4ae, type: 3}
+  brickWallA: {fileID: 8572162502367700277, guid: dad633be28e490e42a9c2a0a23bdd058, type: 3}
+  bridgeA: {fileID: 5260269318363341742, guid: 8db3450a3f03be2408d72949bf9f3e94, type: 3}
+  pitA: {fileID: 3425458090080549951, guid: 0ec1a9b646f7e3b439ce0cf01f545266, type: 3}
+  waterA: {fileID: 3378801974327496830, guid: 4d808909d72281b4dbb6861067e093e0, type: 3}
+  poisonA: {fileID: 431505043536562690, guid: e14ea939c27ee9142afbaa4e71338380, type: 3}

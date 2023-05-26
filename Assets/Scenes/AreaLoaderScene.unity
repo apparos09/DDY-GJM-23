@@ -22255,17 +22255,25 @@ MonoBehaviour:
   area: {fileID: 0}
   sector: 0
   areaNumber: -1
-  posOffset: {x: -13.5, y: 6.5, z: 0}
-  spacing: {x: 1, y: -1}
   fileName: x00.csv
   folderPath1: Assets/Resources/Data/Areas/
   folderPath2: Resources/Data/Areas/
   folderPath3: Data/Areas/
+  fileLoaded: 0
   tilesParent: {fileID: 1317463848}
+  posOffset: {x: -13.5, y: 6.5, z: 0}
+  spacing: {x: 1, y: -1}
+  setLocalPos: 1
   grassFloorA: {fileID: 3434389756108487648, guid: aeadf019a55d0bf4f8c09b30ab5ee0ed, type: 3}
   grassWallA: {fileID: 4454731560842708540, guid: 7fa3ff96224d99a49936c9eae4b88c19, type: 3}
   metalFloorA: {fileID: 4544260119137958150, guid: 8615cb66e1b16504b9bb093c31421286, type: 3}
   metalWallA: {fileID: 4537360135732934375, guid: b007d20d52f5ad64595fe574274b78a7, type: 3}
+  pavementFloorA: {fileID: 2713584079012256436, guid: 1ebeba2756beaac409a4b02c50a5e4ae, type: 3}
+  brickWallA: {fileID: 8572162502367700277, guid: dad633be28e490e42a9c2a0a23bdd058, type: 3}
+  bridgeA: {fileID: 5260269318363341742, guid: 8db3450a3f03be2408d72949bf9f3e94, type: 3}
+  pitA: {fileID: 3425458090080549951, guid: 0ec1a9b646f7e3b439ce0cf01f545266, type: 3}
+  waterA: {fileID: 3378801974327496830, guid: 4d808909d72281b4dbb6861067e093e0, type: 3}
+  poisonA: {fileID: 431505043536562690, guid: e14ea939c27ee9142afbaa4e71338380, type: 3}
 --- !u!1 &716439494
 GameObject:
   m_ObjectHideFlags: 0
@@ -34888,6 +34896,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: World Area (W00/Base)
       objectReference: {fileID: 0}
+    - target: {fileID: 1373613927366872055, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
 --- !u!4 &1149351846 stripped
@@ -36286,8 +36298,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1373613927366872052, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+      propertyPath: sector
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373613927366872052, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1373613927366872052, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
+      propertyPath: areaNumber
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 1373613927366872054, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
       propertyPath: m_RootOrder
@@ -36335,11 +36355,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1373613927366872055, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
       propertyPath: m_Name
-      value: World Area (Template)
+      value: World Area (w/Loader)
       objectReference: {fileID: 0}
     - target: {fileID: 1373613927366872055, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
@@ -46126,7 +46146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1544173698
 Transform:
   m_ObjectHideFlags: 0
@@ -46159,17 +46179,25 @@ MonoBehaviour:
   area: {fileID: 0}
   sector: 0
   areaNumber: -1
-  posOffset: {x: -13.5, y: 6.5, z: 0}
-  spacing: {x: 1, y: -1}
   fileName: w00.csv
   folderPath1: Assets/Resources/Data/Areas/
   folderPath2: Resources/Data/Areas/
   folderPath3: Data/Areas/
+  fileLoaded: 0
   tilesParent: {fileID: 1052125028}
+  posOffset: {x: -13.5, y: 6.5, z: 0}
+  spacing: {x: 1, y: -1}
+  setLocalPos: 1
   grassFloorA: {fileID: 3434389756108487648, guid: aeadf019a55d0bf4f8c09b30ab5ee0ed, type: 3}
   grassWallA: {fileID: 4454731560842708540, guid: 7fa3ff96224d99a49936c9eae4b88c19, type: 3}
   metalFloorA: {fileID: 4544260119137958150, guid: 8615cb66e1b16504b9bb093c31421286, type: 3}
   metalWallA: {fileID: 4537360135732934375, guid: b007d20d52f5ad64595fe574274b78a7, type: 3}
+  pavementFloorA: {fileID: 0}
+  brickWallA: {fileID: 0}
+  bridgeA: {fileID: 0}
+  pitA: {fileID: 0}
+  waterA: {fileID: 0}
+  poisonA: {fileID: 0}
 --- !u!1 &1545105400
 GameObject:
   m_ObjectHideFlags: 0

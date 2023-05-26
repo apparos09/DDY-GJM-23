@@ -24,14 +24,6 @@ namespace DDY_GJM_23
         // The number of the area.
         public int areaNumber = -1;
 
-        // The reference position for loaded content.
-        [Tooltip("The offset of the tile positions.")]
-        public Vector3 posOffset = new Vector3(-13.5F, 6.5F, 0);
-
-        // The spacing for placing tiles.
-        [Tooltip("Spacing for tiles [x = col, y = row]")]
-        public Vector2 spacing = new Vector2(1, -1);
-
         [Header("Files")]
 
         // The file name (include the file extension).
@@ -49,20 +41,51 @@ namespace DDY_GJM_23
         [Tooltip("The tertiary search location. Include the slash at the end of the path.")]
         public string folderPath3 = "Data/Areas/";
 
+        // Gets set to 'true' when the file loaded.
+        [Tooltip("If 'true', the file has been loaded successfully.")]
+        public bool fileLoaded = false;
 
-        [Header("Parents")]
+        [Header("Tiles")]
         // The parent for the loaded tiles.
         public Transform tilesParent = null;
 
-        [Header("Prefabs")]
+        // The reference position for loaded content.
+        [Tooltip("The offset of the tile positions.")]
+        public Vector3 posOffset = new Vector3(-13.5F, 6.5F, 0);
+
+        // The spacing for placing tiles.
+        [Tooltip("Spacing for tiles [x = col, y = row]")]
+        public Vector2 spacing = new Vector2(1, -1);
+
+        // Sets the local position of the tile if true, world position if false.
+        [Tooltip("If true, the local position of the tile is set, not the world position.")]
+        public bool setLocalPos = true;
 
         // GRASS
-        public WorldTile grassFloorA;
-        public WorldTile grassWallA;
+        [Header("Tiles/Grass")]
+        public WorldTile grassFloorA; // 01
+        public WorldTile grassWallA; // 02
 
         // METAL
-        public WorldTile metalFloorA;
-        public WorldTile metalWallA;
+        [Header("Tiles/Metal")]
+        public WorldTile metalFloorA; // 03
+        public WorldTile metalWallA; // 04
+
+        // PAVEMENT AND BRICK
+        [Header("Tiles/Pavement, Brick")]
+        public WorldTile pavementFloorA; // 05
+        public WorldTile brickWallA; // 06
+
+        // BRIDGE AND PIT
+        [Header("Tiles/Bridge, Pit")]
+        public WorldTile bridgeA; // 07
+        public WorldTile pitA; // 08
+
+        // LIQUIDS
+        [Header("Tiles/Liquids")]
+        public WorldTile waterA; // 09
+        public WorldTile poisonA; // 10
+
 
         // Start is called before the first frame update
         void Start()
@@ -79,6 +102,9 @@ namespace DDY_GJM_23
         // Loads the data from the set file.
         public bool LoadData()
         {
+            // The file is not loaded yet.
+            fileLoaded = false;
+
             // The data file being loaded.
             string file = "";
             string filePath = "";
@@ -208,7 +234,10 @@ namespace DDY_GJM_23
                         tilePos.y += spacing.y * row;
 
                         // Set the tile's position.
-                        newTile.transform.position = tilePos;
+                        if(setLocalPos) 
+                            newTile.transform.localPosition = tilePos;
+                        else
+                            newTile.transform.position = tilePos;
 
                         // Give it the tiles parent.
                         newTile.transform.parent = tilesParent;
@@ -223,7 +252,10 @@ namespace DDY_GJM_23
             {
                 area.sector = sector;
                 area.areaNumber = areaNumber;
-            }    
+            }
+
+            // The file has been loaded successfully.
+            fileLoaded = true;
 
             // Data loaded successfully.
             return true;
@@ -241,7 +273,7 @@ namespace DDY_GJM_23
             // Checking the tile number.
             switch(number)
             {
-                case 1: // Grass Floor
+                case 1: // Grass Floor (01)
                     // Checking the tile type.
                     switch (type)
                     {
@@ -254,7 +286,7 @@ namespace DDY_GJM_23
 
                     break;
 
-                case 2: // Grass Wall
+                case 2: // Grass Wall (02)
                     // Checking the tile type.
                     switch (type)
                     {
@@ -267,7 +299,7 @@ namespace DDY_GJM_23
 
                     break;
 
-                case 3: // Metal Floor
+                case 3: // Metal Floor (03)
                     // Checking the tile type.
                     switch (type)
                     {
@@ -279,7 +311,7 @@ namespace DDY_GJM_23
                     }
                     break;
 
-                case 4: // Metal Wall
+                case 4: // Metal Wall (04)
                     // Checking the tile type.
                     switch (type)
                     {
@@ -289,6 +321,84 @@ namespace DDY_GJM_23
                             origTile = metalWallA;
                             break;
                     }
+                    break;
+
+                case 5: // Pavement Floor (05)
+                    // Checking the tile type.
+                    switch (type)
+                    {
+                        case 'A':
+                        case 'a':
+                        default:
+                            origTile = pavementFloorA;
+                            break;
+                    }
+
+                    break;
+
+                case 6: // Brick Wall (06)
+                    // Checking the tile type.
+                    switch (type)
+                    {
+                        case 'A':
+                        case 'a':
+                        default:
+                            origTile = brickWallA;
+                            break;
+                    }
+
+                    break;
+
+                case 7: // Bridge (07)
+                    // Checking the tile type.
+                    switch (type)
+                    {
+                        case 'A':
+                        case 'a':
+                        default:
+                            origTile = bridgeA;
+                            break;
+                    }
+
+                    break;
+
+                case 8: // Bottomless Pit (08)
+                    // Checking the tile type.
+                    switch (type)
+                    {
+                        case 'A':
+                        case 'a':
+                        default:
+                            origTile = pitA;
+                            break;
+                    }
+
+                    break;
+
+                case 9: // Water (09)
+                    // Checking the tile type.
+                    switch (type)
+                    {
+                        case 'A':
+                        case 'a':
+                        default:
+                            origTile = waterA;
+                            break;
+                    }
+
+                    break;
+
+                case 10: // Poison (10)
+                    // Checking the tile type.
+                    switch (type)
+                    {
+                        case 'A':
+                        case 'a':
+                        default:
+                            origTile = poisonA;
+                            break;
+                    }
+
                     break;
             }
 

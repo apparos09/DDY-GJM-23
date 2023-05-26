@@ -5,16 +5,22 @@ using UnityEngine;
 namespace DDY_GJM_23
 {
     // An enemy in the game world.
-    public class Enemy : Combatant
+    public abstract class Enemy : Combatant
     {
         // The enemy id.
         public enum enemyId { none };
+
+        [Header("Enemy")]
 
         // If 'true', the enemy causes damage upon making contact with the player.
         public bool contactDamage = true;
 
         // The power for contact damage.
         public float contactDamagePower = 10.0F;
+
+        // If 'true', the game runs the enemy's behaviour.
+        [Tooltip("Runs the behaviour of the enemy if this is true.")]
+        public bool runBehaviour = true;
 
         // Start is called before the first frame update
         protected override void Start()
@@ -57,6 +63,9 @@ namespace DDY_GJM_23
             }
         }
 
+        // Runs the enemy's behaviour (AI)
+        protected abstract void RunEnemyBehaviour();
+
 
         // On the death of the player.
         protected override void OnDeath()
@@ -68,6 +77,9 @@ namespace DDY_GJM_23
         protected override void Update()
         {
             base.Update();
+
+            // Runs the enemy behaviour.
+            RunEnemyBehaviour();
         }
 
         // This function is called when the MonoBehaviour will be destroyed.

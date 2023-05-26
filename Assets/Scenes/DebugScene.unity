@@ -1588,36 +1588,14 @@ GameObject:
   - component: {fileID: 773563719}
   - component: {fileID: 773563720}
   - component: {fileID: 773563718}
-  - component: {fileID: 773563717}
+  - component: {fileID: 773563721}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Chaser Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &773563717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 773563716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b86a3c9f49c0f846a5f9968752033bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  area: {fileID: 0}
-  rigidbody: {fileID: 0}
-  collider: {fileID: 0}
-  health: 100
-  maxHealth: 100
-  vulnerable: 1
-  useIFrames: 1
-  currentTiles: []
-  contactDamage: 1
-  contactDamagePower: 10
 --- !u!61 &773563718
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1681,6 +1659,33 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &773563721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773563716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc67d3a942845d84ca2eed49bb25728d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  area: {fileID: 0}
+  rigidbody: {fileID: 0}
+  collider: {fileID: 0}
+  health: 100
+  maxHealth: 100
+  vulnerable: 1
+  useIFrames: 1
+  currentTiles: []
+  contactDamage: 1
+  contactDamagePower: 10
+  runBehaviour: 1
+  pursueSpeed: 5
+  seekSpeed: 7
+  maxSpeed: 7
+  seekDist: 30
 --- !u!1 &864299647
 GameObject:
   m_ObjectHideFlags: 0

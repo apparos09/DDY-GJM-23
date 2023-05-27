@@ -109,6 +109,8 @@ MonoBehaviour:
   scrapCount: 0
   speed: 75
   maxSpeed: 12
+  maxRunSpeed: 12
+  maxSwimSpeed: 2
   moveLeftKey: 97
   moveRightKey: 100
   moveUpKey: 119

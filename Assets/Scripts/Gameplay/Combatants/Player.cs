@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 // The namespace for the Doomsday Game Jam (2023).
@@ -27,10 +28,20 @@ namespace DDY_GJM_23
         private Vector2 facingDirec = Vector2.down;
 
         // The movement speed of the player.
+        [Tooltip("The movement speed.")]
         public float speed = 75.0F;
 
-        // The maximum movement speed.
+        // The max speed overall.
+        [Tooltip("The overall max speed.")]
         public float maxSpeed = 12.0F;
+
+        // The maximum run speed. Default max speed.
+        [Tooltip("The max run speed.")]
+        public float maxRunSpeed = 12.0F;
+
+        // The maximum swim speed.
+        [Tooltip("The max swim speed.")]
+        public float maxSwimSpeed = 2.0F;
 
         // The inputs for moves on a given frame.
         private Vector2 moveInputs = Vector2.zero;
@@ -291,10 +302,33 @@ namespace DDY_GJM_23
                 // Uses rigidbody for movement (original) (not needed) [OLD]
                 rigidbody.AddForce(force, ForceMode2D.Impulse);
 
-                // TODO: add factor for slowing down by material.
 
-                // Clamp velocity.
-                rigidbody.velocity = Vector2.ClampMagnitude(rigidbody.velocity, maxSpeed);
+                // CLAMPING SPEED
+                if(currentTiles.Count > 0) // On tiles
+                {
+                    // The speeds are set.
+                    if (maxRunSpeed != 0 && maxSwimSpeed != 0)
+                    {
+                        int runTiles = GetNonLiquidTileCount();
+                        int swimTiles = GetLiquidTileCount();
+
+                        // Calculates the mixed speed.
+                        float mixedSpeed = (maxRunSpeed * runTiles + maxSwimSpeed * swimTiles) / (runTiles + swimTiles);
+
+                        // Clamp velocity.
+                        rigidbody.velocity = Vector2.ClampMagnitude(rigidbody.velocity, mixedSpeed);
+                    }
+                    else
+                    {
+                        rigidbody.velocity = Vector2.ClampMagnitude(rigidbody.velocity, maxSpeed);
+                    }
+                }
+                else // No tiles
+                {
+                    rigidbody.velocity = Vector2.ClampMagnitude(rigidbody.velocity, maxSpeed);
+                }
+                
+                
 
                 // Uses transform for movement.
                 // transform.Translate(force);

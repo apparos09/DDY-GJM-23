@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -59,6 +60,49 @@ namespace DDY_GJM_23
         }
 
         // TILES
+        // Gets the number of non-liquid tiles being touched.
+        public int GetNonLiquidTileCount()
+        {
+            // The count.
+            int count = 0;
+
+            // Go through each tile.
+            foreach (WorldTile tile in currentTiles)
+            {
+                // Tile exists.
+                if (tile != null)
+                {
+                    // Tile is liquid, so add to count.
+                    if (!tile.isLiquid)
+                        count++;
+                }
+            }
+
+            return count;
+        }
+
+        // Gets the number of liquid tiles being touched.
+        public int GetLiquidTileCount()
+        {
+            // The count.
+            int count = 0;
+
+            // Go through each tile.
+            foreach(WorldTile tile in currentTiles)
+            {
+                // Tile exists.
+                if(tile != null)
+                {
+                    // Tile is liquid, so add to count.
+                    if (tile.isLiquid)
+                        count++;
+                }
+            }
+
+            return count;
+        }
+
+
         // Gets the friction of the tiles the combatant is on, averaged.
         // If the entity is on no tiles, the friction is returned as 0.
         public float GetAveragedFrictionFactor()

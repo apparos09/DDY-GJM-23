@@ -836,7 +836,8 @@ MonoBehaviour:
   homeBase: {fileID: 1028903889}
   gameUI: {fileID: 0}
   timer: 300
-  pausedTimer: 0
+  elapsedGameTime: 0
+  pausedTimers: 0
 --- !u!4 &426205432
 Transform:
   m_ObjectHideFlags: 0

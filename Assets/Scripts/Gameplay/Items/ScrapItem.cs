@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.VFX;
 
 namespace DDY_GJM_23
 {
@@ -12,6 +12,9 @@ namespace DDY_GJM_23
 
         // The value of this scrap item.
         public int scrapAmount = 1;
+
+        // The spawner the scrap belongs to.
+        public ScrapSpawn spawner;
 
         // Start is called before the first frame update
         protected override void Start()
@@ -26,6 +29,12 @@ namespace DDY_GJM_23
         {
             // Increases the player's scrap value.
             GameplayManager.Instance.player.scrapCount += scrapAmount;
+
+            // If the spawner is not equal to null, tell it this scrap has been collected.
+            if(spawner != null)
+            {
+                spawner.OnScrapCollected();
+            }
 
             // Item has been gotten.
             OnItemGet();

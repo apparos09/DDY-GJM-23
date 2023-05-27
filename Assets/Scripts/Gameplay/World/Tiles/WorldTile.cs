@@ -13,14 +13,18 @@ namespace DDY_GJM_23
         // The physics material for this floor tile.
         public PhysicsMaterial2D physicsMaterial;
 
-        // TODO: work on tile physics for movement.
+        // Determines if the tile is a liquid or a solid.
+        public bool isLiquid = false;
 
         // Start is called before the first frame update
-        void Start()
+        protected virtual void Start()
         {
-
+            // Tries to get the collider if it's not set.
+            if(collider == null)
+                collider = GetComponent<BoxCollider2D>();
         }
 
+        // TODO: do I need this and stay?
         // TriggerEnter2D
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -91,9 +95,9 @@ namespace DDY_GJM_23
         }
 
         // Update is called once per frame
-        void Update()
+        protected virtual void Update()
         {
-
+            // ...
         }
     }
 }

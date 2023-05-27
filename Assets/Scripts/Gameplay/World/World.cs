@@ -7,18 +7,54 @@ namespace DDY_GJM_23
     // World
     public class World : MonoBehaviour
     {
+        // The gravity acceleration for the game worlds.
+        public static float GRAVITY_ACCEL = 9.8F;
+
         // The current area the player is in.
         private WorldArea currentArea;
+
+        // // The collider for the game world, which is used to destroy objects outside of this range.
+        // public new Collider collider;
 
         // TODO: maybe have an area list so that each area can be numbered.
         // // The list of areas.
         // public List<WorldArea> areas;
 
+        // If 'true', objects outside of the game world get destoryed.
+        [Tooltip("If true, objects outside of the game world get destroyed, as determined by a collider.")]
+        public bool destroyObjectsOutside = true;
+
         // Start is called before the first frame update
         void Start()
         {
-
+            // // Gets the world collider.
+            // if (collider == null)
+            //     collider = GetComponent<Collider>();
         }
+
+        // OnTriggerExit2D - destroys objects outside of this collider.
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            // Checks if object's outside of the game wolrd should be destroyed.
+            if (!destroyObjectsOutside)
+                return;
+
+            // Checks if it's a combatant.
+            Combatant combatant = null;
+
+            // Tries to grab component.
+            if(collision.TryGetComponent(out combatant))
+            {
+                // Kills the combantant instead of destroying the object.
+                combatant.Kill();
+            }
+            else
+            {
+                // Destroy the object.
+                Destroy(collision.gameObject);
+            }
+        }
+
 
         // Checks if this is the current area.
         public bool IsCurrentArea(WorldArea area)

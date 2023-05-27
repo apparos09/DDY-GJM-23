@@ -24,21 +24,21 @@ namespace DDY_GJM_23
                 collider = GetComponent<BoxCollider2D>();
         }
 
-        // TODO: do I need this and stay?
-        // TriggerEnter2D
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
-            // Checks for a combat entity.
-            Combatant combatEntity = null;
+        //// TODO: do I need this and stay?
+        //// TriggerEnter2D
+        //private void OnTriggerEnter2D(Collider2D collision)
+        //{
+        //    // Checks for a combat entity.
+        //    Combatant combatEntity = null;
 
-            // Checks if the collision object is a combat entity.
-            if(collision.TryGetComponent(out combatEntity))
-            {
-                // Sets this as the current tile.
-                if(!combatEntity.currentTiles.Contains(this))
-                    combatEntity.currentTiles.Add(this);
-            }
-        }
+        //    // Checks if the collision object is a combat entity.
+        //    if(collision.TryGetComponent(out combatEntity))
+        //    {
+        //        // Sets this as the current tile.
+        //        if(!combatEntity.currentTiles.Contains(this))
+        //            combatEntity.currentTiles.Add(this);
+        //    }
+        //}
 
         // OnTriggerStay2D
         private void OnTriggerStay2D(Collider2D collision)
@@ -53,7 +53,7 @@ namespace DDY_GJM_23
                 // The tile that the entity entered last is the physics tile.
 
                 // Sets this as the current tile.
-                if(combatEntity.currentTiles.Contains(this))
+                if(!combatEntity.currentTiles.Contains(this))
                     combatEntity.currentTiles.Remove(this);
             }
         }
@@ -86,8 +86,8 @@ namespace DDY_GJM_23
             }
             else
             {
-                // Defaults to 1.0F
-                friction = 1.0F;
+                // 0.4F is the Unity default.
+                friction = 0.4F;
             }
 
             // Return the friction.

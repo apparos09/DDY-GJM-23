@@ -7,9 +7,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1049408204953909497, guid: 8fd0fd11b4a8f344d90bf12ecacf8704, type: 3}
+      propertyPath: physicsMaterial
+      value: 
+      objectReference: {fileID: 6200000, guid: 0f08b925dc2bdd141b50b3a3069769a3, type: 2}
     - target: {fileID: 1049408204953909502, guid: 8fd0fd11b4a8f344d90bf12ecacf8704, type: 3}
       propertyPath: m_Name
-      value: Pavement Floor Tile
+      value: Pavement Floor Tile Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1049408204953909503, guid: 8fd0fd11b4a8f344d90bf12ecacf8704, type: 3}
       propertyPath: m_RootOrder

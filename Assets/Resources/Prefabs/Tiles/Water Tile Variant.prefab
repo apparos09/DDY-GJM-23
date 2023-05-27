@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1049408204953909497, guid: 8fd0fd11b4a8f344d90bf12ecacf8704, type: 3}
+      propertyPath: isLiquid
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1049408204953909497, guid: 8fd0fd11b4a8f344d90bf12ecacf8704, type: 3}
+      propertyPath: physicsMaterial
+      value: 
+      objectReference: {fileID: 6200000, guid: 3e41726084da19b4a971aa20ff18a3c7, type: 2}
     - target: {fileID: 1049408204953909502, guid: 8fd0fd11b4a8f344d90bf12ecacf8704, type: 3}
       propertyPath: m_Name
       value: Water Tile Variant

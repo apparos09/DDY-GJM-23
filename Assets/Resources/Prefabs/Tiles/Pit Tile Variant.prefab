@@ -59,5 +59,34 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 0aa91913f6eba9543908550f171af2d9, type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1049408204953909497, guid: 8fd0fd11b4a8f344d90bf12ecacf8704, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8fd0fd11b4a8f344d90bf12ecacf8704, type: 3}
+--- !u!1 &3425458090080549944 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1049408204953909502, guid: 8fd0fd11b4a8f344d90bf12ecacf8704, type: 3}
+  m_PrefabInstance: {fileID: 2385101065400173766}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6535888075749533206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3425458090080549944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9afeda0b967654f45b00137e9c611488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collider: {fileID: 3425458090080549950}
+  physicsMaterial: {fileID: 0}
+  isLiquid: 0
+  applyDamage: 1
+  instantKill: 1
+  damageAmount: 1
+--- !u!61 &3425458090080549950 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1049408204953909496, guid: 8fd0fd11b4a8f344d90bf12ecacf8704, type: 3}
+  m_PrefabInstance: {fileID: 2385101065400173766}
+  m_PrefabAsset: {fileID: 0}

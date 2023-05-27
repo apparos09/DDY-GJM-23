@@ -1339,6 +1339,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7156013487514922400, guid: d51f5a74afa67ae46bccf3e1f48002fd, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d51f5a74afa67ae46bccf3e1f48002fd, type: 3}
 --- !u!4 &840170278 stripped
@@ -2288,6 +2292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9882c4dcfe6cd9141b2cd297c4760644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyObjectsOutside: 1
 --- !u!4 &1339661025
 Transform:
   m_ObjectHideFlags: 0

@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1049408204953909497, guid: 8fd0fd11b4a8f344d90bf12ecacf8704, type: 3}
+      propertyPath: physicsMaterial
+      value: 
+      objectReference: {fileID: 6200000, guid: 73f450486c161f64ba6380fa78adf46a, type: 2}
     - target: {fileID: 1049408204953909502, guid: 8fd0fd11b4a8f344d90bf12ecacf8704, type: 3}
       propertyPath: m_Name
       value: Grass Wall Tile Variant

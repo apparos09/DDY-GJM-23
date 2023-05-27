@@ -146,9 +146,9 @@ MonoBehaviour:
   pavementFloorA: {fileID: 2713584079012256436, guid: 1ebeba2756beaac409a4b02c50a5e4ae, type: 3}
   brickWallA: {fileID: 8572162502367700277, guid: dad633be28e490e42a9c2a0a23bdd058, type: 3}
   bridgeA: {fileID: 5260269318363341742, guid: 8db3450a3f03be2408d72949bf9f3e94, type: 3}
-  pitA: {fileID: 3425458090080549951, guid: 0ec1a9b646f7e3b439ce0cf01f545266, type: 3}
+  pitA: {fileID: 6535888075749533206, guid: 0ec1a9b646f7e3b439ce0cf01f545266, type: 3}
   waterA: {fileID: 3378801974327496830, guid: 4d808909d72281b4dbb6861067e093e0, type: 3}
-  poisonA: {fileID: 431505043536562690, guid: e14ea939c27ee9142afbaa4e71338380, type: 3}
+  poisonA: {fileID: 3496779825588946614, guid: e14ea939c27ee9142afbaa4e71338380, type: 3}
 --- !u!4 &5992016310053850263 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1373613927366872054, guid: bc91c8f283c5848468ff31891e39de68, type: 3}

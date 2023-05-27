@@ -8,12 +8,20 @@ namespace DDY_GJM_23
     // The player for the game.
     public class Player : Combatant
     {
-        // // The amoutn of lives the player has.
+        // // The amount of lives the player has.
         // public int lives = 0;
 
         public const string PLAYER_TAG = "Player";
 
-        [Header("Movement")]
+        [Header("Player")]
+
+        // Allows the player to input commands.
+        public bool enableInputs = true;
+
+        // The amount of scrap the player has on hand.
+        public int scrapCount = 0;
+
+        [Header("Player/Movement")]
 
         // The direction the player is facing.
         private Vector2 facingDirec = Vector2.down;
@@ -23,6 +31,9 @@ namespace DDY_GJM_23
 
         // The maximum movement speed.
         public float maxSpeed = 12.0F;
+
+        // The inputs for moves on a given frame.
+        private Vector2 moveInputs = Vector2.zero;
 
         // The movement keys.
         public KeyCode moveLeftKey = KeyCode.A;
@@ -34,7 +45,7 @@ namespace DDY_GJM_23
         public KeyCode attackKey = KeyCode.Space;
 
         // Weapons
-        [Header("Player Weapons")]
+        [Header("Player/Weapons")]
 
         // The current weapon of the player.
         public Weapon currentWeapon;
@@ -46,15 +57,12 @@ namespace DDY_GJM_23
         // The punch weapon.
         public Punch punch;
         public GunSingle gunSingle;
+        // public GunSingle gunSlow;
+        // public GunSingle gunFast;
 
         // The left weapon key and the right weapon key.
         public KeyCode leftWeaponKey = KeyCode.LeftArrow;
         public KeyCode rightWeaponKey = KeyCode.RightArrow;
-
-        [Header("Other")]
-
-        // The amount of scrap the player has on hand.
-        public int scrapCount = 0;
 
         // Start is called before the first frame update
         protected override void Start()
@@ -208,12 +216,12 @@ namespace DDY_GJM_23
             {
                 movement.x = 1;
             }
-            else if(Input.GetKeyUp(moveLeftKey) || Input.GetKeyUp(moveRightKey))
-            {
-                // Stop horizontal velocity.
-                Vector2 velocity = new Vector2(0, rigidbody.velocity.y);
-                rigidbody.velocity = velocity;
-            }
+            //else if(Input.GetKeyUp(moveLeftKey) || Input.GetKeyUp(moveRightKey))
+            //{
+            //    // Stop horizontal velocity.
+            //    Vector2 velocity = new Vector2(0, rigidbody.velocity.y);
+            //    rigidbody.velocity = velocity;
+            //}
 
 
             // Movement - Vertical (Up, Down)
@@ -225,12 +233,12 @@ namespace DDY_GJM_23
             {
                 movement.y = -1;
             }
-            else if (Input.GetKeyUp(moveUpKey) || Input.GetKeyUp(moveDownKey))
-            {
-                // Stop vertical velocity.
-                Vector2 velocity = new Vector2(rigidbody.velocity.x, 0);
-                rigidbody.velocity = velocity;
-            }
+            //else if (Input.GetKeyUp(moveUpKey) || Input.GetKeyUp(moveDownKey))
+            //{
+            //    // Stop vertical velocity.
+            //    Vector2 velocity = new Vector2(rigidbody.velocity.x, 0);
+            //    rigidbody.velocity = velocity;
+            //}
 
 
             // ATTACK
@@ -266,6 +274,19 @@ namespace DDY_GJM_23
 
                 // Calculates the force.
                 Vector2 force = movement * speed * Time.deltaTime;
+
+                // Averages out the friction.
+                float friction = GetAveragedFrictionFactor();
+
+                // There is friction be applied.
+                if(friction > 0)
+                {
+                    // Calculates the friction force.
+                    float fricForce = 1 / (friction);
+
+                    // Alter the player's force.
+                    force *= fricForce;
+                }
                 
                 // Uses rigidbody for movement (original) (not needed) [OLD]
                 rigidbody.AddForce(force, ForceMode2D.Impulse);
@@ -278,6 +299,9 @@ namespace DDY_GJM_23
                 // Uses transform for movement.
                 // transform.Translate(force);
             }
+
+            // Saves the inputs from the player.
+            moveInputs = movement.normalized;
 
             // WEAPON SWITCH
             // The player has weapons to switch to.
@@ -337,10 +361,63 @@ namespace DDY_GJM_23
         // Update is called once per frame
         protected override void Update()
         {
+            // The player hasn't moved yet for this frame.
+            moveInputs = Vector2.zero;
+
+            // Base update.
             base.Update();
 
             // Updates the player's inputs.
-            UpdateInputs();
+            if(enableInputs)
+            {
+                UpdateInputs();
+            }
+
+
+            // Checks if the player's velocity is not zero.
+            if (rigidbody.velocity != Vector2.zero)
+            {
+                // Checks if the player moved on a given axis.
+                bool movedX = moveInputs.x != 0;
+                bool movedY = moveInputs.y != 0;
+
+                // If the player did not move on on axis.
+                if (!movedX || !movedY)
+                {
+                    // The new velocity.
+                    Vector2 newVelocity = rigidbody.velocity;
+
+                    // Gets the resulting velocity.
+                    Vector2 result = GetVelocityWithFriction(rigidbody.velocity, rigidbody.mass);
+
+
+                    // Checks if the new velocity changed anything.
+                    if(newVelocity == rigidbody.velocity) // Did not change.
+                    {
+                        // No x-movement, so set to 0.
+                        if (!movedX)
+                            newVelocity.x = 0;
+
+                        // No y-movement, so set to 0.
+                        if (!movedY)
+                            newVelocity.y = 0;
+                    }
+                    else // Changed
+                    {
+                        // Reduce x velocity.
+                        if (!movedX && rigidbody.velocity.x != 0)
+                            newVelocity.x = result.x;
+
+                        // Reduce y velocity.
+                        if (!movedY && rigidbody.velocity.y != 0)
+                            newVelocity.y = result.y;
+                    }
+
+                    // Set the velocity.
+                    rigidbody.velocity = newVelocity;
+                }
+            }
+                
         }
     }
 }

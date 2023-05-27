@@ -104,6 +104,9 @@ MonoBehaviour:
   vulnerable: 1
   useIFrames: 1
   currentTiles: []
+  tileDamageRate: 1
+  enableInputs: 1
+  scrapCount: 0
   speed: 75
   maxSpeed: 12
   moveLeftKey: 97
@@ -117,7 +120,6 @@ MonoBehaviour:
   gunSingle: {fileID: 5650137136941329339}
   leftWeaponKey: 276
   rightWeaponKey: 275
-  scrapCount: 0
 --- !u!210 &2358840055671702735
 SortingGroup:
   m_ObjectHideFlags: 0

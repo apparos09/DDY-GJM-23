@@ -69,7 +69,7 @@ namespace DDY_GJM_23
             // Checks if there are tiles.
             if(currentTiles.Count == 0)
             {
-                friction = 1.0F;
+                friction = 0.0F;
             }
             else
             {
@@ -105,12 +105,16 @@ namespace DDY_GJM_23
         // Gets the velocity with friction applied.
         public Vector2 GetVelocityWithFriction(Vector2 inVelocity, float mass, float frictionFactor)
         {
+            // The velocity, mass or fricton are equal to 0, meaning there's nothing to slow down.
+            if (mass == 0 || frictionFactor == 0.0F || inVelocity == Vector2.zero)
+                return inVelocity;
+
             // This is modeled after the actual physics calculation.
             Vector2 outVelocity = inVelocity;
 
             // The object's mass and the gravitational force.
             float objectMass = Mathf.Abs(mass);
-            float gravity = World.GRAVITY_ACCEL;
+            float gravity = Mathf.Abs(World.GRAVITY_ACCEL);
 
             // Calculates the normal force.
             // Normal Force: mass * gravity.
@@ -118,10 +122,22 @@ namespace DDY_GJM_23
 
             // The friction being applied to the velocity.
             // Calclation: friction = friction_coefficient * normal_force.
-            float veloFriction = frictionFactor * normalForce;
+            float veloFriction = Mathf.Abs(frictionFactor) * normalForce;
 
-            // TODO: finish this calculation.
+            // Calculate the counter velocity/friction velocity.
+            Vector2 counterVelocity = -inVelocity.normalized * veloFriction;
 
+            // Checks if the velocity should now be zero.
+            if(counterVelocity.magnitude >= inVelocity.magnitude) // Set to zero.
+            {
+                outVelocity = Vector2.zero;
+            }
+            else // Don't set to zero.
+            {
+                outVelocity += counterVelocity;
+            }
+
+            // Return result.
             return outVelocity;
         }
 

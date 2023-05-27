@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -27,6 +28,13 @@ namespace DDY_GJM_23
 
         // The number of heals the player has.
         public int healCount = 0;
+
+        // The amount the player gets healed for when they use a heal item (percentage.
+        public float healAmount = 0.25F;
+
+        // The map key and heal key.
+        public KeyCode mapKey = KeyCode.UpArrow;
+        public KeyCode healKey = KeyCode.DownArrow;
 
         [Header("Player/Movement")]
 
@@ -435,6 +443,27 @@ namespace DDY_GJM_23
                     // TODO: update icon.
                 }
             }
+
+            // OTHER //
+
+            // Heal
+            if (Input.GetKeyDown(healKey))
+            {
+                // If the player has heals, reduce the count and increase their health.
+                if(healCount > 0)
+                {
+                    healCount--;
+                    health += maxHealth * healAmount;
+                }
+            }
+
+            // Toggle Map
+            if (Input.GetKeyDown(mapKey))
+            {
+                GameplayManager.Instance.ToggleMap();
+            }
+           
+            
         }
 
         // Update is called once per frame

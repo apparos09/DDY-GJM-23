@@ -14,10 +14,10 @@ namespace DDY_GJM_23
         public List<string> targetTags = new List<string>();
 
         // The movement speed of the bullet. Bullets travel at a FIXED speed.
-        public float speed = 1.0F;
+        public float speed = 50.0F;
 
         // The maximum speed of the bullet.
-        public float maxSpeed = 10.0F;
+        public float maxSpeed = 50.0F;
 
         // The amount of damage the bullet does upon contact.
         public float power = 1.0F;

@@ -50,7 +50,7 @@ namespace DDY_GJM_23
         void Update()
         {
             // Formats the timer and displays it on screen.
-            if (!gameManager.pausedTimer)
+            if (!gameManager.pausedTimers)
                 timerText.text = gameManager.GetTimerFormatted();
         }
     }

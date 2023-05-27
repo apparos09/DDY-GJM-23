@@ -7,6 +7,12 @@ namespace DDY_GJM_23
     // A tile the player and enemies travel over.
     public class WorldTile : MonoBehaviour
     {
+        // The type of the tile.
+        public enum tileType { none, grass, metal, pavement, brick, bridge, pit, water, poison };
+
+        // The type of the world tile.
+        public tileType type;
+
         // The collider for the floor tile.
         public new BoxCollider2D collider;
 

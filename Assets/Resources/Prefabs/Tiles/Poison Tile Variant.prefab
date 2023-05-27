@@ -84,6 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9afeda0b967654f45b00137e9c611488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 8
   collider: {fileID: 431505043536562691}
   physicsMaterial: {fileID: 6200000, guid: 4fdbd4beeba63394bb562a4bf6ba19c0, type: 2}
   isLiquid: 1

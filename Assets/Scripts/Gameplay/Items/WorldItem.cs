@@ -8,10 +8,11 @@ namespace DDY_GJM_23
     public abstract class WorldItem : AreaEntity
     {
         // Item identification.
-        public enum itemId { none, scrap, weapon };
+        public enum itemId { none, scrap, weapon, key, health };
 
         // The id of the world item.
-        public itemId id;
+        [HideInInspector]
+        protected itemId id;
 
         // Destroys the item upon being gotten by the player.
         [Tooltip("Destroys the item upon it being received if true. Disables the object if false.")]
@@ -43,6 +44,12 @@ namespace DDY_GJM_23
                 // Give the player the item.
                 GiveItem();   
             }
+        }
+
+        // Returns the item ID.
+        public itemId Id
+        {
+            get { return id; }
         }
 
 

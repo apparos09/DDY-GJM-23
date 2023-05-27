@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1049408204953909496, guid: 8fd0fd11b4a8f344d90bf12ecacf8704, type: 3}
+      propertyPath: m_Size.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1049408204953909496, guid: 8fd0fd11b4a8f344d90bf12ecacf8704, type: 3}
+      propertyPath: m_Size.y
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 1049408204953909502, guid: 8fd0fd11b4a8f344d90bf12ecacf8704, type: 3}
       propertyPath: m_Name
       value: Pit Tile Variant
@@ -79,6 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9afeda0b967654f45b00137e9c611488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 6
   collider: {fileID: 3425458090080549950}
   physicsMaterial: {fileID: 0}
   isLiquid: 0

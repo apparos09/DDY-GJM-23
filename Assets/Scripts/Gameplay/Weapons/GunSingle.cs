@@ -14,27 +14,17 @@ namespace DDY_GJM_23
         // The pool for the bullets.
         // public Queue<Bullet> bulletPool;
 
-        // Awake is called when the script is being loaded
-        protected override void Awake()
-        {
-            base.Awake();
-
-            weapon = weaponType.gunMid;
-            infiniteUse = false;
-
-            // I the maximum amount of uses hasn't been set, give it a default value.
-            if(maxUses == -1)
-            {
-                maxUses = 100;
-                uses = maxUses;
-            }
-        }
-
-        // Start is called before the first frame update
-        protected override void Start()
-        {
-            base.Start();
-        }
+        // // Awake is called when the script is being loaded
+        // protected override void Awake()
+        // {
+        //     base.Awake();
+        // }
+        // 
+        // // Start is called before the first frame update
+        // protected override void Start()
+        // {
+        //     base.Start();
+        // }
 
         // Use the weapon.
         public override void UseWeapon()

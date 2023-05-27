@@ -39,8 +39,11 @@ namespace DDY_GJM_23
         // The game timer (in seconds) - 5 Minutes (300 Seconds)
         public float timer = 300.0F;
 
-        // Pauses the timer if set to 'true'.
-        public bool pausedTimer = false;
+        // The amoutn of time that has passed since the game has started.
+        public float elapsedGameTime = 0.0F;
+
+        // Pauses the timers if set to 'true'.
+        public bool pausedTimers = false;
 
         // Constructor
         private GameplayManager()
@@ -131,7 +134,39 @@ namespace DDY_GJM_23
                 return initialized;
             }
         }
+        
+        // WINDOWS
+        // Opens the game map.
+        public void OpenMap()
+        {
+            // TODO: implement
+        }
+        
+        // Closes the game map.
+        public void CloseMap()
+        {
+            // TODO: implement.
+        }
 
+        public void ToggleMap()
+        {
+            // TODO: implement.
+        }
+
+        // Opens the game map.
+        public void OpenSettings()
+        {
+            // ...
+        }
+
+        // Close the game settings.
+        public void CloseSettings()
+        {
+            // ...
+        }
+
+
+        // TIME
         // Returns the game timer, formatted.
         public string GetTimerFormatted(bool roundUp = true)
         {
@@ -196,7 +231,7 @@ namespace DDY_GJM_23
         void Update()
         {
             // The timer isn't paused.
-            if(!pausedTimer)
+            if(!pausedTimers)
             {
                 // Time remaining.
                 if(timer > 0.0F)
@@ -214,6 +249,9 @@ namespace DDY_GJM_23
                         OnTimeOver();
                     }
                 }
+
+                // Add to the game time.
+                elapsedGameTime += Time.deltaTime;
             }
         }
     }

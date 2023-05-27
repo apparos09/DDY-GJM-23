@@ -24,39 +24,39 @@ namespace DDY_GJM_23
                 collider = GetComponent<BoxCollider2D>();
         }
 
-        //// TODO: do I need this and stay?
-        //// TriggerEnter2D
-        //private void OnTriggerEnter2D(Collider2D collision)
-        //{
-        //    // Checks for a combat entity.
-        //    Combatant combatEntity = null;
-
-        //    // Checks if the collision object is a combat entity.
-        //    if(collision.TryGetComponent(out combatEntity))
-        //    {
-        //        // Sets this as the current tile.
-        //        if(!combatEntity.currentTiles.Contains(this))
-        //            combatEntity.currentTiles.Add(this);
-        //    }
-        //}
-
-        // OnTriggerStay2D
-        private void OnTriggerStay2D(Collider2D collision)
+        // TriggerEnter2D - Add tile to list.
+        private void OnTriggerEnter2D(Collider2D collision)
         {
             // Checks for a combat entity.
             Combatant combatEntity = null;
 
             // Checks if the collision object is a combat entity.
-            if (collision.TryGetComponent(out combatEntity))
+            if(collision.TryGetComponent(out combatEntity))
             {
-                // This is meant to address problems where the entity is standing on multiple tiles at once.
-                // The tile that the entity entered last is the physics tile.
-
                 // Sets this as the current tile.
                 if(!combatEntity.currentTiles.Contains(this))
-                    combatEntity.currentTiles.Remove(this);
+                    combatEntity.currentTiles.Add(this);
             }
         }
+
+        // FIXME: why did I do this?
+        // // OnTriggerStay2D
+        // private void OnTriggerStay2D(Collider2D collision)
+        // {
+        //     // Checks for a combat entity.
+        //     Combatant combatEntity = null;
+        // 
+        //     // Checks if the collision object is a combat entity.
+        //     if (collision.TryGetComponent(out combatEntity))
+        //     {
+        //         // This is meant to address problems where the entity is standing on multiple tiles at once.
+        //         // The tile that the entity entered last is the physics tile.
+        // 
+        //         // Sets this as the current tile.
+        //         if(!combatEntity.currentTiles.Contains(this))
+        //             combatEntity.currentTiles.Add(this);
+        //     }
+        // }
 
         // TriggerExit2D
         private void OnTriggerExit2D(Collider2D collision)

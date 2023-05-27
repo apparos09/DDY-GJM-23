@@ -71,6 +71,12 @@ namespace DDY_GJM_23
             return result;
         }
 
+        // Set the combatant to max health.
+        public void SetToMaxHealth()
+        {
+            health = maxHealth;
+        }
+
         // Reduces the combatant's entity.
         public void ApplyDamage(float damage)
         {

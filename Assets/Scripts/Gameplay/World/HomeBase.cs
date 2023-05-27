@@ -36,6 +36,9 @@ namespace DDY_GJM_23
                 // Add to the scrap total.
                 gameManager.scrapsTotal += gameManager.player.scrapCount;
                 gameManager.player.scrapCount = 0;
+
+                // Heal player.
+                gameManager.player.SetToMaxHealth();
             }
         }
 

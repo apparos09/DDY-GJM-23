@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.UI;
 
 namespace DDY_GJM_23
 {
@@ -18,7 +20,51 @@ namespace DDY_GJM_23
         // The results data.
         public ResultsData results;
 
-        // [Header("UI")]
+        [Header("UI")]
+
+        // The text for showing if the player lived.
+        public TMP_Text survivedText;
+
+        // The text for showing the amount of player deaths.
+        public TMP_Text deathsText;
+
+        // The text for showing the player's end scrap count.
+        public TMP_Text scrapsTotalText;
+
+        // The text for showing the amount of times the player visited the base.
+        public TMP_Text baseVisitsTex;
+
+        // Number of heals used by the player.
+        public TMP_Text healthItemsUsed;
+
+        // The number of keys used by the player.
+        public TMP_Text keysUsedText;
+
+        // The text for showing how long the game went on for.
+        public TMP_Text gameLengthText;
+
+        [Header("UI/Weapons")]
+
+        // The color for an active icon (got item).
+        public Color activeColor = Color.white;
+
+        // The color for an inactive icon (didn't get item).
+        public Color inactiveColor = Color.grey;
+
+        // The gun slow icon.
+        public Image gunSlowIcon;
+
+        // The gun mid icon.
+        public Image gunMidIcon;
+
+        // The gun fast icon.
+        public Image gunFastIcon;
+
+        // The run upgrade icon.
+        public Image runUpgradeIcon;
+
+        // The swim upgrade icon.
+        public Image swimUpgradeIcon;
 
         // Constructor
         private ResultsManager()
@@ -98,7 +144,31 @@ namespace DDY_GJM_23
         // Loads the results.
         public void LoadResults()
         {
-            // ...
+            // Survive
+            survivedText.text = (results.survived) ? "You survived!" : "You did not survive!";
+            
+            // Deaths
+            deathsText.text = "Deaths: " + results.deaths;
+
+            // Scraps
+            scrapsTotalText.text = "Scraps Collected: " + results.scrapsTotal.ToString();
+
+            // Base Visits
+            baseVisitsTex.text = "Home Base Visits: " + results.baseVisits.ToString();
+
+            // The number of heal items used.
+            healthItemsUsed.text = "Heals Used: " + results.healthItemsUsed.ToString();
+
+            // The number of keys used.
+            keysUsedText.text = "Keys Used: " + results.keysUsed.ToString();
+            
+            gunSlowIcon.color = results.gotGunSlow ? activeColor : inactiveColor;
+            gunMidIcon.color = results.gotGunMid ? activeColor : inactiveColor;
+            gunFastIcon.color = results.gotGunFast ? activeColor : inactiveColor;
+            
+            runUpgradeIcon.color = results.gotRunUpgrade ? activeColor : inactiveColor;
+            swimUpgradeIcon.color = results.gotSwimUpgrade ? activeColor : inactiveColor;
+
 
             // Destroys the results game object.
             Destroy(results.gameObject);
@@ -108,12 +178,6 @@ namespace DDY_GJM_23
         public void ToTitleScene()
         {
             SceneManager.LoadScene("TitleScene");
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
     }
 }

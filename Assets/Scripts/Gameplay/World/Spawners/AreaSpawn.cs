@@ -10,6 +10,10 @@ namespace DDY_GJM_23
         // The position offset of the spawned enemy.
         public Vector3 posOffset = Vector3.zero;
 
+        // TODO: add timer so that spawners don't repswn things instantly.
+        // public float time;
+
+
         // Start is called before the first frame update
         private void Start()
         {

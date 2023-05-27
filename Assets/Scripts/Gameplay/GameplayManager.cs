@@ -183,7 +183,7 @@ namespace DDY_GJM_23
             ResultsData results = resultsObject.AddComponent<ResultsData>();
 
             // Sets if the player was alive or not.
-            results.playerAlive = inBase;
+            results.survived = inBase;
 
             // Scrap count.
             results.scrapsTotal = scrapsTotal;

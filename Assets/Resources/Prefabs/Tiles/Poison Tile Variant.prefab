@@ -89,4 +89,4 @@ MonoBehaviour:
   isLiquid: 1
   applyDamage: 1
   instantKill: 0
-  damageAmount: 1
+  damageAmount: 3

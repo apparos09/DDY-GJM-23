@@ -34,11 +34,11 @@ namespace DDY_GJM_23
         // The text for showing the amount of times the player visited the base.
         public TMP_Text baseVisitsTex;
 
-        // Number of heals used by the player.
-        public TMP_Text healthItemsUsed;
-
         // The number of keys used by the player.
         public TMP_Text keysUsedText;
+
+        // Number of heals used by the player.
+        public TMP_Text healthItemsUsed;
 
         // The text for showing how long the game went on for.
         public TMP_Text gameLengthText;
@@ -156,11 +156,11 @@ namespace DDY_GJM_23
             // Base Visits
             baseVisitsTex.text = "Home Base Visits: " + results.baseVisits.ToString();
 
-            // The number of heal items used.
-            healthItemsUsed.text = "Heals Used: " + results.healthItemsUsed.ToString();
-
             // The number of keys used.
             keysUsedText.text = "Keys Used: " + results.keysUsed.ToString();
+
+            // The number of heal items used.
+            healthItemsUsed.text = "Heals Used: " + results.healthItemsUsed.ToString();
             
             gunSlowIcon.color = results.gotGunSlow ? activeColor : inactiveColor;
             gunMidIcon.color = results.gotGunMid ? activeColor : inactiveColor;

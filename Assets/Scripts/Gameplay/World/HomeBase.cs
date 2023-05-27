@@ -38,7 +38,7 @@ namespace DDY_GJM_23
                 gameManager.player.scrapCount = 0;
 
                 // Heal player.
-                gameManager.player.SetToMaxHealth();
+                gameManager.player.SetHealthToMax();
             }
         }
 

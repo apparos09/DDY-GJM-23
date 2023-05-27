@@ -22,6 +22,12 @@ namespace DDY_GJM_23
         // The amount of scrap the player has on hand.
         public int scrapCount = 0;
 
+        // The number of keys the player has.
+        public int keyCount = 0;
+
+        // The number of heals the player has.
+        public int healCount = 0;
+
         [Header("Player/Movement")]
 
         // The direction the player is facing.
@@ -67,9 +73,15 @@ namespace DDY_GJM_23
 
         // The punch weapon.
         public Punch punch;
-        public GunSingle gunSingle;
-        // public GunSingle gunSlow;
-        // public GunSingle gunFast;
+        
+        // The slow gun.
+        public GunSingle gunSlow;
+
+        // The mid gun.
+        public GunSingle gunMid;
+
+        // The fast gun.
+        public GunSingle gunFast;
 
         // The left weapon key and the right weapon key.
         public KeyCode leftWeaponKey = KeyCode.LeftArrow;
@@ -80,15 +92,10 @@ namespace DDY_GJM_23
         {
             base.Start();
 
-
             // Finding weapons
             // Punch
             if (punch == null)
-                punch = FindObjectOfType<Punch>(true);
-
-            // Gun (Single Shot)
-            if (gunSingle == null)
-                gunSingle = FindObjectOfType<GunSingle>(true);
+                punch = GetComponentInChildren<Punch>(true);
 
 
             // Adds the punch weapon to the list.
@@ -158,7 +165,7 @@ namespace DDY_GJM_23
             // Checks the type of weapon to add.
             switch(type)
             {
-                case Weapon.weaponType.punch:
+                case Weapon.weaponType.punch: // Punch
 
                     // Put the gun single in the list.
                     if (!weapons.Contains(punch))
@@ -170,18 +177,43 @@ namespace DDY_GJM_23
                     
                     break;
 
-                case Weapon.weaponType.gunSingle:
+                case Weapon.weaponType.gunSlow: // Slow Gun
+                case Weapon.weaponType.gunMid: // Mid Gun
+                case Weapon.weaponType.gunFast: // Fast Gun
 
-                    // Put the gun single in the list.
-                    if (!weapons.Contains(gunSingle))
+                    // The gun object.
+                    GunSingle gun = null;
+
+                    // Checks the type of gun being used.
+                    switch(type)
                     {
-                        weapons.Add(gunSingle);
-                        gunSingle.owner = this;
+                        case Weapon.weaponType.gunSlow:
+                            gun = gunSlow;
+                            break;
+
+                        case Weapon.weaponType.gunMid:
+                            gun = gunMid;
+                            break;
+
+                        case Weapon.weaponType.gunFast:
+                            gun = gunFast;
+                            break;
                     }
-                    else
+
+                    // Put the gun in the list if it exists.
+                    if(gun != null)
                     {
-                        gunSingle.RestoreUsesToMax();
+                        // The gun isn't in the list, so add it.
+                        if (!weapons.Contains(gun))
+                        {
+                            weapons.Add(gun);
+                            gun.owner = this;
+                        }
+
+                        // Give the gun its max bullet count.
+                        gun.RestoreUsesToMax();
                     }
+                    
 
                     break;
             }
@@ -193,10 +225,10 @@ namespace DDY_GJM_23
             // Checks the type of weapon to remove.
             switch (type)
             {
-                case Weapon.weaponType.gunSingle:
+                case Weapon.weaponType.gunMid:
                     // Remove gun single from the list.
-                    if (weapons.Contains(gunSingle))
-                        weapons.Remove(gunSingle);
+                    if (weapons.Contains(gunMid))
+                        weapons.Remove(gunMid);
 
                     break;
             }
@@ -206,7 +238,21 @@ namespace DDY_GJM_23
         // On the death of the player.
         protected override void OnDeath()
         {
-            throw new System.NotImplementedException();
+            // The player loses all their scraps.
+            scrapCount = 0;
+
+            // Gets the gameplay manager.
+            GameplayManager gameManager = GameplayManager.Instance;
+
+            // The home base has been set, so go to it.
+            if(gameManager.homeBase != null)
+            {
+                // Set to max health.
+                SetHealthToMax();
+
+                // Return to home base.
+                transform.position = gameManager.homeBase.transform.position;
+            }
         }
 
         // Updates the inputs for the player.
@@ -259,7 +305,6 @@ namespace DDY_GJM_23
                 // Uses the weapon.
                 if (currentWeapon != null)
                 {
-                    
                     // Checks if the weapon is usable.
                     if (currentWeapon.IsUsable())
                     {
@@ -309,7 +354,7 @@ namespace DDY_GJM_23
                     // The speeds are set.
                     if (maxRunSpeed != 0 && maxSwimSpeed != 0)
                     {
-                        int runTiles = GetNonLiquidTileCount();
+                        int runTiles = GetSolidTileCount();
                         int swimTiles = GetLiquidTileCount();
 
                         // Calculates the mixed speed.

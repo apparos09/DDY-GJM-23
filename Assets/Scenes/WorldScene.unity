@@ -1863,6 +1863,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5650137135599239528, guid: 94f44f6a98387084fbd1e685634f7d3b, type: 3}
+      propertyPath: tileDamageRate
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 5650137135599239529, guid: 94f44f6a98387084fbd1e685634f7d3b, type: 3}
       propertyPath: m_Name
       value: Player

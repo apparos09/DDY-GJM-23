@@ -38,7 +38,7 @@ namespace DDY_GJM_23
         public List<WorldTile> currentTiles = new List<WorldTile>();
 
         // The rate at which damage is applied by tiles.
-        public float tileDamageRate = 1.0F;
+        public float tileDamageRate = 0.25F;
 
         // A timer that counts down to apply damage.
         private float tileDamageTimer = 0.0F;
@@ -61,7 +61,7 @@ namespace DDY_GJM_23
 
         // TILES
         // Gets the number of non-liquid tiles being touched.
-        public int GetNonLiquidTileCount()
+        public int GetSolidTileCount()
         {
             // The count.
             int count = 0;
@@ -216,13 +216,14 @@ namespace DDY_GJM_23
         }
 
         // Set the combatant to max health.
-        public void SetToMaxHealth()
+        public void SetHealthToMax()
         {
             health = maxHealth;
         }
 
         // Reduces the combatant's entity.
-        public void ApplyDamage(float damage)
+        // If 'triggerIFrames' is true, the damage gives the entity invincibility frames.
+        public void ApplyDamage(float damage, bool triggerIFrames = true)
         {
             // The entity can't be damaged because they're invincible.
             if (!IsVulnerable())
@@ -239,7 +240,7 @@ namespace DDY_GJM_23
             if(health > 0)
             {
                 // Sets the invincibility timer if the combatant has invincibility frames.
-                if(useIFrames)
+                if(useIFrames && triggerIFrames)
                     iFrameTimer = I_FRAME_TIME_MAX;
             }
             // Called to handle death mechanics.
@@ -314,8 +315,8 @@ namespace DDY_GJM_23
                             // Gets the damage.
                             float damage = ((DamageTile)currentTiles[i]).GetDamage();
 
-                            // Applies the damage.
-                            ApplyDamage(damage);
+                            // Applies the damage, but doesn't give invincibility frames.
+                            ApplyDamage(damage, false);
 
                             // Mark as damaged, and set the tile damage timer.
                             damaged = true;

@@ -19,11 +19,11 @@ namespace DDY_GJM_23
         // The amount of times the base was visited.
         public int baseVisits = -1;
 
-        // Number of health packs used (does not include base visits).
-        public int healthItemsUsed = -1;
-
         // Number of keys used.
         public int keysUsed = -1;
+
+        // Number of health packs used (does not include base visits).
+        public int healthItemsUsed = -1;
 
         // The session length.
         public float gameLength = -1;

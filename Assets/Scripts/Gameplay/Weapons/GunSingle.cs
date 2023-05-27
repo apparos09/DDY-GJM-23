@@ -19,7 +19,7 @@ namespace DDY_GJM_23
         {
             base.Awake();
 
-            weapon = weaponType.gunSingle;
+            weapon = weaponType.gunMid;
             infiniteUse = false;
 
             // I the maximum amount of uses hasn't been set, give it a default value.
@@ -51,6 +51,7 @@ namespace DDY_GJM_23
             // TODO: calculate the rotation properly for where the player should be facing.
 
             // Set bullet's rotation for its direction.
+            // TODO: is this working?
             newBullet.transform.eulerAngles = new Vector3(0, 0, owner.GetFacingDirectionAsRotation());
         }
 

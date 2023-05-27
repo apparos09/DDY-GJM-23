@@ -1,5 +1,107 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4014734100502737726
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4062081614067634240}
+  - component: {fileID: 5298405603865868510}
+  m_Layer: 0
+  m_Name: Gun (Fast)
+  m_TagString: Weapon
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4062081614067634240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4014734100502737726}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5650137136629154269}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5298405603865868510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4014734100502737726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a4881b8f363cee469e4bbdd8b4de131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 5650137135599239528}
+  power: 10
+  uses: 10
+  maxUses: 10
+  infiniteUse: 0
+  canMoveAndAttack: 1
+  bulletPrefab: {fileID: 1814850081724763963, guid: ea6bc090f3de74741a6d3da19fbd7691, type: 3}
+--- !u!1 &4710680649803848083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3303395443287692655}
+  - component: {fileID: 8157515129210244798}
+  m_Layer: 0
+  m_Name: Gun (Slow)
+  m_TagString: Weapon
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3303395443287692655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4710680649803848083}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5650137136629154269}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8157515129210244798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4710680649803848083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a4881b8f363cee469e4bbdd8b4de131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  owner: {fileID: 5650137135599239528}
+  power: 10
+  uses: 10
+  maxUses: 10
+  infiniteUse: 0
+  canMoveAndAttack: 1
+  bulletPrefab: {fileID: 3776589357268495490, guid: 64d578d3d3d262147a6606982c79a59a, type: 3}
 --- !u!1 &5650137135599239529
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,9 +206,11 @@ MonoBehaviour:
   vulnerable: 1
   useIFrames: 1
   currentTiles: []
-  tileDamageRate: 1
+  tileDamageRate: 0.25
   enableInputs: 1
   scrapCount: 0
+  keyCount: 0
+  healCount: 0
   speed: 75
   maxSpeed: 12
   maxRunSpeed: 12
@@ -118,8 +222,10 @@ MonoBehaviour:
   attackKey: 32
   currentWeapon: {fileID: 0}
   weapons: []
-  punch: {fileID: 0}
-  gunSingle: {fileID: 5650137136941329339}
+  punch: {fileID: 5650137136764054803}
+  gunSlow: {fileID: 8157515129210244798}
+  gunMid: {fileID: 5650137136941329339}
+  gunFast: {fileID: 5298405603865868510}
   leftWeaponKey: 276
   rightWeaponKey: 275
 --- !u!210 &2358840055671702735
@@ -330,7 +436,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5650137136764054814}
+  - {fileID: 3303395443287692655}
   - {fileID: 5650137136941329338}
+  - {fileID: 4062081614067634240}
   m_Father: {fileID: 5650137135599239533}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -446,7 +554,7 @@ GameObject:
   - component: {fileID: 5650137136941329338}
   - component: {fileID: 5650137136941329339}
   m_Layer: 0
-  m_Name: Gun (Single)
+  m_Name: Gun (Mid)
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -465,7 +573,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5650137136629154269}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5650137136941329339
 MonoBehaviour:
@@ -485,4 +593,4 @@ MonoBehaviour:
   maxUses: 10
   infiniteUse: 0
   canMoveAndAttack: 1
-  bulletPrefab: {fileID: 7641477488848020688, guid: 76da58c510e353f4d880578c7a98646f, type: 3}
+  bulletPrefab: {fileID: 7872821300507037275, guid: 1746c163379c04842be0e9829cfc829b, type: 3}

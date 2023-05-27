@@ -17,7 +17,7 @@ namespace DDY_GJM_23
         public bool instantKill = false;
 
         // The amount of damage applied by this tile.
-        public float damageAmount = 1.0F;
+        public float damageAmount = 3.0F;
 
         // Gets the damage amount.
         public float GetDamage()

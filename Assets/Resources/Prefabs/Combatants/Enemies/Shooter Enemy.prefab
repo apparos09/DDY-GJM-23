@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1269456625271267572}
   - component: {fileID: 1269456625271267573}
   - component: {fileID: 1269456625271267570}
+  - component: {fileID: -4319830648393448814}
   m_Layer: 0
   m_Name: Shooter Enemy
   m_TagString: Enemy
@@ -111,6 +112,17 @@ MonoBehaviour:
   bulletPrefab: {fileID: 81991851382654437, guid: 4efa8d2cf647d624ab8506175930d200, type: 3}
   fireRate: 5
   fireTimer: 0
+--- !u!210 &-4319830648393448814
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269456625271267571}
+  m_Enabled: 1
+  m_SortingLayerID: -1762116483
+  m_SortingLayer: 4
+  m_SortingOrder: 1
 --- !u!1 &1269456626381803361
 GameObject:
   m_ObjectHideFlags: 0

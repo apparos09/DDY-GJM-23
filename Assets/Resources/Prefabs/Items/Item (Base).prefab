@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6893523645976286734}
   - component: {fileID: 6893523645976286737}
+  - component: {fileID: 5464270091057734364}
   m_Layer: 0
   m_Name: Item (Base)
   m_TagString: Item
@@ -133,3 +134,14 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
+--- !u!210 &5464270091057734364
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6893523645976286736}
+  m_Enabled: 1
+  m_SortingLayerID: -1895296425
+  m_SortingLayer: 3
+  m_SortingOrder: 0

@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 8438912072705579383}
   - component: {fileID: 8438912072705579382}
   - component: {fileID: 8438912072705579381}
+  - component: {fileID: 1629710225085942148}
   m_Layer: 0
   m_Name: Chaser Enemy
   m_TagString: Enemy
@@ -196,3 +197,14 @@ MonoBehaviour:
   seekSpeed: 7
   maxSpeed: 7
   seekDist: 30
+--- !u!210 &1629710225085942148
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8438912072705579380}
+  m_Enabled: 1
+  m_SortingLayerID: -1762116483
+  m_SortingLayer: 4
+  m_SortingOrder: 1

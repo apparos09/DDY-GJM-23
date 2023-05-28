@@ -288,6 +288,27 @@ namespace DDY_GJM_23
             }
         }
 
+        // Sets the weapon using the provided index. Sets weapon to null if index is invalid.
+        public void SetWeapon(int index)
+        {
+            // Valid index.
+            if(index >= 0 && index < weapons.Count) 
+            {
+                currentWeapon = weapons[index];
+            }
+            else
+            {
+                currentWeapon = null;
+            }
+
+            // Grabs game UI.
+            GameplayUI gameUI = GameplayManager.Instance.gameUI;
+
+            // Update the weapon.
+            if (gameUI != null)
+                gameUI.UpdateWeaponInfo();
+        }
+
 
         // On the death of the player.
         protected override void OnDeath()
@@ -484,9 +505,7 @@ namespace DDY_GJM_23
                     }
 
                     // Set the current weapon.
-                    currentWeapon = weapons[newIndex];
-
-                    // TODO: update icon.
+                    SetWeapon(newIndex);
                 }
             }
 

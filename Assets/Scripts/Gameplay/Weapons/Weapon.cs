@@ -14,7 +14,7 @@ namespace DDY_GJM_23
         public Player owner;
 
         // The type of the weapon.
-        protected weaponType weapon = weaponType.none;
+        public weaponType weapon = weaponType.none;
 
         // The power of the weapon.
         public float power = 10.0F;
@@ -67,6 +67,20 @@ namespace DDY_GJM_23
 
         // Uses the weapon.
         public abstract void UseWeapon();
+
+        // Called when a weapon was used.
+        public void OnUseWeapon(int timesUsed)
+        {
+            // Not infinite use, so reduce uses count.
+            if (!infiniteUse)
+            {
+                uses -= timesUsed;
+
+                // Uses now zero.
+                if (uses < 0)
+                    uses = 0;
+            }
+        }
 
 
         // Update is called once per frame

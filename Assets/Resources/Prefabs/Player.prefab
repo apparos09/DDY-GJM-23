@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 5650137135599239528}
+  weapon: 4
   power: 10
   uses: 10
   maxUses: 10
@@ -96,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 5650137135599239528}
+  weapon: 2
   power: 10
   uses: 10
   maxUses: 10
@@ -205,12 +207,17 @@ MonoBehaviour:
   maxHealth: 100
   vulnerable: 1
   useIFrames: 1
+  flying: 0
+  poisonImmune: 0
   currentTiles: []
   tileDamageRate: 0.25
   enableInputs: 1
   scrapCount: 0
   keyCount: 0
   healCount: 0
+  healsCount: 0.25
+  mapKey: 273
+  healKey: 274
   speed: 75
   maxSpeed: 12
   maxRunSpeed: 12
@@ -490,6 +497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 5650137135599239528}
+  weapon: 1
   power: 10
   uses: 0
   maxUses: 10
@@ -588,6 +596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 5650137135599239528}
+  weapon: 3
   power: 10
   uses: 10
   maxUses: 10

@@ -57,19 +57,24 @@ namespace DDY_GJM_23
         // Try to damage the hit entity.
         private void OnColliderInteract(GameObject other)
         {
-            // The combatant.
-            Combatant combatant;
-
-            // Tries to grab a combatant component.
-            if(other.TryGetComponent(out combatant))
+            // Valid tags.
+            if(targetTags.Count == 0 || targetTags.Contains(other.tag))
             {
-                // Applies the damage.
-                combatant.ApplyDamage(power);
+                // The combatant.
+                Combatant combatant;
 
-                // If the bullet shouldn't pass through the combatant, destroy it.
-                if (!passThrough)
-                    Kill();
+                // Tries to grab a combatant component.
+                if (other.TryGetComponent(out combatant))
+                {
+                    // Applies the damage.
+                    combatant.ApplyDamage(power);
+
+                    // If the bullet shouldn't pass through the combatant, destroy it.
+                    if (!passThrough)
+                        Kill();
+                }
             }
+            
         }
         
         // Returns the bullet direction.

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using util;
 
 namespace DDY_GJM_23
 {
@@ -11,6 +12,12 @@ namespace DDY_GJM_23
     {
         // The gameplay manager.
         public GameplayManager gameManager;
+
+        // Automatically updates the player's health.
+        public bool autoHealthUpdate = true;
+
+        // Automatically updates the weapon uses.
+        public bool autoWeaponUsesUpdate = true;
 
         [Header("HUD")]
         // The timer text.
@@ -24,6 +31,9 @@ namespace DDY_GJM_23
 
         // The number of heals the player has.
         public TMP_Text healsText;
+
+        // The player health bar.
+        public ProgressBar healthBar;
 
         [Header("HUD/Weapons")]
 
@@ -62,7 +72,7 @@ namespace DDY_GJM_23
         void Start()
         {
             // Grabs the gameplay manager instance.
-            if(gameManager == null)
+            if (gameManager == null)
                 gameManager = GameplayManager.Instance;
         }
 
@@ -104,7 +114,7 @@ namespace DDY_GJM_23
             Weapon weapon = gameManager.player.currentWeapon;
 
             // Weapon set.
-            if(weapon != null)
+            if (weapon != null)
             {
                 // Set icon to white color.
                 weaponImage.color = Color.white;
@@ -146,10 +156,10 @@ namespace DDY_GJM_23
 
 
                 // Set the ammo count.
-                if(weapon.infiniteUse)
+                if (weapon.infiniteUse)
                 {
                     usesText.text = "-";
-                }   
+                }
                 else
                 {
                     usesText.text = weapon.uses.ToString();
@@ -161,7 +171,7 @@ namespace DDY_GJM_23
                 weaponImage.color = new Color(0, 0, 0, 0);
                 usesText.text = "-";
             }
-            
+
         }
 
         // Update is called once per frame
@@ -172,7 +182,7 @@ namespace DDY_GJM_23
                 timerText.text = gameManager.GetTimerFormatted();
 
             // Update scrap count.
-            if(gameManager.scrapsTotal.ToString() != scrapsText.text)
+            if (gameManager.scrapsTotal.ToString() != scrapsText.text)
                 scrapsText.text = gameManager.scrapsTotal.ToString();
 
             // Update key count.
@@ -184,7 +194,19 @@ namespace DDY_GJM_23
                 healsText.text = gameManager.player.healCount.ToString();
 
 
+            // Player Health Update
+            if (autoHealthUpdate)
+            {
+                float healthPercent = gameManager.player.GetHealthAsPercentage();
+
+                // The amoutns are different.
+                if(healthPercent != healthBar.GetValueAsPercentage())
+                healthBar.SetValue(healthPercent);
+            }
+
+
             // Weapon Uses Update
+            if (autoWeaponUsesUpdate)
             {
                 // The weapon.
                 Weapon weapon = gameManager.player.currentWeapon;
@@ -203,7 +225,7 @@ namespace DDY_GJM_23
                     }
                 }
             }
-            
+
         }
     }
 }

@@ -7,8 +7,14 @@ namespace DDY_GJM_23
     // A gun that fires a single shot.
     public class GunSingle : Weapon
     {
+        [Header("Gun (Single)")]
+
         // The prefab for the bullet.
+        // Gun power is multiplied by the bullet's power.
         public Bullet bulletPrefab;
+
+        // If 'true', the bullet's power is multiplied by the gun's power.
+        public bool multBulletPowerByGunPower = true;
 
         // TODO: set up bullet pool.
         // The pool for the bullets.
@@ -29,10 +35,17 @@ namespace DDY_GJM_23
         // Use the weapon.
         public override void UseWeapon()
         {
+            // Weapon can't be used.
+            if (!IsUsable())
+                return;
+
             // TODO: use bullet pool.
 
             // Generates a new bullet.
             Bullet newBullet = Instantiate(bulletPrefab);
+
+            // Multiplies the power of the bullet by the gun's power.
+            newBullet.power *= power;
 
             // Give base position.
             newBullet.transform.position = owner.transform.position;
@@ -43,6 +56,9 @@ namespace DDY_GJM_23
             // Set bullet's rotation for its direction.
             // TODO: is this working?
             newBullet.transform.eulerAngles = new Vector3(0, 0, owner.GetFacingDirectionAsRotation());
+
+            // Called when the weapon was used.
+            OnUseWeapon(1);
         }
 
         // Update is called once per frame

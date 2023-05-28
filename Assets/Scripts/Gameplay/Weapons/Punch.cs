@@ -20,8 +20,6 @@ namespace DDY_GJM_23
         {
             base.Awake();
 
-            weapon = weaponType.punch;
-
             uses = -1;
             maxUses = -1;
             infiniteUse = true;
@@ -104,6 +102,9 @@ namespace DDY_GJM_23
 
             // Plays the punch animation.
             animator.Play("Punch");
+
+            // Called when the weapon was used.
+            OnUseWeapon(0);
         }
 
         // Called when the punch is finished.

@@ -199,7 +199,7 @@ namespace DDY_GJM_23
         }
 
 
-        // DAMAGE //
+        // HEALTH & DAMAGE //
         // Returns 'true' if the combatant is invincible/invulnerable.
         public bool IsVulnerable()
         {
@@ -225,6 +225,13 @@ namespace DDY_GJM_23
         public void SetHealthToMax()
         {
             health = maxHealth;
+        }
+
+        // Gets the health as a percentage.
+        public float GetHealthAsPercentage()
+        {
+            float result = health / maxHealth;
+            return result;
         }
 
         // Reduces the combatant's entity.

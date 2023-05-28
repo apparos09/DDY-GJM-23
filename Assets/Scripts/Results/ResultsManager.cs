@@ -161,7 +161,12 @@ namespace DDY_GJM_23
 
             // The number of heal items used.
             healthItemsUsed.text = "Heals Used: " + results.healthItemsUsed.ToString();
-            
+
+            // The game length.
+            gameLengthText.text = "Game Length: " + StringFormatter.FormatTime(results.gameLength, false);
+
+
+            // WEAPONS
             gunSlowIcon.color = results.gotGunSlow ? activeColor : inactiveColor;
             gunMidIcon.color = results.gotGunMid ? activeColor : inactiveColor;
             gunFastIcon.color = results.gotGunFast ? activeColor : inactiveColor;

@@ -46,9 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 5650137135599239528}
   type: 4
-  power: 10
-  uses: 10
-  maxUses: 10
+  power: 2
+  uses: 30
+  maxUses: 30
   infiniteUse: 0
   canMoveAndAttack: 1
   bulletPrefab: {fileID: 1814850081724763963, guid: ea6bc090f3de74741a6d3da19fbd7691, type: 3}
@@ -100,8 +100,8 @@ MonoBehaviour:
   owner: {fileID: 5650137135599239528}
   type: 2
   power: 10
-  uses: 10
-  maxUses: 10
+  uses: 25
+  maxUses: 25
   infiniteUse: 0
   canMoveAndAttack: 1
   bulletPrefab: {fileID: 3776589357268495490, guid: 64d578d3d3d262147a6606982c79a59a, type: 3}
@@ -421,9 +421,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 5650137135599239528}
   type: 3
-  power: 10
-  uses: 10
-  maxUses: 10
+  power: 5
+  uses: 20
+  maxUses: 20
   infiniteUse: 0
   canMoveAndAttack: 1
   bulletPrefab: {fileID: 7872821300507037275, guid: 1746c163379c04842be0e9829cfc829b, type: 3}

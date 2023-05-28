@@ -67,7 +67,7 @@ namespace DDY_GJM_23
         // This button is used to retire (end the game early).
         // It should only be active if the player is in the base when the menu is opened.
         [Tooltip("Ends the game early. Should only be available if the player is in the base.")]
-        public Button retireButton;
+        public Button endEarlyButton;
 
         // Start is called before the first frame update
         void Start()
@@ -80,32 +80,76 @@ namespace DDY_GJM_23
         // Call to open the settings.
         public void OpenSettings()
         {
-            // ...
+            // Stop the game.
+            Time.timeScale = 1.0F;
 
             // Only active if player is in the base.
-            retireButton.interactable = gameManager.homeBase.IsPlayerInBase();
+            endEarlyButton.interactable = gameManager.homeBase.IsPlayerInBase();
         }
 
         // Call to close the settings.
         public void CloseSettings()
         {
+            // Start the game.
+            Time.timeScale = 1.0F;
             // ...
         }
 
+        // Open the map.
         public void OpenMap()
         {
+            Time.timeScale = 0.0F;
 
+            // Only active if player is in the base.
+            endEarlyButton.interactable = gameManager.homeBase.IsPlayerInBase();
         }
 
+        // Close the map.
         public void CloseMap()
         {
-
+            Time.timeScale = 1.0F;
         }
 
         // Sets the weapon icon based on the type.
         public void SetWeaponIcon(Weapon.weaponType type)
         {
+            // Set the default color.
+            weaponImage.color = Color.white;
 
+            // Updates the weapon icon.
+            switch (type)
+            {
+                default:
+                case Weapon.weaponType.none:
+                    weaponImage.sprite = null;
+                    weaponImage.color = new Color(0, 0, 0, 0);
+
+                    break;
+
+                case Weapon.weaponType.punch:
+                    weaponImage.sprite = punchSprite;
+                    break;
+
+                case Weapon.weaponType.gunSlow:
+                    weaponImage.sprite = gunSlowSprite;
+                    break;
+
+                case Weapon.weaponType.gunMid:
+                    weaponImage.sprite = gunMidSprite;
+                    break;
+
+                case Weapon.weaponType.gunFast:
+                    weaponImage.sprite = gunFastSprite;
+                    break;
+
+                case Weapon.weaponType.runPower:
+                    weaponImage.sprite = runPowerSprite;
+                    break;
+
+                case Weapon.weaponType.swimPower:
+                    weaponImage.sprite = swimPowerSprite;
+                    break;
+            }
         }
 
         // Updates the weapon information.
@@ -173,6 +217,12 @@ namespace DDY_GJM_23
                 usesText.text = "-";
             }
 
+        }
+
+        // Ends the game early by going to the results scene.
+        public void EndGame()
+        {
+            gameManager.ToResultsScene();
         }
 
         // Update is called once per frame

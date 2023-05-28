@@ -188,11 +188,11 @@ namespace DDY_GJM_23
             // NOTE: if the player is in a base area when the timer is over, have it count.
             // TODO: implement time over effects.
 
-            EndGame();
+            ToResultsScene();
         }
 
         // Called to end the game.
-        public void EndGame()
+        public void ToResultsScene()
         {
             // ...
 

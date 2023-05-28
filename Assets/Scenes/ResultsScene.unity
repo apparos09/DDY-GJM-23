@@ -451,7 +451,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: b7838bc4266b4994bb136d574452e6ce, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1406,7 +1406,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 445c581825b768d428fb868c87b886cc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1593,16 +1593,16 @@ MonoBehaviour:
   deathsText: {fileID: 580210877}
   scrapsTotalText: {fileID: 84139199}
   baseVisitsTex: {fileID: 1922984824}
-  healthItemsUsed: {fileID: 1212701124}
   keysUsedText: {fileID: 1754920205}
+  healthItemsUsed: {fileID: 1212701124}
   gameLengthText: {fileID: 1395956701}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   gunSlowIcon: {fileID: 150274188}
   gunMidIcon: {fileID: 1023460054}
   gunFastIcon: {fileID: 1554359927}
-  runUpgradeIcon: {fileID: 1407138406}
-  swimUpgradeIcon: {fileID: 1336888813}
+  runPowerIcon: {fileID: 1407138406}
+  swimPowerIcon: {fileID: 1336888813}
 --- !u!4 &1262072288
 Transform:
   m_ObjectHideFlags: 0
@@ -1630,7 +1630,7 @@ GameObject:
   - component: {fileID: 1336888814}
   - component: {fileID: 1336888813}
   m_Layer: 5
-  m_Name: Swim Upgrade Icon Image
+  m_Name: Swim Power Icon Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1676,7 +1676,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 2f2076f9912e38f4196c14371327bdc9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1841,7 +1841,7 @@ GameObject:
   - component: {fileID: 1407138407}
   - component: {fileID: 1407138406}
   m_Layer: 5
-  m_Name: Run Upgrade Icon Image
+  m_Name: Run Power Icon Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1887,7 +1887,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 9f22c1d178e33ec4daf101e69c5f8b28, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1963,7 +1963,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: b14f4d5110a1cf74e98a0d43a6bf382f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

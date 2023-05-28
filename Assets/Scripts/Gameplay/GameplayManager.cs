@@ -221,8 +221,30 @@ namespace DDY_GJM_23
             // Sets if the player was alive or not.
             results.survived = inBase;
 
+            // Set the number of deaths.
+            results.deaths = player.deaths;
+
             // Scrap count.
             results.scrapsTotal = scrapsTotal;
+
+            // Visits.
+            results.baseVisits = homeBase.visits;
+
+            // Keys used.
+            results.keysUsed = player.keysUsed;
+
+            // Heals used.
+            results.healthItemsUsed = player.healsUsed;
+
+            // Game length.
+            results.gameLength = elapsedGameTime;
+
+            // Weapons
+            results.gotGunSlow = player.HasWeapon(player.gunSlow);
+            results.gotGunMid = player.HasWeapon(player.gunMid);
+            results.gotGunFast = player.HasWeapon(player.gunFast);
+            results.gotRunPower = player.HasWeapon(player.runPower);
+            results.gotSwimPower = player.HasWeapon(player.swimPower);
 
             // Loads the results scene.
             SceneManager.LoadScene("ResultsScene");

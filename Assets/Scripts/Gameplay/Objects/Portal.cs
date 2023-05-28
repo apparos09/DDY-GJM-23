@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Portal : MonoBehaviour
+namespace DDY_GJM_23
 {
-    // Start is called before the first frame update
-    void Start()
+    // The portal.
+    public class Portal : MonoBehaviour
     {
-        
-    }
+        public GameObject destination;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Start is called before the first frame update
+        void Start()
+        {
+
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
     }
 }

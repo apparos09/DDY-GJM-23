@@ -190,7 +190,7 @@ namespace DDY_GJM_23
                 keysText.text = gameManager.player.keyCount.ToString();
 
             // Update heals count.
-            if (gameManager.player.healsCount.ToString() != healsText.text)
+            if (gameManager.player.healAmount.ToString() != healsText.text)
                 healsText.text = gameManager.player.healCount.ToString();
 
 

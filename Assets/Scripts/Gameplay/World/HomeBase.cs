@@ -13,6 +13,9 @@ namespace DDY_GJM_23
         // The collider for the home base.
         public new CircleCollider2D collider;
 
+        // The number of visits the player's made to the base.
+        public int visits = 0;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -31,7 +34,8 @@ namespace DDY_GJM_23
             // If the player has entered the base.
             if(collision.tag == Player.PLAYER_TAG)
             {
-                // TODO: maybe do it one-by-one instead of all at once?
+                // Increase the visits count.
+                visits++;
 
                 // Add to the scrap total.
                 gameManager.scrapsTotal += gameManager.player.scrapCount;

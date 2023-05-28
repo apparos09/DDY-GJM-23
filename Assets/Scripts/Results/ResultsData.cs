@@ -39,21 +39,9 @@ namespace DDY_GJM_23
         public bool gotGunFast = false;
 
         // Got the land upgrade (faster movement speed).
-        public bool gotRunUpgrade = false;
+        public bool gotRunPower = false;
 
         // Got the swim upgrdade (faster water movement + poison immunity).
-        public bool gotSwimUpgrade = false;
-
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+        public bool gotSwimPower = false;
     }
 }

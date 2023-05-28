@@ -20,17 +20,26 @@ namespace DDY_GJM_23
         // Allows the player to input commands.
         public bool enableInputs = true;
 
+        // The number of player's deaths.
+        public int deaths = 0;
+
         // The amount of scrap the player has on hand.
         public int scrapCount = 0;
 
         // The number of keys the player has.
         public int keyCount = 0;
 
+        // The number of the keys used.
+        public int keysUsed = 0;
+
         // The number of heals the player has.
         public int healCount = 0;
 
+        // The number of heals used by the player.
+        public int healsUsed = 0;
+
         // The amount the player gets healed for when they use a heal item (percentage.
-        public float healsCount = 0.25F;
+        public float healAmount = 0.25F;
 
         // The map key and heal key.
         public KeyCode mapKey = KeyCode.UpArrow;
@@ -80,16 +89,22 @@ namespace DDY_GJM_23
         public List<Weapon> weapons;
 
         // The punch weapon.
-        public Punch punch;
+        public Punch punch = null;
         
         // The slow gun.
-        public GunSingle gunSlow;
+        public GunSingle gunSlow = null;
 
         // The mid gun.
-        public GunSingle gunMid;
+        public GunSingle gunMid = null;
 
         // The fast gun.
-        public GunSingle gunFast;
+        public GunSingle gunFast = null;
+
+        // The run power.
+        public Punch runPower = null;
+
+        // The swim power.
+        public Punch swimPower = null;
 
         // The left weapon key and the right weapon key.
         public KeyCode leftWeaponKey = KeyCode.LeftArrow;
@@ -288,6 +303,42 @@ namespace DDY_GJM_23
             }
         }
 
+        // Has the weapon.
+        public bool HasWeapon(Weapon weapon)
+        {
+            // Checks if the weapon is in the list.
+            bool result = weapons.Contains(weapon);
+
+            // Returns the result.
+            return result;
+        }
+
+        // Has the weapon.
+        public bool HasWeapon(Weapon.weaponType type)
+        {
+            bool result = false;
+
+            // Goes through each weapon.
+            foreach (Weapon weapon in weapons)
+            {
+                // Weapon exists.
+                if (weapon != null)
+                {
+                    // If the types match.
+                    if (weapon.WeaponType == type)
+                    {
+                        result = true;
+                        break;
+                    }
+
+                }
+            }
+
+            // Returns the result.
+            return result;
+        }
+
+
         // Sets the weapon using the provided index. Sets weapon to null if index is invalid.
         public void SetWeapon(int index)
         {
@@ -313,6 +364,9 @@ namespace DDY_GJM_23
         // On the death of the player.
         protected override void OnDeath()
         {
+            // Increase death count.
+            deaths++;
+
             // The player loses all their scraps.
             scrapCount = 0;
 
@@ -518,7 +572,8 @@ namespace DDY_GJM_23
                 if(healCount > 0)
                 {
                     healCount--;
-                    health += maxHealth * healsCount;
+                    healsUsed++;
+                    health += maxHealth * healAmount;
                 }
             }
 

@@ -34,6 +34,9 @@ namespace DDY_GJM_23
                     // Reduce the key count.
                     player.keyCount--;
 
+                    // The player has used a key.
+                    player.keysUsed++;
+
                     // Unlock the object.
                     Unlock();
                 }

@@ -61,10 +61,10 @@ namespace DDY_GJM_23
         public Image gunFastIcon;
 
         // The run upgrade icon.
-        public Image runUpgradeIcon;
+        public Image runPowerIcon;
 
         // The swim upgrade icon.
-        public Image swimUpgradeIcon;
+        public Image swimPowerIcon;
 
         // Constructor
         private ResultsManager()
@@ -166,8 +166,8 @@ namespace DDY_GJM_23
             gunMidIcon.color = results.gotGunMid ? activeColor : inactiveColor;
             gunFastIcon.color = results.gotGunFast ? activeColor : inactiveColor;
             
-            runUpgradeIcon.color = results.gotRunUpgrade ? activeColor : inactiveColor;
-            swimUpgradeIcon.color = results.gotSwimUpgrade ? activeColor : inactiveColor;
+            runPowerIcon.color = results.gotRunPower ? activeColor : inactiveColor;
+            swimPowerIcon.color = results.gotSwimPower ? activeColor : inactiveColor;
 
 
             // Destroys the results game object.

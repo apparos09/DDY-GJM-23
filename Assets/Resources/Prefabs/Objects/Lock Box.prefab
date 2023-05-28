@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8861613369114952214}
   - component: {fileID: 8861613369114952215}
   - component: {fileID: 8861613369114952233}
+  - component: {fileID: -8370730891116675568}
   m_Layer: 0
   m_Name: Lock Box
   m_TagString: World Object
@@ -73,6 +74,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
+--- !u!210 &-8370730891116675568
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8861613369114952232}
+  m_Enabled: 1
+  m_SortingLayerID: -1740485249
+  m_SortingLayer: 2
+  m_SortingOrder: 0
 --- !u!1 &8861613370844027768
 GameObject:
   m_ObjectHideFlags: 0

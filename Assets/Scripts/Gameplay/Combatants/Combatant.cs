@@ -317,6 +317,10 @@ namespace DDY_GJM_23
             // Goes through the tiles being touched (from last to first).
             for (int i = currentTiles.Count - 1; i >= 0; i--)
             {
+                // FIXME: this is to fix a glitch where the list becomes empty for some reason.
+                if (currentTiles.Count == 0)
+                    break;
+
                 // Checks if the tile exists.
                 if (currentTiles[i] != null)
                 {

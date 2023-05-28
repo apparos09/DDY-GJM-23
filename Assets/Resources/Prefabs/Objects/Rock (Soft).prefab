@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 7680815015117301331}
   - component: {fileID: 7680815015117301334}
   - component: {fileID: 7680815015117301330}
+  - component: {fileID: 6412182881590723578}
   m_Layer: 0
   m_Name: Rock (Soft)
   m_TagString: World Object
@@ -182,3 +183,14 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!210 &6412182881590723578
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7680815015117301335}
+  m_Enabled: 1
+  m_SortingLayerID: -1740485249
+  m_SortingLayer: 2
+  m_SortingOrder: 0

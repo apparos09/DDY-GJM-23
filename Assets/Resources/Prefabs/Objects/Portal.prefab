@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3183389122115935949}
   - component: {fileID: 3183389122115935938}
   - component: {fileID: 3183389122115935939}
+  - component: {fileID: 6285674582079897135}
   m_Layer: 0
   m_Name: Portal
   m_TagString: World Object
@@ -44,7 +45,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -65,7 +66,18 @@ MonoBehaviour:
   destination: {fileID: 0}
   validTags:
   - Player
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: 1.5, y: 1.5, z: 0}
+--- !u!210 &6285674582079897135
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3183389122115935936}
+  m_Enabled: 1
+  m_SortingLayerID: -1740485249
+  m_SortingLayer: 2
+  m_SortingOrder: 0
 --- !u!1 &3183389122376170253
 GameObject:
   m_ObjectHideFlags: 0

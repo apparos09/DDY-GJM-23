@@ -309,6 +309,9 @@ namespace DDY_GJM_23
         {
             DestroyAllEnemies();
             DestroyAllItems();
+
+            // Clears out the tiles the player is on.
+            gameManager.player.currentTiles.Clear();
         }
 
         // Destroys all entities in the provided list.

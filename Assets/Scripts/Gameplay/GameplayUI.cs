@@ -16,6 +16,41 @@ namespace DDY_GJM_23
         // The timer text.
         public TMP_Text timerText;
 
+        // The number of scraps the player has.
+        public TMP_Text scrapsText;
+
+        // The number of keys the player has.
+        public TMP_Text keysText;
+
+        // The number of heals the player has.
+        public TMP_Text healsText;
+
+        [Header("HUD/Weapons")]
+
+        // The weapon image.
+        public Image weaponImage;
+
+        // The ammo count for the ammo.
+        public TMP_Text usesText;
+
+        // Sprite for slow gun.
+        public Sprite punchSprite;
+
+        // Sprite for slow gun.
+        public Sprite gunSlowSprite;
+
+        // Sprite for mid gun.
+        public Sprite gunMidSprite;
+
+        // Sprite for fast gun.
+        public Sprite gunFastSprite;
+
+        // Sprite for run power.
+        public Sprite runPowerSprite;
+
+        // Sprite for swim power.
+        public Sprite swimPowerSprite;
+
         [Header("UI")]
 
         // This button is used to retire (end the game early).
@@ -31,8 +66,8 @@ namespace DDY_GJM_23
                 gameManager = GameplayManager.Instance;
         }
 
-        // Call to open the menu.
-        public void OpenMenu()
+        // Call to open the settings.
+        public void OpenSettings()
         {
             // ...
 
@@ -40,10 +75,93 @@ namespace DDY_GJM_23
             retireButton.interactable = gameManager.homeBase.IsPlayerInBase();
         }
 
-        // Call to close the menu.
-        public void CloseMenu()
+        // Call to close the settings.
+        public void CloseSettings()
         {
             // ...
+        }
+
+        public void OpenMap()
+        {
+
+        }
+
+        public void CloseMap()
+        {
+
+        }
+
+        // Sets the weapon icon based on the type.
+        public void SetWeaponIcon(Weapon.weaponType type)
+        {
+
+        }
+
+        // Updates the weapon information.
+        public void UpdateWeaponInfo()
+        {
+            // Gets the current weapon.
+            Weapon weapon = gameManager.player.currentWeapon;
+
+            // Weapon set.
+            if(weapon != null)
+            {
+                // Set icon to white color.
+                weaponImage.color = Color.white;
+
+                // Updates the weapon info.
+                switch (weapon.WeaponType)
+                {
+                    default:
+                    case Weapon.weaponType.none:
+                        weaponImage.sprite = null;
+                        weaponImage.color = new Color(0, 0, 0, 0);
+
+                        break;
+
+                    case Weapon.weaponType.punch:
+                        weaponImage.sprite = punchSprite;
+                        break;
+
+                    case Weapon.weaponType.gunSlow:
+                        weaponImage.sprite = gunSlowSprite;
+                        break;
+
+                    case Weapon.weaponType.gunMid:
+                        weaponImage.sprite = gunMidSprite;
+                        break;
+
+                    case Weapon.weaponType.gunFast:
+                        weaponImage.sprite = gunFastSprite;
+                        break;
+
+                    case Weapon.weaponType.runPower:
+                        weaponImage.sprite = runPowerSprite;
+                        break;
+
+                    case Weapon.weaponType.swimPower:
+                        weaponImage.sprite = swimPowerSprite;
+                        break;
+                }
+
+
+                // Set the ammo count.
+                if(weapon.infiniteUse)
+                {
+                    usesText.text = "-";
+                }   
+                else
+                {
+                    usesText.text = weapon.uses.ToString();
+                }
+            }
+            else // Weapon not set.
+            {
+                weaponImage.sprite = null;
+                weaponImage.color = new Color(0, 0, 0, 0);
+                usesText.text = "-";
+            }
+            
         }
 
         // Update is called once per frame
@@ -52,6 +170,40 @@ namespace DDY_GJM_23
             // Formats the timer and displays it on screen.
             if (!gameManager.pausedTimers)
                 timerText.text = gameManager.GetTimerFormatted();
+
+            // Update scrap count.
+            if(gameManager.scrapsTotal.ToString() != scrapsText.text)
+                scrapsText.text = gameManager.scrapsTotal.ToString();
+
+            // Update key count.
+            if (gameManager.player.keyCount.ToString() != keysText.text)
+                keysText.text = gameManager.player.keyCount.ToString();
+
+            // Update heals count.
+            if (gameManager.player.healsCount.ToString() != healsText.text)
+                healsText.text = gameManager.player.healCount.ToString();
+
+
+            // Weapon Uses Update
+            {
+                // The weapon.
+                Weapon weapon = gameManager.player.currentWeapon;
+
+                // Weapon found.
+                if (weapon != null)
+                {
+                    // Set the ammo count.
+                    if (weapon.infiniteUse)
+                    {
+                        usesText.text = "-";
+                    }
+                    else
+                    {
+                        usesText.text = weapon.uses.ToString();
+                    }
+                }
+            }
+            
         }
     }
 }

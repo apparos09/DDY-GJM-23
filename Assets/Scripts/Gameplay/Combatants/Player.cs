@@ -30,7 +30,7 @@ namespace DDY_GJM_23
         public int healCount = 0;
 
         // The amount the player gets healed for when they use a heal item (percentage.
-        public float healAmount = 0.25F;
+        public float healsCount = 0.25F;
 
         // The map key and heal key.
         public KeyCode mapKey = KeyCode.UpArrow;
@@ -224,21 +224,67 @@ namespace DDY_GJM_23
                     
 
                     break;
+
+                case Weapon.weaponType.runPower:
+                    break;
+
+                case Weapon.weaponType.swimPower:
+                    break;
+
+                    // TODO: add run power and swim power.
             }
         }
 
         // Removes a weapon from the player.
         public void RemoveWeapon(Weapon.weaponType type)
         {
+            // The weapon to be removed.
+            Weapon weapon = null;
+
             // Checks the type of weapon to remove.
             switch (type)
             {
-                case Weapon.weaponType.gunMid:
-                    // Remove gun single from the list.
-                    if (weapons.Contains(gunMid))
-                        weapons.Remove(gunMid);
-
+                case Weapon.weaponType.punch:
+                    weapon = punch;
                     break;
+
+                case Weapon.weaponType.gunSlow:
+                    weapon = gunSlow;
+                    break;
+
+                case Weapon.weaponType.gunMid:
+                    weapon = gunMid;
+                    break;
+
+                case Weapon.weaponType.gunFast:
+                    weapon = gunFast;
+                    break;
+
+                case Weapon.weaponType.runPower:
+                    // TODO: implement.
+                    break;
+
+                case Weapon.weaponType.swimPower:
+                    // TODO: implement.
+                    break;
+
+                default:
+                    weapon = null;
+                    break;
+            }
+
+            // If the weapon is in the list.
+            if(weapons.Contains(weapon))
+            {
+                // Remove the weapon.
+                weapons.Remove(weapon);
+
+                // If this is the current weapon.
+                if(currentWeapon == weapon)
+                {
+                    // Set to null.
+                    currentWeapon = null;
+                }
             }
         }
 
@@ -453,7 +499,7 @@ namespace DDY_GJM_23
                 if(healCount > 0)
                 {
                     healCount--;
-                    health += maxHealth * healAmount;
+                    health += maxHealth * healsCount;
                 }
             }
 

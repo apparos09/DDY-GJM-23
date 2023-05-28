@@ -134,8 +134,20 @@ namespace DDY_GJM_23
                 return initialized;
             }
         }
-        
+
         // WINDOWS
+        // Opens the game map.
+        public void OpenSettings()
+        {
+            // ...
+        }
+
+        // Close the game settings.
+        public void CloseSettings()
+        {
+            // ...
+        }
+
         // Opens the game map.
         public void OpenMap()
         {
@@ -148,21 +160,10 @@ namespace DDY_GJM_23
             // TODO: implement.
         }
 
+        // Toggles the map.
         public void ToggleMap()
         {
             // TODO: implement.
-        }
-
-        // Opens the game map.
-        public void OpenSettings()
-        {
-            // ...
-        }
-
-        // Close the game settings.
-        public void CloseSettings()
-        {
-            // ...
         }
 
 

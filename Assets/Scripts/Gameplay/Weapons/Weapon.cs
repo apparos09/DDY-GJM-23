@@ -8,7 +8,7 @@ namespace DDY_GJM_23
     public abstract class Weapon : MonoBehaviour
     {
         // The weapon enum type.
-        public enum weaponType { none, punch, gunSlow, gunMid, gunFast }
+        public enum weaponType { none, punch, gunSlow, gunMid, gunFast, runPower, swimPower }
 
         // The owner of the weapon.
         public Player owner;

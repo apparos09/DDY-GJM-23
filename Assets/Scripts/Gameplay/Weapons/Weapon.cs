@@ -14,7 +14,7 @@ namespace DDY_GJM_23
         public Player owner;
 
         // The type of the weapon.
-        public weaponType weapon = weaponType.none;
+        public weaponType type = weaponType.none;
 
         // The power of the weapon.
         public float power = 10.0F;
@@ -41,12 +41,6 @@ namespace DDY_GJM_23
         protected virtual void Start()
         {
             // ...
-        }
-
-        // Returns the weapon type.
-        public weaponType WeaponType
-        {
-            get { return weapon; }
         }
 
         // Restores the number of uses for the weapon to its max.

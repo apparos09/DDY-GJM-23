@@ -10,19 +10,27 @@ namespace DDY_GJM_23
         [Header("Punch")]
 
         // The collider for the punch (enable/disable as part of an animation).
-        public new BoxCollider2D collider;
+        public new Collider2D collider;
 
         // The animator for the punch animation.
         public Animator animator;
+
+        // The punch's effect.
+        public GameObject effect;
+
+        // Force applied to push back enemies.
+        public float pushForce = 300.0F;
+
+        // If the push force should be used.
+        public bool usePushForce = true;
+
+        // If 'true', the punch's effect is shown when the punch is active.
+        public bool useEffect = true;
 
         // Awake is called when the script is being loaded
         protected override void Awake()
         {
             base.Awake();
-
-            uses = -1;
-            maxUses = -1;
-            infiniteUse = true;
         }
 
         // Start is called before the first frame update
@@ -30,23 +38,73 @@ namespace DDY_GJM_23
         {
             base.Start();
 
+            // Collider
+            if (collider == null)
+                collider = GetComponent<Collider2D>();
+
             // Grabs the animator.
             if (animator == null)
                 animator = GetComponent<Animator>();
+
+            // Hide the effect.
+            if (useEffect)
+                effect.gameObject.SetActive(false);
+
+
+            // Turn off punch collider.
+            collider.enabled = false;
+        }
+
+        // OnCollisionEnter2D - used to damage an enemy.
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            HitTarget(collision.gameObject);
         }
 
         // OnTriggerEnter2D - used to damage an enemy.
-        
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            HitTarget(collision.gameObject);
+        }
+
+
+        // Hits the provided target.
+        public void HitTarget(GameObject target)
+        {
+            // The owner can't damage themselves.
+            if (target == owner.gameObject)
+                return;
+
             // Enemy component.
             Enemy enemy;
 
             // Tries to get the enemy component.
-            if(collision.TryGetComponent(out enemy))
+            if (target.TryGetComponent(out enemy))
             {
-                // TODO: trigger animation and invincibility frames.
-                enemy.ApplyDamage(power);
+                // If the enemy is vulnerable.
+                if(enemy.IsVulnerable())
+                {
+                    // TODO: trigger animation and invincibility frames.
+                    enemy.ApplyDamage(power);
+
+                    // Gets the direction vector.
+                    Vector3 distVec = enemy.transform.position - owner.transform.position;
+
+                    // No z-movement.
+                    distVec.z = 0.0F;
+
+                    // Move to the right.
+                    if (distVec == Vector3.zero)
+                        distVec = Vector3.right;
+
+                    // TODO: fix push back so that it actually does something.
+
+                    // Push back the enemy.
+                    if(usePushForce)
+                        enemy.rigidbody.AddForce(distVec.normalized * pushForce * Time.deltaTime * 15.0F, ForceMode2D.Impulse);
+                }
+                
             }
         }
 
@@ -103,6 +161,10 @@ namespace DDY_GJM_23
             // Plays the punch animation.
             animator.Play("Punch");
 
+            // Show the effect.
+            if (useEffect && effect != null)
+                effect.gameObject.SetActive(true);
+
             // Called when the weapon was used.
             OnUseWeapon(0);
         }
@@ -116,6 +178,10 @@ namespace DDY_GJM_23
 
             // Play the empty animation so that the animation switches off and can be replayed properly.
             animator.Play("Empty");
+
+            // Hide the effect.
+            if (useEffect && effect != null)
+                effect.gameObject.SetActive(false);
         }
 
         // Update is called once per frame

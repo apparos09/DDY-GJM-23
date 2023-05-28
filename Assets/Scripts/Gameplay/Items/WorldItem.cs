@@ -11,8 +11,7 @@ namespace DDY_GJM_23
         public enum itemId { none, scrap, weapon, key, health };
 
         // The id of the world item.
-        [HideInInspector]
-        protected itemId id;
+        public itemId id;
 
         // Destroys the item upon being gotten by the player.
         [Tooltip("Destroys the item upon it being received if true. Disables the object if false.")]
@@ -46,11 +45,11 @@ namespace DDY_GJM_23
             }
         }
 
-        // Returns the item ID.
-        public itemId Id
-        {
-            get { return id; }
-        }
+        // // Returns the item ID.
+        // public itemId Id
+        // {
+        //     get { return id; }
+        // }
 
 
         // Called to give the item to the player.

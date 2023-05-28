@@ -120,7 +120,7 @@ namespace DDY_GJM_23
                 weaponImage.color = Color.white;
 
                 // Updates the weapon info.
-                switch (weapon.WeaponType)
+                switch (weapon.type)
                 {
                     default:
                     case Weapon.weaponType.none:

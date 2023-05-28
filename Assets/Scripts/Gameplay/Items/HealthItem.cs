@@ -12,7 +12,9 @@ namespace DDY_GJM_23
         {
             base.Start();
 
-            id = itemId.health;
+            // Id not set.
+            if(id == itemId.none)
+                id = itemId.health;
         }
 
         // Give the player the key.

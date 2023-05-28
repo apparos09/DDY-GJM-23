@@ -12,7 +12,9 @@ namespace DDY_GJM_23
         {
             base.Start();
 
-            id = itemId.key;
+            // Id not set.
+            if(id == itemId.none)
+                id = itemId.key;
         }
 
         // Give the player the key.

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -319,60 +320,57 @@ namespace DDY_GJM_23
                 // Checks if the tile exists.
                 if (currentTiles[i] != null)
                 {
-                    // The entity can only be damaged once per frame.
-                    if (!damaged)
+                    // If it's a damage tile.
+                    if (currentTiles[i] is DamageTile)
                     {
-                        // If it's a damage tile.
-                        if (currentTiles[i] is DamageTile)
+                        DamageTile dTile = (DamageTile)currentTiles[i];
+
+                        // Damage should be applied.
+                        if (dTile.applyDamage)
                         {
-                            DamageTile dTile = (DamageTile)currentTiles[i];
+                            // Gets set to 'true' if damagable.
+                            bool damagable;
 
-                            // Damage should be applied.
-                            if(dTile.applyDamage)
+                            // Checks if the combatant can be damaged by the tile.
+                            // Poison Immune or Flying Over Pit
+                            if (
+                                (currentTiles[i].type == WorldTile.tileType.poison && poisonImmune) ||
+                                (currentTiles[i].type == WorldTile.tileType.pit && flying)
+                                )
                             {
-                                // Gets set to 'true' if damagable.
-                                bool damagable;
+                                damagable = false;
+                            }
+                            else
+                            {
+                                damagable = true;
+                            }
 
-                                // Checks if the combatant can be damaged by the tile.
-                                // Poison Immune or Flying Over Pit
-                                if (
-                                    (currentTiles[i].type == WorldTile.tileType.poison && poisonImmune) ||
-                                    (currentTiles[i].type == WorldTile.tileType.pit && flying)
-                                    )
+
+                            // If the entity can be damaged.
+                            if (damagable)
+                            {
+                                // Tile is instant kill.
+                                if (dTile.instantKill)
                                 {
-                                    damagable = false;
+                                    // Kill the combatant.
+                                    Kill();
                                 }
-                                else
+                                // Apply regular damage if it hasn't been applied already.
+                                else if (!dTile.instantKill && !damaged)
                                 {
-                                    damagable = true;
+                                    // Gets the damage.
+                                    float damage = ((DamageTile)currentTiles[i]).GetDamage();
+
+                                    // Applies the damage, but doesn't give invincibility frames.
+                                    ApplyDamage(damage, false);
+
+                                    // Mark as damaged, and set the tile damage timer.
+                                    damaged = true;
+                                    tileDamageTimer = tileDamageRate;
                                 }
 
+                            }
 
-                                // If the entity can be damaged.
-                                if (damagable)
-                                {
-                                    // Tile is instant kill.
-                                    if (dTile.instantKill)
-                                    {
-                                        // Kill the combatant.
-                                        Kill();
-                                    }
-                                    else // Apply regular damage.
-                                    {
-                                        // Gets the damage.
-                                        float damage = ((DamageTile)currentTiles[i]).GetDamage();
-
-                                        // Applies the damage, but doesn't give invincibility frames.
-                                        ApplyDamage(damage, false);
-
-                                        // Mark as damaged, and set the tile damage timer.
-                                        damaged = true;
-                                        tileDamageTimer = tileDamageRate;
-                                    }
-
-                                }
-                                
-                            }                        
                         }
                     }
                 }

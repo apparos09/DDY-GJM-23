@@ -76,6 +76,23 @@ namespace DDY_GJM_23
         protected override void Update()
         {
             base.Update();
+
+            // Shooters don't move.
+            // If the enemy is moving.
+            if (rigidbody.velocity != Vector2.zero)
+            {
+                // Gets the velocity change with friction applied.
+                Vector2 result;
+
+                // Stop the shooter enemy from having its velocity going continuously.
+                if (currentTiles.Count > 0)
+                    result = GetVelocityWithFriction(rigidbody.velocity, rigidbody.mass);
+                else
+                    result = GetVelocityWithFriction(rigidbody.velocity, rigidbody.mass, 1.0F);
+
+                // Set the result.
+                rigidbody.velocity = result;
+            }
         }
     }
 }

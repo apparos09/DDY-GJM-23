@@ -56,7 +56,7 @@ namespace DDY_GJM_23
 
         // The max speed overall.
         [Tooltip("The overall max speed.")]
-        public float maxSpeed = 12.0F;
+        public float maxSpeed = 15.0F;
 
         // The maximum run speed. Default max speed.
         [Tooltip("The max run speed.")]
@@ -84,7 +84,6 @@ namespace DDY_GJM_23
         // The current weapon of the player.
         public Weapon currentWeapon;
 
-        // TODO: maybe make it a fixed size and replace the null entries with the proper weapon (set order)?
         // The list of weapons.
         public List<Weapon> weapons;
 
@@ -185,19 +184,38 @@ namespace DDY_GJM_23
         // Adds a weapon to the player.
         public void AddWeapon(Weapon.weaponType type)
         {
+            // The new weapon.
+            Weapon newWeapon;
+
             // Checks the type of weapon to add.
-            switch(type)
+            switch (type)
             {
                 case Weapon.weaponType.punch: // Punch
+                case Weapon.weaponType.runPower: // Run
+                case Weapon.weaponType.swimPower: // Swim
 
-                    // Put the gun single in the list.
-                    if (!weapons.Contains(punch))
+                    // The punch object.
+                    Punch punchWeapon = null;
+
+                    // Checks the type of punch being used.
+                    switch (type)
                     {
-                        weapons.Add(punch);
-                        punch.owner = this;
+                        case Weapon.weaponType.punch:
+                            punchWeapon = punch;
+                            break;
+
+                        case Weapon.weaponType.runPower:
+                            punchWeapon = runPower;
+                            break;
+
+                        case Weapon.weaponType.swimPower:
+                            punchWeapon = swimPower;
+                            break;
                     }
-                        
-                    
+
+                    // New weapon set.
+                    newWeapon = punchWeapon;
+
                     break;
 
                 case Weapon.weaponType.gunSlow: // Slow Gun
@@ -208,7 +226,7 @@ namespace DDY_GJM_23
                     GunSingle gun = null;
 
                     // Checks the type of gun being used.
-                    switch(type)
+                    switch (type)
                     {
                         case Weapon.weaponType.gunSlow:
                             gun = gunSlow;
@@ -223,30 +241,28 @@ namespace DDY_GJM_23
                             break;
                     }
 
-                    // Put the gun in the list if it exists.
-                    if(gun != null)
-                    {
-                        // The gun isn't in the list, so add it.
-                        if (!weapons.Contains(gun))
-                        {
-                            weapons.Add(gun);
-                            gun.owner = this;
-                        }
-
-                        // Give the gun its max bullet count.
-                        gun.RestoreUsesToMax();
-                    }
-                    
+                    // Set the new weapon.
+                    newWeapon = gun;
 
                     break;
 
-                case Weapon.weaponType.runPower:
+                default:
+                    newWeapon = null;
                     break;
+            }
 
-                case Weapon.weaponType.swimPower:
-                    break;
+            // Put the newWeapon in the list if it exists.
+            if (newWeapon != null)
+            {
+                // The new weapon isn't in the list, so add it.
+                if (!weapons.Contains(newWeapon))
+                {
+                    weapons.Add(newWeapon);
+                    newWeapon.owner = this;
+                }
 
-                    // TODO: add run power and swim power.
+                // Give the weapon its max bullet count.
+                newWeapon.RestoreUsesToMax();
             }
         }
 
@@ -276,11 +292,11 @@ namespace DDY_GJM_23
                     break;
 
                 case Weapon.weaponType.runPower:
-                    // TODO: implement.
+                    weapon = runPower;
                     break;
 
                 case Weapon.weaponType.swimPower:
-                    // TODO: implement.
+                    weapon = swimPower;
                     break;
 
                 default:
@@ -325,7 +341,7 @@ namespace DDY_GJM_23
                 if (weapon != null)
                 {
                     // If the types match.
-                    if (weapon.WeaponType == type)
+                    if (weapon.type == type)
                     {
                         result = true;
                         break;
@@ -342,6 +358,9 @@ namespace DDY_GJM_23
         // Sets the weapon using the provided index. Sets weapon to null if index is invalid.
         public void SetWeapon(int index)
         {
+            // May get set by weapon.
+            poisonImmune = false;
+
             // Valid index.
             if(index >= 0 && index < weapons.Count) 
             {
@@ -350,6 +369,16 @@ namespace DDY_GJM_23
             else
             {
                 currentWeapon = null;
+            }
+
+            // Checks if the weapon exists.
+            if(currentWeapon != null)
+            {
+                // Checks if the weapon gives the player poison immunity.
+                if (currentWeapon.type == Weapon.weaponType.swimPower)
+                    poisonImmune = true;
+                else
+                    poisonImmune = false;
             }
 
             // Grabs game UI.
@@ -483,11 +512,31 @@ namespace DDY_GJM_23
                     // The speeds are set.
                     if (maxRunSpeed != 0 && maxSwimSpeed != 0)
                     {
+                        // The number of run and swim tiles.
                         int runTiles = GetSolidTileCount();
                         int swimTiles = GetLiquidTileCount();
 
+                        // Checks if the run and swim powers are on.
+                        bool runPowerOn = currentWeapon.type == Weapon.weaponType.runPower;
+                        bool swimPowerOn = currentWeapon.type == Weapon.weaponType.swimPower;
+
+                        // The run and swim speeds.
+                        // If the player has certain items equipped, then they move at maxSpeed.
+                        float runSpeed = (runPowerOn) ? maxSpeed : maxRunSpeed;
+                        float swimSpeed = (swimPowerOn) ? maxSpeed : maxSwimSpeed;
+
                         // Calculates the mixed speed.
-                        float mixedSpeed = (maxRunSpeed * runTiles + maxSwimSpeed * swimTiles) / (runTiles + swimTiles);
+                        float mixedSpeed = (runSpeed * runTiles + swimSpeed * swimTiles) / (runTiles + swimTiles);
+
+                        // Add force again.
+
+                        // If the run power is on, and the player is on run tiles.
+                        if (runPowerOn && runTiles != 0)
+                            rigidbody.AddForce(force * 1.25F, ForceMode2D.Impulse);
+
+                        // If the swim power is on, and the player is on swim tiles.
+                        if(swimPowerOn && swimTiles != 0)
+                            rigidbody.AddForce(force * 1.5F, ForceMode2D.Impulse);
 
                         // Clamp velocity.
                         rigidbody.velocity = Vector2.ClampMagnitude(rigidbody.velocity, mixedSpeed);

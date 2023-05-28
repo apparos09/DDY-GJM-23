@@ -33,11 +33,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7641477488848020688, guid: 76da58c510e353f4d880578c7a98646f, type: 3}
       propertyPath: targetTags.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7641477488848020688, guid: 76da58c510e353f4d880578c7a98646f, type: 3}
       propertyPath: targetTags.Array.data[0]
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7641477488848020688, guid: 76da58c510e353f4d880578c7a98646f, type: 3}
+      propertyPath: targetTags.Array.data[1]
+      value: World Object
       objectReference: {fileID: 0}
     - target: {fileID: 7641477488848020689, guid: 76da58c510e353f4d880578c7a98646f, type: 3}
       propertyPath: m_RootOrder

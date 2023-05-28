@@ -79,6 +79,9 @@ namespace DDY_GJM_23
             // Enemy component.
             Enemy enemy;
 
+            // Obstruction component.
+            Obstruction obstruction;
+
             // Tries to get the enemy component.
             if (target.TryGetComponent(out enemy))
             {
@@ -105,6 +108,13 @@ namespace DDY_GJM_23
                         enemy.rigidbody.AddForce(distVec.normalized * pushForce * Time.deltaTime * 15.0F, ForceMode2D.Impulse);
                 }
                 
+            }
+
+            // The target is ab obstruction.
+            if(target.TryGetComponent(out obstruction))
+            {
+                // Apply damage to the obstruction.
+                obstruction.ApplyDamage(power);
             }
         }
 

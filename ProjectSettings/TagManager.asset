@@ -13,6 +13,7 @@ TagManager:
   - Manager
   - World
   - Area
+  - World Object
   layers:
   - Default
   - TransparentFX

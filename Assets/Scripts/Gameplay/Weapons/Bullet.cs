@@ -73,6 +73,16 @@ namespace DDY_GJM_23
                     if (!passThrough)
                         Kill();
                 }
+
+                // The obstruction.
+                Obstruction obsturction;
+
+                // Damages the obstruction, and kills the bullet.
+                if(other.TryGetComponent(out obsturction))
+                {
+                    obsturction.ApplyDamage(power);
+                    Kill();
+                }
             }
             
         }

@@ -23,7 +23,8 @@ namespace DDY_GJM_23
         // The timer text.
         public TMP_Text timerText;
 
-        // The number of scraps the player has.
+        // The number of scraps the player has on hand.
+        [Tooltip("The number of scraps the player has on-hand, not in the base.")]
         public TMP_Text scrapsText;
 
         // The number of keys the player has.
@@ -181,9 +182,13 @@ namespace DDY_GJM_23
             if (!gameManager.pausedTimers)
                 timerText.text = gameManager.GetTimerFormatted();
 
-            // Update scrap count.
-            if (gameManager.scrapsTotal.ToString() != scrapsText.text)
-                scrapsText.text = gameManager.scrapsTotal.ToString();
+            // // Update scrap count (OLD) - shows total scrap count.
+            // if (gameManager.scrapsTotal.ToString() != scrapsText.text)
+            //     scrapsText.text = gameManager.scrapsTotal.ToString();
+
+            // Update scrap count (player's amount on hand).
+            if (gameManager.player.scrapCount.ToString() != scrapsText.text)
+                scrapsText.text = gameManager.player.scrapCount.ToString();
 
             // Update key count.
             if (gameManager.player.keyCount.ToString() != keysText.text)

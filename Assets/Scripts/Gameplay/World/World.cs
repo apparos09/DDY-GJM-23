@@ -13,6 +13,8 @@ namespace DDY_GJM_23
         // The current area the player is in.
         private WorldArea currentArea;
 
+        // TODO: the game no longer accounts for items that escape the world, but I don't have time to fix it.
+
         // // The collider for the game world, which is used to destroy objects outside of this range.
         // public new Collider collider;
 
@@ -20,9 +22,11 @@ namespace DDY_GJM_23
         // // The list of areas.
         // public List<WorldArea> areas;
 
-        // If 'true', objects outside of the game world get destoryed.
-        [Tooltip("If true, objects outside of the game world get destroyed, as determined by a collider.")]
-        public bool destroyObjectsOutside = true;
+        // // If 'true', objects outside of the game world get destoryed.
+        // [Tooltip("If true, objects outside of the game world get destroyed, as determined by a collider.")]
+        // public bool destroyObjectsOutside = true;
+
+
 
         // Start is called before the first frame update
         void Start()
@@ -32,28 +36,29 @@ namespace DDY_GJM_23
             //     collider = GetComponent<Collider>();
         }
 
-        // OnTriggerExit2D - destroys objects outside of this collider.
-        private void OnTriggerExit2D(Collider2D collision)
-        {
-            // Checks if object's outside of the game wolrd should be destroyed.
-            if (!destroyObjectsOutside)
-                return;
+        //// OnTriggerExit2D - destroys objects outside of this collider.
+        //private void OnTriggerExit2D(Collider2D collision)
+        //{
+        //    // Checks if object's outside of the game wolrd should be destroyed.
+        //    if (!destroyObjectsOutside)
+        //        return;
 
-            // Checks if it's a combatant.
-            Combatant combatant = null;
+        //    // Checks if it's a combatant.
+        //    Combatant combatant = null;
 
-            // Tries to grab component.
-            if(collision.TryGetComponent(out combatant))
-            {
-                // Kills the combantant instead of destroying the object.
-                combatant.Kill();
-            }
-            else
-            {
-                // Destroy the object.
-                Destroy(collision.gameObject);
-            }
-        }
+        //    // Tries to grab component.
+        //    if(collision.TryGetComponent(out combatant))
+        //    {
+        //        // Kills the combantant instead of destroying the object.
+        //        combatant.Kill();
+        //    }
+        //    else
+        //    {
+        //        // FIXME: this deletes any object inside the world that has its collider turned off, so it was removed.
+        //        // Destroy the object.
+        //        Destroy(collision.gameObject);
+        //    }
+        //}
 
 
         // Checks if this is the current area.

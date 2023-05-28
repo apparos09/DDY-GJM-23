@@ -213,6 +213,14 @@ namespace DDY_GJM_23
                 }
             }
 
+            // If the player is in the base, count the scraps they have on hand. 
+            if (inBase)
+            {
+                scrapsTotal += player.scrapCount;
+                player.scrapCount = 0;
+            }
+                
+
             // Creates the results data to be read in on the results screen.
             GameObject resultsObject = new GameObject("Results Data");
             DontDestroyOnLoad(resultsObject);

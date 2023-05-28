@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace DDY_GJM_23
 {
@@ -29,6 +30,9 @@ namespace DDY_GJM_23
 
         // The liscences subwindow.
         public GameObject liscencesWindow;
+
+        // The quit button for the game.
+        public Button quitButton;
 
         // Constructor
         private TitleManager()
@@ -62,6 +66,10 @@ namespace DDY_GJM_23
         {
             // Show the title screen.
             OpenTitleWindow();
+
+            // Disable the quit button since this is WebGL.
+            if (Application.platform == RuntimePlatform.WebGLPlayer)
+                quitButton.interactable = false;
         }
 
         // Gets the instance.

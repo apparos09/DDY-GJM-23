@@ -199,5 +199,10 @@ namespace DDY_GJM_23
         {
             base.Update();
         }
+
+        private void OnDestroy()
+        {
+            Debug.Log("Test");
+        }
     }
 }

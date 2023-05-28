@@ -317,7 +317,12 @@ namespace DDY_GJM_23
             // Destroys all enemies.
             for (int i = list.Count - 1; i >= 0; i--)
             {
-                Destroy(list[i].gameObject);
+                // The item still exists.
+                // List will be cleared when the check is finished.
+                if (list[i] != null)
+                {
+                    Destroy(list[i].gameObject);
+                }
             }
 
             // Clear the list.

@@ -389,6 +389,15 @@ namespace DDY_GJM_23
                 gameUI.UpdateWeaponInfo();
         }
 
+        // Restores the amount of uses to all of the player's weapons.
+        public void RestoreAllWeaponUsesToMax()
+        {
+            // Restores each weapon.
+            foreach(Weapon weapon in weapons)
+            {
+                weapon.RestoreUsesToMax();
+            }
+        }
 
         // On the death of the player.
         protected override void OnDeath()

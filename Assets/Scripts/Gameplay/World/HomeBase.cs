@@ -41,8 +41,9 @@ namespace DDY_GJM_23
                 gameManager.scrapsTotal += gameManager.player.scrapCount;
                 gameManager.player.scrapCount = 0;
 
-                // Heal player.
+                // Heal player and restore uses.
                 gameManager.player.SetHealthToMax();
+                gameManager.player.RestoreAllWeaponUsesToMax();
             }
         }
 

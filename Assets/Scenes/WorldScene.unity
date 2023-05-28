@@ -2299,7 +2299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9882c4dcfe6cd9141b2cd297c4760644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyObjectsOutside: 1
 --- !u!4 &1339661025
 Transform:
   m_ObjectHideFlags: 0
@@ -2327,7 +2326,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339661023}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1

@@ -101,7 +101,7 @@ MonoBehaviour:
   health: 20
   maxHealth: 20
   vulnerable: 1
-  useIFrames: 1
+  useIFrames: 0
   flying: 0
   poisonImmune: 1
   currentTiles: []

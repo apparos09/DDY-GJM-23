@@ -405,8 +405,10 @@ namespace DDY_GJM_23
             // Increase death count.
             deaths++;
 
-            // The player loses all their scraps.
+            // The player loses all their scraps, keys, and heals.
             scrapCount = 0;
+            keyCount = 0;
+            healCount = 0;
 
             // Gets the gameplay manager.
             GameplayManager gameManager = GameplayManager.Instance;

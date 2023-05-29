@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 namespace DDY_GJM_23
 {
@@ -28,6 +27,11 @@ namespace DDY_GJM_23
         // Runs the chaser enemy's behaviour.
         protected override void RunEnemyBehaviour()
         {
+            // FIXME: for somee reason this is being called before this rigidbody is set?
+            // Quick fix.
+            if (rigidbody == null)
+                return;
+
             // Grabs the player as the target.
             Player target = GameplayManager.Instance.player;
 

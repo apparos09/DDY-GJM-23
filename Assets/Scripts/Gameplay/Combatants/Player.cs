@@ -635,11 +635,11 @@ namespace DDY_GJM_23
                 }
             }
 
-            // Toggle Map
-            if (Input.GetKeyDown(mapKey))
-            {
-                GameplayManager.Instance.ToggleMap();
-            }
+            // // Toggle Map
+            // if (Input.GetKeyDown(mapKey))
+            // {
+            //     GameplayManager.Instance.ToggleMap();
+            // }
            
             
         }

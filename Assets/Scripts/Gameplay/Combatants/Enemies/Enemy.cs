@@ -29,9 +29,6 @@ namespace DDY_GJM_23
         protected override void Start()
         {
             base.Start();
-
-            // Enemies don't have invincibility frames.
-            useIFrames = false;
         }
 
         // OnCollisionStay2D - used to damage the player if contact damage is enabled.

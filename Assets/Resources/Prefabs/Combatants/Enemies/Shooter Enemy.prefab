@@ -96,8 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
-  rigidbody: {fileID: 0}
-  collider: {fileID: 0}
+  rigidbody: {fileID: 1269456625271267572}
+  collider: {fileID: 1269456625271267573}
   health: 20
   maxHealth: 20
   vulnerable: 1
@@ -108,6 +108,7 @@ MonoBehaviour:
   tileDamageRate: 0.25
   contactDamage: 1
   contactDamagePower: 5
+  searchDistance: 100
   runBehaviour: 1
   bulletPrefab: {fileID: 81991851382654437, guid: 4efa8d2cf647d624ab8506175930d200, type: 3}
   fireRate: 5

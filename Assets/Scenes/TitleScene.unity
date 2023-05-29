@@ -1155,7 +1155,7 @@ MonoBehaviour:
     they can be properly dealt with. But to find a solution, scraps must be gathered
     from the surface world for research to continue. That''s where you come in!
 
-    
+
 
     Your
     job is to gather as many scraps as you can and bring them back to base. However,
@@ -3715,7 +3715,7 @@ MonoBehaviour:
     Extra weapons must be found in the environment.
 
     Weapons
-    with limited uses get restored when you visit to the base.
+    with limited uses get replenished when you visit the base.
 
 
     <u><b>Down Arrow</b></u>

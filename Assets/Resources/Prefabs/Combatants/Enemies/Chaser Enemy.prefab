@@ -180,8 +180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
-  rigidbody: {fileID: 0}
-  collider: {fileID: 0}
+  rigidbody: {fileID: 8438912072705579383}
+  collider: {fileID: 8438912072705579382}
   health: 15
   maxHealth: 15
   vulnerable: 1
@@ -192,6 +192,7 @@ MonoBehaviour:
   tileDamageRate: 0.25
   contactDamage: 1
   contactDamagePower: 10
+  searchDistance: 100
   runBehaviour: 1
   pursueSpeed: 5
   seekSpeed: 7

@@ -19,7 +19,7 @@ namespace DDY_GJM_23
         public GameObject effect;
 
         // Force applied to push back enemies.
-        public float pushForce = 300.0F;
+        public float pushForce = 250.0F;
 
         // If the push force should be used.
         public bool usePushForce = true;

@@ -177,6 +177,6 @@ MonoBehaviour:
   collider: {fileID: 5876393934091552264}
   animator: {fileID: 555728129015562413}
   effect: {fileID: 555728127318533547}
-  pushForce: 300
+  pushForce: 250
   usePushForce: 1
   useEffect: 1

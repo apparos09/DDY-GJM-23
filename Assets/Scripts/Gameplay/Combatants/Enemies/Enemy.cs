@@ -18,6 +18,9 @@ namespace DDY_GJM_23
         // The power for contact damage.
         public float contactDamagePower = 10.0F;
 
+        // The search distance for the shooter.
+        public float searchDistance = 100.0F;
+
         // If 'true', the game runs the enemy's behaviour.
         [Tooltip("Runs the behaviour of the enemy if this is true.")]
         public bool runBehaviour = true;

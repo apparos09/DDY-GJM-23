@@ -35,30 +35,33 @@ namespace DDY_GJM_23
             if(fireTimer <= 0) // Time to fire.
             {
                 // Grab the player from the gameplay manager.
-                Player player = GameplayManager.Instance.player;
+                Player target = GameplayManager.Instance.player;
 
-
-                // The bullet prefab has been set, and so has the player.
-                if (bulletPrefab != null && player != null)
+                // Checks if the player is in range.
+                if(Vector3.Distance(target.transform.position, gameObject.transform.position) <= searchDistance)
                 {
-                    // Instantiates the bullet.
-                    Bullet bullet = Instantiate(bulletPrefab);
+                    // The bullet prefab has been set, and so has the player.
+                    if (bulletPrefab != null && target != null)
+                    {
+                        // Instantiates the bullet.
+                        Bullet bullet = Instantiate(bulletPrefab);
 
-                    // Give the bullet the enemy's position.
-                    bullet.transform.position = transform.position;
+                        // Give the bullet the enemy's position.
+                        bullet.transform.position = transform.position;
 
-                    // Get the direction.
-                    Vector3 direc = player.transform.position - transform.position;
+                        // Get the direction.
+                        Vector3 direc = target.transform.position - transform.position;
 
-                    // Normalize the direction.
-                    direc.Normalize();
+                        // Normalize the direction.
+                        direc.Normalize();
 
-                    // Sets the bullet direction.
-                    bullet.SetBulletDirection(new Vector2(direc.normalized.x, direc.normalized.y));
+                        // Sets the bullet direction.
+                        bullet.SetBulletDirection(new Vector2(direc.normalized.x, direc.normalized.y));
 
-                    // Reset the timer.
-                    fireTimer = fireRate;
-                }
+                        // Reset the timer.
+                        fireTimer = fireRate;
+                    }
+                }                
 
             }
             else // Reduce timer

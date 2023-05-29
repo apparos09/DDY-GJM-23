@@ -205,8 +205,8 @@ MonoBehaviour:
   area: {fileID: 0}
   rigidbody: {fileID: 5650137135599239530}
   collider: {fileID: 5650137135599239531}
-  health: 100
-  maxHealth: 100
+  health: 150
+  maxHealth: 150
   vulnerable: 1
   useIFrames: 1
   flying: 0

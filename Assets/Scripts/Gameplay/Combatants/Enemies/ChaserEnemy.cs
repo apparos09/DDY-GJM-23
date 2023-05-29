@@ -38,24 +38,50 @@ namespace DDY_GJM_23
             // Direction of movement.
             Vector3 direc;
 
-            // Pursue
-            if(Vector3.Distance(transform.position, target.transform.position) > seekDist)
-            {
-                Vector2 targetPos = new Vector2(target.transform.position.x, target.transform.position.y);
-                direc = (target.transform.position + new Vector3(target.rigidbody.velocity.x, target.rigidbody.velocity.y, 0))
-                    - transform.position;
+            // Distance between the enemy and the target.
+            float distance = Vector3.Distance(transform.position, target.transform.position);
 
-                rigidbody.AddForce(direc.normalized * pursueSpeed * Time.deltaTime, ForceMode2D.Impulse);
+            // The target is within hit distance.
+            if(distance < searchDistance)
+            {
+                // Pursue
+                if (distance > seekDist)
+                {
+                    Vector2 targetPos = new Vector2(target.transform.position.x, target.transform.position.y);
+                    direc = (target.transform.position + new Vector3(target.rigidbody.velocity.x, target.rigidbody.velocity.y, 0))
+                        - transform.position;
+
+                    rigidbody.AddForce(direc.normalized * pursueSpeed * Time.deltaTime, ForceMode2D.Impulse);
+                }
+                // Seek
+                else
+                {
+                    direc = target.transform.position - transform.position;
+
+                    rigidbody.AddForce(direc.normalized * seekSpeed * Time.deltaTime, ForceMode2D.Impulse);
+                }                
             }
-            // Seek
             else
             {
-                direc = target.transform.position - transform.position;
+                // Stop enemy.
+                // If the enemy is moving.
+                if (rigidbody.velocity != Vector2.zero)
+                {
+                    // Gets the velocity change with friction applied.
+                    Vector2 result;
 
-                rigidbody.AddForce(direc.normalized * seekSpeed * Time.deltaTime, ForceMode2D.Impulse);
+                    // Stop the shooter enemy from having its velocity going continuously.
+                    if (currentTiles.Count > 0)
+                        result = GetVelocityWithFriction(rigidbody.velocity, rigidbody.mass);
+                    else
+                        result = GetVelocityWithFriction(rigidbody.velocity, rigidbody.mass, 1.0F);
+
+                    // Set the result.
+                    rigidbody.velocity = result;
+                }
             }
 
-            // CLamps the speed.
+            // Clamps the speed.
             rigidbody.velocity = Vector2.ClampMagnitude(rigidbody.velocity, maxSpeed);
         }
     }

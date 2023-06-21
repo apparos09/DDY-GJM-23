@@ -175,7 +175,7 @@ namespace DDY_GJM_23
             float time = (roundUp) ? Mathf.Ceil(timer) : timer;
 
             // Formats the time.
-            string formatted = StringFormatter.FormatTime(time, false);
+            string formatted = StringFormatter.FormatTime(time, false, true, false);
 
             // Returns the formatted time.
             return formatted;

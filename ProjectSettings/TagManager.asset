@@ -14,6 +14,7 @@ TagManager:
   - World
   - Area
   - World Object
+  - Canvas
   layers:
   - Default
   - TransparentFX

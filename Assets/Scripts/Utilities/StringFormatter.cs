@@ -40,27 +40,162 @@ public class StringFormatter : MonoBehaviour
 
 
     // Formats the time string.
-    public static string FormatTime(float timeSeconds, bool includeHours = true, bool includeMinutes = true)
+    public static string FormatTime(float timeSeconds, bool includeHours = true, bool includeMinutes = true, bool includeMilliseconds = true)
     {
+        // ATTEMPT USING MODULUS. IT DIDN'T WORK, BUT I MAY WANT TO REVISIT THIS.
+
+        //// Conversions.
+        //const float HOURS_TO_MINUTES = 60.0F;
+        //const float MINUTES_TO_SECONDS = 60.0F;
+        //const float SECONDS_T0_MILLISECONDS = 1000.0F;
+
+        //// The different time measures.
+        //float milliseconds = 0, seconds = 0, minutes = 0, hours = 0;
+
+        //// The remainder of operations.
+        //float remainder = 0;
+
+        //// Save to seconds.
+        //seconds = timeSeconds;
+
+        //// MILLISECONDS AND SECONDS
+        //// 1 second = 1000 milliseconds
+        //{
+        //    // Calculate milliseconds.
+        //    milliseconds = seconds * SECONDS_T0_MILLISECONDS;
+
+        //    // Calculate the remainder.
+        //    remainder = milliseconds % SECONDS_T0_MILLISECONDS;
+
+        //    // Calculates the seconds and milliseconds.
+        //    seconds = (milliseconds - remainder) / SECONDS_T0_MILLISECONDS;
+        //    milliseconds = remainder;
+        //}
+
+        //// MINUTES AND SECONDS
+        //// 1 minute = 60 seconds.
+        //{
+        //    // Calculate remainder.
+        //    remainder = seconds % MINUTES_TO_SECONDS;
+
+        //    // Calculate minutes and seconds.
+        //    minutes = (seconds - remainder) / MINUTES_TO_SECONDS;
+        //    seconds = remainder;
+        //}
+
+        //// HOURS AND MINUTES
+        //// 1 hour = 60 minutes
+        //{
+        //    // Calculate remainder.
+        //    remainder = minutes % HOURS_TO_MINUTES;
+
+        //    // Calculate hours and minutes.
+        //    hours = (minutes - remainder) / HOURS_TO_MINUTES;
+        //    minutes = remainder;
+        //}
+
+
+        //// STRING CONSTRUCTION //
+
+        //// The time string.
+        //string timeString = "";
+
+        //// Add hours if true.
+        //if (includeHours)
+        //{
+        //    timeString += hours.ToString("00") + ":";
+        //}
+        //else // Add hours back to minutes.
+        //{
+        //    minutes += hours * HOURS_TO_MINUTES;
+        //}
+
+
+        //// Add minutes if true.
+        //if (includeMinutes)
+        //{
+        //    timeString += minutes.ToString("00") + ":";
+        //}
+        //else // Add minutes back to hours.
+        //{
+        //    seconds += minutes * MINUTES_TO_SECONDS;
+        //}
+
+        //timeString += seconds.ToString("00") + ":";
+
+
+        //// Add milliseconds if true.
+        //if (includeMilliseconds)
+        //{
+        //    timeString += "." + milliseconds.ToString("000");
+        //}
+
+        //// Add seconds.
+        //timeString += seconds.ToString("00");
+
+        //// Returns ther esults.
+        //return timeString;
+
         // Multiples for converting times to seconds.
-        const float hourToSec = 3600.0F;
-        const float minToSec = 60.0F;
+        const float HOUR_TO_SEC = 3600.0F;
+        const float MIN_TO_SEC = 60.0F;
+        const float SEC_TO_MILLI = 1000.0F;
 
         // The hours, minutes, and seconds.
-        float hours = 0, minutes = 0, seconds = 0;
+        float hours = 0, minutes = 0, seconds = 0, milliseconds = 0;
 
         // Hours, minutes, and seconds - floors value so that the remainder can be used.
         // Hours (1 hour = 3600 seconds)
         if(includeHours)
-            hours = Mathf.Floor(timeSeconds / hourToSec);
+            hours = Mathf.Floor(timeSeconds / HOUR_TO_SEC);
 
         // Minutes (1 minute = 60 seconds).
         if(includeMinutes)
-            minutes = Mathf.Floor((timeSeconds - (hours * hourToSec)) / minToSec);
+            minutes = Mathf.Floor((timeSeconds - (hours * HOUR_TO_SEC)) / MIN_TO_SEC);
 
-        // Seconds (round up to remove nanoseconds).
-        seconds = Mathf.Ceil(timeSeconds - (minutes * minToSec) - (hours * hourToSec));
+        // Seconds and Milliseconds
+        // Seconds (round up to remove milliseconds).
+        if(includeMilliseconds)
+        {
+            seconds = timeSeconds - (minutes * MIN_TO_SEC) - (hours * HOUR_TO_SEC);
+            milliseconds = seconds * SEC_TO_MILLI;
+            
+            // Get the remainder to calculate seconds and milliseconds.
+            float remainder = milliseconds % SEC_TO_MILLI;
+            seconds = (milliseconds - remainder) / SEC_TO_MILLI;
+            milliseconds = remainder;
 
+            // Round the milliseconds down.
+            milliseconds = Mathf.Floor(milliseconds);
+
+        }
+        else
+        {
+            seconds = Mathf.Ceil(timeSeconds - (minutes * MIN_TO_SEC) - (hours * HOUR_TO_SEC));
+        }
+
+        // NOTE: this has been done to address seconds rounding up to 60 (i.e., a full minute) by Mathf.Ceil.
+
+        // Hnadle overflow of milliseconds.
+        if (milliseconds == SEC_TO_MILLI)
+        {
+            seconds++;
+            milliseconds = 0;
+        }
+
+        // If the seconds variable now displays a full minute.
+        if (seconds == MIN_TO_SEC && includeMinutes)
+        {
+            minutes++;
+            seconds = 0;
+        }
+
+        // If the minutes variable now displays a full minute.
+        if(minutes == 60.0F && includeHours)
+        {
+            hours++;
+            minutes = 0;
+        }
 
 
         // The time string.
@@ -77,6 +212,10 @@ public class StringFormatter : MonoBehaviour
 
         // Add seconds.
         timeString += seconds.ToString("00");
+
+        // Add milliseconds.
+        if (includeMilliseconds)
+            timeString += "." + milliseconds.ToString("000");
 
         // Returns ther esults.
         return timeString;

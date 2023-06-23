@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using util;
 
 namespace DDY_GJM_23
 {
@@ -13,15 +14,8 @@ namespace DDY_GJM_23
         // Gets set to 'true' when the singleton is initialized.
         private bool initialized = false;
 
-
-        // Not sure if I'm doing volume controls for this. It's pretty needless.
-        // [Header("Volume")]
-        // 
-        // // BGM volume.
-        // public float bgmVolume = 1.0F;
-        // 
-        // // SFX volume.
-        // public float sfxVolume = 1.0F;
+        // The audio controls for the game.
+        public AudioControls audioControls;
 
         // Constructor
         private GameSettings()
@@ -56,6 +50,18 @@ namespace DDY_GJM_23
         {
             // Don't destroy this object on load.
             DontDestroyOnLoad(this);
+
+            // Checks if audio controls exists.
+            if (audioControls == null)
+            {
+                // Tries to grab the component.
+                audioControls = GetComponent<AudioControls>();
+
+                // Adds the component for audio controls.
+                if(audioControls == null)
+                    audioControls = gameObject.AddComponent<AudioControls>();
+
+            }
         }
 
         // Gets the instance.

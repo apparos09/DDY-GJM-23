@@ -63,11 +63,67 @@ namespace util
             }
         }
 
-        // // adjusts the audio controls using the game settings.
-        // public void AdjustToGameSettings()
-        // {
-        //     // TODO: implement
-        // }
+        // Gets the volume as a percentage of the max volume.
+        public float GetVolumeAsPercentageOfMax()
+        {
+            float result = audioSource.volume / maxVolume;
+            return result;
+        }
+
+        // Sets the volume on a 0-1 scale in reference to the max volume.
+        public void SetVolumeAsPercentageOfMax(float percent)
+        {
+            // Get the new volume.
+            float newVol = maxVolume * percent;
+            newVol = Mathf.Clamp01(newVol);
+
+            // Set the new volume.
+            audioSource.volume = newVol;
+        }
+
+        
+        // ADJUSTING AUDIO //
+
+        // Adjusts all the audio source controls.
+        public static void AdjustAllAudioSourceControls(float newVolume, bool includeInactive)
+        {
+            // Clamps the new volume.
+            float newVol = Mathf.Clamp01(newVolume);
+
+            // Finds all the audios.
+            AudioSourceControl[] audios = FindObjectsOfType<AudioSourceControl>(includeInactive);
+
+            // Adjusts the volumes.
+            foreach(AudioSourceControl asc in audios)
+            {
+                asc.SetVolumeAsPercentageOfMax(newVol);
+            }
+        }
+
+        // Adjusts all the audio source controls.
+        public static void AdjustAudioSourceControlsByTag(float newVolume, string audioTag, bool includeInactive)
+        {
+            // Clamps the new volume.
+            float newVol = Mathf.Clamp01(newVolume);
+
+            // Finds all objects with the provided tag.
+            GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag(audioTag);
+
+            // Adjusts the volumes.
+            foreach (GameObject tagged in taggedObjects)
+            {
+                // Audio source control.
+                AudioSourceControl asc;
+
+                // Tries to get the audio source control component.
+                if(tagged.TryGetComponent(out asc))
+                {
+                    // Set volume as a percentage of the audio source control's max.
+                    asc.SetVolumeAsPercentageOfMax(newVol);
+                }
+            }
+        }
+
 
         // // Update is called once per frame
         // void Update()

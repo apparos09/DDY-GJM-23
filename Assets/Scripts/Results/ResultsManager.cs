@@ -163,7 +163,7 @@ namespace DDY_GJM_23
             healthItemsUsed.text = "Heals Used: " + results.healthItemsUsed.ToString();
 
             // The game length.
-            gameLengthText.text = "Game Length: " + StringFormatter.FormatTime(results.gameLength, false);
+            gameLengthText.text = "Game Length: " + StringFormatter.FormatTime(results.gameLength, false, true, false);
 
 
             // WEAPONS

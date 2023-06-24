@@ -14,8 +14,10 @@ namespace util
         // Adjusts the audio levels when a new level is loaded.
         public bool adjustAudioOnLevelLoaded = true;
 
-        // Audio Tags
-        // Feel free to change these ta
+        // Audio Tags and Volumes
+        // Feel free to change these tags for individual project needs.
+        // Change these default volumes for individual project needs.
+
         // The tag for BGM objects.
         public const string BGM_TAG = "BGM";
 

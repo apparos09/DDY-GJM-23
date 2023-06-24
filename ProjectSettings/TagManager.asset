@@ -15,6 +15,9 @@ TagManager:
   - Area
   - World Object
   - Canvas
+  - BGM
+  - SFX
+  - VCE
   layers:
   - Default
   - TransparentFX

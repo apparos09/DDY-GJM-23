@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using util;
+using TMPro;
+using Unity.VisualScripting;
 
 namespace DDY_GJM_23
 {
@@ -23,15 +25,70 @@ namespace DDY_GJM_23
         // The mute toggle.
         public Toggle muteToggle;
 
+        [Header("Screen Size")]
+
+        // Dropdown for the screen size.
+        public TMP_Dropdown screenSizeDropdown;
+
         // Start is called before the first frame update
         void Start()
         {
             // Grabs the game settings instance.
             if (settings == null)
                 settings = GameSettings.Instance;
+
+
+            // If the game is running in WebGL, disable the screen size changer.
+            if(Application.platform == RuntimePlatform.WebGLPlayer)
+            {
+                screenSizeDropdown.interactable = false;
+            }
+            else
+            {
+                screenSizeDropdown.interactable = true;
+            }
         }
 
-        // VOLUME
+        // This function is called when the object becomes enabled and active
+        private void OnEnable()
+        {
+            // Makes sure the settings is set.
+            if(settings == null)
+                settings = GameSettings.Instance;
+
+            // Set the slider and toggle values.
+            bgmSlider.value = settings.audioControls.BackgroundMusicVolume;
+            sfxSlider.value = settings.audioControls.SoundEffectVolume;
+            muteToggle.isOn = settings.audioControls.Mute;
+
+
+            // Checks the screen resolution.
+            if(Screen.fullScreen)
+            {
+                // Set to full screen value.
+                screenSizeDropdown.value = 3;
+            }
+            else
+            {
+                // Checks the current resolution (checks via height)
+                switch (Screen.currentResolution.height)
+                {
+                    case 576: // 1024 X 576
+                        screenSizeDropdown.value = 0;
+                        break;
+
+                    case 720: // 1280 X 720
+                        screenSizeDropdown.value = 1;
+                        break;
+
+                    case 1080: // 1920 X 1080
+                        screenSizeDropdown.value = 2;
+                        break;
+                }
+            }
+        }
+
+        // AUDIO //
 
         // Sets the BGM volume.
         public void SetBgmVolume(Slider slider)
@@ -69,6 +126,40 @@ namespace DDY_GJM_23
         public void SetMute()
         {
             SetMute(muteToggle);
+        }
+
+
+        // SCREEN SIZE //
+
+        // Sets the screen size.
+        public void SetScreenSize(TMP_Dropdown dropdown)
+        {
+            // Checks the value.
+            switch(dropdown.value)
+            {
+                case 0: // 1024 X 576
+                default:
+                    SceneHelper.SetScreenSize1024x576();
+                    break;
+
+                case 1: // 1280 X 720
+                    SceneHelper.SetScreenSize1280x720();
+                    break;
+
+                case 2: // 1920 X 1080
+                    SceneHelper.SetScreenSize1920x1080();
+                    break;
+
+                case 3: // Fullscreen
+                    SceneHelper.SetFullScreen(true);
+                    break;
+            }
+        }
+
+        // Sets the screen size.
+        public void SetScreenSize()
+        {
+            SetScreenSize(screenSizeDropdown);
         }
     }
 }

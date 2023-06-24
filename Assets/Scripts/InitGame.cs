@@ -21,7 +21,7 @@ namespace DDY_GJM_23
             //     GameSettings.Instance.SetScreenSize1280x720();
 
             // The game doesn't run in the background.
-            Application.runInBackground = false;
+            // Application.runInBackground = false;
         }
 
         // Update is called once per frame

@@ -160,6 +160,12 @@ namespace DDY_GJM_23
             return cellData;
         }
 
+        // Gets the current area cell.
+        public int[] GetCurrentAreaCell()
+        {
+            return GetAreaMapCell(GetCurrentArea());
+        }
+
         // Update is called once per frame
         void Update()
         {

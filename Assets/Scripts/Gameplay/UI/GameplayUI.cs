@@ -65,7 +65,7 @@ namespace DDY_GJM_23
         [Header("HUD/Map")]
 
         // THe map that gets enabled.
-        public GameObject mapObject;
+        public GameplayMap map;     
 
         [Header("UI")]
 
@@ -80,6 +80,12 @@ namespace DDY_GJM_23
             // Grabs the gameplay manager instance.
             if (gameManager == null)
                 gameManager = GameplayManager.Instance;
+
+            // If the map isn't set, get the component in the children.
+            if(map == null)
+            {
+                map = GetComponentInChildren<GameplayMap>();
+            }
         }
 
         // Call to open the settings.
@@ -104,7 +110,7 @@ namespace DDY_GJM_23
         // Checks if the map is currently open.
         public bool IsMapOpen()
         {
-            bool result = mapObject.activeSelf;
+            bool result = map.gameObject.activeSelf;
             return result;
         }
 
@@ -115,7 +121,10 @@ namespace DDY_GJM_23
             gameManager.player.enableWorldInputs = false;
 
             // Activate the map object.
-            mapObject.SetActive(true);
+            map.gameObject.SetActive(true);
+
+            // Calls this in case it didn't get set with onEnable (which is currently not happening for some reason).
+            map.PlacePlayerMarker();
 
             // Only active if player is in the base.
             endEarlyButton.interactable = gameManager.homeBase.IsPlayerInBase();
@@ -128,7 +137,7 @@ namespace DDY_GJM_23
             gameManager.player.enableWorldInputs = true;
 
             // Deactivate the map object.
-            mapObject.SetActive(false);
+            map.gameObject.SetActive(false);
         }
 
         // Toggles the map on and off

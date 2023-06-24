@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 namespace DDY_GJM_23
@@ -12,6 +13,19 @@ namespace DDY_GJM_23
 
         // The current area the player is in.
         private WorldArea currentArea;
+
+        // The ideas for the game map. This is used to highlight information on the game map.
+        // Note that this is laid out the way it would be viewed on the map itself.
+        // So [0, 0] is the top left corner.
+        private string[,] mapIds = new string[,]
+        {
+            { "R00", "R01", "R02", "B00", "B01", "B02" },
+            { "R03", "R04", "R05", "B03", "B04", "B05" },
+            { "R06", "R07", "W00", "W01", "B06", "B07" },
+            { "Y00", "Y01", "W02", "W03", "G00", "G01" },
+            { "Y02", "Y03", "Y04", "G02", "G03", "G04" },
+            { "Y05", "Y06", "Y07", "G05", "G06", "G07" }
+        };
 
         // TODO: the game no longer accounts for items that escape the world, but I don't have time to fix it.
 
@@ -87,6 +101,63 @@ namespace DDY_GJM_23
             // Entered the new area.
             if (newArea != null)
                 newArea.OnAreaEnter();
+        }
+
+        // Gets the area map cell. If the area ID is not in the map, (-1, -1) is returned.
+        // (X) is the row, and (Y) is the column.
+        public int[] GetAreaMapCell(WorldArea area)
+        {
+            // The cell to be returned.
+            int[] cell = new int[2];
+
+            // The cell location.
+            Vector2Int cellLoc = new Vector2Int(-1, -1);
+
+            // Gets set to 'true' when the area has been found.
+            bool found = false;
+
+            // Gets the code of the provided area.
+            string areaCode = area.GetAreaCode();
+
+            // Row and Col (X, Y)
+            for(int r = 0; r < mapIds.GetLength(0) && found; r++)
+            {
+                for(int c = 0; c < mapIds.GetLength(1) && found; c++)
+                {
+                    // Checks if the area code matches the code in this cell.
+                    if (mapIds[r, c] == areaCode)
+                    {
+                        cell[0] = r;
+                        cell[1] = c;
+                        found = true;
+                        break;
+                    }
+                }
+
+            }
+
+            // Returns the cell location.
+            return cell;
+        }
+
+        // Gets the area map cell. If the index is out of bounds, it returns an empty string.
+        public string GetAreaMapCell(int row, int col)
+        {
+            // The data from the cell.
+            string cellData;
+
+            // Checks if the indexes are valid.
+            if(row >= 0 && row < mapIds.GetLength(0) &&
+                col >= 0 && col < mapIds.GetLength(1))
+            {
+                cellData = mapIds[row, col];
+            }
+            else
+            {
+                cellData = "";
+            }
+
+            return cellData;
         }
 
         // Update is called once per frame

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 
 namespace DDY_GJM_23
@@ -107,7 +108,7 @@ namespace DDY_GJM_23
         }
 
         // Returns the world sector tied to the specific letter.
-        public static worldSector GetWorldSector(char letter)
+        public static worldSector GetWorldSectorByLetter(char letter)
         {
             // The world sector
             worldSector ws;
@@ -148,40 +149,83 @@ namespace DDY_GJM_23
             return ws;
         }
 
+        // Gets the world sector as a letter.
+        public char GetWorldSectorAsLetter(worldSector ws)
+        {
+            // THe letter being returned.
+            char letter;
+
+            // Checks the letter.
+            switch (ws)
+            {
+                case worldSector.white:
+                    letter = 'W';
+                    break;
+
+                case worldSector.red:
+                    letter = 'R';
+                    break;
+
+                case worldSector.blue:
+                    letter = 'B';
+                    break;
+
+                case worldSector.yellow:
+                    letter = 'Y';
+                    break;
+
+                case worldSector.green:
+                    letter = 'G';
+                    break;
+
+                case worldSector.unknown:
+                default:
+                    letter = 'X';
+                    break;
+            }
+
+            return letter;
+        }
+
+
+
         // Gets the area code, which is the sector plus the area number.
         public string GetAreaCode()
         {
             // The area code.
             string areaCode = "";
 
-            // Checks what sector the area is part of.
-            switch(sector)
-            {
-                case worldSector.unknown: // Unknown
-                default:
-                    areaCode += "X";
-                    break;
+            //// Checks what sector the area is part of.
+            //switch(sector)
+            //{
+            //    case worldSector.unknown: // Unknown
+            //    default:
+            //        areaCode += "X";
+            //        break;
 
-                case worldSector.white: // White
-                    areaCode += "W";
-                    break;
+            //    case worldSector.white: // White
+            //        areaCode += "W";
+            //        break;
 
-                case worldSector.red: // Red
-                    areaCode += "R";
-                    break;
+            //    case worldSector.red: // Red
+            //        areaCode += "R";
+            //        break;
 
-                case worldSector.blue: // Blue
-                    areaCode += "B";
-                    break;
+            //    case worldSector.blue: // Blue
+            //        areaCode += "B";
+            //        break;
 
-                case worldSector.yellow: // Yellow
-                    areaCode += "Y";
-                    break;
+            //    case worldSector.yellow: // Yellow
+            //        areaCode += "Y";
+            //        break;
                 
-                case worldSector.green: // Green
-                    areaCode += "G";
-                    break;
-            }
+            //    case worldSector.green: // Green
+            //        areaCode += "G";
+            //        break;
+            //}
+
+            // Gets the world sector as a letter.
+            areaCode += GetWorldSectorAsLetter(sector);
 
             // Add the number to the area code.
             areaCode += areaNumber.ToString("D2");

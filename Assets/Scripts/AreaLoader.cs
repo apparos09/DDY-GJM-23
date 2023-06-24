@@ -170,7 +170,7 @@ namespace DDY_GJM_23
                     {
                         // Gets the sector.
                         areaSectorStr = areaCode.Substring(0, 1);
-                        sector = WorldArea.GetWorldSector(areaSectorStr[0]);
+                        sector = WorldArea.GetWorldSectorByLetter(areaSectorStr[0]);
 
                         // Gets the area number.
                         areaNumberStr = areaCode.Substring(1);

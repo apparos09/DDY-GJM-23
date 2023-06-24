@@ -45,6 +45,9 @@ namespace DDY_GJM_23
         // Pauses the timers if set to 'true'.
         public bool pausedTimers = false;
 
+        // Pauses the game if set to 'true'.
+        private bool pausedGame = false;
+
         // Constructor
         private GameplayManager()
         {
@@ -189,6 +192,26 @@ namespace DDY_GJM_23
             // TODO: implement time over effects.
 
             ToResultsScene();
+        }
+
+        // Sets the game to be paused.
+        public void SetPausedGame(bool paused)
+        {
+            pausedGame = paused;
+
+            // TODO: check for animations not bound by time scale.
+            // Makes changes based on if the game is paused or not.
+            if (pausedGame)
+            {
+                Time.timeScale = 0; // Paused
+                player.enableInputs = false;
+
+            }
+            else
+            {
+                Time.timeScale = 1; // Normal
+                player.enableInputs = true;
+            }
         }
 
         // Called to end the game.

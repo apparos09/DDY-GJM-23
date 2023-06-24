@@ -53,10 +53,17 @@ namespace DDY_GJM_23
             
         //}
 
-        // Checks if the player is in the base.
+        // Checks if the player is in the base (white) area.
         public bool IsPlayerInBase()
         {
-            bool result = gameManager.player.collider.IsTouching(collider);
+            bool result;
+
+            // Old (Removed)
+            // result = gameManager.player.collider.IsTouching(collider);
+
+            // New - checks sector category. If white (base), then the player is in the base.
+            result = gameManager.world.GetCurrentArea().sector == WorldArea.worldSector.white;
+
             return result;
         }
 

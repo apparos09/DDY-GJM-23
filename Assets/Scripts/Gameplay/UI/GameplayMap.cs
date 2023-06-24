@@ -43,8 +43,9 @@ namespace DDY_GJM_23
             int[] cell = GameplayManager.Instance.world.GetCurrentAreaCell();
 
             // Calculates the final position.
-            finalPos.x += offsetDirec.x * offset.x * cell[0];
-            finalPos.y += offsetDirec.y * offset.y * cell[1];
+            // Remember that row (0) = y, and col(1) = x.
+            finalPos.x += offsetDirec.x * offset.x * cell[1];
+            finalPos.y += offsetDirec.y * offset.y * cell[0];
 
             // Set local position of the player marker.
             playerMarker.transform.localPosition = finalPos;

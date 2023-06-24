@@ -124,7 +124,7 @@ namespace DDY_GJM_23
             map.gameObject.SetActive(true);
 
             // Calls this in case it didn't get set with onEnable (which is currently not happening for some reason).
-            map.PlacePlayerMarker();
+            // map.PlacePlayerMarker();
 
             // Only active if player is in the base.
             endEarlyButton.interactable = gameManager.homeBase.IsPlayerInBase();

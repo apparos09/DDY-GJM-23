@@ -120,9 +120,9 @@ namespace DDY_GJM_23
             string areaCode = area.GetAreaCode();
 
             // Row and Col (X, Y)
-            for(int r = 0; r < mapIds.GetLength(0) && found; r++)
+            for(int r = 0; r < mapIds.GetLength(0) && !found; r++)
             {
-                for(int c = 0; c < mapIds.GetLength(1) && found; c++)
+                for(int c = 0; c < mapIds.GetLength(1) && !found; c++)
                 {
                     // Checks if the area code matches the code in this cell.
                     if (mapIds[r, c] == areaCode)

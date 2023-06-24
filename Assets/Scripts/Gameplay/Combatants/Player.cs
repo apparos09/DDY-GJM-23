@@ -17,9 +17,6 @@ namespace DDY_GJM_23
 
         [Header("Player")]
 
-        // Allows the player to input commands.
-        public bool enableInputs = true;
-
         // The number of player's deaths.
         public int deaths = 0;
 
@@ -41,14 +38,33 @@ namespace DDY_GJM_23
         // The amount the player gets healed for when they use a heal item (percentage.
         public float healAmount = 0.25F;
 
+        [Header("Player/Inputs")]
+        // Allows the player to input commands.
+        [Tooltip("Enables all player inputs.")]
+        public bool enableInputs = true;
+
+        // Allows the player to make world inputs. Non-world inputs are for things like menu screens.
+        [Tooltip("Enables player inputs on the game world. Non-world inputs are those for menu and UI elements.")]
+        public bool enableWorldInputs = true;
+
+        // The movement keys.
+        public KeyCode moveLeftKey = KeyCode.A;
+        public KeyCode moveRightKey = KeyCode.D;
+        public KeyCode moveUpKey = KeyCode.W;
+        public KeyCode moveDownKey = KeyCode.S;
+
+        // The attack key.
+        public KeyCode attackKey = KeyCode.Space;
+
+        // The left weapon key and the right weapon key.
+        public KeyCode leftWeaponKey = KeyCode.LeftArrow;
+        public KeyCode rightWeaponKey = KeyCode.RightArrow;
+
         // The map key and heal key.
         public KeyCode mapKey = KeyCode.UpArrow;
         public KeyCode healKey = KeyCode.DownArrow;
 
         [Header("Player/Movement")]
-
-        // The direction the player is facing.
-        private Vector2 facingDirec = Vector2.down;
 
         // The movement speed of the player.
         [Tooltip("The movement speed.")]
@@ -66,17 +82,11 @@ namespace DDY_GJM_23
         [Tooltip("The max swim speed.")]
         public float maxSwimSpeed = 2.0F;
 
+        // The direction the player is facing.
+        private Vector2 facingDirec = Vector2.down;
+
         // The inputs for moves on a given frame.
         private Vector2 moveInputs = Vector2.zero;
-
-        // The movement keys.
-        public KeyCode moveLeftKey = KeyCode.A;
-        public KeyCode moveRightKey = KeyCode.D;
-        public KeyCode moveUpKey = KeyCode.W;
-        public KeyCode moveDownKey = KeyCode.S;
-
-        // The attack key.
-        public KeyCode attackKey = KeyCode.Space;
 
         // Weapons
         [Header("Player/Weapons")]
@@ -105,9 +115,7 @@ namespace DDY_GJM_23
         // The swim power.
         public Punch swimPower = null;
 
-        // The left weapon key and the right weapon key.
-        public KeyCode leftWeaponKey = KeyCode.LeftArrow;
-        public KeyCode rightWeaponKey = KeyCode.RightArrow;
+        
 
         // Start is called before the first frame update
         protected override void Start()
@@ -434,11 +442,11 @@ namespace DDY_GJM_23
             // TODO: find a way to have gradual slow down for tile movement instead of stopping instantly.
 
             // Movement - Horizontal (Left, Right)
-            if(Input.GetKey(moveLeftKey)) // Left
+            if(Input.GetKey(moveLeftKey) && enableWorldInputs) // Left
             {
                 movement.x = -1;
             }
-            else if(Input.GetKey(moveRightKey)) // Right
+            else if(Input.GetKey(moveRightKey) && enableWorldInputs) // Right
             {
                 movement.x = 1;
             }
@@ -451,11 +459,11 @@ namespace DDY_GJM_23
 
 
             // Movement - Vertical (Up, Down)
-            if (Input.GetKey(moveUpKey)) // Up
+            if (Input.GetKey(moveUpKey) && enableWorldInputs) // Up
             {
                 movement.y = 1;
             }
-            else if (Input.GetKey(moveDownKey)) // Down
+            else if (Input.GetKey(moveDownKey) && enableWorldInputs) // Down
             {
                 movement.y = -1;
             }
@@ -469,7 +477,7 @@ namespace DDY_GJM_23
 
             // ATTACK
             // The user is attacking.
-            if (Input.GetKeyDown(attackKey))
+            if (Input.GetKeyDown(attackKey) && enableWorldInputs)
             {
                 // Uses the weapon.
                 if (currentWeapon != null)
@@ -626,7 +634,7 @@ namespace DDY_GJM_23
             // OTHER //
 
             // Heal
-            if (Input.GetKeyDown(healKey))
+            if (Input.GetKeyDown(healKey) && enableWorldInputs)
             {
                 // If the player has heals, reduce the count and increase their health.
                 if(healCount > 0)
@@ -637,12 +645,12 @@ namespace DDY_GJM_23
                 }
             }
 
-            // // Toggle Map
-            // if (Input.GetKeyDown(mapKey))
-            // {
-            //     GameplayManager.Instance.ToggleMap();
-            // }
-           
+            // Toggle Map (this is NOT a world input).
+            if (Input.GetKeyDown(mapKey))
+            {
+                // Turn on the map.
+                GameplayManager.Instance.ToggleMap();
+            }
             
         }
 

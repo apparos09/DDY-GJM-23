@@ -151,22 +151,28 @@ namespace DDY_GJM_23
             // ...
         }
 
+        // Checks if the map is open.
+        public bool IsMapOpen()
+        {
+            return gameUI.IsMapOpen();
+        }
+
         // Opens the game map.
         public void OpenMap()
         {
-            // TODO: implement
+            gameUI.OpenMap();
         }
         
         // Closes the game map.
         public void CloseMap()
         {
-            // TODO: implement.
+            gameUI.CloseMap();
         }
 
         // Toggles the map.
         public void ToggleMap()
         {
-            // TODO: implement.
+            gameUI.ToggleMap();
         }
 
 

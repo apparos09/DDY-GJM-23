@@ -62,6 +62,11 @@ namespace DDY_GJM_23
         // Sprite for swim power.
         public Sprite swimPowerSprite;
 
+        [Header("HUD/Map")]
+
+        // THe map that gets enabled.
+        public GameObject mapObject;
+
         [Header("UI")]
 
         // This button is used to retire (end the game early).
@@ -95,10 +100,22 @@ namespace DDY_GJM_23
             // ...
         }
 
+
+        // Checks if the map is currently open.
+        public bool IsMapOpen()
+        {
+            bool result = mapObject.activeSelf;
+            return result;
+        }
+
         // Open the map.
         public void OpenMap()
         {
             Time.timeScale = 0.0F;
+            gameManager.player.enableWorldInputs = false;
+
+            // Activate the map object.
+            mapObject.SetActive(true);
 
             // Only active if player is in the base.
             endEarlyButton.interactable = gameManager.homeBase.IsPlayerInBase();
@@ -108,7 +125,26 @@ namespace DDY_GJM_23
         public void CloseMap()
         {
             Time.timeScale = 1.0F;
+            gameManager.player.enableWorldInputs = true;
+
+            // Deactivate the map object.
+            mapObject.SetActive(false);
         }
+
+        // Toggles the map on and off
+        public void ToggleMap()
+        {
+            // Checks if the map is open.
+            if (IsMapOpen()) // Map currently open.
+            {
+                CloseMap();
+            }
+            else // Map not currently open.
+            {
+                OpenMap();
+            }
+        }
+
 
         // Sets the weapon icon based on the type.
         public void SetWeaponIcon(Weapon.weaponType type)

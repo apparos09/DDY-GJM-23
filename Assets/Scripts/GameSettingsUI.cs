@@ -56,6 +56,17 @@ namespace DDY_GJM_23
             if(settings == null)
                 settings = GameSettings.Instance;
 
+            // Checks if the settings has audio controls attached. 
+            if(settings.audioControls == null)
+            {
+                // Tries to get the component.
+                if(!settings.TryGetComponent(out settings.audioControls))
+                {
+                    // Adds the audio controls component if it's not set.
+                    settings.audioControls = AudioControls.Instance;
+                }
+            }
+                
             // Set the slider and toggle values.
             bgmSlider.value = settings.audioControls.BackgroundMusicVolume;
             sfxSlider.value = settings.audioControls.SoundEffectVolume;

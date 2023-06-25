@@ -12,10 +12,10 @@ namespace util
         public struct AudioCredit
         {
             // The name of the song.
-            public string name;
+            public string title;
 
             // The artist(s) that made the song.
-            public string artist;
+            public string artists;
 
             // The collection the song is part of (album, EP, group, etc.).
             public string collection;
@@ -40,46 +40,6 @@ namespace util
         void Start()
         {
             // TODO: load in the audio references.
-            // Title
-            AudioCredit ac = new AudioCredit();
-            ac.name = "Dawn of the Apocaylse";
-            ac.artist = "Rafael Krux";
-            ac.source = "FreePD";
-            ac.link1 = "https://freepd.com/horror.php";
-            ac.link2 = "https://music.orchestralis.net/track/28566414";
-
-            ac.copyright = "\"Dawn of the Apocalypse\" by Rafael Krux (orchestralis.net)" +
-                "\nLicensed under Creative Commons: By Attribution 4.0 International (CC BY 4.0)" +
-                "\nhttps://creativecommons.org/licenses/by/4.0/";
-
-            audioCredits.Add(ac);
-
-            // Gameplay
-            ac = new AudioCredit();
-            ac.name = "Mysterious Lights";
-            ac.artist = "Bryan Teoh";
-            ac.source = "FreePD";
-            ac.link1 = "https://freepd.com/horror.php";
-            ac.link2 = "https://www.bryanteoh.com/";
-
-            ac.copyright = "Mysterious Lights\" by Bryan Teoh" +
-                "\nLicensed under Creative Commons: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication" +
-                "\nhttps://creativecommons.org/publicdomain/zero/1.0/";
-
-            audioCredits.Add(ac);
-
-            // Results
-            ac = new AudioCredit();
-            ac.name = "No Winners";
-            ac.artist = "Ross Bugden";
-            ac.source = "GameSounds.xyz, YouTube";
-            ac.link1 = "https://gamesounds.xyz/?dir=Music%20-%20Ross%20Bugden";
-            ac.link2 = "https://www.youtube.com/watch?v=9qk-vZ1qicI";
-
-            ac.copyright = "\"No Winners\" by Ross Bugden (https://youtu.be/9qk-vZ1qicI)" +
-                "\nConfirmed to be free to copy, modify, distribute, and perform for work, even for commercial purposes, all without asking permission.";
-
-            audioCredits.Add(ac);
         }
 
         // Returns the page count for the audio references.

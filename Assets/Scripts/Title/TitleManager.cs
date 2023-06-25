@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static util.AudioCredits;
+using util;
 
 namespace DDY_GJM_23
 {
@@ -14,7 +16,7 @@ namespace DDY_GJM_23
 
         // Gets set to 'true' when the TitleManager is initialized.
         // This isn't needed, but it helps with the clarity.
-        private bool initialized = false;
+        private bool instantiated = false;
 
         // The title window for the title scene.
         public GameObject titleWindow;
@@ -33,6 +35,11 @@ namespace DDY_GJM_23
 
         // The quit button for the game.
         public Button quitButton;
+
+        [Header("Other")]
+
+        // The credits interface.
+        public AudioCreditsInterface credits;
 
         // Constructor
         private TitleManager()
@@ -55,9 +62,10 @@ namespace DDY_GJM_23
             }
 
             // Run code for initialization.
-            if (!initialized)
+            if (!instantiated)
             {
-                initialized = true;
+                // Game has been instantiated.
+                instantiated = true;
             }
         }
 
@@ -70,6 +78,60 @@ namespace DDY_GJM_23
             // Disable the quit button since this is WebGL.
             if (Application.platform == RuntimePlatform.WebGLPlayer)
                 quitButton.interactable = false;
+
+
+            // AUDIO CREDITS //
+
+            // The audio credits for the game.
+            List<AudioCredit> audioCredits = new List<AudioCredit>();
+
+            // Loading Audio Credits
+            // Title 
+            AudioCredit ac = new AudioCredit();
+            ac.title = "Dawn of the Apocaylse";
+            ac.artists = "Rafael Krux";
+            ac.collection = "FreePD/Horror";
+            ac.source = "FreePD";
+            ac.link1 = "https://freepd.com/horror.php";
+            ac.link2 = "https://music.orchestralis.net/track/28566414";
+
+            ac.copyright = "\"Dawn of the Apocalypse\" by Rafael Krux (orchestralis.net)" +
+                "\nLicensed under Creative Commons: By Attribution 4.0 International (CC BY 4.0)" +
+                "\nhttps://creativecommons.org/licenses/by/4.0/";
+
+            audioCredits.Add(ac);
+
+            // Gameplay 
+            ac = new AudioCredit();
+            ac.title = "Mysterious Lights";
+            ac.artists = "Bryan Teoh";
+            ac.collection = "FreePD/Horror";
+            ac.source = "FreePD";
+            ac.link1 = "https://freepd.com/horror.php";
+            ac.link2 = "https://www.bryanteoh.com/";
+
+            ac.copyright = "Mysterious Lights\" by Bryan Teoh" +
+                "\nLicensed under Creative Commons: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication" +
+                "\nhttps://creativecommons.org/publicdomain/zero/1.0/";
+
+            audioCredits.Add(ac);
+
+            // Results 
+            ac = new AudioCredit();
+            ac.title = "No Winners";
+            ac.artists = "Ross Bugden";
+            ac.collection = "Music - Ross Bugden";
+            ac.source = "GameSounds.xyz, YouTube";
+            ac.link1 = "https://gamesounds.xyz/?dir=Music%20-%20Ross%20Bugden";
+            ac.link2 = "https://www.youtube.com/watch?v=9qk-vZ1qicI";
+
+            ac.copyright = "\"No Winners\" by Ross Bugden (https://youtu.be/9qk-vZ1qicI)" +
+                "\nConfirmed to be free to copy, modify, distribute, and perform for work, even for commercial purposes, all without asking permission.";
+
+            audioCredits.Add(ac);
+
+            // Set the audio credits.
+            credits.audioCredits.audioCredits = audioCredits;
         }
 
         // Gets the instance.
@@ -104,7 +166,7 @@ namespace DDY_GJM_23
         {
             get
             {
-                return initialized;
+                return instantiated;
             }
         }
 

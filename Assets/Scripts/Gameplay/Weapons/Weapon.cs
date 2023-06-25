@@ -43,12 +43,7 @@ namespace DDY_GJM_23
             // ...
         }
 
-        // Restores the number of uses for the weapon to its max.
-        public void RestoreUsesToMax()
-        {
-            uses = maxUses;
-        }
-
+        
         // If the weapon is usable, return true. If not, return false.
         public bool IsUsable()
         {
@@ -57,6 +52,34 @@ namespace DDY_GJM_23
             else
                 return false;
 
+        }
+
+        // Adds uses to the weapon.
+        public void AddUses(int amount)
+        {
+            // If the weapon is infinite use, don't change the use count.
+            if(!infiniteUse)
+            {
+                uses += amount;
+                uses = Mathf.Clamp(uses, 0, maxUses);
+            }
+        }
+
+        // Reduces uses of the weapon.
+        public void RemoveUses(int amount) 
+        {
+            // If the weapon is infinite use, don't change the use count.
+            if (!infiniteUse)
+            {
+                uses -= amount;
+                uses = Mathf.Clamp(uses, 0, maxUses);
+            }
+        }
+
+        // Restores the number of uses for the weapon to its max.
+        public void RestoreUsesToMax()
+        {
+            uses = maxUses;
         }
 
         // Uses the weapon.

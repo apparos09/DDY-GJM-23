@@ -8,7 +8,7 @@ namespace DDY_GJM_23
     public abstract class WorldItem : AreaEntity
     {
         // Item identification.
-        public enum itemId { none, scrap, weapon, key, health };
+        public enum itemId { none, scrap, weapon, weaponUses, key, health };
 
         // The id of the world item.
         public itemId id;

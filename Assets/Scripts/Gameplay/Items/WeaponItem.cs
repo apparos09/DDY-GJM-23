@@ -18,7 +18,9 @@ namespace DDY_GJM_23
         {
             base.Start();
 
-            id = itemId.weapon;
+            // Auto-set id.
+            if (id == itemId.none)
+                id = itemId.weapon;
         }
 
         // Give the player the weapon.

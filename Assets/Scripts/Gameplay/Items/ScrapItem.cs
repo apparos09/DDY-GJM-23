@@ -21,7 +21,9 @@ namespace DDY_GJM_23
         {
             base.Start();
 
-            id = itemId.scrap;
+            // Auto-set id.
+            if(id == itemId.none)
+                id = itemId.scrap;
         }
 
         // On the item get.

@@ -31,6 +31,12 @@ namespace DDY_GJM_23
         // The home base of the game.
         public HomeBase homeBase;
 
+        [Header("World/Item Drops")]
+
+        // The weapon uses item prebab.
+        public WeaponUsesItem weaponUsesItemPrefab;
+
+
         [Header("Other")]
 
         // The gameplay UI.
@@ -137,6 +143,21 @@ namespace DDY_GJM_23
                 return initialized;
             }
         }
+
+        // GAME WORLD
+        // Spawns an item at the provided position.
+        public void SpawnItem(Vector3 itemPos)
+        {
+            // TODO: implement chance rate.
+
+            // If the weapon item prefab isn't set.
+            if(weaponUsesItemPrefab != null)
+            {
+                WeaponUsesItem item = Instantiate(weaponUsesItemPrefab);
+                item.transform.position = itemPos;
+            }
+        }
+
 
         // WINDOWS
         // Opens the game map.

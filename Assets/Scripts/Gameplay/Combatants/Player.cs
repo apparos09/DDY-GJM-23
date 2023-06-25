@@ -397,6 +397,34 @@ namespace DDY_GJM_23
                 gameUI.UpdateWeaponInfo();
         }
 
+        // Gives weapon uses to the player.
+        public void GiveWeaponUses(Weapon.weaponType type, int uses)
+        {
+            // Checks the weapon type.
+            if(type == Weapon.weaponType.none) // No type, so refill set weapon.
+            {
+                // Provide uses to the weapon.
+                if (currentWeapon != null)
+                {
+                    currentWeapon.AddUses(uses);
+                }
+            }
+            else
+            {
+                // Goes through each weapon.
+                foreach(Weapon weapon in weapons)
+                {
+                    // The types match.
+                    if(weapon.type == type)
+                    {
+                        weapon.AddUses(uses);
+                        break;
+                    }
+                }
+            }
+        }
+
+
         // Restores the amount of uses to all of the player's weapons.
         public void RestoreAllWeaponUsesToMax()
         {

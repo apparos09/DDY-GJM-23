@@ -80,7 +80,7 @@ namespace DDY_GJM_23
             Enemy enemy;
 
             // Obstruction component.
-            Obstruction obstruction;
+            Obstruction obstruc;
 
             // Tries to get the enemy component.
             if (target.TryGetComponent(out enemy))
@@ -111,10 +111,14 @@ namespace DDY_GJM_23
             }
 
             // The target is ab obstruction.
-            if(target.TryGetComponent(out obstruction))
+            if(target.TryGetComponent(out obstruc))
             {
-                // Apply damage to the obstruction.
-                obstruction.ApplyDamage(power);
+                // If the obstruction is vulnerable to being destroyed by a punch.
+                if(obstruc.punchVulnerable)
+                {
+                    // Apply damage to the obstruction.
+                    obstruc.ApplyDamage(power);
+                }
             }
         }
 

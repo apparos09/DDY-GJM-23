@@ -118,7 +118,7 @@ namespace DDY_GJM_23
         public void OpenMap()
         {
             Time.timeScale = 0.0F;
-            gameManager.player.enableWorldInputs = false;
+            gameManager.player.enableInputs = false;
 
             // Activate the map object.
             map.gameObject.SetActive(true);
@@ -134,7 +134,7 @@ namespace DDY_GJM_23
         public void CloseMap()
         {
             Time.timeScale = 1.0F;
-            gameManager.player.enableWorldInputs = true;
+            gameManager.player.enableInputs = true;
 
             // Deactivate the map object.
             map.gameObject.SetActive(false);

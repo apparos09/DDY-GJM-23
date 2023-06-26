@@ -75,13 +75,18 @@ namespace DDY_GJM_23
                 }
 
                 // The obstruction.
-                Obstruction obsturction;
+                Obstruction obstruc;
 
                 // Damages the obstruction, and kills the bullet.
-                if(other.TryGetComponent(out obsturction))
+                if(other.TryGetComponent(out obstruc))
                 {
-                    obsturction.ApplyDamage(power);
-                    Kill();
+                    // If the obstruction can be hurt by bullets.
+                    if(obstruc.bulletVulnerable)
+                    {
+                        obstruc.ApplyDamage(power);
+                        Kill();
+                    }
+                    
                 }
             }
             

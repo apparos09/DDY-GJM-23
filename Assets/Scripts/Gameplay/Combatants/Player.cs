@@ -40,12 +40,8 @@ namespace DDY_GJM_23
 
         [Header("Player/Inputs")]
         // Allows the player to input commands.
-        [Tooltip("Enables all player inputs.")]
+        [Tooltip("Enables all player inputs if true (only applies to inputs in this script).")]
         public bool enableInputs = true;
-
-        // Allows the player to make world inputs. Non-world inputs are for things like menu screens.
-        [Tooltip("Enables player inputs on the game world. Non-world inputs are those for menu and UI elements.")]
-        public bool enableWorldInputs = true;
 
         // The movement keys.
         public KeyCode moveLeftKey = KeyCode.A;
@@ -470,11 +466,11 @@ namespace DDY_GJM_23
             // TODO: find a way to have gradual slow down for tile movement instead of stopping instantly.
 
             // Movement - Horizontal (Left, Right)
-            if(Input.GetKey(moveLeftKey) && enableWorldInputs) // Left
+            if(Input.GetKey(moveLeftKey)) // Left
             {
                 movement.x = -1;
             }
-            else if(Input.GetKey(moveRightKey) && enableWorldInputs) // Right
+            else if(Input.GetKey(moveRightKey)) // Right
             {
                 movement.x = 1;
             }
@@ -487,11 +483,11 @@ namespace DDY_GJM_23
 
 
             // Movement - Vertical (Up, Down)
-            if (Input.GetKey(moveUpKey) && enableWorldInputs) // Up
+            if (Input.GetKey(moveUpKey)) // Up
             {
                 movement.y = 1;
             }
-            else if (Input.GetKey(moveDownKey) && enableWorldInputs) // Down
+            else if (Input.GetKey(moveDownKey)) // Down
             {
                 movement.y = -1;
             }
@@ -505,7 +501,7 @@ namespace DDY_GJM_23
 
             // ATTACK
             // The user is attacking.
-            if (Input.GetKeyDown(attackKey) && enableWorldInputs)
+            if (Input.GetKeyDown(attackKey))
             {
                 // Uses the weapon.
                 if (currentWeapon != null)
@@ -662,7 +658,7 @@ namespace DDY_GJM_23
             // OTHER //
 
             // Heal
-            if (Input.GetKeyDown(healKey) && enableWorldInputs)
+            if (Input.GetKeyDown(healKey))
             {
                 // If the player has heals, reduce the count and increase their health.
                 if(healCount > 0)
@@ -677,7 +673,7 @@ namespace DDY_GJM_23
             if (Input.GetKeyDown(mapKey))
             {
                 // Turn on the map.
-                GameplayManager.Instance.ToggleMap();
+                GameplayManager.Instance.OpenMap();
             }
             
         }

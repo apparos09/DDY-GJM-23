@@ -8,6 +8,9 @@ namespace DDY_GJM_23
     // The gameplay map.
     public class GameplayMap : MonoBehaviour
     {
+        // The gameplay manager.
+        public GameplayManager gameManager = null;
+
         // The player marker
         public Image playerMarker;
 
@@ -23,6 +26,13 @@ namespace DDY_GJM_23
         [Tooltip("The offset direction for increasing the row and colum")]
         public Vector2 offsetDirec = new Vector2(1, -1);
 
+        // Start is called just before any of the Update methods is called the first time
+        private void Start()
+        {
+            // Set the game manager.
+            if(gameManager == null)
+                gameManager = GameplayManager.Instance;
+        }
 
         // This function is called when the object becomes enabled and active
         public void OnEnable()
@@ -49,6 +59,21 @@ namespace DDY_GJM_23
 
             // Set local position of the player marker.
             playerMarker.transform.localPosition = finalPos;
+        }
+
+        // Update is called every frame, if the MonoBehaviour is enabled
+        private void Update()
+        {
+            // Gets the gameplay manager.
+            if (gameManager == null)
+                gameManager = GameplayManager.Instance;
+
+            // Closes the map.
+            if(Input.GetKeyDown(gameManager.player.mapKey))
+            {
+                // Closes the game map.
+                gameManager.CloseMap();
+            }
         }
     }
 }

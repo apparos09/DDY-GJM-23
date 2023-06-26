@@ -213,35 +213,6 @@ namespace DDY_GJM_23
             // The area code.
             string areaCode = "";
 
-            //// Checks what sector the area is part of.
-            //switch(sector)
-            //{
-            //    case worldSector.unknown: // Unknown
-            //    default:
-            //        areaCode += "X";
-            //        break;
-
-            //    case worldSector.white: // White
-            //        areaCode += "W";
-            //        break;
-
-            //    case worldSector.red: // Red
-            //        areaCode += "R";
-            //        break;
-
-            //    case worldSector.blue: // Blue
-            //        areaCode += "B";
-            //        break;
-
-            //    case worldSector.yellow: // Yellow
-            //        areaCode += "Y";
-            //        break;
-                
-            //    case worldSector.green: // Green
-            //        areaCode += "G";
-            //        break;
-            //}
-
             // Gets the world sector as a letter.
             areaCode += GetWorldSectorAsLetter(sector);
 
@@ -359,7 +330,8 @@ namespace DDY_GJM_23
                 camPos.y = transform.position.y;
             }
 
-            // Sets the camera position.
+            // Sets the camera position. (TODO: change to game object instead of transform.)
+            gameManager.worldCamera.target = camTransformPos.gameObject;
             gameManager.worldCamera.SetCameraPosition(camPos.x, camPos.y);
 
             // Spawns dynamic entities.

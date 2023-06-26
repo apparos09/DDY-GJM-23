@@ -11,6 +11,10 @@ namespace DDY_GJM_23
         // Make sure the WorldCamera script and Camera scrpt are attached to the same object.
         public new Camera camera;
 
+        // The target that the camera is aimed at.
+        // TODO: determine how far the camera can move away from the target. 
+        public GameObject target;
+
         // The minmimum and maximum view size.
         public Vector2 viewSizeMin = Vector2.zero;
         public Vector2 viewSizeMax = Vector2.one;

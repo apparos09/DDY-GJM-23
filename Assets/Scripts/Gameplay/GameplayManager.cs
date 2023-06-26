@@ -124,11 +124,11 @@ namespace DDY_GJM_23
             }
 
 
-            // If the tutorial should be used.
-            if(GameSettings.Instance.useTutorial)
-            {
-                OpenTextBox(tutorial.GetDebugText());
-            }
+            //// If the tutorial should be used.
+            //if(GameSettings.Instance.useTutorial)
+            //{
+            //    OpenTextBox(tutorial.GetDebugText());
+            //}
         }
 
         // Gets the instance.

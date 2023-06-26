@@ -20,6 +20,9 @@ namespace DDY_GJM_23
 
         // The index of the current page.
         public int pageIndex = -1;
+        
+        // If 'true', the textbox is closed when the pages are cleared.
+        public bool closeOnEnd = true;
 
         [Header("Buttons")]
 
@@ -90,9 +93,8 @@ namespace DDY_GJM_23
             UpdateText();
         }
 
-        // Goes to the next page.
-        // If 'closeIfLast' is set to 'true', then the text box will be closed if there is no page.
-        public void NextPage(bool closeIfNoPage)
+        // Goes to the next page. Defaults 'closeIfNoPage' to true.
+        public void NextPage()
         {
             // Increase the index.
             pageIndex += 1;
@@ -103,7 +105,7 @@ namespace DDY_GJM_23
                 pageIndex = pages.Count - 1;
 
                 // There are no pages left.
-                if (closeIfNoPage)
+                if (closeOnEnd)
                 {
                     gameManager.CloseTextBox();
                 }
@@ -117,13 +119,7 @@ namespace DDY_GJM_23
             {
                 // Updates the text box text.
                 UpdateText();
-            }            
-        }
-
-        // Goes to the next page. Defaults 'closeIfNoPage' to true.
-        public void NextPage()
-        {
-            NextPage(true);
+            }
         }
 
 
@@ -175,8 +171,7 @@ namespace DDY_GJM_23
                 {
                     if(!prevPageButton.interactable)
                         prevPageButton.interactable = true;
-                }
-                    
+                }                    
             }
         }
     }

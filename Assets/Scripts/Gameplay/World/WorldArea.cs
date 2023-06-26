@@ -17,14 +17,15 @@ namespace DDY_GJM_23
         // The gameplay manager.
         public GameplayManager gameManager;
 
-        
-
         // The collider for entering and exiting the area.
         public BoxCollider2D areaCollider;
 
         [Header("Area Info")]
         // The world this area is part of.
         public World world;
+
+        // The world cell for this area.
+        private int[] worldCell = new int[2] { -1, -1 };
 
         // The sector of this world area.
         public worldSector sector = worldSector.unknown;
@@ -75,6 +76,9 @@ namespace DDY_GJM_23
             if(world == null)
                 world = GetComponentInParent<World>();
 
+            // Sets the world cell.
+            GetWorldCell();
+
             // Gets the box collider 2D.
             if (areaCollider == null)
                 areaCollider = GetComponent<BoxCollider2D>();
@@ -106,6 +110,20 @@ namespace DDY_GJM_23
                 }
             }
         }
+
+
+        // AREA INFO
+
+        // Gets the cell this world belongs to. If it's negative, then that means this cell isn't considered in the world.
+        public int[] GetWorldCell()
+        {
+            // Checks if the world cell has been set yet.
+            if (world != null && (worldCell[0] == -1 || worldCell[1] == -1))
+                worldCell = world.GetWorldAreaCell(this);
+
+            return worldCell;
+        }
+
 
         // Returns the world sector tied to the specific letter.
         public static worldSector GetWorldSectorByLetter(char letter)

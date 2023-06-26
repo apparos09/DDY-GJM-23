@@ -40,7 +40,7 @@ namespace DDY_GJM_23
             Vector3 finalPos = cell0_0;
 
             // Gets the cell.
-            int[] cell = GameplayManager.Instance.world.GetCurrentAreaCell();
+            int[] cell = GameplayManager.Instance.world.GetCurrentWorldMapCell();
 
             // Calculates the final position.
             // Remember that row (0) = y, and col(1) = x.

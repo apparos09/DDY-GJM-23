@@ -69,6 +69,9 @@ namespace DDY_GJM_23
 
         [Header("UI")]
 
+        // The textbox for the game.
+        public TextBox textBox;
+
         // This button is used to retire (end the game early).
         // It should only be active if the player is in the base when the menu is opened.
         [Tooltip("Ends the game early. Should only be available if the player is in the base.")]
@@ -88,73 +91,7 @@ namespace DDY_GJM_23
             }
         }
 
-        // Call to open the settings.
-        public void OpenSettings()
-        {
-            // Stop the game.
-            Time.timeScale = 1.0F;
-
-            // Only active if player is in the base.
-            endEarlyButton.interactable = gameManager.homeBase.IsPlayerInBase();
-        }
-
-        // Call to close the settings.
-        public void CloseSettings()
-        {
-            // Start the game.
-            Time.timeScale = 1.0F;
-            // ...
-        }
-
-
-        // Checks if the map is currently open.
-        public bool IsMapOpen()
-        {
-            bool result = map.gameObject.activeSelf;
-            return result;
-        }
-
-        // Open the map.
-        public void OpenMap()
-        {
-            Time.timeScale = 0.0F;
-            gameManager.player.enableInputs = false;
-
-            // Activate the map object.
-            map.gameObject.SetActive(true);
-
-            // Calls this in case it didn't get set with onEnable (which is currently not happening for some reason).
-            // map.PlacePlayerMarker();
-
-            // Only active if player is in the base.
-            endEarlyButton.interactable = gameManager.homeBase.IsPlayerInBase();
-        }
-
-        // Close the map.
-        public void CloseMap()
-        {
-            Time.timeScale = 1.0F;
-            gameManager.player.enableInputs = true;
-
-            // Deactivate the map object.
-            map.gameObject.SetActive(false);
-        }
-
-        // Toggles the map on and off
-        public void ToggleMap()
-        {
-            // Checks if the map is open.
-            if (IsMapOpen()) // Map currently open.
-            {
-                CloseMap();
-            }
-            else // Map not currently open.
-            {
-                OpenMap();
-            }
-        }
-
-
+        // GENERAL //
         // Sets the weapon icon based on the type.
         public void SetWeaponIcon(Weapon.weaponType type)
         {
@@ -263,6 +200,120 @@ namespace DDY_GJM_23
             }
 
         }
+
+        // MAP //
+
+        // Checks if the map is currently open.
+        public bool IsMapOpen()
+        {
+            bool result = map.isActiveAndEnabled;
+            return result;
+        }
+
+        // Open the map.
+        public void OpenMap()
+        {
+            Time.timeScale = 0.0F;
+            gameManager.player.enableInputs = false;
+
+            // Activate the map object.
+            map.gameObject.SetActive(true);
+
+            // Calls this in case it didn't get set with onEnable (which is currently not happening for some reason).
+            // map.PlacePlayerMarker();
+
+            // Only active if player is in the base.
+            endEarlyButton.interactable = gameManager.homeBase.IsPlayerInBase();
+        }
+
+        // Close the map.
+        public void CloseMap()
+        {
+            Time.timeScale = 1.0F;
+            gameManager.player.enableInputs = true;
+
+            // Deactivate the map object.
+            map.gameObject.SetActive(false);
+        }
+
+        // Toggles the map on and off
+        public void ToggleMap()
+        {
+            // Checks if the map is open.
+            if (IsMapOpen()) // Map currently open.
+            {
+                CloseMap();
+            }
+            else // Map not currently open.
+            {
+                OpenMap();
+            }
+        }
+
+
+        // TUTORIAL //
+        // Return 'true' if the text box is open.
+        public bool IsTextBoxOpen()
+        {
+            bool result = textBox.isActiveAndEnabled;
+            return result;
+        }
+
+
+        // NOTE: a text box shouldn't be opened while the map is also open.
+        // Opens the text box.
+        public void OpenTextBox(List<string> pages)
+        {
+            textBox.pages = pages;
+            textBox.gameObject.SetActive(true);
+            textBox.OpenFirstPage();
+
+            // NOTE: this always opens on the first page. You will never need to open up on another page at the start...
+            // So leaving it like this is fine.
+        }
+
+        // Closes the text box.
+        // If 'clearPages' is true, the text box elements are cleared out.
+        public void CloseTextBox(bool clearPages = false)
+        {
+            // Clears out the pages.
+            if (clearPages)
+                textBox.ClearPages();
+
+            // Turn off the text box.
+            textBox.gameObject.SetActive(false);
+        }
+
+
+        // SETTINGS //
+        // Call to open the settings.
+        public void OpenSettings()
+        {
+            // Stop the game.
+            Time.timeScale = 1.0F;
+
+            // Stop the player.
+            gameManager.player.enableInputs = false;
+
+            // Only active if player is in the base.
+            endEarlyButton.interactable = gameManager.homeBase.IsPlayerInBase();
+        }
+
+        // Call to close the settings.
+        public void CloseSettings()
+        {
+            // Start the game.
+            Time.timeScale = 1.0F;
+
+
+            // Allow player inputs if the map and the text box aren't open.
+            if(!IsMapOpen() && !IsTextBoxOpen())
+            {
+                gameManager.player.enableInputs = true;
+            }
+        }
+
+
 
         // Ends the game early by going to the results scene.
         public void EndGame()

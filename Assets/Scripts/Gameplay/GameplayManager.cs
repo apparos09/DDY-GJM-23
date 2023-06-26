@@ -18,7 +18,7 @@ namespace DDY_GJM_23
         public Player player;
 
         // The total number of scraps the player has created.
-        public int scrapsTotal;
+        public int scrapsTotal = 0;
 
         [Header("World")]
 
@@ -37,10 +37,15 @@ namespace DDY_GJM_23
         public WeaponUsesItem weaponUsesItemPrefab;
 
 
-        [Header("Other")]
+        [Header("Canvas")]
 
         // The gameplay UI.
         public GameplayUI gameUI;
+
+        // The dialogue for the game.
+        public Tutorial tutorial;
+
+        [Header("Other")]
 
         // The game timer (in seconds) - 5 Minutes (300 Seconds)
         public float timer = 300.0F;
@@ -69,13 +74,13 @@ namespace DDY_GJM_23
                 instance = this;
             }
             // If the instance isn't this, destroy the game object.
-            else if(instance != this)
+            else if (instance != this)
             {
                 Destroy(gameObject);
             }
-                
+
             // Run code for initialization.
-            if(!initialized)
+            if (!initialized)
             {
                 initialized = true;
             }
@@ -83,7 +88,7 @@ namespace DDY_GJM_23
 
         // Start is called just before any of the Update methods is called the first time
         private void Start()
-        { 
+        {
             // Find the player.
             if (player == null)
                 player = FindObjectOfType<Player>(true);
@@ -102,10 +107,28 @@ namespace DDY_GJM_23
             if (homeBase == null)
                 homeBase = FindObjectOfType<HomeBase>(true);
 
-            // OTHER
+            // UI
             // The game UI.
             if (gameUI == null)
                 gameUI = FindObjectOfType<GameplayUI>(true);
+
+
+            // Dialogue not set.
+            if (tutorial == null)
+            {
+                tutorial = FindObjectOfType<Tutorial>(true);
+
+                // Adds the component to the game manager.
+                if (tutorial == null)
+                    tutorial = gameObject.AddComponent<Tutorial>();
+            }
+
+
+            // If the tutorial should be used.
+            if(GameSettings.Instance.useTutorial)
+            {
+                OpenTextBox(tutorial.GetDebugText());
+            }
         }
 
         // Gets the instance.
@@ -114,20 +137,20 @@ namespace DDY_GJM_23
             get
             {
                 // Checks if the instance exists.
-                if(instance == null)
+                if (instance == null)
                 {
                     // Tries to find the instance.
                     instance = FindObjectOfType<GameplayManager>(true);
 
 
                     // The instance doesn't already exist.
-                    if(instance == null)
+                    if (instance == null)
                     {
                         // Generate the instance.
                         GameObject go = new GameObject("Gameplay Manager (singleton)");
                         instance = go.AddComponent<GameplayManager>();
                     }
-                    
+
                 }
 
                 // Return the instance.
@@ -151,7 +174,7 @@ namespace DDY_GJM_23
             // TODO: implement chance rate.
 
             // If the weapon item prefab isn't set.
-            if(weaponUsesItemPrefab != null)
+            if (weaponUsesItemPrefab != null)
             {
                 WeaponUsesItem item = Instantiate(weaponUsesItemPrefab);
                 item.transform.position = itemPos;
@@ -160,18 +183,8 @@ namespace DDY_GJM_23
 
 
         // WINDOWS
-        // Opens the game map.
-        public void OpenSettings()
-        {
-            // ...
-        }
 
-        // Close the game settings.
-        public void CloseSettings()
-        {
-            // ...
-        }
-
+        // MAP
         // Checks if the map is open.
         public bool IsMapOpen()
         {
@@ -183,7 +196,7 @@ namespace DDY_GJM_23
         {
             gameUI.OpenMap();
         }
-        
+
         // Closes the game map.
         public void CloseMap()
         {
@@ -196,6 +209,33 @@ namespace DDY_GJM_23
             gameUI.ToggleMap();
         }
 
+        // TUTORIAL //
+        // Opens the text box.
+        public void OpenTextBox(List<string> pages)
+        {
+            gameUI.OpenTextBox(pages);
+        }
+
+        // Closes the text box.
+        // If 'clearPages' is true, the text box elements are cleared out.
+        public void CloseTextBox(bool clearPages = false)
+        {
+            gameUI.CloseTextBox(clearPages);
+        }
+
+
+        // SETTINGS //
+        // Opens the game settings.
+        public void OpenSettings()
+        {
+            gameUI.OpenSettings();
+        }
+
+        // Close the game settings.
+        public void CloseSettings()
+        {
+            gameUI.CloseSettings();
+        }
 
         // TIME
         // Returns the game timer, formatted.

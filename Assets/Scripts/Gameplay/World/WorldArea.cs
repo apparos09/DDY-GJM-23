@@ -323,15 +323,16 @@ namespace DDY_GJM_23
             {
                 camPos.x = camTransformPos.position.x;
                 camPos.y = camTransformPos.position.y;
+                gameManager.worldCamera.target = camTransformPos.gameObject;
             }
             else
             {
                 camPos.x = transform.position.x;
                 camPos.y = transform.position.y;
+                gameManager.worldCamera.target = gameManager.player.gameObject;
             }
 
             // Sets the camera position. (TODO: change to game object instead of transform.)
-            gameManager.worldCamera.target = camTransformPos.gameObject;
             gameManager.worldCamera.SetCameraPosition(camPos.x, camPos.y);
 
             // Spawns dynamic entities.

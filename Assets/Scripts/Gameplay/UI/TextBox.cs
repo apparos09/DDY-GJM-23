@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 namespace DDY_GJM_23
 {
@@ -18,19 +19,36 @@ namespace DDY_GJM_23
         public List<string> pages = new List<string>();
 
         // The index of the current page.
-        public int pageIndex = 0;
+        public int pageIndex = -1;
 
-        // If 'true', text is loaded instantly. If false, text is loaded word by word.
-        // TODO: handle using text highlight elements like bold, underline, etc.
-        public bool instantText = true;
+        [Header("Buttons")]
 
-        // Start is called before the first frame update
-        void Start()
+        // If 'true', buttons are disabled if they can't be used.
+        public bool disableButtonsIfUnusable = true;
+
+        // The previous page button.
+        public Button prevPageButton;
+
+        // The next page button.
+        public Button nextPageButton;
+
+        // // If 'true', text is loaded instantly. If false, text is loaded word by word.
+        // // TODO: handle using text highlight elements like bold, underline, etc.
+        // public bool instantText = true;
+
+        // Awake is called when the script instance is being loaded
+        private void Awake()
         {
             // Grabs the gameplay manager instance.
             if (gameManager == null)
                 gameManager = GameplayManager.Instance;
         }
+
+        //// Start is called before the first frame update
+        //void Start()
+        //{
+            
+        //}
 
         // This function is called when the object becomes enabled and active
         private void OnEnable()
@@ -72,17 +90,57 @@ namespace DDY_GJM_23
             UpdateText();
         }
 
-        public void NextPage()
+        // Goes to the next page.
+        // If 'closeIfLast' is set to 'true', then the text box will be closed if there is no page.
+        public void NextPage(bool closeIfNoPage)
         {
             // Increase the index.
             pageIndex += 1;
 
             // Prevent an out of bounds check.
             if (pageIndex >= pages.Count)
+            {
                 pageIndex = pages.Count - 1;
 
-            // Updates the text box text.
+                // There are no pages left.
+                if (closeIfNoPage)
+                {
+                    gameManager.CloseTextBox();
+                }
+                else
+                {
+                    // Updates the text box text.
+                    UpdateText();
+                }
+            }
+            else
+            {
+                // Updates the text box text.
+                UpdateText();
+            }            
+        }
+
+        // Goes to the next page. Defaults 'closeIfNoPage' to true.
+        public void NextPage()
+        {
+            NextPage(true);
+        }
+
+
+        // Goes to the first page.
+        public void OpenFirstPage()
+        {
+            pageIndex = 0;
             UpdateText();
+        }
+
+        // Clears pages out of the text box.
+        public void ClearPages()
+        {
+            pages.Clear();
+            pageIndex = -1;
+
+            text.text = string.Empty;
         }
 
 
@@ -90,7 +148,7 @@ namespace DDY_GJM_23
         public void UpdateText()
         {
             // Index out of bounds.
-            if (pageIndex < 0 && pageIndex >= pages.Count)
+            if (pageIndex < 0 || pageIndex >= pages.Count)
                 return;
 
             // TODO: add scrolling text and ability to turn off tutorial elements.
@@ -103,6 +161,23 @@ namespace DDY_GJM_23
         void Update()
         {
             // TODO: add scrolling text.
+
+            // Checks if the previous button is set.
+            if(prevPageButton != null)
+            {
+                // If the button interaction should be changed.
+                if (disableButtonsIfUnusable && pageIndex <= 0)
+                {
+                    if(prevPageButton.interactable)
+                        prevPageButton.interactable = false;
+                }
+                else if (disableButtonsIfUnusable && pageIndex > 0)
+                {
+                    if(!prevPageButton.interactable)
+                        prevPageButton.interactable = true;
+                }
+                    
+            }
         }
     }
 }

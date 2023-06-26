@@ -17,6 +17,9 @@ namespace DDY_GJM_23
         // The audio controls for the game.
         public AudioControls audioControls;
 
+        // If 'true', tutorial elements are used.
+        public bool useTutorial = true;
+
         // Constructor
         private GameSettings()
         {

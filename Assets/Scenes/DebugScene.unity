@@ -1366,6 +1366,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a4881b8f363cee469e4bbdd8b4de131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &820106954 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5650137135599239528, guid: 94f44f6a98387084fbd1e685634f7d3b, type: 3}
+  m_PrefabInstance: {fileID: 1873396928}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88227c5458637cb439fb971dedda447f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &864299647
 GameObject:
   m_ObjectHideFlags: 0
@@ -2555,13 +2566,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae4d3902fe0ddf458ac4ff63b662a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 820106954}
   scrapsTotal: 0
   world: {fileID: 0}
   worldCamera: {fileID: 0}
   homeBase: {fileID: 0}
   weaponUsesItemPrefab: {fileID: 157860170195315078, guid: d9c05b45cecc1de44aa819f6ac03eee4, type: 3}
   gameUI: {fileID: 0}
+  tutorial: {fileID: 0}
   timer: 300
   elapsedGameTime: 0
   pausedTimers: 0

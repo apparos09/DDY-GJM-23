@@ -17,6 +17,9 @@ namespace DDY_GJM_23
 
         [Header("Player")]
 
+        // The gameplay manager.
+        GameplayManager gameManager = null;
+
         // The number of player's deaths.
         public int deaths = 0;
 
@@ -117,6 +120,10 @@ namespace DDY_GJM_23
         protected override void Start()
         {
             base.Start();
+
+            // If the game manager isn't set, get the instance.
+            if (gameManager == null)
+                gameManager = GameplayManager.Instance;
 
             // Finding weapons
             // Punch
@@ -386,7 +393,7 @@ namespace DDY_GJM_23
             }
 
             // Grabs game UI.
-            GameplayUI gameUI = GameplayManager.Instance.gameUI;
+            GameplayUI gameUI = gameManager.gameUI;
 
             // Update the weapon.
             if (gameUI != null)
@@ -442,9 +449,6 @@ namespace DDY_GJM_23
             keyCount = 0;
             healCount = 0;
 
-            // Gets the gameplay manager.
-            GameplayManager gameManager = GameplayManager.Instance;
-
             // The home base has been set, so go to it.
             if(gameManager.homeBase != null)
             {
@@ -453,6 +457,10 @@ namespace DDY_GJM_23
 
                 // Return to home base.
                 transform.position = gameManager.homeBase.transform.position;
+
+                // Activates all areas so that the area triggers go off.
+                // FIXME: this could probably be optimized.
+                gameManager.world.ActivateAllAreas();
             }
         }
 
@@ -673,7 +681,7 @@ namespace DDY_GJM_23
             if (Input.GetKeyDown(mapKey))
             {
                 // Turn on the map.
-                GameplayManager.Instance.OpenMap();
+                gameManager.OpenMap();
             }
             
         }

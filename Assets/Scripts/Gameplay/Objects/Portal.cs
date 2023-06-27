@@ -7,6 +7,9 @@ namespace DDY_GJM_23
     // The portal - only transports player.
     public class Portal : MonoBehaviour
     {
+        // The gameplay manager.
+        public GameplayManager gameManager;
+
         // The object used to makr the destinati
         public GameObject destination;
 
@@ -15,6 +18,15 @@ namespace DDY_GJM_23
 
         // The position offset.
         public Vector3 offset = Vector3.zero;
+
+
+        // Start is called just before any of the Update methods is called the first time
+        private void Start()
+        {
+            // The gameplay manager is not set, so set it.
+            if(gameManager == null)
+                gameManager = GameplayManager.Instance;
+        }
 
         // OnCollisionEnter2D 
         private void OnCollisionEnter2D(Collision2D collision)
@@ -39,8 +51,17 @@ namespace DDY_GJM_23
             if (user == null || destination == null)
                 return;
 
+            // If the game manager is not set, grab the instance.
+            if (gameManager == null)
+                gameManager = GameplayManager.Instance;
+
             // Move to the destination.
             user.transform.position = destination.transform.position + offset;
+
+            // Activates all areas so that the triggers trigger.
+            // FIXME: this could probably be optimized.
+            gameManager.world.ActivateAllAreas();
+
         }
 
     }

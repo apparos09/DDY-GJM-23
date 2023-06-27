@@ -169,7 +169,7 @@ MonoBehaviour:
   sector: 0
   areaNumber: 0
   fixedCamera: 1
-  camTransformPos: {fileID: 2555970749917244097}
+  camAnchor: {fileID: 4483333638393592886}
   camViewTarget: {x: 0.5, y: 0.5}
   cameraLimitsMin: {x: 0, y: 0}
   cameraLimitsMax: {x: 0, y: 0}
@@ -231,7 +231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2555970749917244097}
   m_Layer: 0
-  m_Name: Camera Target
+  m_Name: Camera Anchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -38,7 +38,7 @@ namespace DDY_GJM_23
         public bool fixedCamera = true;
 
         // The area target for the camera. If not set, the camera goes with the object's position.
-        public Transform camTransformPos = null;
+        public GameObject camAnchor = null;
 
         // The camera view target when focusing on the area (relative to world size).
         // (0.5, 0.5) means the middle of the area collider. 
@@ -307,23 +307,30 @@ namespace DDY_GJM_23
             // temp = areaMax - (camMax - camCenter); // OLD
             temp = new Vector3(camTargetPos.x, camTargetPos.y, 0) + (camMax - camCenter); // NEW
             cameraLimitsMax = new Vector2(temp.x, temp.y);
+
+
+            // TODO: redo the maximums and check them to see that they work.
+            // Set the anchor max distances for the world camera.
+            // gameManager.worldCamera.anchorMaxDistanceX = Mathf.Abs((cameraLimitsMax.x - cameraLimitsMin.x) / 2.0F);
+            // gameManager.worldCamera.anchorMaxDistanceY = Mathf.Abs((cameraLimitsMax.y - cameraLimitsMin.y) / 2.0F);
         }
 
 
         // Called when an area is being opened.
         public void OnAreaEnter()
         {
+            // Calculate the camera limits (not really needed).
             CalculateCameraLimits();
 
             // Sets the camera position (don't change z).
             Vector3 camPos = gameManager.worldCamera.transform.position;
 
             // Checks if the camera transform position is set.
-            if (camTransformPos != null)
+            if (camAnchor != null)
             {
-                camPos.x = camTransformPos.position.x;
-                camPos.y = camTransformPos.position.y;
-                gameManager.worldCamera.anchor = camTransformPos.gameObject;
+                camPos.x = camAnchor.transform.position.x;
+                camPos.y = camAnchor.transform.position.y;
+                gameManager.worldCamera.anchor = camAnchor;
             }
             else
             {
@@ -334,6 +341,10 @@ namespace DDY_GJM_23
 
             // Sets the camera position. (TODO: change to game object instead of transform.)
             gameManager.worldCamera.SetCameraPosition(camPos.x, camPos.y);
+
+            // Set the world camera whether or not to follow the player.
+            // If the camera isn't fixed, follow the player.
+            gameManager.worldCamera.followPlayer = !fixedCamera;
 
             // Spawns dynamic entities.
             SpawnEntities();
@@ -457,32 +468,32 @@ namespace DDY_GJM_23
         }
 
 
-        // Update is called once per frame
-        void Update()
-        {
-            // The camera should track the player.
-            if(!fixedCamera)
-            {
-                // Updates the world camera.
-                WorldCamera worldCam = gameManager.worldCamera;
+        //// Update is called once per frame
+        //void Update()
+        //{
+        //    // The camera should track the player.
+        //    if(!fixedCamera)
+        //    {
+        //        // Updates the world camera.
+        //        WorldCamera worldCam = gameManager.worldCamera;
 
-                if(!(worldCam.transform.position.x == gameManager.player.transform.position.x) && 
-                    (worldCam.transform.position.y == gameManager.player.transform.position.y))
-                {
-                    // Sets the camera to the player's position (ignores the z-axis).
-                    worldCam.SetCameraToPlayerPositionXY();
+        //        if(!(worldCam.transform.position.x == gameManager.player.transform.position.x) && 
+        //            (worldCam.transform.position.y == gameManager.player.transform.position.y))
+        //        {
+        //            // Sets the camera to the player's position (ignores the z-axis).
+        //            worldCam.SetCameraToPlayerPositionXY();
 
-                    // Calculates the new position.
-                    Vector3 newPos = new Vector3(
-                        Mathf.Clamp(worldCam.transform.position.x, cameraLimitsMin.x, cameraLimitsMax.x),
-                        Mathf.Clamp(worldCam.transform.position.y, cameraLimitsMin.y, cameraLimitsMax.y),
-                        worldCam.transform.position.z);
+        //            // Calculates the new position.
+        //            Vector3 newPos = new Vector3(
+        //                Mathf.Clamp(worldCam.transform.position.x, cameraLimitsMin.x, cameraLimitsMax.x),
+        //                Mathf.Clamp(worldCam.transform.position.y, cameraLimitsMin.y, cameraLimitsMax.y),
+        //                worldCam.transform.position.z);
 
-                    // Sets the camera position.
-                    worldCam.SetCameraPosition(newPos);
-                }
+        //            // Sets the camera position.
+        //            worldCam.SetCameraPosition(newPos);
+        //        }
                 
-            }
-        }
+        //    }
+        //}
     }
 }

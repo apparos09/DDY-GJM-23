@@ -19,7 +19,7 @@ namespace DDY_GJM_23
         private bool instantiated = false;
 
         // Checks if the game should asynchronously load or not.
-        public const bool ASYNC_LOAD = true;
+        public const bool ASYNC_LOAD_GAME_SCENE = true;
 
         // The title window for the title scene.
         public GameObject titleWindow;
@@ -229,7 +229,7 @@ namespace DDY_GJM_23
             string gameScene = "GameScene";
 
             // Gets the loading type.
-            bool asyncLoad = ASYNC_LOAD;
+            bool asyncLoad = ASYNC_LOAD_GAME_SCENE;
 
             // Checks if the game should be loaded asynchronously or not.
             if(asyncLoad) // Async Load

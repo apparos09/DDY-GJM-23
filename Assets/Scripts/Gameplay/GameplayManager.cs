@@ -14,6 +14,9 @@ namespace DDY_GJM_23
         // Gets set to 'true' when the singleton is initialized.
         private bool instantiated = false;
 
+        // If 'true', the results scene is loaded asynchronously.
+        private bool ASYNC_LOAD_RESULTS_SCENE = true;
+
         // The player.
         public Player player;
 
@@ -344,8 +347,32 @@ namespace DDY_GJM_23
             results.gotRunPower = player.HasWeapon(player.runPower);
             results.gotSwimPower = player.HasWeapon(player.swimPower);
 
-            // Loads the results scene.
-            SceneManager.LoadScene("ResultsScene");
+
+            // LOADING THE RESULTS SCENE //
+            // The game scene.
+            string resultsScene = "ResultsScene";
+
+            // Gets the loading type.
+            bool asyncLoad = ASYNC_LOAD_RESULTS_SCENE;
+
+            // Checks if the game should be loaded asynchronously or not.
+            if (asyncLoad) // Async Load
+            {
+                // Creates then next scene object, and has it not be destroyed on load.
+                GameObject newObject = new GameObject("Next Scene Load");
+                DontDestroyOnLoad(newObject);
+
+                // Goes to the next scene.
+                NextSceneLoad nextScene = newObject.AddComponent<NextSceneLoad>();
+                nextScene.nextScene = resultsScene;
+
+                // Goes to the loading scene.
+                SceneManager.LoadScene("LoadingScene");
+            }
+            else // Normal Load
+            {
+                SceneManager.LoadScene(resultsScene);
+            }
         }
 
         // Update is called once per frame

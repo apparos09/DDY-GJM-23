@@ -85,7 +85,7 @@ namespace DDY_GJM_23
             // Displays the loading amount.
             if(debugText != null && sceneLoader.IsLoading)
             {
-                debugText.text = (sceneLoader.Progress * 100.0F).ToString() + "%";
+                debugText.text = (sceneLoader.GetProgressLoading() * 100.0F).ToString() + "%";
             }    
         }
     }

@@ -31,7 +31,7 @@ namespace util
             if (loader.IsLoading)
             {
                 // changes the slider.
-                slider.value = Mathf.Lerp(slider.minValue, slider.maxValue, loader.Progress);
+                slider.value = Mathf.Lerp(slider.minValue, slider.maxValue, loader.GetProgressLoading());
             }
         }
     }

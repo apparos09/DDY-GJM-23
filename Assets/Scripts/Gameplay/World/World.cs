@@ -371,10 +371,14 @@ namespace DDY_GJM_23
             // Entered the new area.
             if (newArea != null)
             {
+                // Enters the new scene.
                 newArea.OnAreaEnter();
 
+                // Checks if areas should be deactivated.
+                bool deactivateAreas = OPTIMIZE_WORLD;
+
                 // Unloads unneeded areas for the game.
-                if (OPTIMIZE_WORLD)
+                if (deactivateAreas)
                     DeactivateUnneededAreas();
             }
         }

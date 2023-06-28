@@ -18,6 +18,9 @@ namespace DDY_GJM_23
         // This isn't needed, but it helps with the clarity.
         private bool instantiated = false;
 
+        // Checks if the game should asynchronously load or not.
+        public const bool ASYNC_LOAD = true;
+
         // The title window for the title scene.
         public GameObject titleWindow;
 
@@ -222,7 +225,31 @@ namespace DDY_GJM_23
         // Start the game.
         public void ToGameScene()
         {
-            SceneManager.LoadScene("GameScene");
+            // The game scene.
+            string gameScene = "GameScene";
+
+            // Gets the loading type.
+            bool asyncLoad = ASYNC_LOAD;
+
+            // Checks if the game should be loaded asynchronously or not.
+            if(asyncLoad) // Async Load
+            {
+                // Creates then next scene object, and has it not be destroyed on load.
+                GameObject newObject = new GameObject("Next Scene Load");
+                DontDestroyOnLoad(newObject);
+
+                // Goes to the next scene.
+                NextSceneLoad nextScene = newObject.AddComponent<NextSceneLoad>();
+                nextScene.nextScene = gameScene;
+
+                // Goes to the loading scene.
+                SceneManager.LoadScene("LoadingScene");
+            }
+            else // Normal Load
+            {
+                SceneManager.LoadScene(gameScene);
+            }
+          
         }
 
         // Quits the game.

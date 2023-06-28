@@ -12,7 +12,7 @@ namespace DDY_GJM_23
         private static GameplayManager instance;
 
         // Gets set to 'true' when the singleton is initialized.
-        private bool initialized = false;
+        private bool instantiated = false;
 
         // The player.
         public Player player;
@@ -80,9 +80,9 @@ namespace DDY_GJM_23
             }
 
             // Run code for initialization.
-            if (!initialized)
+            if (!instantiated)
             {
-                initialized = true;
+                instantiated = true;
             }
         }
 
@@ -163,7 +163,7 @@ namespace DDY_GJM_23
         {
             get
             {
-                return initialized;
+                return instantiated;
             }
         }
 

@@ -13,6 +13,8 @@ namespace DDY_GJM_23
         private bool loadStarted = false;
 
         // The number of frames delayed for the loading.
+        // The update frame where this hits 0 is when the next scene loads.
+        // So if loadDelay = 2, then frame update 3 is when the load starts (2 -> subtract - > 1 -> subtract -> 0 -> load).
         private int loadDelay = 2;
 
         // The asynchronous scene loader.

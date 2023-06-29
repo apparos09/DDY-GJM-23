@@ -5,7 +5,7 @@ using UnityEngine;
 namespace DDY_GJM_23
 {
     // A tile the player and enemies travel over.
-    public class WorldTile : MonoBehaviour
+    public class WorldTile : AreaEntity
     {
         // The type of the tile.
         public enum tileType { none, grass, metal, pavement, brick, bridge, pit, water, poison };
@@ -23,8 +23,10 @@ namespace DDY_GJM_23
         public bool isLiquid = false;
 
         // Start is called before the first frame update
-        protected virtual void Start()
+        protected override void Start()
         {
+            base.Start();
+
             // Tries to get the collider if it's not set.
             if(collider == null)
                 collider = GetComponent<BoxCollider2D>();

@@ -18,7 +18,7 @@ namespace DDY_GJM_23
         [Header("Player")]
 
         // The gameplay manager.
-        GameplayManager gameManager = null;
+        public GameplayManager gameManager = null;
 
         // The number of player's deaths.
         public int deaths = 0;
@@ -191,7 +191,6 @@ namespace DDY_GJM_23
             return angle;
         }
 
-        // TODO: maybe have the weapons stay in fixed slots?
         // Adds a weapon to the player.
         public void AddWeapon(Weapon.weaponType type)
         {
@@ -275,6 +274,9 @@ namespace DDY_GJM_23
                 // Give the weapon its max bullet count.
                 newWeapon.RestoreUsesToMax();
             }
+
+            // Sorts the player's weapons.
+            SortWeapons();
         }
 
         // Removes a weapon from the player.
@@ -400,8 +402,57 @@ namespace DDY_GJM_23
                 gameUI.UpdateWeaponInfo();
         }
 
+        // Organizes the weapons in the list based on their IDs.
+        public void SortWeapons()
+        {
+            // There are no weapons to sort.
+            if (weapons.Count <= 1)
+                return;
+
+            // Get the weapons list.
+            List<Weapon> weaponsTemp = new List<Weapon>(weapons);
+
+            // Marks that the weapons list is sorted.
+            bool sorted = true;
+
+            // Sorts the weapons.
+            do
+            {
+                // Starts off considered sorted.
+                sorted = true;
+
+                // The index of
+                int index = 1;
+
+                // Bubble sort the content.
+                while(index < weaponsTemp.Count)
+                {
+                    // Checks if the spots should be swapped (listed in ascending order).
+                    if (weaponsTemp[index].type < weaponsTemp[index - 1].type)
+                    {
+                        // Switch the weapons around.
+                        Weapon temp = weaponsTemp[index];
+                        weaponsTemp[index] = weaponsTemp[index - 1];
+                        weaponsTemp[index - 1] = temp;
+
+                        // The list isn't sorted.
+                        sorted = false;
+                    }
+
+                    // Increase the index.
+                    index++;
+                }
+
+            }
+            while (!sorted);
+
+            // Copy the weapons back over.
+            weapons.Clear();
+            weapons = new List<Weapon>(weaponsTemp);
+        }
+
         // Gives weapon uses to the player.
-        public void GiveWeaponUses(Weapon.weaponType type, int uses)
+        public void AddWeaponUses(Weapon.weaponType type, int uses)
         {
             // Checks the weapon type.
             if(type == Weapon.weaponType.none) // No type, so refill set weapon.

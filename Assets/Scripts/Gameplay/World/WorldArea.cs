@@ -99,6 +99,16 @@ namespace DDY_GJM_23
         // Called when entering the area trigger.
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            // TODO: maybe don't set the entity area?
+            // The area entity.
+            AreaEntity entity;
+
+            // Sets the area the entity is in.
+            if(collision.TryGetComponent(out entity))
+            {
+                entity.area = this;
+            }
+
             // Gets the component.
             if(collision.gameObject.tag == Player.PLAYER_TAG)
             {

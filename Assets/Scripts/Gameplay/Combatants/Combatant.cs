@@ -10,6 +10,8 @@ namespace DDY_GJM_23
     // A combat entity in the game world.
     public abstract class Combatant : AreaEntity
     {
+        [Header("Combatant")]
+
         // The rigidbody for the player.
         public new Rigidbody2D rigidbody;
 
@@ -50,9 +52,19 @@ namespace DDY_GJM_23
         // A timer that counts down to apply damage.
         private float tileDamageTimer = 0.0F;
 
+        [Header("Animations")]
+
+        // The animation name for playing the damage animation.
+        public string damageAnim = "Damage";
+
+        // The animation name for playing the invincibility frames animation.
+        public string iFrameAnim = "Invincibility Frames";
+
         // Start is called before the first frame update
-        protected virtual void Start()
+        protected override void Start()
         {
+            base.Start();
+
             // Grabs the 2D rigidbody.
             if (rigidbody == null)
             {
@@ -253,9 +265,17 @@ namespace DDY_GJM_23
             // Activate invincibility timer.
             if(health > 0)
             {
+                // Plays the damage animation.
+                PlayDamageAnimation();
+
                 // Sets the invincibility timer if the combatant has invincibility frames.
                 if(useIFrames && triggerIFrames)
+                {
                     iFrameTimer = I_FRAME_TIME_MAX;
+
+                    // TODO: play iframe animation.
+                }
+                    
             }
             // Called to handle death mechanics.
             else if (health <= 0.0F)
@@ -275,6 +295,33 @@ namespace DDY_GJM_23
 
         // Called when an entity has died.
         protected abstract void OnDeath();
+
+
+        // ANIMATION //
+        // Plays the damage animation.
+        public void PlayDamageAnimation()
+        {
+            // TODO: the damage animation is only getting played once for some reason. Fix that.
+            if (animator != null)
+                animator.Play(damageAnim);
+
+        }
+        
+        // Plays the invincibility frames animation.
+        public void PlayInvincibilityFramesAnimation()
+        {
+            //// TODO: this loops, so you need to change this.
+            //if (animator != null)
+            //    animator.Play(iFrameAnim);
+        }
+
+        // Stops the invincibility frames animation.
+        public void StopInvincibilityFramesAnimation()
+        {
+            //if (animator != null)
+            //    animator.StopPlayback();
+        }
+        
 
         // Update is called once per frame
         protected virtual void Update()

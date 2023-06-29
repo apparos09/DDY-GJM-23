@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 5650137135599239530}
   - component: {fileID: 5650137135599239531}
   - component: {fileID: 5650137135599239528}
+  - component: {fileID: 4771059270034918184}
   - component: {fileID: 2358840055671702735}
   m_Layer: 0
   m_Name: Player
@@ -203,6 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
+  animator: {fileID: 4771059270034918184}
   rigidbody: {fileID: 5650137135599239530}
   collider: {fileID: 5650137135599239531}
   health: 150
@@ -213,7 +215,6 @@ MonoBehaviour:
   poisonImmune: 0
   currentTiles: []
   tileDamageRate: 0.25
-  enableInputs: 1
   deaths: 0
   scrapCount: 0
   keyCount: 0
@@ -221,17 +222,20 @@ MonoBehaviour:
   healCount: 0
   healsUsed: 0
   healAmount: 0.25
+  enableInputs: 1
+  moveLeftKey: 97
+  moveRightKey: 100
+  moveUpKey: 119
+  moveDownKey: 115
+  attackKey: 32
+  leftWeaponKey: 276
+  rightWeaponKey: 275
   mapKey: 273
   healKey: 274
   speed: 75
   maxSpeed: 15
   maxRunSpeed: 12
   maxSwimSpeed: 2
-  moveLeftKey: 97
-  moveRightKey: 100
-  moveUpKey: 119
-  moveDownKey: 115
-  attackKey: 32
   currentWeapon: {fileID: 5650137136764054803}
   weapons:
   - {fileID: 5650137136764054803}
@@ -241,8 +245,26 @@ MonoBehaviour:
   gunFast: {fileID: 5298405603865868510}
   runPower: {fileID: 1081196360422953928}
   swimPower: {fileID: 7917020859405496883}
-  leftWeaponKey: 276
-  rightWeaponKey: 275
+--- !u!95 &4771059270034918184
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5650137135599239529}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2ed44e6366d146b458737f327627036e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!210 &2358840055671702735
 SortingGroup:
   m_ObjectHideFlags: 0

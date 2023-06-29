@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1269456625271267572}
   - component: {fileID: 1269456625271267573}
   - component: {fileID: 1269456625271267570}
+  - component: {fileID: 8959610846828621866}
   - component: {fileID: -4319830648393448814}
   m_Layer: 0
   m_Name: Shooter Enemy
@@ -96,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
+  animator: {fileID: 8959610846828621866}
   rigidbody: {fileID: 1269456625271267572}
   collider: {fileID: 1269456625271267573}
   health: 20
@@ -113,6 +115,26 @@ MonoBehaviour:
   bulletPrefab: {fileID: 81991851382654437, guid: 4efa8d2cf647d624ab8506175930d200, type: 3}
   fireRate: 5
   fireTimer: 0
+--- !u!95 &8959610846828621866
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269456625271267571}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 241cf2d9ecd920f4e90c7a4025d2d2d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!210 &-4319830648393448814
 SortingGroup:
   m_ObjectHideFlags: 0

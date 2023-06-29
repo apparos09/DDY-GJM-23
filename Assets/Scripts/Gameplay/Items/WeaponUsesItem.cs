@@ -28,7 +28,7 @@ namespace DDY_GJM_23
         // Gives the player the item.
         protected override void GiveItem()
         {
-            GameplayManager.Instance.player.GiveWeaponUses(weaponType, usesAmount);
+            GameplayManager.Instance.player.AddWeaponUses(weaponType, usesAmount);
 
             // Item has been gotten.
             OnItemGet();

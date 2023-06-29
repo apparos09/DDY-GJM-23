@@ -15,8 +15,10 @@ namespace DDY_GJM_23
 
 
         // Start is called before the first frame update
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
+
             // If the spawner's area has not been set, try to search for it in the parent.
             if (area == null)
                 area = GetComponentInParent<WorldArea>(true);

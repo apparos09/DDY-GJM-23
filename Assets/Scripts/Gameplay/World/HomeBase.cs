@@ -5,7 +5,7 @@ using UnityEngine;
 namespace DDY_GJM_23
 {
     // The home base for the game world.
-    public class HomeBase : MonoBehaviour
+    public class HomeBase : AreaEntity
     {
         // The gameplay manager.
         public GameplayManager gameManager;
@@ -17,8 +17,10 @@ namespace DDY_GJM_23
         public int visits = 0;
 
         // Start is called before the first frame update
-        void Start()
+        protected override void Start()
         {
+            base.Start();
+
             // The game manager hasn't been set.
             if(gameManager == null)
                 gameManager = GameplayManager.Instance;

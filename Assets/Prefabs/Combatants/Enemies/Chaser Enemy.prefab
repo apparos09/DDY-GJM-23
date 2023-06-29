@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 8438912072705579383}
   - component: {fileID: 8438912072705579382}
   - component: {fileID: 8438912072705579381}
+  - component: {fileID: 1458865361388771755}
   - component: {fileID: 1629710225085942148}
   m_Layer: 0
   m_Name: Chaser Enemy
@@ -180,6 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
+  animator: {fileID: 1458865361388771755}
   rigidbody: {fileID: 8438912072705579383}
   collider: {fileID: 8438912072705579382}
   health: 15
@@ -198,6 +200,26 @@ MonoBehaviour:
   seekSpeed: 7
   maxSpeed: 7
   seekDist: 30
+--- !u!95 &1458865361388771755
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8438912072705579380}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 241cf2d9ecd920f4e90c7a4025d2d2d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!210 &1629710225085942148
 SortingGroup:
   m_ObjectHideFlags: 0

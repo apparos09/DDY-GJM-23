@@ -5,7 +5,7 @@ using UnityEngine;
 namespace DDY_GJM_23
 {
     // The portal - only transports player.
-    public class Portal : MonoBehaviour
+    public class Portal : AreaEntity
     {
         // The gameplay manager.
         public GameplayManager gameManager;
@@ -21,8 +21,10 @@ namespace DDY_GJM_23
 
 
         // Start is called just before any of the Update methods is called the first time
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
+
             // The gameplay manager is not set, so set it.
             if(gameManager == null)
                 gameManager = GameplayManager.Instance;

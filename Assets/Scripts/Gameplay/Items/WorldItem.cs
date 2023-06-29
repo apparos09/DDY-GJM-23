@@ -29,9 +29,9 @@ namespace DDY_GJM_23
         public bool useTimer = false;
 
         // Start is called before the first frame update
-        protected virtual void Start()
+        protected override void Start()
         {
-
+            base.Start();
         }
 
         // Trigger2D - checks the trigger collision.

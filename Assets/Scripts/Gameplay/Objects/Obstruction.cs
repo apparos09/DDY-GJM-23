@@ -5,8 +5,10 @@ using UnityEngine;
 namespace DDY_GJM_23
 {
     // An obstruction in the game world.
-    public class Obstruction : MonoBehaviour
+    public class Obstruction : AreaEntity
     {
+        [Header("Obstruction")]
+
         // The health of the obstruction.
         public float health = 10;
 
@@ -18,9 +20,6 @@ namespace DDY_GJM_23
 
         // Can be destroyed by bullets.
         public bool bulletVulnerable = true;
-
-        // The animator for the obstruction.
-        public Animator animator;
 
         // Restore health to the obstruction.
         public void RestoreHealthToMax()

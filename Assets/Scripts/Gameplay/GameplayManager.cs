@@ -23,6 +23,11 @@ namespace DDY_GJM_23
         // The total number of scraps the player has created.
         public int scrapsTotal = 0;
 
+        // The current scrap goal for the player. 
+        // TODO: have this increase as the palyer keeps meeeting the goal.
+        // TODO: have the game take this into account for grading.
+        public int scrapGoal = 100;
+
         [Header("World")]
 
         // The game world.

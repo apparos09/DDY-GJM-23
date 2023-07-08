@@ -144,7 +144,7 @@ MonoBehaviour:
   fileLoaded: 0
   tilesParent: {fileID: 1456342796081827963}
   originTransform: {fileID: 6680135308410317116}
-  posOffset: {x: -17.92, y: 8.96, z: 0}
+  posOffset: {x: -17.28, y: 8.32, z: 0}
   spacing: {x: 1.28, y: -1.28}
   setLocalPos: 1
   grassFloorA: {fileID: 3434389756108487648, guid: aeadf019a55d0bf4f8c09b30ab5ee0ed, type: 3}

@@ -22843,15 +22843,15 @@ MonoBehaviour:
   area: {fileID: 0}
   sector: 0
   areaNumber: -1
-  fileName: x00.csv
+  fileName: w00.csv
   folderPath1: Assets/Resources/Data/Areas/
   folderPath2: Resources/Data/Areas/
   folderPath3: Data/Areas/
   fileLoaded: 0
   tilesParent: {fileID: 1317463848}
   originTransform: {fileID: 0}
-  posOffset: {x: -13.5, y: 6.5, z: 0}
-  spacing: {x: 1, y: -1}
+  posOffset: {x: -17.28, y: 8.32, z: 0}
+  spacing: {x: 1.28, y: -1.28}
   setLocalPos: 1
   grassFloorA: {fileID: 3434389756108487648, guid: aeadf019a55d0bf4f8c09b30ab5ee0ed, type: 3}
   grassWallA: {fileID: 4454731560842708540, guid: 7fa3ff96224d99a49936c9eae4b88c19, type: 3}
@@ -37296,7 +37296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1373613927366872055, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
@@ -47311,7 +47311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1544173698
 Transform:
   m_ObjectHideFlags: 0
@@ -47351,7 +47351,7 @@ MonoBehaviour:
   fileLoaded: 0
   tilesParent: {fileID: 1052125028}
   originTransform: {fileID: 0}
-  posOffset: {x: -17.92, y: 8.96, z: 0}
+  posOffset: {x: -17.28, y: 8.32, z: 0}
   spacing: {x: 1.28, y: -1.28}
   setLocalPos: 1
   grassFloorA: {fileID: 3434389756108487648, guid: aeadf019a55d0bf4f8c09b30ab5ee0ed, type: 3}

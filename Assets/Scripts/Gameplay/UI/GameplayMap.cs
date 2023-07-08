@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,6 +27,11 @@ namespace DDY_GJM_23
         [Tooltip("The offset direction for increasing the row and colum")]
         public Vector2 offsetDirec = new Vector2(1, -1);
 
+        [Header("Other")]
+
+        // The count for the scraps text.
+        public TMP_Text scrapStatsText;
+
         // Start is called just before any of the Update methods is called the first time
         private void Start()
         {
@@ -38,6 +44,7 @@ namespace DDY_GJM_23
         public void OnEnable()
         {
             PlacePlayerMarker();
+            UpdateScrapDisplay();
         }
 
         // Places the player marker on the map. (TODO: NOT GETTING CALLED FOR SOME REASON).
@@ -59,6 +66,22 @@ namespace DDY_GJM_23
 
             // Set local position of the player marker.
             playerMarker.transform.localPosition = finalPos;
+        }
+
+        // Updates the scrap display.
+        public void UpdateScrapDisplay()
+        {
+            // If the game manager isn't set, set it.
+            if (gameManager == null)
+                gameManager = GameplayManager.Instance;
+
+            // If the game player isn't set.
+            if (gameManager.player == null)
+                gameManager.player = FindObjectOfType<Player>(true);
+
+            // Set the text.
+            scrapStatsText.text = 
+                gameManager.player.scrapCount.ToString() + " | " + gameManager.scrapTotal.ToString();
         }
 
         // Update is called every frame, if the MonoBehaviour is enabled

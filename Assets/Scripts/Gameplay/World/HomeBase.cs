@@ -40,7 +40,7 @@ namespace DDY_GJM_23
                 visits++;
 
                 // Add to the scrap total.
-                gameManager.scrapsTotal += gameManager.player.scrapCount;
+                gameManager.scrapTotal += gameManager.player.scrapCount;
                 gameManager.player.scrapCount = 0;
 
                 // Heal player and restore uses.

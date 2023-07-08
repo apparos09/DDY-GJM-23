@@ -28,6 +28,11 @@ namespace DDY_GJM_23
         // The session length.
         public float gameLength = -1;
 
+        [Header("Goals")]
+
+        // Gets set to 'true' if the scrap goal has been reached.
+        public bool scrapGoalReached = false;
+
         [Header("Weapons")]
         // Got the slow gun.
         public bool gotGunSlow = false;

@@ -21,7 +21,7 @@ namespace DDY_GJM_23
         public Player player;
 
         // The total number of scraps the player has created.
-        public int scrapsTotal = 0;
+        public int scrapTotal = 0;
 
         // The current scrap goal for the player. 
         // TODO: have this increase as the palyer keeps meeeting the goal.
@@ -245,28 +245,19 @@ namespace DDY_GJM_23
             gameUI.CloseSettings();
         }
 
-        // TIME
-        // Returns the game timer, formatted.
-        public string GetTimerFormatted(bool roundUp = true)
+
+        // Returns 'true' if the scrap goal is reached.
+        public bool GetScrapGoalReached()
         {
-            // Gets the time and rounds it up to the nearest whole number.
-            float time = (roundUp) ? Mathf.Ceil(timer) : timer;
-
-            // Formats the time.
-            string formatted = StringFormatter.FormatTime(time, false, true, false);
-
-            // Returns the formatted time.
-            return formatted;
+            bool result = scrapGoal <= scrapTotal;
+            return result;
         }
 
 
-        // Called to end the game.
-        protected void OnTimeOver()
+        // Returns value to see if the game is currently paused.
+        public bool GetPausedGame()
         {
-            // NOTE: if the player is in a base area when the timer is over, have it count.
-            // TODO: implement time over effects.
-
-            ToResultsScene();
+            return pausedGame;
         }
 
         // Sets the game to be paused.
@@ -288,6 +279,34 @@ namespace DDY_GJM_23
                 player.enableInputs = true;
             }
         }
+
+
+        // TIME
+        // Returns the game timer, formatted.
+        public string GetTimerFormatted(bool roundUp = true)
+        {
+            // Gets the time and rounds it up to the nearest whole number.
+            float time = (roundUp) ? Mathf.Ceil(timer) : timer;
+
+            // Formats the time.
+            string formatted = StringFormatter.FormatTime(time, false, true, false);
+
+            // Returns the formatted time.
+            return formatted;
+        }
+
+
+
+
+        // Called to end the game.
+        protected void OnTimeOver()
+        {
+            // NOTE: if the player is in a base area when the timer is over, have it count.
+            // TODO: implement time over effects.
+
+            ToResultsScene();
+        }
+
 
         // Called to end the game.
         public void ToResultsScene()
@@ -314,7 +333,7 @@ namespace DDY_GJM_23
             // If the player is in the base, count the scraps they have on hand. 
             if (inBase)
             {
-                scrapsTotal += player.scrapCount;
+                scrapTotal += player.scrapCount;
                 player.scrapCount = 0;
             }
                 
@@ -331,7 +350,7 @@ namespace DDY_GJM_23
             results.deaths = player.deaths;
 
             // Scrap count.
-            results.scrapsTotal = scrapsTotal;
+            results.scrapsTotal = scrapTotal;
 
             // Visits.
             results.baseVisits = homeBase.visits;
@@ -344,6 +363,9 @@ namespace DDY_GJM_23
 
             // Game length.
             results.gameLength = elapsedGameTime;
+
+            // Goals
+            results.scrapGoalReached = GetScrapGoalReached();
 
             // Weapons
             results.gotGunSlow = player.HasWeapon(player.gunSlow);

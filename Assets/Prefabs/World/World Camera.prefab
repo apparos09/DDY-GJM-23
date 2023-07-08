@@ -61,7 +61,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.2
+  orthographic size: 12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -98,5 +98,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 9061312779663972559}
+  gameManager: {fileID: 0}
+  followPlayer: 1
+  anchor: {fileID: 0}
+  anchorMaxDistanceX: 0
+  anchorMaxDistanceY: 0
   viewSizeMin: {x: 0, y: 0}
   viewSizeMax: {x: 1, y: 1}

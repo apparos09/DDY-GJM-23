@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using System.Runtime.CompilerServices;
 
 namespace DDY_GJM_23
 {
@@ -144,13 +145,20 @@ namespace DDY_GJM_23
             string[] lines = File.ReadAllLines(@file);
 
             // The character for splitting elements.
-            char splitChar = ',';
+            const char SPLIT_CHAR = ',';
+
+            // The character used for seperating sections.
+            const string SECTION_CHAR = "-";
+
+            // The row for the generated entity.
+            // This gets reset to '0' when a new section starts.
+            int row = 0;
 
             // Goes through each line.
             for (int i = 0; i < lines.Length; i++)
             {
                 // Grabs the current line and splits it by the split character.
-                string[] entries = lines[i].Split(splitChar);
+                string[] entries = lines[i].Split(SPLIT_CHAR);
 
                 // 0 - Area Code
                 if (i == 0)
@@ -186,73 +194,120 @@ namespace DDY_GJM_23
                         areaNumber = 0;
                     }
                 }
-                // 1 - Tiles
+                // Entity or Section Char
                 else
                 {
-                    // Goes through each entry.
-                    for(int j = 0; j < entries.Length; j++)
+                    // If this is a section character.
+                    if (entries[0] == SECTION_CHAR)
                     {
-                        // Gets the tile code.
-                        string tc = entries[j];
-
-                        // If the tile code is empty, is set to "0" or "00A", nothing should be put here.
-                        // So go onto the next entry.
-                        if(tc.Length != 3 || tc == "00A")
-                            continue;
-
-                        // The first 2 characters are the number, and the third character is the type.
-                        int number;
-                        string type;
-
-                        // Converts the tile number from a string to an int.
-                        int.TryParse(tc.Substring(0, 2), out number);
-
-                        // Gets the type as a string.
-                        type = tc.Substring(2, 1);
-
-
-                        // TILE LOADING //
-
-                        // Instantiates the tile.
-                        WorldTile newTile = InstantiateTile(number, type[0]);
-
-                        // No tile was generated, so continue.
-                        if (newTile == null)
-                            continue;
-
-
-                        // TILE POSITIONING //
-
-                        // The tile position.
-                        Vector3 tilePos;
-                        
-
-                        // Checks if an origin object has been set.
-                        if(originTransform != null) // Set
-                            tilePos = originTransform.position + posOffset;
-                        else // Not set
-                            tilePos = posOffset;
-
-                        // The row and column. Var 'col' is -1 since the first line was the area ID.
-                        int row = i - 1;
-                        int col = j;
-
-                        // Calculate the tile position.
-                        tilePos.x += spacing.x * col;
-                        tilePos.y += spacing.y * row;
-
-                        // Set the tile's position.
-                        if(setLocalPos)
+                        row = 0;
+                    }
+                    else
+                    {
+                        // Goes through each entry.
+                        for (int j = 0; j < entries.Length; j++)
                         {
-                            newTile.transform.localPosition = tilePos;
-                        }
-                        else
-                        {
-                            newTile.transform.position = tilePos;
+                            // Gets the tile code.
+                            string tc = entries[j];
+
+                            // If the tile code is empty, is set to "0" or "00A", nothing should be put here.
+                            // So go onto the next entry.
+                            if (tc.Length != 4 || tc.Substring(1) == "00A")
+                                continue;
+
+                            // Gets the type from the first letter.
+                            // T = Tile, O = Object, E = Enemy, I = Item
+                            string idLetter = tc.Substring(0, 1);
+
+                            // The first character (letter) is the id.
+                            char type;
+                            // The second two characters (numbers) are the type.
+                            int number;
+                            // The third character (letter) is the variant.
+                            string variant;
+
+                            // Gets the values.
+                            // Set the type.
+                            type = tc.Substring(0, 1)[0];
+
+                            // Set the number - Converts the tile number from a string to an int.
+                            int.TryParse(tc.Substring(1, 2), out number);
+
+                            // Set the variant - gets the type as a string.
+                            variant = tc.Substring(3, 1);
+
+                            // The area entity.
+                            AreaEntity areaEntity = null;
+
+                            // ELEMENT LOADING //
+                            switch(type)
+                            {
+                                case 'T': // Tile
+                                case 't':
+                                    areaEntity = InstantiateTile(number, variant[0]);
+                                    break;
+                                    
+                                case 'O': // Object
+                                case 'o':
+                                    areaEntity = InstantiateObject(number, variant[0]);
+                                    break;
+
+                                case 'E': // Enemy
+                                case 'e':
+                                    areaEntity = InstantiateEnemy(number, variant[0]);
+                                    break;
+
+                                case 'I': // Item
+                                case 'i':
+                                    areaEntity = InstantiateItem(number, variant[0]);
+                                    break;
+
+                                default:
+                                    areaEntity = null;
+                                    break;
+
+                            }
+
+                            // No entity was generated, so continue.
+                            if (areaEntity == null)
+                                continue;
+
+
+                            // POSITIONING //
+
+                            // The entity position.
+                            Vector3 entityPos;
+
+
+                            // Checks if an origin object has been set.
+                            if (originTransform != null) // Set
+                                entityPos = originTransform.position + posOffset;
+                            else // Not set
+                                entityPos = posOffset;
+
+                            // Gets the column position.
+                            int col = j;
+
+                            // Calculate the tile position.
+                            entityPos.x += spacing.x * col;
+                            entityPos.y += spacing.y * row;
+
+                            // Set the tile's position.
+                            if (setLocalPos)
+                            {
+                                areaEntity.transform.localPosition = entityPos;
+                            }
+                            else
+                            {
+                                areaEntity.transform.position = entityPos;
+                            }
+
+                            // Give it the tiles parent.
+                            areaEntity.transform.parent = tilesParent;
                         }
 
-                        // Give it the tiles parent.
-                        newTile.transform.parent = tilesParent;
+                        // Increase the row number.
+                        row++;
                     } 
                 }
             }
@@ -272,6 +327,8 @@ namespace DDY_GJM_23
             // Data loaded successfully.
             return true;
         }
+
+        // ELEMENT INSTANTIONS //
 
         // Instantiates a tile.
         public WorldTile InstantiateTile(int number, char type)
@@ -425,6 +482,24 @@ namespace DDY_GJM_23
             {
                 return null;
             }
+        }
+
+        // Instantiates an object.
+        public AreaEntity InstantiateObject(int number, char type)
+        {
+            return null;
+        }
+
+        // Instantiates an object.
+        public AreaEntity InstantiateEnemy(int number, char type)
+        {
+            return null;
+        }
+
+        // Instantiates an object.
+        public WorldItem InstantiateItem(int number, char type)
+        {
+            return null;
         }
     }
 }

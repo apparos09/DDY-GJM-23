@@ -37296,7 +37296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1373613927366872055, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
@@ -47311,7 +47311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1544173698
 Transform:
   m_ObjectHideFlags: 0
@@ -47344,7 +47344,7 @@ MonoBehaviour:
   area: {fileID: 0}
   sector: 0
   areaNumber: -1
-  fileName: w00.csv
+  fileName: x00.csv
   folderPath1: Assets/Resources/Data/Areas/
   folderPath2: Resources/Data/Areas/
   folderPath3: Data/Areas/

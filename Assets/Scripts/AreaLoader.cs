@@ -43,10 +43,21 @@ namespace DDY_GJM_23
         [Tooltip("If 'true', the file has been loaded successfully.")]
         public bool fileLoaded = false;
 
-        [Header("Tiles")]
-        // The parent for the loaded tiles.
-        public Transform tilesParent = null;
+        [Header("Entities")]
+        // The parent for the loaded entities.
+        public Transform tileParent = null;
 
+        // The parent for the loaded objects.
+        public Transform objectParent = null;
+
+        // The parent for the loaded enemies.
+        public Transform enemyParent = null;
+
+        // The parent for the loaded items.
+        public Transform itemParent = null;
+
+
+        [Header("Entities/Other")]
         // A reference object for placing the tiles. This can be used to adjust posOffset.
         [Tooltip("An optional object to apply posOffset to for determing the base tile position (origin's world space pos used).")]
         public Transform originTransform;
@@ -63,30 +74,10 @@ namespace DDY_GJM_23
         [Tooltip("If true, the local position of the tile is set, not the world position.")]
         public bool setLocalPos = true;
 
-        // GRASS
-        [Header("Tiles/Grass")]
-        public WorldTile grassFloorA; // 01
-        public WorldTile grassWallA; // 02
+        [Header("Data")]
 
-        // METAL
-        [Header("Tiles/Metal")]
-        public WorldTile metalFloorA; // 03
-        public WorldTile metalWallA; // 04
-
-        // PAVEMENT AND BRICK
-        [Header("Tiles/Pavement, Brick")]
-        public WorldTile pavementFloorA; // 05
-        public WorldTile brickWallA; // 06
-
-        // BRIDGE AND PIT
-        [Header("Tiles/Bridge, Pit")]
-        public WorldTile bridgeA; // 07
-        public WorldTile pitA; // 08
-
-        // LIQUIDS
-        [Header("Tiles/Liquids")]
-        public WorldTile waterA; // 09
-        public WorldTile poisonA; // 10
+        // The prefabs for the loader.
+        public AreaLoaderPrefabs loaderPrefabs;
 
 
         // Start is called before the first frame update
@@ -95,6 +86,10 @@ namespace DDY_GJM_23
             // Gets the componnet if it's not set.
             if (area == null)
                 area = GetComponent<WorldArea>();
+
+            // Grabs the instance of the loader.
+            if (loaderPrefabs == null)
+                loaderPrefabs = AreaLoaderPrefabs.Instance;
 
             // Load the data on start.
             if (loadOnStart)
@@ -238,6 +233,7 @@ namespace DDY_GJM_23
 
                             // The area entity.
                             AreaEntity areaEntity = null;
+                            Transform entityParent = null;
 
                             // ELEMENT LOADING //
                             switch(type)
@@ -245,21 +241,25 @@ namespace DDY_GJM_23
                                 case 'T': // Tile
                                 case 't':
                                     areaEntity = InstantiateTile(number, variant[0]);
+                                    entityParent = tileParent;
                                     break;
                                     
                                 case 'O': // Object
                                 case 'o':
                                     areaEntity = InstantiateObject(number, variant[0]);
+                                    entityParent = objectParent;
                                     break;
 
                                 case 'E': // Enemy
                                 case 'e':
                                     areaEntity = InstantiateEnemy(number, variant[0]);
+                                    entityParent = enemyParent;
                                     break;
 
                                 case 'I': // Item
                                 case 'i':
                                     areaEntity = InstantiateItem(number, variant[0]);
+                                    entityParent = itemParent;
                                     break;
 
                                 default:
@@ -303,7 +303,7 @@ namespace DDY_GJM_23
                             }
 
                             // Give it the tiles parent.
-                            areaEntity.transform.parent = tilesParent;
+                            areaEntity.transform.parent = entityParent;
                         }
 
                         // Increase the row number.
@@ -349,7 +349,7 @@ namespace DDY_GJM_23
                         case 'A':
                         case 'a':
                         default:
-                            origTile = grassFloorA;
+                            origTile = loaderPrefabs.grassFloorA;
                             break;
                     }
 
@@ -362,7 +362,7 @@ namespace DDY_GJM_23
                         case 'A':
                         case 'a':
                         default:
-                            origTile = grassWallA;
+                            origTile = loaderPrefabs.grassWallA;
                             break;
                     }
 
@@ -375,7 +375,7 @@ namespace DDY_GJM_23
                         case 'A':
                         case 'a':
                         default:
-                            origTile = metalFloorA;
+                            origTile = loaderPrefabs.metalFloorA;
                             break;
                     }
                     break;
@@ -387,7 +387,7 @@ namespace DDY_GJM_23
                         case 'A':
                         case 'a':
                         default:
-                            origTile = metalWallA;
+                            origTile = loaderPrefabs.metalWallA;
                             break;
                     }
                     break;
@@ -399,7 +399,7 @@ namespace DDY_GJM_23
                         case 'A':
                         case 'a':
                         default:
-                            origTile = pavementFloorA;
+                            origTile = loaderPrefabs.pavementFloorA;
                             break;
                     }
 
@@ -412,7 +412,7 @@ namespace DDY_GJM_23
                         case 'A':
                         case 'a':
                         default:
-                            origTile = brickWallA;
+                            origTile = loaderPrefabs.brickWallA;
                             break;
                     }
 
@@ -425,7 +425,7 @@ namespace DDY_GJM_23
                         case 'A':
                         case 'a':
                         default:
-                            origTile = bridgeA;
+                            origTile = loaderPrefabs.bridgeA;
                             break;
                     }
 
@@ -438,7 +438,7 @@ namespace DDY_GJM_23
                         case 'A':
                         case 'a':
                         default:
-                            origTile = pitA;
+                            origTile = loaderPrefabs.pitA;
                             break;
                     }
 
@@ -451,7 +451,7 @@ namespace DDY_GJM_23
                         case 'A':
                         case 'a':
                         default:
-                            origTile = waterA;
+                            origTile = loaderPrefabs.waterA;
                             break;
                     }
 
@@ -464,7 +464,7 @@ namespace DDY_GJM_23
                         case 'A':
                         case 'a':
                         default:
-                            origTile = poisonA;
+                            origTile = loaderPrefabs.poisonA;
                             break;
                     }
 

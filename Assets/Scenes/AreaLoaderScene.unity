@@ -22848,21 +22848,15 @@ MonoBehaviour:
   folderPath2: Resources/Data/Areas/
   folderPath3: Data/Areas/
   fileLoaded: 0
-  tilesParent: {fileID: 1317463848}
+  tileParent: {fileID: 0}
+  objectParent: {fileID: 0}
+  enemyParent: {fileID: 0}
+  itemParent: {fileID: 0}
   originTransform: {fileID: 0}
   posOffset: {x: -17.28, y: 8.32, z: 0}
   spacing: {x: 1.28, y: -1.28}
   setLocalPos: 1
-  grassFloorA: {fileID: 3434389756108487648, guid: aeadf019a55d0bf4f8c09b30ab5ee0ed, type: 3}
-  grassWallA: {fileID: 4454731560842708540, guid: 7fa3ff96224d99a49936c9eae4b88c19, type: 3}
-  metalFloorA: {fileID: 4544260119137958150, guid: 8615cb66e1b16504b9bb093c31421286, type: 3}
-  metalWallA: {fileID: 4537360135732934375, guid: b007d20d52f5ad64595fe574274b78a7, type: 3}
-  pavementFloorA: {fileID: 2713584079012256436, guid: 1ebeba2756beaac409a4b02c50a5e4ae, type: 3}
-  brickWallA: {fileID: 8572162502367700277, guid: dad633be28e490e42a9c2a0a23bdd058, type: 3}
-  bridgeA: {fileID: 5260269318363341742, guid: 8db3450a3f03be2408d72949bf9f3e94, type: 3}
-  pitA: {fileID: 6535888075749533206, guid: 0ec1a9b646f7e3b439ce0cf01f545266, type: 3}
-  waterA: {fileID: 3378801974327496830, guid: 4d808909d72281b4dbb6861067e093e0, type: 3}
-  poisonA: {fileID: 3496779825588946614, guid: e14ea939c27ee9142afbaa4e71338380, type: 3}
+  loaderPrefabs: {fileID: 0}
 --- !u!1 &716439494
 GameObject:
   m_ObjectHideFlags: 0
@@ -40618,11 +40612,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!4 &1317463848 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6053433344887625498, guid: bc91c8f283c5848468ff31891e39de68, type: 3}
-  m_PrefabInstance: {fileID: 1191161422}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1318408984
 GameObject:
   m_ObjectHideFlags: 0
@@ -47349,21 +47338,15 @@ MonoBehaviour:
   folderPath2: Resources/Data/Areas/
   folderPath3: Data/Areas/
   fileLoaded: 0
-  tilesParent: {fileID: 1052125028}
+  tileParent: {fileID: 1052125028}
+  objectParent: {fileID: 0}
+  enemyParent: {fileID: 0}
+  itemParent: {fileID: 0}
   originTransform: {fileID: 0}
   posOffset: {x: -17.28, y: 8.32, z: 0}
   spacing: {x: 1.28, y: -1.28}
   setLocalPos: 1
-  grassFloorA: {fileID: 3434389756108487648, guid: aeadf019a55d0bf4f8c09b30ab5ee0ed, type: 3}
-  grassWallA: {fileID: 4454731560842708540, guid: 7fa3ff96224d99a49936c9eae4b88c19, type: 3}
-  metalFloorA: {fileID: 4544260119137958150, guid: 8615cb66e1b16504b9bb093c31421286, type: 3}
-  metalWallA: {fileID: 4537360135732934375, guid: b007d20d52f5ad64595fe574274b78a7, type: 3}
-  pavementFloorA: {fileID: 2713584079012256436, guid: 1ebeba2756beaac409a4b02c50a5e4ae, type: 3}
-  brickWallA: {fileID: 8572162502367700277, guid: dad633be28e490e42a9c2a0a23bdd058, type: 3}
-  bridgeA: {fileID: 5260269318363341742, guid: 8db3450a3f03be2408d72949bf9f3e94, type: 3}
-  pitA: {fileID: 6535888075749533206, guid: 0ec1a9b646f7e3b439ce0cf01f545266, type: 3}
-  waterA: {fileID: 3378801974327496830, guid: 4d808909d72281b4dbb6861067e093e0, type: 3}
-  poisonA: {fileID: 3496779825588946614, guid: e14ea939c27ee9142afbaa4e71338380, type: 3}
+  loaderPrefabs: {fileID: 0}
 --- !u!1 &1545105400
 GameObject:
   m_ObjectHideFlags: 0
@@ -64062,3 +64045,60 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &2127606317004712612
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1353709755034706397, guid: 4556dddc825b8984588ba411fafc1e3c, type: 3}
+      propertyPath: m_Name
+      value: Area Loader Prefabs
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141585783123087009, guid: 4556dddc825b8984588ba411fafc1e3c, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141585783123087009, guid: 4556dddc825b8984588ba411fafc1e3c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141585783123087009, guid: 4556dddc825b8984588ba411fafc1e3c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141585783123087009, guid: 4556dddc825b8984588ba411fafc1e3c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141585783123087009, guid: 4556dddc825b8984588ba411fafc1e3c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141585783123087009, guid: 4556dddc825b8984588ba411fafc1e3c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141585783123087009, guid: 4556dddc825b8984588ba411fafc1e3c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141585783123087009, guid: 4556dddc825b8984588ba411fafc1e3c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141585783123087009, guid: 4556dddc825b8984588ba411fafc1e3c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141585783123087009, guid: 4556dddc825b8984588ba411fafc1e3c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141585783123087009, guid: 4556dddc825b8984588ba411fafc1e3c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4556dddc825b8984588ba411fafc1e3c, type: 3}

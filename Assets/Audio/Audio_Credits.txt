@@ -9,24 +9,6 @@ All sourced audio provided is copyright free.
 All audio components have been modified in some way for better usage in the game.
 Some audio pieces were taken from one website, but originate from another website (said details will be specified where applicable).
 
-The audio has been primarily sourced from the following websites. 
-* GameSound.xyz (https://gamesounds.xyz/)
-* FreePD (https://freepd.com/)
-
-== Template ==
-Song Title: 
-Artist(s): 
-Source(s): 
-Link (... Page):
-Copyright:
-Notes: Copyright free for monetization, but artist must be credited, and a link must be provided if possible.
-* No specific credit format required as long as the artist is named and, if possible, linked.
-
-== Copyright ==
-...
-
-
-
 = Title (BGM) =
 Song Title: Dawn of the Apocalypse
 Artist(s): Rafael Krux
@@ -39,6 +21,21 @@ Copyright: CC 4.0
 "Dawn of the Apocalypse" by Rafael Krux (orchestralis.net)
 Licensed under Creative Commons: By Attribution 4.0 International (CC BY 4.0)
 https://creativecommons.org/licenses/by/4.0/
+
+
+
+= Loading Screen =
+Song Title: Rapture
+Artist(s): Ross Bugden
+Source(s): GameSounds.xyz, YouTube
+Link (GameSounds.xyz): https://gamesounds.xyz/?dir=Music%20-%20Ross%20Bugden
+Link (YouTube): https://www.youtube.com/watch?v=vja87ZXejyk
+Link (YouTube Music): https://youtube.com/watch?v=5YWTlsyFVnY
+Link (Artist): https://soundcloud.com/rossbugden
+
+== Copyright ==
+"Rapture" by Ross Bugden (https://youtu.be/vja87ZXejyk)
+Confirmed to be free to copy, modify, distribute, and perform for work, even for commercial purposes, all without asking permission.
 
 
 

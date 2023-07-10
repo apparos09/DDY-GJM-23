@@ -104,6 +104,20 @@ namespace DDY_GJM_23
 
             audioCredits.Add(ac);
 
+            // Loading
+            ac = new AudioCredit();
+            ac.title = "Rapture";
+            ac.artists = "Ross Bugden";
+            ac.collection = "Music - Ross Bugden";
+            ac.source = "GameSounds.xyz, YouTube";
+            ac.link1 = "https://gamesounds.xyz/?dir=Music%20-%20Ross%20Bugden";
+            ac.link2 = "https://www.youtube.com/watch?v=vja87ZXejyk";
+
+            ac.copyright = "\"Rapture\" by Ross Bugden (https://youtu.be/vja87ZXejyk)" +
+                "\nConfirmed to be free to copy, modify, distribute, and perform for work, even for commercial purposes, all without asking permission.";
+
+            audioCredits.Add(ac);
+
             // Gameplay 
             ac = new AudioCredit();
             ac.title = "Mysterious Lights";

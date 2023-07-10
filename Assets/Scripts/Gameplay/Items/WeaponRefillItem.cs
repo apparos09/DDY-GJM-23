@@ -5,7 +5,7 @@ using UnityEngine;
 namespace DDY_GJM_23
 {
     // A weapon uses item.
-    public class WeaponUsesItem : WorldItem
+    public class WeaponRefillItem : WorldItem
     {
         [Header("Ammo")]
 

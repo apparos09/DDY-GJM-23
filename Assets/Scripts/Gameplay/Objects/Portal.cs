@@ -7,6 +7,8 @@ namespace DDY_GJM_23
     // The portal - only transports player.
     public class Portal : AreaEntity
     {
+        [Header("Portal")]
+
         // The gameplay manager.
         public GameplayManager gameManager;
 
@@ -18,7 +20,6 @@ namespace DDY_GJM_23
 
         // The position offset.
         public Vector3 offset = Vector3.zero;
-
 
         // Start is called just before any of the Update methods is called the first time
         protected override void Start()

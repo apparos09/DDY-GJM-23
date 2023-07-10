@@ -14,6 +14,8 @@ namespace DDY_GJM_23
         // Gets set to 'true' when the singleton is initialized.
         private bool instantiated = false;
 
+        [Header("TILES")]
+
         // GRASS
         [Header("Tiles/Grass")]
         public WorldTile grassFloorA; // 01
@@ -31,13 +33,54 @@ namespace DDY_GJM_23
 
         // BRIDGE AND PIT
         [Header("Tiles/Bridge, Pit")]
-        public WorldTile bridgeA; // 07
-        public WorldTile pitA; // 08
+        public WorldTile bridgeFloorA; // 07
+        public WorldTile bridgeWallA; // 08
+        public WorldTile pitA; // 09
 
         // LIQUIDS
         [Header("Tiles/Liquids")]
-        public WorldTile waterA; // 09
-        public WorldTile poisonA; // 10
+        public WorldTile waterA; // 10
+        public WorldTile poisonA; // 11
+
+        // SAND
+        [Header("Tiles/Sand")]
+        public WorldTile drySandFloorA; // 12
+        public WorldTile drySandWallA; // 13
+
+
+        // OBJECTS //
+        [Header("OBJECTS")]
+        public AreaEntity rockBlock;
+        public AreaEntity stoneBlock;
+        public AreaEntity lockBox;
+        public AreaEntity portal;
+
+        // ENEMIES //
+        [Header("ENEMIES")]
+        public EnemySpawn chaserSpawn;
+        public EnemySpawn shooterSpawn;
+
+        // ITEMS
+        [Header("ITEMS")]
+        [Header("Items/Scrap")]
+        public ScrapSpawn scrapSpawn1;
+        public ScrapSpawn scrapSpawn3;
+        public ScrapSpawn scrapSpawn5;
+        public ScrapSpawn scrapSpawn7;
+        public ScrapSpawn scrapSpawn10;
+        public ScrapSpawn scrapSpawn15;
+
+        [Header("Items/General")]
+        public WorldItem key;
+        public WorldItem health;
+        public WorldItem weaponRefill;
+
+        [Header("Items/Weapons")]
+        public WorldItem gunSlow;
+        public WorldItem gunMid;
+        public WorldItem gunFast;
+        public WorldItem runPower;
+        public WorldItem swimPower;
 
         // Constructor
         private AreaLoaderPrefabs()

@@ -10,6 +10,9 @@ namespace DDY_GJM_23
         // The area the enemy is part of.
         public WorldArea area;
 
+        // The portal sprite.
+        public SpriteRenderer sprite;
+
         // The animator for the area entity (if applicable).
         public Animator animator;
 
@@ -19,6 +22,10 @@ namespace DDY_GJM_23
             //// Tries to grab the area in the parent (probably won't work).
             //if(area == null)
             //    area = GetComponentInParent<WorldArea>(true);
+
+            // The sprite
+            if(sprite == null)
+                sprite = GetComponentInChildren<SpriteRenderer>();
 
             // The animator.
             if(animator == null)

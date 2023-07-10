@@ -63,6 +63,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1977a2b779cd46e4b9ebc6968d44ed28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  area: {fileID: 0}
+  sprite: {fileID: 3183389122376170255}
+  animator: {fileID: 0}
+  gameManager: {fileID: 0}
   destination: {fileID: 0}
   validTags:
   - Player

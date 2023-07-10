@@ -50,7 +50,30 @@ MonoBehaviour:
   metalWallA: {fileID: 4537360135732934375, guid: b007d20d52f5ad64595fe574274b78a7, type: 3}
   pavementFloorA: {fileID: 2713584079012256436, guid: 1ebeba2756beaac409a4b02c50a5e4ae, type: 3}
   brickWallA: {fileID: 8572162502367700277, guid: dad633be28e490e42a9c2a0a23bdd058, type: 3}
-  bridgeA: {fileID: 5260269318363341742, guid: 8db3450a3f03be2408d72949bf9f3e94, type: 3}
+  bridgeFloorA: {fileID: 5260269318363341742, guid: 8db3450a3f03be2408d72949bf9f3e94, type: 3}
+  bridgeWallA: {fileID: 7993253089434167611, guid: a3dd32bd1cacd9347ad72ab66b8c910a, type: 3}
   pitA: {fileID: 6535888075749533206, guid: 0ec1a9b646f7e3b439ce0cf01f545266, type: 3}
   waterA: {fileID: 3378801974327496830, guid: 4d808909d72281b4dbb6861067e093e0, type: 3}
   poisonA: {fileID: 3496779825588946614, guid: e14ea939c27ee9142afbaa4e71338380, type: 3}
+  drySandFloorA: {fileID: 507136924150235641, guid: 7d722d829d3d6f74ab612360330ce496, type: 3}
+  drySandWallA: {fileID: 2539561665930664273, guid: 5078bad792a9cb14cb99a79e39023a59, type: 3}
+  rockBlock: {fileID: 7680815015117301334, guid: cd033620958926146adb289c375e2568, type: 3}
+  stoneBlock: {fileID: 3406899726445412352, guid: a9cafc167ba958d4e93a7350cdf47796, type: 3}
+  lockBox: {fileID: 8861613369114952233, guid: a5c79c0f197d42a458a002e3d5e7afaf, type: 3}
+  portal: {fileID: 3183389122115935939, guid: 467640917bef7864ca18a28b5730b88b, type: 3}
+  chaserSpawn: {fileID: 955528670452313533, guid: f47738a116691d242aacfa68dd841544, type: 3}
+  shooterSpawn: {fileID: 4710031289377815226, guid: 0e968da04795ef34fb81a289238cb321, type: 3}
+  scrapSpawn1: {fileID: 4937034742884079288, guid: 7943d157f5aab9548b3e9fab0512f405, type: 3}
+  scrapSpawn3: {fileID: 6625899335579674776, guid: fd1150b3ba1be37418f1b12db40e3154, type: 3}
+  scrapSpawn5: {fileID: 2711772878426958331, guid: 4cd7f6d46999ee34a8df0150e882c7ce, type: 3}
+  scrapSpawn7: {fileID: 3099374470840710626, guid: e73627f6a1cd8e144a995eb475977a30, type: 3}
+  scrapSpawn10: {fileID: 4918699681375786238, guid: 44f0bccca77d5924083778034a5f2d2f, type: 3}
+  scrapSpawn15: {fileID: 6764409966614533195, guid: 8f2d6b5216657dc4eab1d367ae9bede5, type: 3}
+  key: {fileID: 9026361970671909846, guid: faebe365b3e32d441b3f10c29f2d452e, type: 3}
+  health: {fileID: 3065823134797367750, guid: 8884ea2e93035ca45be1eeaf446e8ae8, type: 3}
+  weaponRefill: {fileID: 157860170195315078, guid: d9c05b45cecc1de44aa819f6ac03eee4, type: 3}
+  gunSlow: {fileID: 7796906027122900930, guid: 7d24286c13a187a4ea831bbfe9a1c86a, type: 3}
+  gunMid: {fileID: 4216923353819562163, guid: 3082c04962df6c545b431fb0e8f5b94e, type: 3}
+  gunFast: {fileID: 3593507573236392230, guid: 51386658ed547b848a8ab96ac1deab5b, type: 3}
+  runPower: {fileID: 5432349642688333680, guid: 8d94981431f950b42a4c05b1ebddf8e4, type: 3}
+  swimPower: {fileID: 8789264294668082395, guid: 5ac8be8f164bf794383bc34dbb0d0ba0, type: 3}

@@ -425,7 +425,7 @@ namespace DDY_GJM_23
                         case 'A':
                         case 'a':
                         default:
-                            origTile = loaderPrefabs.bridgeA;
+                            origTile = loaderPrefabs.bridgeFloorA;
                             break;
                     }
 
@@ -487,19 +487,182 @@ namespace DDY_GJM_23
         // Instantiates an object.
         public AreaEntity InstantiateObject(int number, char type)
         {
-            return null;
+            AreaEntity entity = null;
+
+            switch (number)
+            {
+                case 0: // None (0)
+                default:
+                    entity = null;
+                    break;
+
+                case 1: // Rock (1)
+                    entity = Instantiate(loaderPrefabs.rockBlock);
+                    break;
+
+                case 2: // Stone (2)
+                    entity = Instantiate(loaderPrefabs.stoneBlock);
+                    break;
+
+                case 3: // Lock Box (3)
+                    entity = Instantiate(loaderPrefabs.lockBox);
+                    break;
+
+                case 4: // Portal (4)
+                    entity = Instantiate(loaderPrefabs.portal);
+
+                    // The entity is set.
+                    if(entity != null)
+                    {
+                        // Portal.
+                        Portal portal;
+                        
+                        // Tries to get the portal component.
+                        if(entity.TryGetComponent(out portal))
+                        {
+                            switch(type)
+                            {
+                                case 'A':
+                                case 'a':
+                                    portal.sprite.color = Color.white;
+                                    break;
+
+                                case 'B':
+                                case 'b':
+                                    portal.sprite.color = Color.red;
+                                    break;
+
+                                case 'C':
+                                case 'c':
+                                    portal.sprite.color = Color.blue;
+                                    break;
+
+                                case 'D':
+                                case 'd':
+                                    portal.sprite.color = Color.yellow;
+                                    break;
+
+                                case 'E':
+                                case 'e':
+                                    portal.sprite.color = Color.green;
+                                    break;
+                            }
+                        }
+                    }
+
+                    break;
+            }
+
+            return entity;
         }
 
-        // Instantiates an object.
+        // Instantiates an enemy spawner.
         public AreaEntity InstantiateEnemy(int number, char type)
         {
-            return null;
+            // The enemy spawn.
+            EnemySpawn enemySpawn = null;
+
+            switch(number)
+            {
+                case 0: // None (0)
+                    enemySpawn = null;
+                    break;
+
+                case 1: // Chaser (1)
+                    enemySpawn = Instantiate(loaderPrefabs.chaserSpawn);
+                    break;
+
+                case 2: // Shooter (2)
+                    enemySpawn = Instantiate(loaderPrefabs.shooterSpawn);
+                    break;
+            }
+
+            return enemySpawn;
         }
 
         // Instantiates an object.
-        public WorldItem InstantiateItem(int number, char type)
+        public AreaEntity InstantiateItem(int number, char type)
         {
-            return null;
+            // The item.
+            AreaEntity entity = null;
+
+            switch (number)
+            {
+                case 0: // None (0)
+                    entity = null;
+                    break;
+
+                case 1: // Scrap Spawn (1)
+                    switch(type)
+                    {
+                        case 'A': // Scrap = 1
+                        case 'a':
+                        default:
+                            entity = Instantiate(loaderPrefabs.scrapSpawn1);
+                            break;
+
+                        case 'B': // Scrap = 3
+                        case 'b':
+                            entity = Instantiate(loaderPrefabs.scrapSpawn3);
+                            break;
+
+                        case 'C': // Scrap = 5
+                        case 'c':
+                            entity = Instantiate(loaderPrefabs.scrapSpawn5);
+                            break;
+
+                        case 'D': // Scrap = 7
+                        case 'd':
+                            entity = Instantiate(loaderPrefabs.scrapSpawn7);
+                            break;
+
+                        case 'E': // Scrap = 10
+                        case 'e':
+                            entity = Instantiate(loaderPrefabs.scrapSpawn10);
+                            break;
+
+                        case 'F': // Scrap = 15
+                        case 'f':
+                            entity = Instantiate(loaderPrefabs.scrapSpawn15);
+                            break;
+                    }
+                    break;
+
+                case 2: // Key (2)
+                    entity = Instantiate(loaderPrefabs.key);
+                    break;
+
+                case 3: // Health (3)
+                    entity = Instantiate(loaderPrefabs.health);
+                    break;
+
+                case 4: // Weapon Refill (4)
+                    entity = Instantiate(loaderPrefabs.weaponRefill);
+                    break;
+
+                case 5: // Gun Slow (5)
+                    entity = Instantiate(loaderPrefabs.gunSlow);
+                    break;
+
+                case 6: // Gun Mid (6)
+                    entity = Instantiate(loaderPrefabs.gunMid);
+                    break;
+
+                case 7: // Gun Fast (7)
+                    entity = Instantiate(loaderPrefabs.gunFast);
+                    break;
+
+                case 8: // Run Up (8)
+                    entity = Instantiate(loaderPrefabs.runPower);
+                    break;
+
+                case 9: // Swim Up (9)
+                    entity = Instantiate(loaderPrefabs.swimPower);
+                    break;
+
+            }
+
+            return entity;
         }
     }
 }

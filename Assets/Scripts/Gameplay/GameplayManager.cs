@@ -42,7 +42,7 @@ namespace DDY_GJM_23
         [Header("World/Item Drops")]
 
         // The weapon uses item prebab.
-        public WeaponUsesItem weaponUsesItemPrefab;
+        public WeaponRefillItem weaponUsesItemPrefab;
 
 
         [Header("Canvas")]
@@ -184,7 +184,7 @@ namespace DDY_GJM_23
             // If the weapon item prefab isn't set.
             if (weaponUsesItemPrefab != null)
             {
-                WeaponUsesItem item = Instantiate(weaponUsesItemPrefab);
+                WeaponRefillItem item = Instantiate(weaponUsesItemPrefab);
                 item.transform.position = itemPos;
             }
         }

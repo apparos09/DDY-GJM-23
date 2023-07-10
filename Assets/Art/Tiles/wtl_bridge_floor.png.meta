@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0aa91913f6eba9543908550f171af2d9
+guid: 7d06d878fbb2fbe4aa0f2730a06dcd2d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: wtl_pit_0
+      name: wtl_bridge_floor_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c02eed6b8f7362647bdd904308eed7a9
-      internalID: -899811001
+      spriteID: ed2e352cc2536da459087b1260e3bf88
+      internalID: -1584731123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wtl_pit_1
+      name: wtl_bridge_floor_1
       rect:
         serializedVersion: 2
         x: 128
@@ -151,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dbf0fdc8bc7444d4681a09bcc099b893
-      internalID: -1561976784
+      spriteID: 1203b127469fccc4984788b81d494830
+      internalID: -1449248163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wtl_pit_2
+      name: wtl_bridge_floor_2
       rect:
         serializedVersion: 2
         x: 256
@@ -172,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e3f3f6f9c7d590499d0c6e7f70082ba
-      internalID: -1218961825
+      spriteID: 857254ed97ba573419aa0df632182195
+      internalID: 38794063
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wtl_pit_3
+      name: wtl_bridge_floor_3
       rect:
         serializedVersion: 2
         x: 384
@@ -193,14 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32f6d7e8bc1833941ae786762429984d
-      internalID: 62397019
+      spriteID: 7ec2600efe7dbc74995ceecff555d60d
+      internalID: -1578268314
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wtl_pit_4
+      name: wtl_bridge_floor_4
       rect:
         serializedVersion: 2
         x: 0
@@ -214,14 +214,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7641987ff210b8548b7bfe28308d1d78
-      internalID: -290112241
+      spriteID: 46ee325d6bef3e24d8cb9fb586030054
+      internalID: 1538573731
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wtl_pit_5
+      name: wtl_bridge_floor_5
       rect:
         serializedVersion: 2
         x: 128
@@ -235,14 +235,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c210e8dee22aa04485c55d5be46756d
-      internalID: -1451177548
+      spriteID: 9bfaa8a02c788e64ea35df5c376b78e6
+      internalID: 1247312162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wtl_pit_6
+      name: wtl_bridge_floor_6
       rect:
         serializedVersion: 2
         x: 256
@@ -256,14 +256,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 536b08fc39f68024bb27923ec8c20561
-      internalID: 2007963777
+      spriteID: d727674c79627f54095a01d40eb65e28
+      internalID: 318429646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wtl_pit_7
+      name: wtl_bridge_floor_7
       rect:
         serializedVersion: 2
         x: 384
@@ -277,14 +277,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18645af85f2bf6042b21ca474fac2121
-      internalID: 1376208342
+      spriteID: 7ffd0a4a4bcaed04189183983a742893
+      internalID: 1894447273
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wtl_pit_8
+      name: wtl_bridge_floor_8
       rect:
         serializedVersion: 2
         x: 0
@@ -298,14 +298,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3872489c034455741859eeb2e9721dfa
-      internalID: 892923580
+      spriteID: 3ae1ccbeb19c1364393d3de1a220f052
+      internalID: 961720601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wtl_pit_9
+      name: wtl_bridge_floor_9
       rect:
         serializedVersion: 2
         x: 128
@@ -319,14 +319,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f5b53ac5a2ec9f54699af29e0bc71dc3
-      internalID: -1497474649
+      spriteID: 036ff1728b6b13b41a755202a545203b
+      internalID: -1484916945
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wtl_pit_10
+      name: wtl_bridge_floor_10
       rect:
         serializedVersion: 2
         x: 256
@@ -340,14 +340,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 507748caaf139ad4a8b24377f7ee3e40
-      internalID: 187866766
+      spriteID: 730357ec9950eb042951229ab00e095b
+      internalID: -1340094765
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: wtl_pit_11
+      name: wtl_bridge_floor_11
       rect:
         serializedVersion: 2
         x: 384
@@ -361,8 +361,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00453ee0828efa9468c684aab7ffae30
-      internalID: -432831155
+      spriteID: 39aecb45c3917ab40a723ce60198f8c7
+      internalID: -557191117
       vertices: []
       indices: 
       edges: []
@@ -378,18 +378,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      wtl_pit_1: -1561976784
-      wtl_pit_3: 62397019
-      wtl_pit_10: 187866766
-      wtl_pit_11: -432831155
-      wtl_pit_5: -1451177548
-      wtl_pit_7: 1376208342
-      wtl_pit_0: -899811001
-      wtl_pit_2: -1218961825
-      wtl_pit_6: 2007963777
-      wtl_pit_8: 892923580
-      wtl_pit_9: -1497474649
-      wtl_pit_4: -290112241
+      wtl_bridge_floor_2: 38794063
+      wtl_bridge_floor_1: -1449248163
+      wtl_bridge_floor_7: 1894447273
+      wtl_bridge_floor_3: -1578268314
+      wtl_bridge_floor_5: 1247312162
+      wtl_bridge_floor_6: 318429646
+      wtl_bridge_floor_10: -1340094765
+      wtl_bridge_floor_8: 961720601
+      wtl_bridge_floor_0: -1584731123
+      wtl_bridge_floor_9: -1484916945
+      wtl_bridge_floor_11: -557191117
+      wtl_bridge_floor_4: 1538573731
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

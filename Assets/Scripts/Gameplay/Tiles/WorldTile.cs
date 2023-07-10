@@ -7,7 +7,7 @@ namespace DDY_GJM_23
     // A tile the player and enemies travel over.
     public class WorldTile : AreaEntity
     {
-        // The type of the tile.
+        // The type of the tile. // TODO: add sand.
         public enum tileType { none, grass, metal, pavement, brick, bridge, pit, water, poison };
 
         // The type of the world tile.

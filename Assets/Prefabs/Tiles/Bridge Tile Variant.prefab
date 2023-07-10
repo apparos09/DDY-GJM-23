@@ -64,8 +64,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1049408205453575799, guid: 8fd0fd11b4a8f344d90bf12ecacf8704, type: 3}
+      propertyPath: m_Size.x
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 1049408205453575799, guid: 8fd0fd11b4a8f344d90bf12ecacf8704, type: 3}
+      propertyPath: m_Size.y
+      value: 1.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 1049408205453575799, guid: 8fd0fd11b4a8f344d90bf12ecacf8704, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 7d06d878fbb2fbe4aa0f2730a06dcd2d, type: 3}
+      objectReference: {fileID: 961720601, guid: 7d06d878fbb2fbe4aa0f2730a06dcd2d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fd0fd11b4a8f344d90bf12ecacf8704, type: 3}

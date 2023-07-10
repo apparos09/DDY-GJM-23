@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioControls: {fileID: 37672307}
+  useTutorial: 1
 --- !u!4 &37672306
 Transform:
   m_ObjectHideFlags: 0

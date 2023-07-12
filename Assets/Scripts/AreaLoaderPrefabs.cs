@@ -48,6 +48,10 @@ namespace DDY_GJM_23
         public WorldTile drySandWallA; // 13
 
 
+        // GRAVEL
+        [Header("Gravel")]
+        public WorldTile gravelFloorA; // 14
+
         // OBJECTS //
         [Header("OBJECTS")]
         public AreaEntity rockBlock;

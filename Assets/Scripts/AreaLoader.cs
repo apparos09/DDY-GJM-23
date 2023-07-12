@@ -469,6 +469,58 @@ namespace DDY_GJM_23
                     }
 
                     break;
+
+                case 11: // Bridge Wall (11)
+                    // Checking the tile type.
+                    switch (type)
+                    {
+                        case 'A':
+                        case 'a':
+                        default:
+                            origTile = loaderPrefabs.bridgeWallA;
+                            break;
+                    }
+
+                    break;
+
+                case 12: // Dry Sand Floor (12)
+                    // Checking the tile type.
+                    switch (type)
+                    {
+                        case 'A':
+                        case 'a':
+                        default:
+                            origTile = loaderPrefabs.drySandFloorA;
+                            break;
+                    }
+
+                    break;
+
+                case 13: // Dry Sand Wall (13)
+                    // Checking the tile type.
+                    switch (type)
+                    {
+                        case 'A':
+                        case 'a':
+                        default:
+                            origTile = loaderPrefabs.drySandWallA;
+                            break;
+                    }
+
+                    break;
+
+                case 14: // Gravel (14)
+                    // Checking the tile type.
+                    switch (type)
+                    {
+                        case 'A':
+                        case 'a':
+                        default:
+                            origTile = loaderPrefabs.gravelFloorA;
+                            break;
+                    }
+
+                    break;
             }
 
             // Checks if the original tile was set or not.

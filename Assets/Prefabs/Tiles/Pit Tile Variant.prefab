@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
+  sprite: {fileID: 0}
   animator: {fileID: 0}
   type: 6
   collider: {fileID: 3425458090080549950}

@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 3413304175731099559}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8494905565871504936}
@@ -132,6 +132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5334d3605b013c945863d3ee53fc7a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  area: {fileID: 0}
+  sprite: {fileID: 0}
+  animator: {fileID: 0}
   gameManager: {fileID: 0}
   collider: {fileID: 4268009829887472995}
   visits: 0
@@ -150,7 +153,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 2
 --- !u!210 &8124803576567859926
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -188,7 +191,7 @@ Transform:
   m_GameObject: {fileID: 8470278375462236310}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2087052698141390752}

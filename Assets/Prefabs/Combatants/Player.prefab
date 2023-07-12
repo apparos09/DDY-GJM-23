@@ -236,6 +236,7 @@ MonoBehaviour:
   rightWeaponKey: 275
   mapKey: 273
   healKey: 274
+  settingsKey: 110
   speed: 75
   maxSpeed: 15
   maxRunSpeed: 12

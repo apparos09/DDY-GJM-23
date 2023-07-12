@@ -36,13 +36,16 @@ namespace DDY_GJM_23
         // The timer for invincibility frames.
         private float iFrameTimer;
 
+        // Used to play the iframe animation after the damage information if set to true.
+        private bool startIFrameAnimation = false;
+
         // Says whether the entity flies or not.
         public bool flying = false;
 
         // If 'true', the entity is immune to poison damage.
         public bool poisonImmune = false;
 
-        [Header("Tiles")]
+        [Header("Combatant/Tiles")]
         // The tile the combat entity is currently on.
         public List<WorldTile> currentTiles = new List<WorldTile>();
 
@@ -52,7 +55,10 @@ namespace DDY_GJM_23
         // A timer that counts down to apply damage.
         private float tileDamageTimer = 0.0F;
 
-        [Header("Animations")]
+        [Header("Combatant/Animations")]
+
+        // The empty effect.
+        public string emptyEffectAnim = "Empty Effect";
 
         // The animation name for playing the damage animation.
         public string damageAnim = "Damage";
@@ -271,9 +277,11 @@ namespace DDY_GJM_23
                 // Sets the invincibility timer if the combatant has invincibility frames.
                 if(useIFrames && triggerIFrames)
                 {
+                    // Set timer.
                     iFrameTimer = I_FRAME_TIME_MAX;
 
-                    // TODO: play iframe animation.
+                    // Set so that the iframes trigger after the damage animation finishes.
+                    startIFrameAnimation = true;
                 }
                     
             }
@@ -306,20 +314,38 @@ namespace DDY_GJM_23
                 animator.Play(damageAnim);
 
         }
+
+        // Stops the damage animation.
+        public void OnDamageAnimationEnd()
+        {
+            // Plays the empty effect.
+            if (animator != null)
+            {
+                // Stop the animation.
+                animator.Play(emptyEffectAnim);
+
+                // Play the invicibility frames animation.
+                if (startIFrameAnimation && iFrameTimer > 0)
+                {
+                    PlayIFrameAnimation();
+                    startIFrameAnimation = false;
+                }
+            }
+        }
         
         // Plays the invincibility frames animation.
-        public void PlayInvincibilityFramesAnimation()
+        public void PlayIFrameAnimation()
         {
-            //// TODO: this loops, so you need to change this.
-            //if (animator != null)
-            //    animator.Play(iFrameAnim);
+            // Play the animation.
+            if (animator != null)
+                animator.Play(iFrameAnim);
         }
 
         // Stops the invincibility frames animation.
-        public void StopInvincibilityFramesAnimation()
+        public void StopIFrameAnimation()
         {
-            //if (animator != null)
-            //    animator.StopPlayback();
+            if (animator != null)
+                animator.Play("Empty Effect");
         }
         
 
@@ -343,7 +369,13 @@ namespace DDY_GJM_23
 
                 // Take care of negative numbers.
                 if (iFrameTimer < 0.0F)
+                {
+                    // Timer is done.
                     iFrameTimer = 0.0F;
+
+                    // Stop the invincibility frames animation.
+                    StopIFrameAnimation();
+                }
             }
 
 

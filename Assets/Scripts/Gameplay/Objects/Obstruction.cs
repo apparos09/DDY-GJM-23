@@ -39,11 +39,32 @@ namespace DDY_GJM_23
                 OnDestruction();
             }
 
+            // Plays the damage animation.
+            PlayDamageAnimation();
+        }
+
+        // ANIMATION //
+        // Plays the damage animation.
+        public void PlayDamageAnimation()
+        {
             // Play the damage animation.
             if (animator != null)
                 animator.Play("Damage");
+
         }
 
+        // Stops the damage animation.
+        public void OnDamageAnimationEnd()
+        {
+            // Plays the empty effect.
+            if (animator != null)
+            {
+                // Stop the animation.
+                animator.Play("Empty");
+            }
+        }
+
+        // DESTRUCTION
         // Destroys the obstruction.
         public void OnDestruction()
         {

@@ -70,7 +70,7 @@ namespace DDY_GJM_23
 
         // The movement speed of the player.
         [Tooltip("The movement speed.")]
-        public float speed = 75.0F;
+        public float speedForce = 75.0F;
 
         // The max speed overall.
         [Tooltip("The overall max speed.")]
@@ -117,7 +117,11 @@ namespace DDY_GJM_23
         // The swim power.
         public Punch swimPower = null;
 
-        
+        // The multiple for run power speed.
+        public float RUN_POWER_SPEED_MULT = 1.25F;
+
+        // The multiple for swim power speed.
+        public float SWIM_POWER_SPEED_MULT = 1.75F;
 
         // Start is called before the first frame update
         protected override void Start()
@@ -595,7 +599,7 @@ namespace DDY_GJM_23
                 facingDirec = movement.normalized;
 
                 // Calculates the force.
-                Vector2 force = movement * speed * Time.deltaTime;
+                Vector2 force = movement * speedForce * Time.deltaTime;
 
                 // Averages out the friction.
                 float friction = GetAveragedFrictionFactor();

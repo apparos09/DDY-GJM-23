@@ -68,10 +68,13 @@ namespace DDY_GJM_23
         // Sprite for swim power.
         public Sprite swimPowerSprite;
 
-        [Header("HUD/Map")]
+        [Header("HUD/Windows")]
 
-        // THe map that gets enabled.
-        public GameplayMap map;     
+        // The map that gets enabled.
+        public GameplayMap map;
+
+        // The game settings.
+        public GameSettingsUI settings;
 
         [Header("UI")]
 
@@ -90,8 +93,14 @@ namespace DDY_GJM_23
             if (gameManager == null)
                 gameManager = GameplayManager.Instance;
 
+            // If the settings isn't set, get the component in the children.
+            if (settings == null)
+            {
+                settings = GetComponentInChildren<GameSettingsUI>();
+            }
+
             // If the map isn't set, get the component in the children.
-            if(map == null)
+            if (map == null)
             {
                 map = GetComponentInChildren<GameplayMap>();
             }
@@ -295,14 +304,18 @@ namespace DDY_GJM_23
         // Call to open the settings.
         public void OpenSettings()
         {
+            // If the map is open, close the map.
+            if (IsMapOpen())
+                CloseMap();
+
             // Stop the game.
             Time.timeScale = 1.0F;
 
             // Stop the player.
             gameManager.player.enableInputs = false;
 
-            // Only active if player is in the base.
-            endEarlyButton.interactable = gameManager.homeBase.IsPlayerInBase();
+            // Open the settings.
+            settings.gameObject.SetActive(true);
         }
 
         // Call to close the settings.
@@ -311,12 +324,14 @@ namespace DDY_GJM_23
             // Start the game.
             Time.timeScale = 1.0F;
 
-
             // Allow player inputs if the map and the text box aren't open.
             if(!IsMapOpen() && !IsTextBoxOpen())
             {
                 gameManager.player.enableInputs = true;
             }
+
+            // Close the settings window.
+            settings.gameObject.SetActive(false);
         }
 
 

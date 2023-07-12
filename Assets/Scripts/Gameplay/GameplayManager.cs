@@ -17,6 +17,12 @@ namespace DDY_GJM_23
         // If 'true', the results scene is loaded asynchronously.
         private bool ASYNC_LOAD_RESULTS_SCENE = true;
 
+        // Gets set to 'true', when the first update has been called.
+        private bool calledPostStart = false;
+
+        // A countdown for the post start delay.
+        private int postStartDelayTimer = 2;
+
         // THe game settings.
         public GameSettings settings;
 
@@ -137,13 +143,6 @@ namespace DDY_GJM_23
                 if (tutorial == null)
                     tutorial = gameObject.AddComponent<Tutorial>();
             }
-
-
-            // If the tutorial should be used.
-            if(settings.useTutorial)
-            {
-                ActivateTutorial(Tutorial.trlType.opening);
-            }
         }
 
         // Gets the instance.
@@ -180,6 +179,19 @@ namespace DDY_GJM_23
             {
                 return instantiated;
             }
+        }
+
+        // Called on the first update loop.
+        private void PostStart()
+        {
+            // If the tutorial should be used.
+            if (settings.useTutorial)
+            {
+                ActivateTutorial(Tutorial.trlType.opening);
+            }
+
+            // FIrst update has been called.
+            calledPostStart = true;
         }
 
         // GAME WORLD
@@ -555,6 +567,22 @@ namespace DDY_GJM_23
         // Update is called once per frame
         void Update()
         {
+            // Call the function for the first update.
+            if (!calledPostStart)
+            {
+                // Checks if the timer has reached 0.
+                if(postStartDelayTimer <= 0)
+                {
+                    PostStart();
+                    postStartDelayTimer = 0;
+                }
+                else
+                {
+                    postStartDelayTimer--;
+                }
+            }
+
+
             // The timer isn't paused.
             if(!pausedTimers)
             {

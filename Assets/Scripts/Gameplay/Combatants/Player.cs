@@ -63,6 +63,9 @@ namespace DDY_GJM_23
         public KeyCode mapKey = KeyCode.UpArrow;
         public KeyCode healKey = KeyCode.DownArrow;
 
+        // The settings key.
+        public KeyCode settingsKey = KeyCode.N;
+
         [Header("Player/Movement")]
 
         // The movement speed of the player.
@@ -731,11 +734,17 @@ namespace DDY_GJM_23
                 }
             }
 
-            // Toggle Map (this is NOT a world input).
+            // Open the map,
             if (Input.GetKeyDown(mapKey))
             {
                 // Turn on the map.
                 gameManager.OpenMap();
+            }
+
+            // Open the settings window.
+            if(Input.GetKeyDown(settingsKey))
+            {
+                gameManager.OpenSettings();
             }
             
         }

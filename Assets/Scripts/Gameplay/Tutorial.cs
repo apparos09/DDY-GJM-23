@@ -126,11 +126,11 @@ namespace DDY_GJM_23
             // The page to be returned.
             List<string> pages = new List<string>()
             {
-                "Welcome to the outside world. You'll need to get as many scraps as you can and bring them back to base while your life support system lasts.",
-                "The timer above shows how long you have. You want to make sure that you're in the base before time runs out.",
-                "For help with navigation, you can view the map by pressing the (" + player.mapKey.ToString() + ") key.",
-                "If you want to end early, open the map screen to get the option. Keep in mind that you can only end early if you're currently in the base.",
-                "Use WASD to move, and the space bar to attack. If you ever need to restore your health, return to the home base.",
+                "Welcome to the outside world. You'll need to get as many scraps as you can and bring them back to base while your life support system lasts." + 
+                " The timer above shows how long you have. You want to make sure that you're in the base before time runs out." + 
+                " For help with navigation, you can view the map by pressing the (" + player.mapKey.ToString() + ") key.",
+                "If you want to end early, open the map screen to get the option. Keep in mind that you can only end early if you're currently in the base." + 
+                " Use WASD to move, and the space bar to attack. If you ever need to restore your health, return to the home base.",
                 "That's all, so good luck scavenger."
             };
 

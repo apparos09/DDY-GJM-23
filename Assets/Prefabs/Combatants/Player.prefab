@@ -189,7 +189,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.7}
+  m_Size: {x: 0.85, y: 0.85}
   m_EdgeRadius: 0
 --- !u!114 &5650137135599239528
 MonoBehaviour:
@@ -204,6 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
+  sprite: {fileID: 0}
   animator: {fileID: 4771059270034918184}
   rigidbody: {fileID: 5650137135599239530}
   collider: {fileID: 5650137135599239531}
@@ -215,6 +216,9 @@ MonoBehaviour:
   poisonImmune: 0
   currentTiles: []
   tileDamageRate: 0.25
+  damageAnim: Damage
+  iFrameAnim: Invincibility Frames
+  gameManager: {fileID: 0}
   deaths: 0
   scrapCount: 0
   keyCount: 0
@@ -302,7 +306,7 @@ Transform:
   m_GameObject: {fileID: 5650137135605877742}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.55, y: 1.55, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5650137135599239533}

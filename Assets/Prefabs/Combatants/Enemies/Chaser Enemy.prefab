@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 8438912072309203475}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8438912072705579376}
@@ -166,7 +166,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.28, y: 1.28}
   m_EdgeRadius: 0
 --- !u!114 &8438912072705579381
 MonoBehaviour:
@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
+  sprite: {fileID: 0}
   animator: {fileID: 1458865361388771755}
   rigidbody: {fileID: 8438912072705579383}
   collider: {fileID: 8438912072705579382}
@@ -192,6 +193,8 @@ MonoBehaviour:
   poisonImmune: 1
   currentTiles: []
   tileDamageRate: 0.25
+  damageAnim: Damage
+  iFrameAnim: Invincibility Frames
   contactDamage: 1
   contactDamagePower: 10
   searchDistance: 100

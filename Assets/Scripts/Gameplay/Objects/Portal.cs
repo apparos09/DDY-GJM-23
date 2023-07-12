@@ -22,6 +22,9 @@ namespace DDY_GJM_23
         // The position offset.
         public Vector3 offset = Vector3.zero;
 
+        // If 'true', the portal cancels the rigidbody's velocity of the object.
+        public bool cancelVelocity = true;
+
         [Header("Portal/End Portal")]
 
         // The ending portal.
@@ -102,6 +105,21 @@ namespace DDY_GJM_23
             {
                 endPortal.ignoreNextList.Add(user);
             }
+
+
+            // If the velocity should be cancelled.
+            if(cancelVelocity)
+            {
+                // If the user has a rigidbody, cancel the velocity. 
+                Rigidbody2D rigidbody2d;
+
+                // If the entity has a rigidbody, remove the velocity.
+                if (user.TryGetComponent(out rigidbody2d))
+                {
+                    rigidbody2d.velocity = Vector2.zero;
+                }
+            }
+            
 
             // Move to the destination.
             user.transform.position = destPos;

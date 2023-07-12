@@ -25,6 +25,9 @@ namespace DDY_GJM_23
         // The mute toggle.
         public Toggle muteToggle;
 
+        // The tutorial toggle.
+        public Toggle tutorialToggle;
+
         [Header("Screen Size")]
 
         // Dropdown for the screen size.
@@ -101,6 +104,7 @@ namespace DDY_GJM_23
 
         // AUDIO //
 
+        // BGM
         // Sets the BGM volume.
         public void SetBgmVolume(Slider slider)
         {
@@ -114,6 +118,7 @@ namespace DDY_GJM_23
             SetBgmVolume(bgmSlider);
         }
 
+        // SFX
         // Sets the SFX volume.
         public void SetSfxVolume(Slider slider)
         {
@@ -127,16 +132,30 @@ namespace DDY_GJM_23
             SetSfxVolume(sfxSlider);
         }
 
+        // MUTE
         // Sets if the game is muted or not.
         public void SetMute(Toggle toggle)
         {
             settings.audioControls.Mute = toggle.isOn;
         }
 
-        // Setsm ute using the mute toggle.
+        // Sets mute using the mute toggle.
         public void SetMute()
         {
             SetMute(muteToggle);
+        }
+
+        // TUTORIAL
+        // Sets tutorial using the tutorial toggle.
+        public void SetTutorial(Toggle toggle)
+        {
+            settings.useTutorial = toggle.isOn;
+        }
+
+        // Sets tutorial using the tutorial toggle.
+        public void SetTutorial()
+        {
+            SetTutorial(tutorialToggle);
         }
 
 

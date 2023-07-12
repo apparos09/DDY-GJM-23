@@ -17,6 +17,9 @@ namespace DDY_GJM_23
         // If 'true', the results scene is loaded asynchronously.
         private bool ASYNC_LOAD_RESULTS_SCENE = true;
 
+        // THe game settings.
+        public GameSettings settings;
+
         // The player.
         public Player player;
 
@@ -97,6 +100,10 @@ namespace DDY_GJM_23
         // Start is called just before any of the Update methods is called the first time
         private void Start()
         {
+            // Grab the instance.
+            if (settings == null)
+                settings = GameSettings.Instance;
+
             // Find the player.
             if (player == null)
                 player = FindObjectOfType<Player>(true);
@@ -132,11 +139,11 @@ namespace DDY_GJM_23
             }
 
 
-            //// If the tutorial should be used.
-            //if(GameSettings.Instance.useTutorial)
-            //{
-            //    OpenTextBox(tutorial.GetDebugText());
-            //}
+            // If the tutorial should be used.
+            if(settings.useTutorial)
+            {
+                ActivateTutorial(Tutorial.trlType.opening);
+            }
         }
 
         // Gets the instance.
@@ -245,13 +252,47 @@ namespace DDY_GJM_23
             gameUI.CloseSettings();
         }
 
+        // OTHER //
+        // TUTORIAL //
 
+        // Checks if the tutorial should be used.
+        public bool UseTutorial()
+        {
+            // Get the settings instance if it's not set.
+            if (settings == null)
+                settings = GameSettings.Instance;
+
+            return settings.useTutorial;
+        }
+
+        // Starts the game tutorial.
+        public void ActivateTutorial(Tutorial.trlType type)
+        {
+            // If the tutorial shouldn't be used, do nothing.
+            if (!UseTutorial() || tutorial == null)
+                return;
+
+            // Checks the type of tutorial to load.
+            switch (type)
+            {
+                case Tutorial.trlType.opening:
+                    // If the opening hasn't been used yet.
+                    if(!tutorial.usedOpening)
+                        OpenTextBox(tutorial.GetOpeningText());
+
+                    break;
+            }
+        }
+
+
+        // SCRAP GOAL REACHED
         // Returns 'true' if the scrap goal is reached.
         public bool GetScrapGoalReached()
         {
             bool result = scrapGoal <= scrapTotal;
             return result;
         }
+
 
 
         // Returns value to see if the game is currently paused.

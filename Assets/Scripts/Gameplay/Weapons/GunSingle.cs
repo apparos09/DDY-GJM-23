@@ -55,7 +55,17 @@ namespace DDY_GJM_23
 
             // Set bullet's rotation for its direction.
             // TODO: is this working?
+
+            // Rotates the bullet, and gets its direction.
             newBullet.transform.eulerAngles = new Vector3(0, 0, owner.GetFacingDirectionAsRotation());
+            Vector2 bulletRight = newBullet.transform.right;
+            
+            // Sets the rotation, and sets it using the function.
+            newBullet.transform.rotation = Quaternion.identity;
+            newBullet.SetBulletDirection(bulletRight);
+
+            // Set the bullet to go its max speed.
+            newBullet.SetBulletToMaxSpeed();
 
             // Called when the weapon was used.
             OnUseWeapon(1);

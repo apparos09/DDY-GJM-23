@@ -171,11 +171,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7641477488848020690}
   targetTags: []
-  speed: 25
-  maxSpeed: 50
+  speedForce: 50
+  maxSpeed: 10
   power: 1
   passThrough: 0
-  lifeTimeTimer: 5
+  lifeTimeTimer: 3
   pausedTimer: 0
 --- !u!210 &9214440966454732623
 SortingGroup:

@@ -14,10 +14,10 @@ namespace DDY_GJM_23
         public List<string> targetTags = new List<string>();
 
         // The movement speed of the bullet. Bullets travel at a FIXED speed.
-        public float speed = 50.0F;
+        public float speedForce = 50.0F;
 
         // The maximum speed of the bullet.
-        public float maxSpeed = 50.0F;
+        public float maxSpeed = 10.0F;
 
         // The amount of damage the bullet does upon contact.
         public float power = 1.0F;
@@ -29,7 +29,7 @@ namespace DDY_GJM_23
         [Header("Life Time")]
 
         // The life time timer for the bullet.
-        public float lifeTimeTimer = 5.0F;
+        public float lifeTimeTimer = 3.0F;
 
         // Pauses the bullet life time timer.
         public bool pausedTimer = false;
@@ -108,11 +108,22 @@ namespace DDY_GJM_23
             transform.right = newDirec.normalized;
         }
 
+        // Set the bullet to its max speed.
+        public void SetBulletToMaxSpeed()
+        {
+            // Gets the max velocity and clamps it.
+            Vector2 maxVelo = transform.right * maxSpeed;
+            maxVelo = Vector2.ClampMagnitude(maxVelo, maxSpeed);
+
+            // Set to max velocity.
+            rigidbody.velocity = maxVelo;
+        }
+
 
         // Moves the bullet.
         public virtual void TransformBullet()
         {
-            rigidbody.AddForce(transform.right * speed * Time.deltaTime);
+            rigidbody.AddForce(transform.right * speedForce * Time.deltaTime);
             rigidbody.velocity = Vector3.ClampMagnitude(rigidbody.velocity, maxSpeed);
 
         }

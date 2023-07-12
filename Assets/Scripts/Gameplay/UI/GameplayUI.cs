@@ -19,9 +19,9 @@ namespace DDY_GJM_23
         // Automatically updates the weapon uses.
         public bool autoWeaponUsesUpdate = true;
 
-        [Header("HUD/Scrap Goal")]
+        [Header("HUD/Base Scraps")]
         // The text for the scrap goal.
-        public TMP_Text scrapGoalText;
+        public TMP_Text baseScrapsText;
 
         // TODO: Add colours?
 
@@ -330,12 +330,14 @@ namespace DDY_GJM_23
         // Update is called once per frame
         void Update()
         {
-            // Scrap Goal - TODO: account for negatives and there being no goal
-            if (scrapGoalText.text != gameManager.scrapGoal.ToString())
+            // TODO: you can probably make this more efficient.
+
+            // Scraps at Base
+            if (baseScrapsText.text != gameManager.scrapGoal.ToString())
             {
                 // Set the ToString
                 // TODO: change the text based on how much the player has at base. 
-                scrapGoalText.text = gameManager.scrapGoal.ToString();
+                baseScrapsText.text = gameManager.scrapTotal.ToString("00000");
             }
 
             // Formats the timer and displays it on screen.

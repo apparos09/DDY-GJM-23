@@ -677,7 +677,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Scrap Goal
+  m_text: Base Scraps
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1134,7 +1134,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   autoHealthUpdate: 1
   autoWeaponUsesUpdate: 1
-  scrapGoalText: {fileID: 7228875467761320882}
+  baseScrapsText: {fileID: 7228875467761320882}
   timerText: {fileID: 7781834537115297848}
   scrapsText: {fileID: 7781834537860483609}
   keysText: {fileID: 4676735442982942769}

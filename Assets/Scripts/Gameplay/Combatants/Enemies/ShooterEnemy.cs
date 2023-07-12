@@ -55,8 +55,9 @@ namespace DDY_GJM_23
                         // Normalize the direction.
                         direc.Normalize();
 
-                        // Sets the bullet direction.
+                        // Sets the bullet direction and max speed.
                         bullet.SetBulletDirection(new Vector2(direc.normalized.x, direc.normalized.y));
+                        bullet.SetBulletToMaxSpeed();
 
                         // Reset the timer.
                         fireTimer = fireRate;

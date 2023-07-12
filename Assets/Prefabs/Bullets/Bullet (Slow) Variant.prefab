@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7641477488848020688, guid: 76da58c510e353f4d880578c7a98646f, type: 3}
       propertyPath: power
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7641477488848020688, guid: 76da58c510e353f4d880578c7a98646f, type: 3}
       propertyPath: speed
@@ -29,11 +29,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7641477488848020688, guid: 76da58c510e353f4d880578c7a98646f, type: 3}
       propertyPath: maxSpeed
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7641477488848020688, guid: 76da58c510e353f4d880578c7a98646f, type: 3}
       propertyPath: lifeTimeTimer
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7641477488848020688, guid: 76da58c510e353f4d880578c7a98646f, type: 3}
       propertyPath: targetTags.Array.size

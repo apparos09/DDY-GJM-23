@@ -272,16 +272,125 @@ namespace DDY_GJM_23
             if (!UseTutorial() || tutorial == null)
                 return;
 
+            // The list of pages.
+            List<string> pages = new List<string>();
+
             // Checks the type of tutorial to load.
             switch (type)
             {
-                case Tutorial.trlType.opening:
-                    // If the opening hasn't been used yet.
-                    if(!tutorial.usedOpening)
-                        OpenTextBox(tutorial.GetOpeningText());
+                default:
+                    pages = new List<string>();
+                    break;
 
+                case Tutorial.trlType.debug:
+
+                    pages = tutorial.GetDebugTutorial();
+                    break;
+
+                case Tutorial.trlType.opening:
+
+                    // Checks if the tutorial has been used already.
+                    if(!tutorial.usedOpening)
+                    {
+                        pages = tutorial.GetOpeningTutorial();
+                    }
+                    break;
+                       
+
+                case Tutorial.trlType.scrapItem:
+
+                    // Checks if the tutorial has been used already.
+                    if (!tutorial.usedScrapItem)
+                    {
+                        pages = tutorial.GetScrapItemTutorial();
+                    }
+                    break;
+
+                case Tutorial.trlType.keyItem:
+
+                    // Checks if the tutorial has been used already.
+                    if (!tutorial.usedKeyItem)
+                    {
+                        pages = tutorial.GetKeyItemTutorial();
+                    }
+                    break;
+
+                case Tutorial.trlType.healthItem:
+
+                    // Checks if the tutorial has been used already.
+                    if (!tutorial.usedHealthItem)
+                    {
+                        OpenTextBox(tutorial.GetHealthItemTutorial());
+                    }
+                    break;
+
+                case Tutorial.trlType.weaponRefill:
+
+                    // Checks if the tutorial has been used already.
+                    if (!tutorial.usedWeaponRefill)
+                    {
+                        pages = tutorial.GetWeaponRefillTutorial();
+                    }
+                    break;
+
+                case Tutorial.trlType.gunSlow:
+
+                    // Checks if the tutorial has been used already.
+                    if (!tutorial.usedGunSlow)
+                    {
+                        pages = tutorial.GetGunSlowTutorial();
+                    }
+                    break;
+
+                case Tutorial.trlType.gunMid:
+
+                    // Checks if the tutorial has been used already.
+                    if (!tutorial.usedGunMid)
+                    {
+                        pages = tutorial.GetGunMidTutorial();
+                    }
+                    break;
+
+                case Tutorial.trlType.gunFast:
+
+                    // Checks if the tutorial has been used already.
+                    if (!tutorial.usedGunFast)
+                    {
+                        pages = tutorial.GetGunFastTutorial();
+                    }
+                    break;
+
+                case Tutorial.trlType.runPower:
+
+                    // Checks if the tutorial has been used already.
+                    if (!tutorial.usedRunPower)
+                    {
+                        pages = tutorial.GetRunPowerTutorial();
+                    }
+                    break;
+
+                case Tutorial.trlType.swimPower:
+
+                    // Checks if the tutorial has been used already.
+                    if (!tutorial.usedSwimPower)
+                    {
+                        pages = tutorial.GetSwimPowerTutorial();
+                    }
+                    break;
+
+                case Tutorial.trlType.death:
+
+                    // Checks if the tutorial has been used already.
+                    if (!tutorial.usedDeath)
+                    {
+                        pages = tutorial.GetDeathTutorial();
+                    }
                     break;
             }
+
+            // Open the text box.
+            if (pages.Count != 0)
+                OpenTextBox(pages);
         }
 
 

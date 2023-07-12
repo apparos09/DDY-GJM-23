@@ -513,6 +513,9 @@ namespace DDY_GJM_23
                 // FIXME: this could probably be optimized.
                 gameManager.world.ActivateAllAreas();
             }
+
+            // Attempts to activate the tutorial.
+            gameManager.ActivateTutorial(Tutorial.trlType.death);
         }
 
         // Updates the inputs for the player.

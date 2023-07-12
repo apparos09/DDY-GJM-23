@@ -26,6 +26,9 @@ namespace DDY_GJM_23
 
         [Header("Buttons")]
 
+        // If 'true', keyboard inputs are enabled.
+        public bool enableKeyboardInput = true;
+
         // If 'true', buttons are disabled if they can't be used.
         public bool disableButtonsIfUnusable = true;
 
@@ -172,6 +175,23 @@ namespace DDY_GJM_23
                     if(!prevPageButton.interactable)
                         prevPageButton.interactable = true;
                 }                    
+            }
+
+            // If keyboard input is enabled.
+            if(enableKeyboardInput)
+            {
+                // Left key input.
+                if(Input.GetKeyDown(KeyCode.LeftArrow) ||  Input.GetKeyDown(KeyCode.A))
+                {
+                    // If there is a previous page, go there.
+                    PreviousPage();
+                }
+                // Right key input.
+                else if(Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+                {
+                    // If there is a next page, go there.
+                    NextPage();
+                }
             }
         }
     }

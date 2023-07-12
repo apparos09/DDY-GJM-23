@@ -30,13 +30,17 @@ namespace DDY_GJM_23
         protected override void GiveItem()
         {
             // Increases the player's scrap value.
-            GameplayManager.Instance.player.scrapCount += scrapAmount;
+            GameplayManager manager = GameplayManager.Instance;
+            manager.player.scrapCount += scrapAmount;
 
             // If the spawner is not equal to null, tell it this scrap has been collected.
             if(spawner != null)
             {
                 spawner.OnScrapCollected();
             }
+
+            // Attempts to activate the tutorial.
+            manager.ActivateTutorial(Tutorial.trlType.scrapItem);
 
             // Item has been gotten.
             OnItemGet();

@@ -21,10 +21,14 @@ namespace DDY_GJM_23
         protected override void GiveItem()
         {
             // Get the player.
-            Player player = GameplayManager.Instance.player;
+            GameplayManager manager = GameplayManager.Instance;
+            Player player = manager.player;
 
             // Give the player the key.
             player.healCount++;
+
+            // Attempts to activate the tutorial.
+            manager.ActivateTutorial(Tutorial.trlType.healthItem);
 
             // Destroy the item.
             OnItemGet();

@@ -26,7 +26,38 @@ namespace DDY_GJM_23
         // Give the player the weapon.
         protected override void GiveItem()
         {
-            GameplayManager.Instance.player.AddWeapon(type);
+            GameplayManager manager = GameplayManager.Instance;
+            
+            // Set the manager.
+            manager.player.AddWeapon(type);
+
+            // Attempts to activate the tutorial.
+            switch(type)
+            {
+                case Weapon.weaponType.punch: // Punch
+                    manager.ActivateTutorial(Tutorial.trlType.punch);
+                    break;
+
+                case Weapon.weaponType.gunSlow: // Gun Slow
+                    manager.ActivateTutorial(Tutorial.trlType.gunSlow);
+                    break;
+
+                case Weapon.weaponType.gunMid: // Gun Mid
+                    manager.ActivateTutorial(Tutorial.trlType.gunMid);
+                    break;
+
+                case Weapon.weaponType.gunFast: // Gun Fast
+                    manager.ActivateTutorial(Tutorial.trlType.gunFast);
+                    break;
+
+                case Weapon.weaponType.runPower: // Run Power
+                    manager.ActivateTutorial(Tutorial.trlType.runPower);
+                    break;
+
+                case Weapon.weaponType.swimPower: // Swim Power
+                    manager.ActivateTutorial(Tutorial.trlType.swimPower);
+                    break;
+            }
 
             // Item has been gotten.
             OnItemGet();

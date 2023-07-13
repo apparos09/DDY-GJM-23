@@ -64,24 +64,24 @@ namespace DDY_GJM_23
         public KeyCode healKey = KeyCode.DownArrow;
 
         // The settings key.
-        public KeyCode settingsKey = KeyCode.N;
+        public KeyCode settingsKey = KeyCode.Escape;
 
         [Header("Player/Movement")]
 
         // The movement speed of the player.
         [Tooltip("The movement speed.")]
-        public float speedForce = 75.0F;
+        public float speedForce = 50.0F;
 
         // The max speed overall.
-        [Tooltip("The overall max speed.")]
-        public float maxSpeed = 15.0F;
+        [Tooltip("The overall max speed. This is used if no tiles are having an effect.")]
+        public float maxSpeed = 12.0F;
 
         // The maximum run speed. Default max speed.
-        [Tooltip("The max run speed.")]
-        public float maxRunSpeed = 12.0F;
+        [Tooltip("The max run speed. This is used if the player is colliding with a floor tile.")]
+        public float maxRunSpeed = 10.0F;
 
         // The maximum swim speed.
-        [Tooltip("The max swim speed.")]
+        [Tooltip("The max swim speed. This is used if the player is colliding with a liquid tile.")]
         public float maxSwimSpeed = 2.0F;
 
         // The direction the player is facing.
@@ -118,10 +118,10 @@ namespace DDY_GJM_23
         public Punch swimPower = null;
 
         // The multiple for run power speed.
-        public float RUN_POWER_SPEED_MULT = 1.25F;
+        public static float RUN_POWER_SPEED_MULT = 1.25F;
 
         // The multiple for swim power speed.
-        public float SWIM_POWER_SPEED_MULT = 1.75F;
+        public static float SWIM_POWER_SPEED_MULT = 1.75F;
 
         // Start is called before the first frame update
         protected override void Start()
@@ -634,8 +634,8 @@ namespace DDY_GJM_23
 
                         // The run and swim speeds.
                         // If the player has certain items equipped, then they move at maxSpeed.
-                        float runSpeed = (runPowerOn) ? maxSpeed : maxRunSpeed;
-                        float swimSpeed = (swimPowerOn) ? maxSpeed : maxSwimSpeed;
+                        float runSpeed = (runPowerOn) ? maxRunSpeed * RUN_POWER_SPEED_MULT : maxRunSpeed;
+                        float swimSpeed = (swimPowerOn) ? maxSwimSpeed * SWIM_POWER_SPEED_MULT : maxSwimSpeed;
 
                         // Calculates the mixed speed.
                         float mixedSpeed = (runSpeed * runTiles + swimSpeed * swimTiles) / (runTiles + swimTiles);
@@ -655,6 +655,7 @@ namespace DDY_GJM_23
                     }
                     else
                     {
+                        // Run or Swim Speed Not Set
                         rigidbody.velocity = Vector2.ClampMagnitude(rigidbody.velocity, maxSpeed);
                     }
                 }
@@ -662,11 +663,6 @@ namespace DDY_GJM_23
                 {
                     rigidbody.velocity = Vector2.ClampMagnitude(rigidbody.velocity, maxSpeed);
                 }
-                
-                
-
-                // Uses transform for movement.
-                // transform.Translate(force);
             }
 
             // Saves the inputs from the player.

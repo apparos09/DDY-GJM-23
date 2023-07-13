@@ -189,7 +189,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.85, y: 0.85}
+  m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0
 --- !u!114 &5650137135599239528
 MonoBehaviour:
@@ -216,6 +216,7 @@ MonoBehaviour:
   poisonImmune: 0
   currentTiles: []
   tileDamageRate: 0.25
+  emptyEffectAnim: Empty Effect
   damageAnim: Damage
   iFrameAnim: Invincibility Frames
   gameManager: {fileID: 0}
@@ -236,10 +237,10 @@ MonoBehaviour:
   rightWeaponKey: 275
   mapKey: 273
   healKey: 274
-  settingsKey: 110
-  speed: 75
-  maxSpeed: 15
-  maxRunSpeed: 12
+  settingsKey: 27
+  speedForce: 50
+  maxSpeed: 12
+  maxRunSpeed: 10
   maxSwimSpeed: 2
   currentWeapon: {fileID: 5650137136764054803}
   weapons:

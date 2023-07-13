@@ -22,9 +22,6 @@ namespace DDY_GJM_23
 
         [Header("UI")]
 
-        // The text for showing if the player lived.
-        public TMP_Text survivedText;
-
         // The text for showing the amount of player deaths.
         public TMP_Text deathsText;
 
@@ -42,6 +39,9 @@ namespace DDY_GJM_23
 
         // The text for showing how long the game went on for.
         public TMP_Text gameLengthText;
+
+        // The text for showing if the player lived, and how successful they were.
+        public TMP_Text ratingText;
 
         [Header("UI/Weapons")]
 
@@ -144,9 +144,6 @@ namespace DDY_GJM_23
         // Loads the results.
         public void LoadResults()
         {
-            // Survive
-            survivedText.text = (results.survived) ? "You survived!" : "You did not survive!";
-            
             // Deaths
             deathsText.text = "Deaths: " + results.deaths;
 
@@ -174,6 +171,9 @@ namespace DDY_GJM_23
             runPowerIcon.color = results.gotRunPower ? activeColor : inactiveColor;
             swimPowerIcon.color = results.gotSwimPower ? activeColor : inactiveColor;
 
+
+            // Survive
+            ratingText.text = (results.survived) ? "You survived!" : "You did not survive!";
 
             // Destroys the results game object.
             Destroy(results.gameObject);

@@ -4744,15 +4744,18 @@ MonoBehaviour:
     <u><b>Down Arrow</b></u> - Use Health Pack (if Available)
 
 
-    You
-    must bring the scraps (stars) you collect back to the base. When you visit the
-    base, your health and weapon energy get completely restored. If you die, you
-    will return to base, but will lose everything in your posession.
+    <u><b>Escape
+    Key</b></u> - Open Settings (In-Game Only)
 
 
-    If you
-    aren''t at the base when the game ends, you will die, and only the scraps already
-    at the base will count.'
+    You must bring the scraps (stars)
+    you collect back to the base. When you visit the base, your health and weapon
+    energy get completely restored. If you die, you will return to base, but will
+    lose everything in your posession.
+
+
+    If you aren''t at the base when the
+    game ends, you will die, and only the scraps already at the base will count.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4779,8 +4782,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

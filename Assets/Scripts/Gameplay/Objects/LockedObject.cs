@@ -7,15 +7,49 @@ namespace DDY_GJM_23
     // A locked object in the game world.
     public class LockedObject : AreaEntity
     {
+        [Header("LockedObject")]
+
+        // The game manager for the locked objecrt.
+        public GameplayManager gameManager;
+
+
+        // Start is called just before any Update methods is called the first time.
+        protected override void Start()
+        {
+            base.Start();
+
+            if (gameManager == null)
+                gameManager = GameplayManager.Instance;
+        }
+
         // OnCollisionEnter2D
         private void OnCollisionEnter2D(Collision2D collision)
         {
+            // If the collided object has the player tag.
+            if (collision.gameObject.tag == Player.PLAYER_TAG)
+            {
+                // Activate the lock block tutorial.
+                gameManager.ActivateTutorial(Tutorial.trlType.lockBlock);
+            }
+
+            // Try unlock.
             TryUnlockByCollision(collision.gameObject);   
         }
 
         // OnTriggerEnter2D
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            // Checks if tutorials are active.
+            if (gameManager.GetUseTutorial())
+            {
+                // If the collided object has the player tag.
+                if (collision.gameObject.tag == Player.PLAYER_TAG)
+                {
+                    // Activate the lock block tutorial.
+                    gameManager.ActivateTutorial(Tutorial.trlType.lockBlock);
+                }
+            }
+
             TryUnlockByCollision(collision.gameObject);
         }
 

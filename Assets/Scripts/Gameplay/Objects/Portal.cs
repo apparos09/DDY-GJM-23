@@ -57,8 +57,16 @@ namespace DDY_GJM_23
         // OnCollisionEnter2D 
         private void OnCollisionEnter2D(Collision2D collision)
         {
+            // If the collided object has the player tag.
+            if (collision.gameObject.tag == Player.PLAYER_TAG)
+            {
+                // Activate the portal tutorial.
+                gameManager.ActivateTutorial(Tutorial.trlType.portal);
+            }
+
+
             // Checks if the object should be ignored.
-            if(ignoreNextList.Contains(collision.gameObject))
+            if (ignoreNextList.Contains(collision.gameObject))
             {
                 ignoreNextList.Remove(collision.gameObject);
             }
@@ -73,6 +81,14 @@ namespace DDY_GJM_23
         // OnTriggerEnter2D
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            // If the collided object has the player tag.
+            if (collision.gameObject.tag == Player.PLAYER_TAG)
+            {
+                // Activate the portal tutorial.
+                gameManager.ActivateTutorial(Tutorial.trlType.portal);
+            }
+
+
             // Checks if the object should be ignored.
             if (ignoreNextList.Contains(collision.gameObject))
             {

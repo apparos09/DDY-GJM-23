@@ -9,6 +9,9 @@ namespace DDY_GJM_23
     {
         [Header("Obstruction")]
 
+        // Gets the gameplay manager.
+        public GameplayManager gameManager;
+
         // The health of the obstruction.
         public float health = 10;
 
@@ -21,11 +24,42 @@ namespace DDY_GJM_23
         // Can be destroyed by bullets.
         public bool bulletVulnerable = true;
 
+        // Start is called just before any of the Update methods is called the first time
+        protected override void Start()
+        {
+            base.Start();
+
+            // Gets the gameplay manager if it's not set.
+            if (gameManager == null)
+                gameManager = GameplayManager.Instance;
+        }
+
         // Restore health to the obstruction.
         public void RestoreHealthToMax()
         {
             health = maxHealth;
         }
+
+        // Called when the collision is started.
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            // If the collided object has the player tag.
+            if (collision.gameObject.tag == Player.PLAYER_TAG)
+            {
+                // Checks what kind of tutorial to load.
+                if (punchVulnerable && bulletVulnerable) // Punch and Bullet
+                {
+                    gameManager.ActivateTutorial(Tutorial.trlType.softBlock);
+                }
+                else if (!punchVulnerable && bulletVulnerable) // Bullet Only
+                {
+                    gameManager.ActivateTutorial(Tutorial.trlType.hardBlock);
+                }
+
+            }
+
+        }
+
 
         // Apply damage to the obstruction.
         public void ApplyDamage(float power)

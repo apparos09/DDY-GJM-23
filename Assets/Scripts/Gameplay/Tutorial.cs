@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,7 +14,8 @@ namespace DDY_GJM_23
 
         // The enum for the tutorials.
         public enum trlType { none, debug, opening, scrapItem, keyItem, healthItem, 
-            weaponRefill, punch, gunSlow, gunMid, gunFast, runPower, swimPower, death  }
+            weaponRefill, punch, gunSlow, gunMid, gunFast, runPower, swimPower,
+            softBlock, hardBlock, lockBlock, portal, death  }
 
         // Variables for getting notifications.
         public bool usedOpening = false;
@@ -32,16 +34,25 @@ namespace DDY_GJM_23
         public bool usedRunPower = false;
         public bool usedSwimPower = false;
 
+        // The area mechanics.
+        public bool usedSoftBlock = false;
+        public bool usedHardBlock = false;
+        public bool usedLockBlock = false;
+        public bool usedPortal = false;
+
         // The death tutorial.
         public bool usedDeath = false;
 
 
 
         // Gets the tutorial by type.
-        public List<string> GetTutorialByType(trlType type)
+        public List<string> GetTutorialByType(trlType type, bool ignoreUsed)
         {
             // The list of pages.
             List<string> pages = new List<string>();
+
+            // Gets set to 'true', if the tutorial has already been cleared.
+            bool alreadyUsed = false;
 
             switch (type)
             {
@@ -55,49 +66,92 @@ namespace DDY_GJM_23
                     break;
 
                 case trlType.opening:
+                    alreadyUsed = usedOpening;
                     pages = GetOpeningTutorial();
                     break;
 
+                    // ITEMS
+
                 case trlType.scrapItem:
+                    alreadyUsed = usedScrapItem;
                     pages = GetScrapItemTutorial();
                     break;
 
                 case trlType.keyItem:
+                    alreadyUsed = usedKeyItem;
                     pages = GetKeyItemTutorial();
                     break;
 
                 case trlType.healthItem:
+                    alreadyUsed = usedHealthItem;
                     pages = GetHealthItemTutorial();
                     break;
 
+
+                    // WEAPONS
                 case trlType.punch:
+                    alreadyUsed = usedPunch;
                     pages = GetPunchTutorial();
                     break;
 
                 case trlType.gunSlow:
+                    alreadyUsed = usedGunSlow;
                     pages = GetGunSlowTutorial();
                     break;
 
                 case trlType.gunMid:
+                    alreadyUsed = usedGunMid;
                     pages = GetGunMidTutorial();
                     break;
 
                 case trlType.gunFast:
+                    alreadyUsed = usedGunFast;
                     pages = GetGunFastTutorial();
                     break;
 
                 case trlType.runPower:
+                    alreadyUsed = usedRunPower;
                     pages = GetRunPowerTutorial();
                     break;
 
                 case trlType.swimPower:
+                    alreadyUsed = usedSwimPower;
                     pages = GetSwimPowerTutorial();
                     break;
 
+
+                    // AREA
+                case trlType.softBlock:
+                    alreadyUsed = usedSoftBlock;
+                    pages = GetSoftBlockTutorial();
+                    break; 
+                
+                case trlType.hardBlock:
+                    alreadyUsed = usedHardBlock;
+                    pages = GetHardBlockTutorial();
+                    break;
+
+                case trlType.lockBlock:
+                    alreadyUsed = usedLockBlock;
+                    pages = GetLockBlockTutorial();
+                    break;
+
+                case trlType.portal:
+                    alreadyUsed = usedPortal;
+                    pages = GetPortalTutorial();
+                    break;
+
+
+                    // DEATH
                 case trlType.death:
+                    alreadyUsed = usedDeath;
                     pages = GetDeathTutorial();
                     break;
             }
+
+            // If the tutorial has already been used, and cleared tutorial should be ignored.
+            if (alreadyUsed && ignoreUsed)
+                pages.Clear();
 
             return pages;
         }
@@ -297,6 +351,68 @@ namespace DDY_GJM_23
             };
 
             usedSwimPower = true;
+
+            // Returns the pages.
+            return pages;
+        }
+
+
+        // AREA MECHANICS
+        // Soft block tutorial.
+        public List<string> GetSoftBlockTutorial()
+        {
+            // Loads the pages.
+            List<string> pages = new List<string>()
+            {
+                "This is a soft block! This block can be broken by any kind of weapon."
+            };
+
+            usedSoftBlock = true;
+
+            // Returns the pages.
+            return pages;
+        }
+
+        // Hard block tutorial.
+        public List<string> GetHardBlockTutorial()
+        {
+            // Loads the pages.
+            List<string> pages = new List<string>()
+            {
+                "This is a hard block! This block can only be broken by blaster weapons."
+            };
+
+            usedHardBlock = true;
+
+            // Returns the pages.
+            return pages;
+        }
+
+        // Lock Block Tutorial
+        public List<string> GetLockBlockTutorial()
+        {
+            // Loads the pages.
+            List<string> pages = new List<string>()
+            {
+                "You encountered a lock block! Lock blocks can only be removed using a key."
+            };
+
+            usedLockBlock = true;
+
+            // Returns the pages.
+            return pages;
+        }
+
+        // Portal tutorial.
+        public List<string> GetPortalTutorial()
+        {
+            // Loads the pages.
+            List<string> pages = new List<string>()
+            {
+                "You encountered a portal! These are teleportation ports that take you to other areas on the map."
+            };
+
+            usedPortal = true;
 
             // Returns the pages.
             return pages;

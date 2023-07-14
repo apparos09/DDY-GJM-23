@@ -31,6 +31,12 @@ namespace DDY_GJM_23
         // If 'true', the player can move and attack at the same time using this weapon.
         public bool canMoveAndAttack = true;
 
+        // Force applied to push back enemies.
+        public float knockbackForce = 250.0F;
+
+        // If the push force should be used.
+        public bool useKnockback = true;
+
         // Awake is called when the script is being loaded
         protected virtual void Awake()
         {
@@ -43,7 +49,7 @@ namespace DDY_GJM_23
             // ...
         }
 
-        
+
         // If the weapon is usable, return true. If not, return false.
         public bool IsUsable()
         {
@@ -58,7 +64,7 @@ namespace DDY_GJM_23
         public void AddUses(int amount)
         {
             // If the weapon is infinite use, don't change the use count.
-            if(!infiniteUse)
+            if (!infiniteUse)
             {
                 uses += amount;
                 uses = Mathf.Clamp(uses, 0, maxUses);
@@ -66,7 +72,7 @@ namespace DDY_GJM_23
         }
 
         // Reduces uses of the weapon.
-        public void RemoveUses(int amount) 
+        public void RemoveUses(int amount)
         {
             // If the weapon is infinite use, don't change the use count.
             if (!infiniteUse)
@@ -99,10 +105,57 @@ namespace DDY_GJM_23
             }
         }
 
+        // Applies push force to the enemy.
+        public void ApplyKnockback(Enemy enemy)
+        {
+            ApplyKnockback(owner.gameObject, enemy.gameObject, knockbackForce);
+        }
+
+        // Applies push force to the enemy.
+        public static void ApplyKnockback(GameObject attacker, GameObject target, float knockbackForce)
+        {
+            // Gets the direction vector.
+            Vector3 distVec = target.transform.position - attacker.transform.position;
+
+            // No z-movement.
+            distVec.z = 0.0F;
+
+            // Move to the right.
+            if (distVec == Vector3.zero)
+                distVec = Vector3.right;
+
+            // Gives the distance vector for the knockback force.
+            ApplyKnockback(distVec, target, knockbackForce);
+        }
+
+        // Applies push force to the enemy.
+        public static void ApplyKnockback(Vector3 direc, GameObject target, float knockbackForce)
+        {
+            // Apply knockback.
+            // The rigidbody.
+            Rigidbody2D targetBody;
+
+            // Tries to get the rigidbody.
+            if (target.TryGetComponent(out targetBody))
+            {
+                // Rigidbody found, so apply force.
+                targetBody.AddForce(direc.normalized * knockbackForce * Time.deltaTime * 10.0F, ForceMode2D.Impulse);
+            }
+            else
+            {
+                // Just translates the target instead. This will likely never be used, so it's never been tested.
+
+                // No rigidbody, so use translate.
+                target.transform.Translate(direc.normalized * knockbackForce * Time.deltaTime);
+            }
+
+        }
+
 
         // Update is called once per frame
         protected virtual void Update()
         {
+            // ...
         }
     }
 }

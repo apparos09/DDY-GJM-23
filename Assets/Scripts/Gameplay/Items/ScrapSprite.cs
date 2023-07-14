@@ -36,7 +36,7 @@ namespace DDY_GJM_23
                 return;
 
             // Sets the new sprite.
-            scrap.sprite.sprite = sprites[index];
+            scrap.renderer.sprite = sprites[index];
         }
 
         // Sets the sprite by the amount.
@@ -58,7 +58,7 @@ namespace DDY_GJM_23
                 if (scrap.scrapAmount == amounts[i])
                 {
                     // Changes the sprite.
-                    scrap.sprite.sprite = sprites[i];
+                    scrap.renderer.sprite = sprites[i];
                     break;
                 }
             }

@@ -576,27 +576,27 @@ namespace DDY_GJM_23
                             {
                                 case 'A':
                                 case 'a':
-                                    portal.sprite.color = Color.white;
+                                    portal.renderer.color = Color.white;
                                     break;
 
                                 case 'B':
                                 case 'b':
-                                    portal.sprite.color = Color.red;
+                                    portal.renderer.color = Color.red;
                                     break;
 
                                 case 'C':
                                 case 'c':
-                                    portal.sprite.color = Color.blue;
+                                    portal.renderer.color = Color.blue;
                                     break;
 
                                 case 'D':
                                 case 'd':
-                                    portal.sprite.color = Color.yellow;
+                                    portal.renderer.color = Color.yellow;
                                     break;
 
                                 case 'E':
                                 case 'e':
-                                    portal.sprite.color = Color.green;
+                                    portal.renderer.color = Color.green;
                                     break;
                             }
                         }

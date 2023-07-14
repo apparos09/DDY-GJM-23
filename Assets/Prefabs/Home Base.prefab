@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
-  sprite: {fileID: 0}
+  renderer: {fileID: 4932278488345835295}
   animator: {fileID: 0}
   gameManager: {fileID: 0}
   collider: {fileID: 4268009829887472995}

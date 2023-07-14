@@ -118,10 +118,10 @@ namespace DDY_GJM_23
         public Punch swimPower = null;
 
         // The multiple for run power speed.
-        public static float RUN_POWER_SPEED_MULT = 1.25F;
+        public static float RUN_POWER_SPEED_MULT = 1.80F;
 
         // The multiple for swim power speed.
-        public static float SWIM_POWER_SPEED_MULT = 1.75F;
+        public static float SWIM_POWER_SPEED_MULT = 4.05F;
 
         // Start is called before the first frame update
         protected override void Start()

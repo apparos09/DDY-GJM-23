@@ -64,13 +64,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
-  sprite: {fileID: 3183389122376170255}
+  renderer: {fileID: 3183389122376170255}
   animator: {fileID: 0}
   gameManager: {fileID: 0}
   destination: {fileID: 0}
   validTags:
   - Player
   offset: {x: 0, y: 0, z: 0}
+  cancelVelocity: 1
   endPortal: {fileID: 0}
   useIgnoreNextList: 1
   ignoreNextList: []

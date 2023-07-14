@@ -18,12 +18,6 @@ namespace DDY_GJM_23
         // The punch's effect.
         public GameObject effect;
 
-        // Force applied to push back enemies.
-        public float pushForce = 250.0F;
-
-        // If the push force should be used.
-        public bool usePushForce = true;
-
         // If 'true', the punch's effect is shown when the punch is active.
         public bool useEffect = true;
 
@@ -91,21 +85,11 @@ namespace DDY_GJM_23
                     // TODO: trigger animation and invincibility frames.
                     enemy.ApplyDamage(power);
 
-                    // Gets the direction vector.
-                    Vector3 distVec = enemy.transform.position - owner.transform.position;
-
-                    // No z-movement.
-                    distVec.z = 0.0F;
-
-                    // Move to the right.
-                    if (distVec == Vector3.zero)
-                        distVec = Vector3.right;
-
-                    // TODO: fix push back so that it actually does something.
-
-                    // Push back the enemy.
-                    if(usePushForce)
-                        enemy.rigidbody.AddForce(distVec.normalized * pushForce * Time.deltaTime * 15.0F, ForceMode2D.Impulse);
+                    // If push force should be used, apply it to the enemy.
+                    if (useKnockback)
+                    {
+                        ApplyKnockback(enemy);
+                    }
                 }
                 
             }

@@ -159,8 +159,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
-  sprite: {fileID: 0}
+  renderer: {fileID: 7680815014260997247}
   animator: {fileID: 7680815015117301330}
+  gameManager: {fileID: 0}
   health: 10
   maxHealth: 10
   punchVulnerable: 1

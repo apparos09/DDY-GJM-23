@@ -51,6 +51,8 @@ MonoBehaviour:
   maxUses: 30
   infiniteUse: 0
   canMoveAndAttack: 1
+  knockbackForce: 250
+  useKnockback: 1
   bulletPrefab: {fileID: 1814850081724763963, guid: ea6bc090f3de74741a6d3da19fbd7691, type: 3}
   multBulletPowerByGunPower: 1
 --- !u!1 &4710680649803848083
@@ -104,6 +106,8 @@ MonoBehaviour:
   maxUses: 25
   infiniteUse: 0
   canMoveAndAttack: 1
+  knockbackForce: 250
+  useKnockback: 1
   bulletPrefab: {fileID: 3776589357268495490, guid: 64d578d3d3d262147a6606982c79a59a, type: 3}
   multBulletPowerByGunPower: 1
 --- !u!1 &5650137135599239529
@@ -204,16 +208,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
-  sprite: {fileID: 0}
+  renderer: {fileID: 5650137135605877728}
   animator: {fileID: 4771059270034918184}
   rigidbody: {fileID: 5650137135599239530}
   collider: {fileID: 5650137135599239531}
   health: 150
   maxHealth: 150
-  vulnerable: 1
-  useIFrames: 1
   flying: 0
   poisonImmune: 0
+  vulnerable: 1
+  useIFrames: 1
+  IFrameTimeMax: 5
   currentTiles: []
   tileDamageRate: 0.25
   emptyEffectAnim: Empty Effect
@@ -454,6 +459,8 @@ MonoBehaviour:
   maxUses: 20
   infiniteUse: 0
   canMoveAndAttack: 1
+  knockbackForce: 250
+  useKnockback: 1
   bulletPrefab: {fileID: 7872821300507037275, guid: 1746c163379c04842be0e9829cfc829b, type: 3}
   multBulletPowerByGunPower: 1
 --- !u!1001 &628104355959984999

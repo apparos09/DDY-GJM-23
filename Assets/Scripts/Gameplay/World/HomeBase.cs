@@ -7,6 +7,8 @@ namespace DDY_GJM_23
     // The home base for the game world.
     public class HomeBase : AreaEntity
     {
+        [Header("Home Base")]
+
         // The gameplay manager.
         public GameplayManager gameManager;
 

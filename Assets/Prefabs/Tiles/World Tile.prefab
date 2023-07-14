@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
+  renderer: {fileID: 1049408205453575799}
   animator: {fileID: 0}
   type: 0
   collider: {fileID: 1049408204953909496}

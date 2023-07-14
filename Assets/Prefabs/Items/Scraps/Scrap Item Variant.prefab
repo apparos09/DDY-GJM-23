@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
-  sprite: {fileID: 0}
+  renderer: {fileID: 8875504301272656779}
   animator: {fileID: 0}
   id: 1
   destroyOnGet: 1
@@ -95,3 +95,8 @@ MonoBehaviour:
   useTimer: 0
   scrapAmount: 1
   spawner: {fileID: 0}
+--- !u!212 &8875504301272656779 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1346560676484033682, guid: e99a03b8ae10dfa4dbb8ef837662b680, type: 3}
+  m_PrefabInstance: {fileID: 7603151416896112409}
+  m_PrefabAsset: {fileID: 0}

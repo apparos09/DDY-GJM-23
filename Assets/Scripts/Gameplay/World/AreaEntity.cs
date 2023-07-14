@@ -11,7 +11,7 @@ namespace DDY_GJM_23
         public WorldArea area;
 
         // The portal sprite.
-        public SpriteRenderer sprite;
+        public new SpriteRenderer renderer;
 
         // The animator for the area entity (if applicable).
         public Animator animator;
@@ -24,8 +24,15 @@ namespace DDY_GJM_23
             //    area = GetComponentInParent<WorldArea>(true);
 
             // The sprite
-            if(sprite == null)
-                sprite = GetComponentInChildren<SpriteRenderer>();
+            if(renderer == null)
+            {
+                // Tries to get the component from the object.
+                if(!renderer.TryGetComponent(out renderer))
+                {
+                    // If the renderer is still null, check the children.
+                    renderer = GetComponentInChildren<SpriteRenderer>();
+                }
+            }                
 
             // The animator.
             if(animator == null)

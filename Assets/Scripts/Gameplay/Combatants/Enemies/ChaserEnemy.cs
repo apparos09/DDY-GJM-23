@@ -20,7 +20,7 @@ namespace DDY_GJM_23
         public float maxSpeed = 7.0F;
 
         // The distance between the target and the chaser for the chaser to pursue them directly.
-        public float seekDist = 25.0F;
+        public float seekDist = 30.0F;
 
         // FIXME: have the speed adjust so that the chaser doesn't just run circles around the target.
 

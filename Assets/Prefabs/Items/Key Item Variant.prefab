@@ -79,7 +79,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
+  renderer: {fileID: 7347252549476216789}
+  animator: {fileID: 0}
   id: 3
   destroyOnGet: 1
   itemTimer: 0
   useTimer: 0
+--- !u!212 &7347252549476216789 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1346560676484033682, guid: e99a03b8ae10dfa4dbb8ef837662b680, type: 3}
+  m_PrefabInstance: {fileID: 8600008906628645703}
+  m_PrefabAsset: {fileID: 0}

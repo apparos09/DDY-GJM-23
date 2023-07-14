@@ -97,18 +97,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
-  sprite: {fileID: 0}
+  renderer: {fileID: 1269456626381803363}
   animator: {fileID: 8959610846828621866}
   rigidbody: {fileID: 1269456625271267572}
   collider: {fileID: 1269456625271267573}
   health: 20
   maxHealth: 20
-  vulnerable: 1
-  useIFrames: 0
   flying: 0
   poisonImmune: 1
+  vulnerable: 1
+  useIFrames: 1
+  IFrameTimeMax: 1
   currentTiles: []
   tileDamageRate: 0.25
+  emptyEffectAnim: Empty Effect
   damageAnim: Damage
   iFrameAnim: Invincibility Frames
   contactDamage: 1

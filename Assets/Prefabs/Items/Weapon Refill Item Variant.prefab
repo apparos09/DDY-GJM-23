@@ -57,10 +57,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6893523645976286736, guid: e99a03b8ae10dfa4dbb8ef837662b680, type: 3}
       propertyPath: m_Name
-      value: Weapon Uses Item Variant
+      value: Weapon Refill Item Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e99a03b8ae10dfa4dbb8ef837662b680, type: 3}
+--- !u!212 &2638700504273593168 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1346560676484033682, guid: e99a03b8ae10dfa4dbb8ef837662b680, type: 3}
+  m_PrefabInstance: {fileID: 3905040812383670210}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7609899017432209874 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6893523645976286736, guid: e99a03b8ae10dfa4dbb8ef837662b680, type: 3}
@@ -79,6 +84,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
+  renderer: {fileID: 2638700504273593168}
+  animator: {fileID: 0}
   id: 3
   destroyOnGet: 1
   itemTimer: 7

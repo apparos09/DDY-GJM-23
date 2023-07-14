@@ -24,6 +24,13 @@ namespace DDY_GJM_23
         // The player's max health.
         public float maxHealth = 100.0F;
 
+        // Says whether the entity flies or not.
+        public bool flying = false;
+
+        // If 'true', the entity is immune to poison damage.
+        public bool poisonImmune = false;
+
+        [Header("Combatant/Vulnerable")]
         // Gets set to 'true' if the entity is vulnerable (can be damaged).
         public bool vulnerable = true;
 
@@ -31,7 +38,7 @@ namespace DDY_GJM_23
         public bool useIFrames = true;
 
         // The amount of time for invincibility frames.
-        public const float I_FRAME_TIME_MAX = 5.0F;
+        public float IFrameTimeMax = 5.0F;
 
         // The timer for invincibility frames.
         private float iFrameTimer;
@@ -39,11 +46,6 @@ namespace DDY_GJM_23
         // Used to play the iframe animation after the damage information if set to true.
         private bool startIFrameAnimation = false;
 
-        // Says whether the entity flies or not.
-        public bool flying = false;
-
-        // If 'true', the entity is immune to poison damage.
-        public bool poisonImmune = false;
 
         [Header("Combatant/Tiles")]
         // The tile the combat entity is currently on.
@@ -278,7 +280,7 @@ namespace DDY_GJM_23
                 if(useIFrames && triggerIFrames)
                 {
                     // Set timer.
-                    iFrameTimer = I_FRAME_TIME_MAX;
+                    iFrameTimer = IFrameTimeMax;
 
                     // Set so that the iframes trigger after the damage animation finishes.
                     startIFrameAnimation = true;
@@ -368,7 +370,7 @@ namespace DDY_GJM_23
                 iFrameTimer -= Time.deltaTime;
 
                 // Take care of negative numbers.
-                if (iFrameTimer < 0.0F)
+                if (iFrameTimer <= 0.0F)
                 {
                     // Timer is done.
                     iFrameTimer = 0.0F;

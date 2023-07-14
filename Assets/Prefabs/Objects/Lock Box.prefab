@@ -74,8 +74,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
-  sprite: {fileID: 0}
+  renderer: {fileID: 8861613370844027750}
   animator: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!210 &-8370730891116675568
 SortingGroup:
   m_ObjectHideFlags: 0

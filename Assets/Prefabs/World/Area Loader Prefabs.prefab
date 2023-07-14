@@ -57,12 +57,17 @@ MonoBehaviour:
   poisonA: {fileID: 3496779825588946614, guid: e14ea939c27ee9142afbaa4e71338380, type: 3}
   drySandFloorA: {fileID: 507136924150235641, guid: 7d722d829d3d6f74ab612360330ce496, type: 3}
   drySandWallA: {fileID: 2539561665930664273, guid: 5078bad792a9cb14cb99a79e39023a59, type: 3}
+  gravelFloorA: {fileID: 7834718477061159397, guid: 1064d9b5015db7043bf3cff1464190d0, type: 3}
   rockBlock: {fileID: 7680815015117301334, guid: cd033620958926146adb289c375e2568, type: 3}
   stoneBlock: {fileID: 3406899726445412352, guid: a9cafc167ba958d4e93a7350cdf47796, type: 3}
   lockBox: {fileID: 8861613369114952233, guid: a5c79c0f197d42a458a002e3d5e7afaf, type: 3}
   portal: {fileID: 3183389122115935939, guid: 467640917bef7864ca18a28b5730b88b, type: 3}
-  chaserSpawn: {fileID: 955528670452313533, guid: f47738a116691d242aacfa68dd841544, type: 3}
-  shooterSpawn: {fileID: 4710031289377815226, guid: 0e968da04795ef34fb81a289238cb321, type: 3}
+  chaserSpawnL1: {fileID: 5187253524153624082, guid: a444737e6ae12c54489dd50f739828fa, type: 3}
+  chaserSpawnL2: {fileID: 7448609724898606050, guid: e3e985f0abe27ad4584f646b51444c75, type: 3}
+  chaserSpawnL3: {fileID: 3682196061439543162, guid: 2e43d27e65417eb43a57e0552fba8a97, type: 3}
+  shooterSpawnL1: {fileID: 5918140629716171550, guid: 61cfb4ff356dbb34fa5bad18d06d38af, type: 3}
+  shooterSpawnL2: {fileID: 522191871072535949, guid: ca40721b71015fb43a1c0ddd954458a1, type: 3}
+  shooterSpawnL3: {fileID: 699908542868552307, guid: 452eaf18ba347e340bc48ad86b05ee39, type: 3}
   scrapSpawn1: {fileID: 4937034742884079288, guid: 7943d157f5aab9548b3e9fab0512f405, type: 3}
   scrapSpawn3: {fileID: 6625899335579674776, guid: fd1150b3ba1be37418f1b12db40e3154, type: 3}
   scrapSpawn5: {fileID: 2711772878426958331, guid: 4cd7f6d46999ee34a8df0150e882c7ce, type: 3}

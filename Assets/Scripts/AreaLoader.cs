@@ -621,11 +621,50 @@ namespace DDY_GJM_23
                     break;
 
                 case 1: // Chaser (1)
-                    enemySpawn = Instantiate(loaderPrefabs.chaserSpawn);
+
+                    // Checks level of difficulty.
+                    switch(type)
+                    {
+                        case 'A':
+                        case 'a':
+                        default:
+                            enemySpawn = Instantiate(loaderPrefabs.chaserSpawnL1);
+                            break;
+
+                        case 'B':
+                        case 'b':
+                            enemySpawn = Instantiate(loaderPrefabs.chaserSpawnL2);
+                            break;
+
+                        case 'C':
+                        case 'c':
+                            enemySpawn = Instantiate(loaderPrefabs.chaserSpawnL3);
+                            break;
+                    }
+                    
                     break;
 
                 case 2: // Shooter (2)
-                    enemySpawn = Instantiate(loaderPrefabs.shooterSpawn);
+
+                    // Checks level of difficulty.
+                    switch (type)
+                    {
+                        case 'A':
+                        case 'a':
+                        default:
+                            enemySpawn = Instantiate(loaderPrefabs.shooterSpawnL1);
+                            break;
+
+                        case 'B':
+                        case 'b':
+                            enemySpawn = Instantiate(loaderPrefabs.shooterSpawnL2);
+                            break;
+
+                        case 'C':
+                        case 'c':
+                            enemySpawn = Instantiate(loaderPrefabs.shooterSpawnL3);
+                            break;
+                    }
                     break;
             }
 

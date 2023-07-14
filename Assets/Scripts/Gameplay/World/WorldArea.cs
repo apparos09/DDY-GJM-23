@@ -365,6 +365,7 @@ namespace DDY_GJM_23
         {
             DestroyAllEnemies();
             DestroyAllItems();
+            DestroyAllBullets();
 
             // Clears out the tiles the player is on.
             gameManager.player.currentTiles.Clear();
@@ -462,6 +463,20 @@ namespace DDY_GJM_23
         {
             DestroyAllAreaEntitiesInList(new List<AreaEntity>(items));
             items.Clear();
+        }
+
+        // Destroys all bullets currently spawned.
+        public void DestroyAllBullets()
+        {
+            // Finds all bullets that are have been spawned.
+            Bullet[] bullets = FindObjectsOfType<Bullet>(true);
+
+            // Destroys all bullets.
+            foreach(Bullet bullet in bullets)
+            {
+                // Kills every bullet.
+                bullet.Kill();
+            }
         }
 
 

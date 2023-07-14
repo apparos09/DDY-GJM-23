@@ -61,8 +61,12 @@ namespace DDY_GJM_23
 
         // ENEMIES //
         [Header("ENEMIES")]
-        public EnemySpawn chaserSpawn;
-        public EnemySpawn shooterSpawn;
+        public EnemySpawn chaserSpawnL1;
+        public EnemySpawn chaserSpawnL2;
+        public EnemySpawn chaserSpawnL3;
+        public EnemySpawn shooterSpawnL1;
+        public EnemySpawn shooterSpawnL2;
+        public EnemySpawn shooterSpawnL3;
 
         // ITEMS
         [Header("ITEMS")]

@@ -27,7 +27,7 @@ namespace DDY_GJM_23
             if(renderer == null)
             {
                 // Tries to get the component from the object.
-                if(!renderer.TryGetComponent(out renderer))
+                if(!TryGetComponent(out renderer))
                 {
                     // If the renderer is still null, check the children.
                     renderer = GetComponentInChildren<SpriteRenderer>();

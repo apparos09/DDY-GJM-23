@@ -237,6 +237,13 @@ namespace DDY_GJM_23
         }
 
         // TUTORIAL //
+        // Checks if the text box is open.
+        public bool IsTextBoxOpen()
+        {
+            bool result = gameUI.IsTextBoxOpen();
+            return result;
+        }
+
         // Opens the text box.
         public void OpenTextBox(List<string> pages)
         {

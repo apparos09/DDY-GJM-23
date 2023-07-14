@@ -43,19 +43,23 @@ namespace DDY_GJM_23
         // Called when the collision is started.
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            // If the collided object has the player tag.
-            if (collision.gameObject.tag == Player.PLAYER_TAG)
+            // Checks if the tutorial is being used.
+            if(gameManager.GetUseTutorial())
             {
-                // Checks what kind of tutorial to load.
-                if (punchVulnerable && bulletVulnerable) // Punch and Bullet
+                // If the collided object has the player tag.
+                if (collision.gameObject.tag == Player.PLAYER_TAG)
                 {
-                    gameManager.ActivateTutorial(Tutorial.trlType.softBlock);
-                }
-                else if (!punchVulnerable && bulletVulnerable) // Bullet Only
-                {
-                    gameManager.ActivateTutorial(Tutorial.trlType.hardBlock);
-                }
+                    // Checks what kind of tutorial to load.
+                    if (punchVulnerable && bulletVulnerable) // Punch and Bullet
+                    {
+                        gameManager.ActivateTutorial(Tutorial.trlType.softBlock);
+                    }
+                    else if (!punchVulnerable && bulletVulnerable) // Bullet Only
+                    {
+                        gameManager.ActivateTutorial(Tutorial.trlType.hardBlock);
+                    }
 
+                }
             }
 
         }

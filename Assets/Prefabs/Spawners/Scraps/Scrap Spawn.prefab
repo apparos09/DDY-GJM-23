@@ -45,8 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
+  sprite: {fileID: 0}
+  animator: {fileID: 0}
   posOffset: {x: 0, y: 0, z: 0}
-  itemPrefab: {fileID: 1809410719044672819, guid: 2113e532f2fb2144f95701bf74f8d432, type: 3}
+  itemPrefab: {fileID: 2883081283486020939, guid: dcf3c739aa160fa4fbe956e2705df23d, type: 3}
   scrapAmount: 1
   changeScrapAmount: 1
   refreshTime: 30

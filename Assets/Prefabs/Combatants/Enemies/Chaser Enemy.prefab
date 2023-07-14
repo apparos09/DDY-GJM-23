@@ -193,11 +193,12 @@ MonoBehaviour:
   poisonImmune: 1
   currentTiles: []
   tileDamageRate: 0.25
+  emptyEffectAnim: Empty Effect
   damageAnim: Damage
   iFrameAnim: Invincibility Frames
   contactDamage: 1
   contactDamagePower: 10
-  searchDistance: 100
+  searchDistance: 50
   runBehaviour: 1
   pursueSpeed: 5
   seekSpeed: 7

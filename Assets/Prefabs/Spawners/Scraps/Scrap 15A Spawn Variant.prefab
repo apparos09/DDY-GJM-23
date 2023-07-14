@@ -8,12 +8,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4937034742884079288, guid: 7943d157f5aab9548b3e9fab0512f405, type: 3}
+      propertyPath: itemPrefab
+      value: 
+      objectReference: {fileID: 3118537112492107038, guid: e83b46ef4a42af641ab4cea0e93d71b2, type: 3}
+    - target: {fileID: 4937034742884079288, guid: 7943d157f5aab9548b3e9fab0512f405, type: 3}
       propertyPath: scrapAmount
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4937034742884079294, guid: 7943d157f5aab9548b3e9fab0512f405, type: 3}
       propertyPath: m_Name
-      value: Scrap 15A Spawn
+      value: Scrap 15A Spawn Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4937034742884079295, guid: 7943d157f5aab9548b3e9fab0512f405, type: 3}
       propertyPath: m_RootOrder

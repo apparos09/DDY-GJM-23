@@ -57,25 +57,34 @@ namespace DDY_GJM_23
         // OnCollisionEnter2D 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            // If the collided object has the player tag.
-            if (collision.gameObject.tag == Player.PLAYER_TAG)
+            // If the game is using the tutorial.
+            if(gameManager.GetUseTutorial() && !gameManager.tutorial.usedPortal)
             {
-                // Activate the portal tutorial.
-                gameManager.ActivateTutorial(Tutorial.trlType.portal);
+                // If the collided object has the player tag.
+                if (collision.gameObject.tag == Player.PLAYER_TAG)
+                {
+                    // Activate the portal tutorial.
+                    gameManager.ActivateTutorial(Tutorial.trlType.portal);
+                }
             }
 
+            // This is being left as is so that the player doesn't have to step back on the portal if a tutorial's been triggered.
 
-            // Checks if the object should be ignored.
-            if (ignoreNextList.Contains(collision.gameObject))
-            {
-                ignoreNextList.Remove(collision.gameObject);
-            }
-            else
-            {
-                // Valid tag.
-                if (validTags.Contains(collision.gameObject.tag))
-                    Transport(collision.gameObject);
-            } 
+            // The portals only work if the text box is closed.
+            // if(!gameManager.IsTextBoxOpen())
+            // {
+                // Checks if the object should be ignored.
+                if (ignoreNextList.Contains(collision.gameObject))
+                {
+                    ignoreNextList.Remove(collision.gameObject);
+                }
+                else
+                {
+                    // Valid tag.
+                    if (validTags.Contains(collision.gameObject.tag))
+                        Transport(collision.gameObject);
+                }
+            // }
         }
 
         // OnTriggerEnter2D

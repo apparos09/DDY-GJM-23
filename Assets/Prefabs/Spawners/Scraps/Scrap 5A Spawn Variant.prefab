@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2265366309634522656
+--- !u!1001 &6999150037845638979
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,12 +8,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4937034742884079288, guid: 7943d157f5aab9548b3e9fab0512f405, type: 3}
+      propertyPath: itemPrefab
+      value: 
+      objectReference: {fileID: 8767397908581036002, guid: d9628fa572cd4b5469d14b42a33f5b32, type: 3}
+    - target: {fileID: 4937034742884079288, guid: 7943d157f5aab9548b3e9fab0512f405, type: 3}
       propertyPath: scrapAmount
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4937034742884079294, guid: 7943d157f5aab9548b3e9fab0512f405, type: 3}
       propertyPath: m_Name
-      value: Scrap 3A Spawn
+      value: Scrap 5A Spawn Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4937034742884079295, guid: 7943d157f5aab9548b3e9fab0512f405, type: 3}
       propertyPath: m_RootOrder

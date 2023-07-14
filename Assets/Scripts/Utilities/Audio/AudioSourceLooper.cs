@@ -9,7 +9,7 @@ namespace util
 {
     // Loops a section of the audio.
     // NOTE: if the audio is compressed or changed in some similar way this script may not work properly.
-    public class AudioSegmentLooper : MonoBehaviour
+    public class AudioSourceLooper : MonoBehaviour
     {
         // audio source
         public AudioSource audioSource = null;

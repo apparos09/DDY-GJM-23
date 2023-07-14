@@ -1073,6 +1073,7 @@ GameObject:
   - component: {fileID: 761339281}
   - component: {fileID: 761339283}
   - component: {fileID: 761339282}
+  - component: {fileID: 761339284}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: BGM
@@ -1108,7 +1109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 761339283}
-  maxVolume: 0.3
+  maxVolume: 1
   autoSetMaxVolume: 1
 --- !u!82 &761339283
 AudioSource:
@@ -1206,6 +1207,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &761339284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761339280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae58dd880a41ec45a5960b695796c3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 761339283}
+  clipStart: 119.033
+  clipEnd: 240.723
+  playAtClipStart: 0
+  loopRelative: 1
 --- !u!1 &764527765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,6 +1681,10 @@ PrefabInstance:
     - target: {fileID: 7206290056615544033, guid: 778fd3fa178fcb943874ca7d2b70fc6f, type: 3}
       propertyPath: m_Name
       value: Audio Looper
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206290056615544033, guid: 778fd3fa178fcb943874ca7d2b70fc6f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7206290056615544035, guid: 778fd3fa178fcb943874ca7d2b70fc6f, type: 3}
       propertyPath: m_RootOrder

@@ -301,6 +301,13 @@ namespace DDY_GJM_23
 
 
         // SETTINGS //
+        // Returns 'true' if the settings window is open.
+        public bool IsSettingsOpen()
+        {
+            bool result = settings.gameObject.activeSelf;
+            return result;
+        }
+
         // Call to open the settings.
         public void OpenSettings()
         {
@@ -408,6 +415,18 @@ namespace DDY_GJM_23
                 }
             }
 
+            // TODO: this doesn't work because the player updates and just opens the settings again.
+            // Not sure why this doesn't happen with the map, but this is something to fix.
+            //// If the settings object is open.
+            //if(IsSettingsOpen())
+            //{
+            //    // Closes the settings window if the key is pressed.
+            //    // This is done since the player is no longer accepting inputs.
+            //    if(Input.GetKeyDown(gameManager.player.settingsKey))
+            //    {
+            //        CloseSettings();
+            //    }
+            //}
         }
     }
 }

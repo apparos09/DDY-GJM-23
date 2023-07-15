@@ -60,14 +60,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.07808828, g: 0.27111498, b: 0.38679248, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2ba905388a2087746ae08a51ca29bd7c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b21704fb0c8cde649b8ca422fb6e0998, type: 3}
   m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 1, y: -1}
+  m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
 --- !u!1 &737489702947476470
 GameObject:
@@ -150,6 +150,7 @@ MonoBehaviour:
   pages: []
   pageIndex: -1
   closeOnEnd: 1
+  enableKeyboardInput: 1
   disableButtonsIfUnusable: 1
   prevPageButton: {fileID: 8169147720385829402}
   nextPageButton: {fileID: 291877155506010074}

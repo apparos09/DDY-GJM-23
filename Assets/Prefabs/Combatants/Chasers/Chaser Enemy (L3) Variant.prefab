@@ -76,6 +76,34 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8438912072705579381, guid: 281ced69c1a8b3040a524fca4b9a7fa1, type: 3}
+      propertyPath: health
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438912072705579381, guid: 281ced69c1a8b3040a524fca4b9a7fa1, type: 3}
+      propertyPath: maxSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438912072705579381, guid: 281ced69c1a8b3040a524fca4b9a7fa1, type: 3}
+      propertyPath: seekDist
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438912072705579381, guid: 281ced69c1a8b3040a524fca4b9a7fa1, type: 3}
+      propertyPath: maxHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438912072705579381, guid: 281ced69c1a8b3040a524fca4b9a7fa1, type: 3}
+      propertyPath: seekSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438912072705579381, guid: 281ced69c1a8b3040a524fca4b9a7fa1, type: 3}
+      propertyPath: pursueSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438912072705579381, guid: 281ced69c1a8b3040a524fca4b9a7fa1, type: 3}
+      propertyPath: idleAnimation
+      value: Chaser L3 - Idle Animation
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438912072705579381, guid: 281ced69c1a8b3040a524fca4b9a7fa1, type: 3}
       propertyPath: searchDistance
       value: 70
       objectReference: {fileID: 0}

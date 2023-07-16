@@ -113,10 +113,12 @@ MonoBehaviour:
   emptyEffectAnim: Empty Effect
   damageAnim: Damage
   iFrameAnim: Invincibility Frames
+  id: 0
   contactDamage: 1
   contactDamagePower: 5
   searchDistance: 100
   runBehaviour: 1
+  idleAnimation: Shooter L1 - Idle Animation
   bulletPrefab: {fileID: 81991851382654437, guid: 4efa8d2cf647d624ab8506175930d200, type: 3}
   fireRate: 5
   fireTimer: 0

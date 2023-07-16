@@ -22,6 +22,16 @@ namespace DDY_GJM_23
         // The distance between the target and the chaser for the chaser to pursue them directly.
         public float seekDist = 30.0F;
 
+        // Start is called just before any of the Update methods is called the first time
+        protected override void Start()
+        {
+            base.Start();
+
+            // Set the id to the chaser.
+            if (id == enemyId.none)
+                id = enemyId.chaser;
+        }
+
         // FIXME: have the speed adjust so that the chaser doesn't just run circles around the target.
 
         // Runs the chaser enemy's behaviour.

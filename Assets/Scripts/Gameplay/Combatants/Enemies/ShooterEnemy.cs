@@ -23,6 +23,10 @@ namespace DDY_GJM_23
         {
             base.Start();
 
+            // Set the id to the shooter.
+            if (id == enemyId.none)
+                id = enemyId.shooter;
+
             // The shooter shouldn't fire the moment the player enters the screen.
             if (fireTimer <= 0)
                 fireTimer = fireRate;
@@ -75,6 +79,8 @@ namespace DDY_GJM_23
                     fireTimer = 0;
             }
         }
+
+        // UPDATE
 
         // Update is called once per frame
         protected override void Update()

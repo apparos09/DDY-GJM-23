@@ -72,6 +72,10 @@ PrefabInstance:
       value: Chaser Enemy (L2) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8438912072705579381, guid: 281ced69c1a8b3040a524fca4b9a7fa1, type: 3}
+      propertyPath: level
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438912072705579381, guid: 281ced69c1a8b3040a524fca4b9a7fa1, type: 3}
       propertyPath: searchDistance
       value: 60
       objectReference: {fileID: 0}

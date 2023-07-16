@@ -197,10 +197,12 @@ MonoBehaviour:
   emptyEffectAnim: Empty Effect
   damageAnim: Damage
   iFrameAnim: Invincibility Frames
+  id: 0
   contactDamage: 1
   contactDamagePower: 10
   searchDistance: 50
   runBehaviour: 1
+  idleAnimation: Chaser L1 - Idle Animation
   pursueSpeed: 5
   seekSpeed: 7
   maxSpeed: 7

@@ -8,9 +8,13 @@ namespace DDY_GJM_23
     public abstract class Enemy : Combatant
     {
         // The enemy id.
-        public enum enemyId { none };
+        public enum enemyId { none, chaser, shooter };
 
         [Header("Enemy")]
+
+        // The id of the enemy.
+        [Tooltip("The ID of the enemy.")]
+        public enemyId id = enemyId.none;
 
         // If 'true', the enemy causes damage upon making contact with the player.
         public bool contactDamage = true;
@@ -25,10 +29,17 @@ namespace DDY_GJM_23
         [Tooltip("Runs the behaviour of the enemy if this is true.")]
         public bool runBehaviour = true;
 
+        [Header("Enemy/Animations")]
+        // The idle animation for the enemy.
+        public string idleAnimation = "";
+
         // Start is called before the first frame update
         protected override void Start()
         {
             base.Start();
+
+            // Plays the idle animation by default.
+            PlayIdleAnimation();
         }
 
         // OnCollisionStay2D - used to damage the player if contact damage is enabled.
@@ -63,6 +74,8 @@ namespace DDY_GJM_23
             }
         }
 
+        // PROGRAMMING
+
         // Runs the enemy's behaviour (AI)
         protected abstract void RunEnemyBehaviour();
 
@@ -72,6 +85,19 @@ namespace DDY_GJM_23
         {
             Destroy(gameObject);
         }
+
+        // ANIMATIONS //
+
+        // Plays an animation based on the current level.
+        protected virtual void PlayIdleAnimation()
+        {
+            animator.Play(idleAnimation);
+        }
+
+
+        // AUDIO //
+
+        // UPDATE
 
         // Update is called once per frame
         protected override void Update()

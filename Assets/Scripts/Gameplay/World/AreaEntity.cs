@@ -19,9 +19,9 @@ namespace DDY_GJM_23
         // If the animator isn't set.
         protected virtual void Start()
         {
-            //// Tries to grab the area in the parent (probably won't work).
-            //if(area == null)
-            //    area = GetComponentInParent<WorldArea>(true);
+            // Tries to grab the area in the parent.
+            if(area == null)
+                area = GetComponentInParent<WorldArea>(true);
 
             // The sprite
             if(renderer == null)

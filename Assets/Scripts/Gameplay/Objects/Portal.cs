@@ -152,8 +152,31 @@ namespace DDY_GJM_23
             // Activates all areas so that the triggers trigger.
             // If the world isn't optimized, all colliders will be on regardless, so activating all areas isn't needed.
             if(World.OPTIMIZE_WORLD)
-                gameManager.world.ActivateAllAreas();
+            {
+                // NOTE: activating all areas causes the game to stutter, so try to avoid it.
 
+                // Checks if the portal exists.
+                if(endPortal != null)
+                {
+                    // If the end portal has an area, activate it.
+                    if(endPortal.area != null)
+                    {
+                        // Set end portal's area.
+                        gameManager.world.SetCurrentArea(endPortal.area);
+                    }
+                    else
+                    {
+                        // Activate all areas.
+                        gameManager.world.ActivateAllAreas();
+                    }
+
+                }
+                else
+                {
+                    // Activate all areas.
+                    gameManager.world.ActivateAllAreas();
+                }
+            }
         }
 
     }

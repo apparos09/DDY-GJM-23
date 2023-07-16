@@ -270,7 +270,15 @@ namespace DDY_GJM_23
 
                             // No entity was generated, so continue.
                             if (areaEntity == null)
+                            {
                                 continue;
+                            }
+                            else
+                            {
+                                // If the area entity's area isn't set, and an area is available, set it.
+                                if (areaEntity.area == null && area == null)
+                                    areaEntity.area = area;
+                            }
 
 
                             // POSITIONING //

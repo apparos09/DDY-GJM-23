@@ -797,7 +797,7 @@ namespace DDY_GJM_23
             }
 
             // Checks to see if the entity is moving.
-            bool moving = movement == Vector2Int.zero;
+            bool moving = movement != Vector2Int.zero;
 
             // Checks the attacking key to see if the player is attacking.
             bool attacking = Input.GetKey(attackKey);
@@ -821,6 +821,12 @@ namespace DDY_GJM_23
             // Movement, Attack
             animator.SetBool(ANIM_MOVING_VAR, moving);
             animator.SetBool(ANIM_ATTACK_VAR, attacking);
+
+
+            //animator.SetInteger(ANIM_DIREC_X_VAR, 0);
+            //animator.SetInteger(ANIM_DIREC_Y_VAR, 1);
+            //animator.SetBool(ANIM_MOVING_VAR, true);
+            //animator.SetBool(ANIM_ATTACK_VAR, false);
 
         }
 

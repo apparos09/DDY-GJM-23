@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 1537309124}
-  sprite: {fileID: 0}
+  renderer: {fileID: 0}
   animator: {fileID: 0}
   posOffset: {x: 0, y: 0, z: 0}
   itemPrefab: {fileID: 1874487859}
@@ -1436,24 +1436,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
-  sprite: {fileID: 0}
+  renderer: {fileID: 0}
   animator: {fileID: 0}
   rigidbody: {fileID: 0}
   collider: {fileID: 0}
   health: 100
   maxHealth: 100
-  vulnerable: 1
-  useIFrames: 1
   flying: 0
   poisonImmune: 0
+  vulnerable: 1
+  useIFrames: 1
+  IFrameTimeMax: 5
   currentTiles: []
   tileDamageRate: 1
+  emptyEffectAnim: Empty Effect
   damageAnim: Damage
   iFrameAnim: Invincibility Frames
+  id: 0
   contactDamage: 1
   contactDamagePower: 10
   searchDistance: 100
   runBehaviour: 1
+  idleAnimation: 
   pursueSpeed: 5
   seekSpeed: 7
   maxSpeed: 7
@@ -1599,24 +1603,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
-  sprite: {fileID: 0}
+  renderer: {fileID: 0}
   animator: {fileID: 0}
   rigidbody: {fileID: 0}
   collider: {fileID: 0}
   health: 100
   maxHealth: 100
-  vulnerable: 1
-  useIFrames: 1
   flying: 0
   poisonImmune: 0
+  vulnerable: 1
+  useIFrames: 1
+  IFrameTimeMax: 5
   currentTiles: []
   tileDamageRate: 1
+  emptyEffectAnim: Empty Effect
   damageAnim: Damage
   iFrameAnim: Invincibility Frames
+  id: 0
   contactDamage: 1
   contactDamagePower: 10
   searchDistance: 100
   runBehaviour: 1
+  idleAnimation: 
   bulletPrefab: {fileID: 81991851382654437, guid: 4efa8d2cf647d624ab8506175930d200, type: 3}
   fireRate: 5
   fireTimer: 0
@@ -2136,7 +2144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
-  sprite: {fileID: 0}
+  renderer: {fileID: 0}
   animator: {fileID: 0}
   gameManager: {fileID: 0}
   collider: {fileID: 1401761338}
@@ -3039,7 +3047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   area: {fileID: 0}
-  sprite: {fileID: 0}
+  renderer: {fileID: 0}
   animator: {fileID: 0}
   id: 0
   destroyOnGet: 0

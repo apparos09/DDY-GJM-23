@@ -197,11 +197,11 @@ namespace DDY_GJM_23
                 {
                     angle = 135.0F;
                 }
-                else if(x > 0 && y < 0) // Bottom Right
+                else if(x < 0 && y < 0) // Bottom Left
                 {
                     angle = 225.0F;
                 }
-                else if(x < 0 && y < 0) // Bottom Left
+                else if(x > 0 && y < 0) // Bottom Right
                 {
                     angle = 315.0F;
                 }
@@ -821,13 +821,6 @@ namespace DDY_GJM_23
             // Movement, Attack
             animator.SetBool(ANIM_MOVING_VAR, moving);
             animator.SetBool(ANIM_ATTACK_VAR, attacking);
-
-
-            //animator.SetInteger(ANIM_DIREC_X_VAR, 0);
-            //animator.SetInteger(ANIM_DIREC_Y_VAR, 1);
-            //animator.SetBool(ANIM_MOVING_VAR, true);
-            //animator.SetBool(ANIM_ATTACK_VAR, false);
-
         }
 
 

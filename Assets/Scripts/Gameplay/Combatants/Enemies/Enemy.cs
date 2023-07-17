@@ -91,7 +91,8 @@ namespace DDY_GJM_23
         // Plays an animation based on the current level.
         protected virtual void PlayIdleAnimation()
         {
-            animator.Play(idleAnimation);
+            if(animator != null)
+                animator.Play(idleAnimation);
         }
 
 

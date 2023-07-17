@@ -90,6 +90,18 @@ namespace DDY_GJM_23
         // The inputs for moves on a given frame.
         private Vector2 moveInputs = Vector2.zero;
 
+        // The x-direction variable of the player animation.
+        public const string ANIM_DIREC_X_VAR = "directionX";
+
+        // The y-direction variable of the player animation.
+        public const string ANIM_DIREC_Y_VAR = "directionY";
+
+        // The moving variable for the player animation.
+        public const string ANIM_MOVING_VAR = "moving";
+
+        // The attacking variable for the player animation.
+        public const string ANIM_ATTACK_VAR = "attacking";
+
         // Weapons
         [Header("Player/Weapons")]
 
@@ -749,6 +761,70 @@ namespace DDY_GJM_23
             
         }
 
+        // ANIMATION //
+        // Updates the player's animation.
+        public void UpdateAnimations()
+        {
+            // The movement input.
+            Vector2Int movement = Vector2Int.zero;
+
+            // Movement - Horizontal (Left, Right)
+            if (Input.GetKey(moveLeftKey)) // Left
+            {
+                movement.x = -1;
+            }
+            else if (Input.GetKey(moveRightKey)) // Right
+            {
+                movement.x = 1;
+            }
+            else // None
+            {
+                movement.x = 0;
+            }
+
+            // Movement - Vertical (Up, Down)
+            if (Input.GetKey(moveUpKey)) // Up
+            {
+                movement.y = 1;
+            }
+            else if (Input.GetKey(moveDownKey)) // Down
+            {
+                movement.y = -1;
+            }
+            else // None
+            {
+                movement.y = 0;
+            }
+
+            // Checks to see if the entity is moving.
+            bool moving = movement == Vector2Int.zero;
+
+            // Checks the attacking key to see if the player is attacking.
+            bool attacking = Input.GetKey(attackKey);
+
+            Debug.Log("Movement: " + movement.ToString());
+
+            // Direction - only supply if the entity is moving...
+            // So that they stay facing the same direction.
+            if (moving)
+            {
+                // If the player is moving on both planes, prioritize the y-direction.
+                if(movement.x != 0 && movement.y != 0)
+                {
+                    movement.x = 0;
+                }
+
+                animator.SetInteger(ANIM_DIREC_X_VAR, movement.x);
+                animator.SetInteger(ANIM_DIREC_Y_VAR, movement.y);
+            }
+
+            // Movement, Attack
+            animator.SetBool(ANIM_MOVING_VAR, moving);
+            animator.SetBool(ANIM_ATTACK_VAR, attacking);
+
+        }
+
+
         // Update is called once per frame
         protected override void Update()
         {
@@ -762,6 +838,7 @@ namespace DDY_GJM_23
             if(enableInputs)
             {
                 UpdateInputs();
+                UpdateAnimations();
             }
 
 

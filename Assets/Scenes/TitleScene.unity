@@ -1512,7 +1512,7 @@ GameObject:
   - component: {fileID: 539278280}
   - component: {fileID: 539278279}
   m_Layer: 0
-  m_Name: Audio Source (BGM)
+  m_Name: BGM Audio Source
   m_TagString: BGM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2176,10 +2176,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec3bff47a140f0429f3e01261d86d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 798157166}
   bgmSource: {fileID: 539278281}
   sfxSource: {fileID: 1935051043}
   buttonSfx: {fileID: 0}
+  manager: {fileID: 798157166}
 --- !u!1 &868656404
 GameObject:
   m_ObjectHideFlags: 0
@@ -5783,7 +5783,7 @@ GameObject:
   - component: {fileID: 1935051043}
   - component: {fileID: 1935051042}
   m_Layer: 0
-  m_Name: Audio Source (SFX)
+  m_Name: SFX Audio Source
   m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -66,6 +66,10 @@ namespace DDY_GJM_23
         // The swim upgrade icon.
         public Image swimPowerIcon;
 
+        [Header("Other")]
+        // The audio for the results screen.
+        public ResultsAudio resultsAudio;
+
         // Constructor
         private ResultsManager()
         {
@@ -103,6 +107,10 @@ namespace DDY_GJM_23
             // Results were found, so load them up.
             if (results != null)
                 LoadResults();
+
+            // Gets the results audio.
+            if (resultsAudio == null)
+                resultsAudio = GetComponent<ResultsAudio>();
         }
 
         // Gets the instance.

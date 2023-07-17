@@ -1513,10 +1513,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 0}
+  enableKeyboard: 0
   bgmSlider: {fileID: 4484545781542466925}
   sfxSlider: {fileID: 3553282580853690235}
   muteToggle: {fileID: 3553282580713116786}
-  tutorialToggle: {fileID: 0}
+  tutorialToggle: {fileID: 6097226349248536066}
   screenSizeDropdown: {fileID: 3553282579329163124}
 --- !u!1 &3553282580469610995
 GameObject:

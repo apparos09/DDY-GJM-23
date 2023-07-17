@@ -14,6 +14,9 @@ namespace DDY_GJM_23
         // The game settings.
         public GameSettings settings;
 
+        // Enables keyboard input for the settings UI.
+        public bool enableKeyboard = false;
+
         [Header("Audio")]
 
         // The slider for the BGM volume.
@@ -74,6 +77,9 @@ namespace DDY_GJM_23
             bgmSlider.value = settings.audioControls.BackgroundMusicVolume;
             sfxSlider.value = settings.audioControls.SoundEffectVolume;
             muteToggle.isOn = settings.audioControls.Mute;
+            
+            // Update tutorial isOn.
+            tutorialToggle.isOn = settings.useTutorial;
 
 
             // Checks the screen resolution.
@@ -190,6 +196,24 @@ namespace DDY_GJM_23
         public void SetScreenSize()
         {
             SetScreenSize(screenSizeDropdown);
+        }
+
+        // Update is called every frame, if the MonoBehaviour is enabled.
+        private void Update()
+        {
+            // If the keyboard inputs are enabled.
+            if(enableKeyboard)
+            {
+                // Grabs the instance.
+                GameplayManager manager = GameplayManager.Instance;
+
+                // Key down.
+                if (Input.GetKeyDown(manager.player.settingsKey))
+                {
+                    manager.CloseSettings();
+                }
+
+            }
         }
     }
 }

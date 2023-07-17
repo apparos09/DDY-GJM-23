@@ -229,7 +229,10 @@ namespace DDY_GJM_23
         public void OpenMap()
         {
             Time.timeScale = 0.0F;
+
+            // Disable the inputs, and the player component.
             gameManager.player.enableInputs = false;
+            gameManager.player.enabled = false;
 
             // Activate the map object.
             map.gameObject.SetActive(true);
@@ -245,6 +248,9 @@ namespace DDY_GJM_23
         public void CloseMap()
         {
             Time.timeScale = 1.0F;
+
+            // Enable the player, and their inputs.
+            gameManager.player.enabled = true;
             gameManager.player.enableInputs = true;
 
             // Deactivate the map object.
@@ -279,6 +285,10 @@ namespace DDY_GJM_23
         // Opens the text box.
         public void OpenTextBox(List<string> pages)
         {
+            // Disable the player inputs and the component.
+            gameManager.player.enableInputs = false;
+            gameManager.player.enabled = false;
+
             textBox.pages = pages;
             textBox.gameObject.SetActive(true);
             textBox.OpenFirstPage();
@@ -291,6 +301,10 @@ namespace DDY_GJM_23
         // If 'clearPages' is true, the text box elements are cleared out.
         public void CloseTextBox(bool clearPages = false)
         {
+            // Enable the player component and the inputs.
+            gameManager.player.enabled = true;
+            gameManager.player.enableInputs = true;
+
             // Clears out the pages.
             if (clearPages)
                 textBox.ClearPages();
@@ -318,8 +332,9 @@ namespace DDY_GJM_23
             // Stop the game.
             Time.timeScale = 1.0F;
 
-            // Stop the player.
+            // Stop the player inputs, and disable the player component.
             gameManager.player.enableInputs = false;
+            gameManager.player.enabled = false;
 
             // Open the settings.
             settings.gameObject.SetActive(true);
@@ -334,6 +349,8 @@ namespace DDY_GJM_23
             // Allow player inputs if the map and the text box aren't open.
             if(!IsMapOpen() && !IsTextBoxOpen())
             {
+                // Enables the player script and inputs.
+                gameManager.player.enabled = true;
                 gameManager.player.enableInputs = true;
             }
 

@@ -39,7 +39,7 @@ namespace DDY_GJM_23
         public int healsUsed = 0;
 
         // The amount the player gets healed for when they use a heal item (percentage.
-        public float healAmount = 0.25F;
+        public const float HEAL_PERCENT = 0.75F;
 
         [Header("Player/Inputs")]
         // Allows the player to input commands.
@@ -742,7 +742,7 @@ namespace DDY_GJM_23
                 {
                     healCount--;
                     healsUsed++;
-                    health += maxHealth * healAmount;
+                    health += maxHealth * HEAL_PERCENT;
                 }
             }
 
@@ -801,8 +801,6 @@ namespace DDY_GJM_23
 
             // Checks the attacking key to see if the player is attacking.
             bool attacking = Input.GetKey(attackKey);
-
-            Debug.Log("Movement: " + movement.ToString());
 
             // Direction - only supply if the entity is moving...
             // So that they stay facing the same direction.

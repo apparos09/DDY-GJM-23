@@ -76,6 +76,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8438912072705579381, guid: 281ced69c1a8b3040a524fca4b9a7fa1, type: 3}
+      propertyPath: maxSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438912072705579381, guid: 281ced69c1a8b3040a524fca4b9a7fa1, type: 3}
+      propertyPath: seekSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438912072705579381, guid: 281ced69c1a8b3040a524fca4b9a7fa1, type: 3}
+      propertyPath: pursueSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8438912072705579381, guid: 281ced69c1a8b3040a524fca4b9a7fa1, type: 3}
       propertyPath: idleAnimation
       value: Chaser L1 - Idle Animation
       objectReference: {fileID: 0}

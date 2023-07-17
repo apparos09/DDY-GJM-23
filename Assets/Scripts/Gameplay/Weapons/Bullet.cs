@@ -60,6 +60,9 @@ namespace DDY_GJM_23
             // Valid tags.
             if(targetTags.Count == 0 || targetTags.Contains(other.tag))
             {
+                // Marks the bullet to be killed.
+                bool kill = false;
+
                 // The combatant.
                 Combatant combatant;
 
@@ -71,7 +74,10 @@ namespace DDY_GJM_23
 
                     // If the bullet shouldn't pass through the combatant, destroy it.
                     if (!passThrough)
-                        Kill();
+                    {
+                        kill = true;
+                    }
+                        
                 }
 
                 // The obstruction.
@@ -84,9 +90,28 @@ namespace DDY_GJM_23
                     if(obstruc.bulletVulnerable)
                     {
                         obstruc.ApplyDamage(power);
-                        Kill();
+                        kill = true;
                     }
                     
+                }
+
+                // The tile.
+                WorldTile tile;
+
+                // May get stopped by the tile.
+                if (other.TryGetComponent(out tile))
+                {
+                    // If it's a solid collider, kill the tile.
+                    if (!tile.collider.isTrigger && !passThrough)
+                    {
+                        kill = true;
+                    }
+                }
+
+                // Kills the bullet if it should be killed.
+                if(kill)
+                {
+                    Kill();
                 }
             }
             

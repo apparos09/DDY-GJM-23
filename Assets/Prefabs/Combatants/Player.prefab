@@ -46,9 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 5650137135599239528}
   type: 4
-  power: 2
-  uses: 30
-  maxUses: 30
+  power: 5
+  uses: 35
+  maxUses: 35
   infiniteUse: 0
   canMoveAndAttack: 1
   knockbackForce: 250
@@ -232,7 +232,6 @@ MonoBehaviour:
   keysUsed: 0
   healCount: 0
   healsUsed: 0
-  healAmount: 0.25
   enableInputs: 1
   moveLeftKey: 97
   moveRightKey: 100
@@ -455,9 +454,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 5650137135599239528}
   type: 3
-  power: 5
-  uses: 20
-  maxUses: 20
+  power: 8
+  uses: 30
+  maxUses: 30
   infiniteUse: 0
   canMoveAndAttack: 1
   knockbackForce: 250

@@ -16,13 +16,13 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1269456625271267570, guid: b3cfad62156ec3c49b127e6a3d03a50d, type: 3}
-      propertyPath: fireRate
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1269456625271267570, guid: b3cfad62156ec3c49b127e6a3d03a50d, type: 3}
       propertyPath: maxHealth
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 1269456625271267570, guid: b3cfad62156ec3c49b127e6a3d03a50d, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 5555349478679152095, guid: 9c0c4a209145f8e4e839898fda980e85, type: 3}
     - target: {fileID: 1269456625271267570, guid: b3cfad62156ec3c49b127e6a3d03a50d, type: 3}
       propertyPath: idleAnimation
       value: Shooter L2 - Idle Animation

@@ -41,6 +41,9 @@ namespace DDY_GJM_23
 
         [Header("Other")]
 
+        // The title audio for the manager.
+        public TitleAudio titleAudio;
+
         // The credits interface.
         public AudioCreditsInterface credits;
 
@@ -82,6 +85,13 @@ namespace DDY_GJM_23
             if (Application.platform == RuntimePlatform.WebGLPlayer)
                 quitButton.interactable = false;
 
+            // AUDIO //
+            // If title audio isn't set, try to find the object.
+            if(titleAudio == null)
+            {
+                titleAudio = FindObjectOfType<TitleAudio>();
+            }
+                
 
             // AUDIO CREDITS //
 

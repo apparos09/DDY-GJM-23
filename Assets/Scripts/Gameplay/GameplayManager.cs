@@ -62,12 +62,20 @@ namespace DDY_GJM_23
         // The dialogue for the game.
         public Tutorial tutorial;
 
-        [Header("Other")]
+        [Header("Audio")]
+
+        // The game audio.
+        public GameplayAudio gameAudio;
+
+        [Header("Time")]
+
+        // The maximum time for the game.
+        public float maxTime = 300.0F;
 
         // The game timer (in seconds) - 5 Minutes (300 Seconds)
         public float timer = 300.0F;
 
-        // The amoutn of time that has passed since the game has started.
+        // The amount of time that has passed since the game has started.
         public float elapsedGameTime = 0.0F;
 
         // Pauses the timers if set to 'true'.
@@ -75,6 +83,12 @@ namespace DDY_GJM_23
 
         // Pauses the game if set to 'true'.
         private bool pausedGame = false;
+
+        // The rate the time chime goes off at.
+        public const float TIME_CHIME_RATE = 60;
+
+        // The point in time where the 'seconds left' SFX starts to play.
+        public const float TIME_SECONDS_LEFT_START = 10;
 
         // Constructor
         private GameplayManager()
@@ -132,6 +146,11 @@ namespace DDY_GJM_23
             // The game UI.
             if (gameUI == null)
                 gameUI = FindObjectOfType<GameplayUI>(true);
+
+
+            // The game audio.
+            if (gameAudio == null)
+                gameAudio = FindObjectOfType<GameplayAudio>(true);
 
 
             // Dialogue not set.
@@ -499,6 +518,9 @@ namespace DDY_GJM_23
                 // Time remaining.
                 if(timer > 0.0F)
                 {
+                    // Saves the old time before the timer is adjusted.
+                    float oldTime = timer;
+
                     // Reduce the timer.
                     timer -= Time.deltaTime;
 
@@ -510,6 +532,21 @@ namespace DDY_GJM_23
 
                         // Call time over function.
                         OnTimeOver();
+                    }
+                    else
+                    {
+                        // If a minute has passed, play the minute chime.
+                        // Only do so if it's not the start of the game.
+                        if (oldTime != maxTime && 
+                            Mathf.Floor(oldTime / TIME_CHIME_RATE) != Mathf.Floor(timer / TIME_CHIME_RATE))
+                        {
+                            gameAudio.PlayTimeChimeSfx();
+                        }
+                        // Play the seconds left time sounds if the time threshold has been passed.
+                        else if(timer <= TIME_SECONDS_LEFT_START && !gameAudio.sfxLoopSource.isPlaying)
+                        {
+                            gameAudio.PlaySecondsLeftSfx();
+                        }
                     }
                 }
 

@@ -65,6 +65,10 @@ namespace DDY_GJM_23
 
                         // Reset the timer.
                         fireTimer = fireRate;
+
+
+                        // Play the sound effect
+                        gameManager.gameAudio.PlayEnemyShotSfx();
                     }
                 }                
 

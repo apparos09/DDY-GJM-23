@@ -80,6 +80,9 @@ namespace DDY_GJM_23
         // Destroys the locked object.
         public void Unlock()
         {
+            // Play the unlock sound effect.
+            gameManager.gameAudio.PlayLockBlockUnlockSfx();
+
             // Destroy this object.
             Destroy(gameObject);
         }

@@ -76,6 +76,10 @@ namespace DDY_GJM_23
                 health = 0;
                 OnDestruction();
             }
+            else // Play the hurt SFX.
+            {
+                gameManager.gameAudio.PlayEnemyHurtSfx();
+            }
 
             // Plays the damage animation.
             PlayDamageAnimation();
@@ -106,6 +110,9 @@ namespace DDY_GJM_23
         // Destroys the obstruction.
         public void OnDestruction()
         {
+            // Block broken.
+            gameManager.gameAudio.PlayBlockBreakSfx();
+
             Destroy(gameObject);
         }
     }

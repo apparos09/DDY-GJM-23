@@ -12,6 +12,9 @@ namespace DDY_GJM_23
     {
         [Header("Combatant")]
 
+        // The gameplay manager.
+        public GameplayManager gameManager = null;
+
         // The rigidbody for the player.
         public new Rigidbody2D rigidbody;
 
@@ -72,6 +75,10 @@ namespace DDY_GJM_23
         protected override void Start()
         {
             base.Start();
+
+            // If the game manager isn't set, get the instance.
+            if (gameManager == null)
+                gameManager = GameplayManager.Instance;
 
             // Grabs the 2D rigidbody.
             if (rigidbody == null)
@@ -257,7 +264,7 @@ namespace DDY_GJM_23
 
         // Reduces the combatant's entity.
         // If 'triggerIFrames' is true, the damage gives the entity invincibility frames.
-        public void ApplyDamage(float damage, bool triggerIFrames = true)
+        public virtual void ApplyDamage(float damage, bool triggerIFrames = true)
         {
             // The entity can't be damaged because they're invincible.
             if (!IsVulnerable())
@@ -309,7 +316,7 @@ namespace DDY_GJM_23
 
         // ANIMATION //
         // Plays the damage animation.
-        public void PlayDamageAnimation()
+        public virtual void PlayDamageAnimation()
         {
             // TODO: the damage animation is only getting played once for some reason. Fix that.
             if (animator != null)
@@ -318,7 +325,7 @@ namespace DDY_GJM_23
         }
 
         // Stops the damage animation.
-        public void OnDamageAnimationEnd()
+        public virtual void OnDamageAnimationEnd()
         {
             // Plays the empty effect.
             if (animator != null)
@@ -336,7 +343,7 @@ namespace DDY_GJM_23
         }
         
         // Plays the invincibility frames animation.
-        public void PlayIFrameAnimation()
+        public virtual void PlayIFrameAnimation()
         {
             // Play the animation.
             if (animator != null)
@@ -344,7 +351,7 @@ namespace DDY_GJM_23
         }
 
         // Stops the invincibility frames animation.
-        public void StopIFrameAnimation()
+        public virtual void StopIFrameAnimation()
         {
             if (animator != null)
                 animator.Play("Empty Effect");

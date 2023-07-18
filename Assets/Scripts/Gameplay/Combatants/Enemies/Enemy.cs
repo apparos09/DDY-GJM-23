@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 namespace DDY_GJM_23
@@ -83,6 +84,10 @@ namespace DDY_GJM_23
         // On the death of the player.
         protected override void OnDeath()
         {
+            // Play the hurt audio.
+            gameManager.gameAudio.PlayEnemyHurtSfx();
+            
+            // Destroy the game object.
             Destroy(gameObject);
         }
 
@@ -95,8 +100,15 @@ namespace DDY_GJM_23
                 animator.Play(idleAnimation);
         }
 
+        // Plays the damage animation.
+        public override void PlayDamageAnimation()
+        {
+            base.PlayDamageAnimation();
 
-        // AUDIO //
+            // Play the hurt audio.
+            gameManager.gameAudio.PlayEnemyHurtSfx();
+        }
+
 
         // UPDATE
 

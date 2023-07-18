@@ -17,9 +17,6 @@ namespace DDY_GJM_23
 
         [Header("Player")]
 
-        // The gameplay manager.
-        public GameplayManager gameManager = null;
-
         // The number of player's deaths.
         public int deaths = 0;
 
@@ -139,10 +136,6 @@ namespace DDY_GJM_23
         protected override void Start()
         {
             base.Start();
-
-            // If the game manager isn't set, get the instance.
-            if (gameManager == null)
-                gameManager = GameplayManager.Instance;
 
             // Finding weapons
             // Punch

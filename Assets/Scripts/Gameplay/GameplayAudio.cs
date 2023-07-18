@@ -67,7 +67,7 @@ namespace DDY_GJM_23
         public AudioClip portalSfx;
 
         // Minute Chime
-        public AudioClip minuteChimeSfx;
+        public AudioClip timeChimeSfx;
 
         // Seconds Remaining
         public AudioClip secondsLeftSfx;
@@ -192,9 +192,9 @@ namespace DDY_GJM_23
         }
 
         // Minute chime
-        public void PlayMinuteChimeSfx()
+        public void PlayTimeChimeSfx()
         {
-            sfxSource.PlayOneShot(minuteChimeSfx);
+            sfxSource.PlayOneShot(timeChimeSfx);
         }
 
         // Seconds remaining

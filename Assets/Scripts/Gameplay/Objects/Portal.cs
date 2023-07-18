@@ -149,9 +149,14 @@ namespace DDY_GJM_23
             // Move to the destination.
             user.transform.position = destPos;
 
+
+            // Play the portal sound effect. I put this here in case there's a delay in updating the camera.
+            gameManager.gameAudio.PlayPortalSfx();
+
+
             // Activates all areas so that the triggers trigger.
             // If the world isn't optimized, all colliders will be on regardless, so activating all areas isn't needed.
-            if(World.OPTIMIZE_WORLD)
+            if (World.OPTIMIZE_WORLD)
             {
                 // NOTE: activating all areas causes the game to stutter, so try to avoid it.
 
@@ -177,6 +182,7 @@ namespace DDY_GJM_23
                     gameManager.world.ActivateAllAreas();
                 }
             }
+
         }
 
     }

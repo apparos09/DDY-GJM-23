@@ -370,14 +370,27 @@ namespace DDY_GJM_23
         void Update()
         {
             // TODO: you can probably make this more efficient.
+            
+            // The amount of base scraps being displayed.
+            int baseScrapDisplay = 0;
 
             // Scraps at Base
-            if (baseScrapsText.text != gameManager.scrapGoal.ToString())
+            if (int.TryParse(baseScrapsText.text, out baseScrapDisplay))
+            {
+                // Checks that the base scrap display is not equal to the scrap total.
+                if(baseScrapDisplay != gameManager.scrapTotal)
+                {
+                    // Set the ToString
+                    baseScrapsText.text = gameManager.scrapTotal.ToString("00000");
+                }
+            }
+            else
             {
                 // Set the ToString
-                // TODO: change the text based on how much the player has at base. 
                 baseScrapsText.text = gameManager.scrapTotal.ToString("00000");
             }
+
+
 
             // Formats the timer and displays it on screen.
             if (!gameManager.pausedTimers)

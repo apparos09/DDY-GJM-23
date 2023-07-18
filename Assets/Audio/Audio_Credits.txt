@@ -1,9 +1,3 @@
-DDY-GJM-23
-Scavenger: World's End
-Doomsday Game Jam 2023
-https://itch.io/jam/doomsday-game-jam
-
-= AUDIO CREDITS =
 The audio credits and licenses for the game are as follows. Uncredited audio pieces are original creations. 
 All sourced audio provided is copyright free.
 All audio components have been modified in some way for better usage in the game.
@@ -212,20 +206,20 @@ Confirmed to be copyright free by GameSounds.xyz, even for commercial purposes.
 
 
 
-=== Minute Chime ===
-Sound Title: Doorbell 1
+=== Portal ===
+Sound Title: Button 43
 Source(s): GameSounds.xyz
-Link: https://gamesounds.xyz/?dir=Sound%20Effects/Doors%20and%20Floors
+Link: https://gamesounds.xyz/?dir=Sound%20Effects/Buttons
 
 ==== Copyright ====
 Confirmed to be copyright free by GameSounds.xyz, even for commercial purposes.
 
 
 
-=== Portal ===
-Sound Title: Button 43
+=== Time Chime ===
+Sound Title: Doorbell 1
 Source(s): GameSounds.xyz
-Link: https://gamesounds.xyz/?dir=Sound%20Effects/Buttons
+Link: https://gamesounds.xyz/?dir=Sound%20Effects/Doors%20and%20Floors
 
 ==== Copyright ====
 Confirmed to be copyright free by GameSounds.xyz, even for commercial purposes.

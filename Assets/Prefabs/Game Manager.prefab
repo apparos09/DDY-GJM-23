@@ -347,6 +347,8 @@ MonoBehaviour:
   weaponUsesItemPrefab: {fileID: 157860170195315078, guid: d9c05b45cecc1de44aa819f6ac03eee4, type: 3}
   gameUI: {fileID: 0}
   tutorial: {fileID: 5350930047110465486}
+  gameAudio: {fileID: 7977187342063502828}
+  maxTime: 300
   timer: 300
   elapsedGameTime: 0
   pausedTimers: 0
@@ -367,7 +369,7 @@ MonoBehaviour:
   manager: {fileID: 4199920089561037641}
   sfxLoopSource: {fileID: 1030959612014383995}
   buttonSfx: {fileID: 8300000, guid: cc722494b733f3649a7db8bb8f81165a, type: 3}
-  sliderSfx: {fileID: 0}
+  sliderSfx: {fileID: 8300000, guid: 094ea46383e841f40b35677d38d8573a, type: 3}
   playerWeaponSwitchSfx: {fileID: 8300000, guid: 57350ee3c7a71b54683bb386d3f32a96, type: 3}
   playerPunchSfx: {fileID: 8300000, guid: 3c869cfd323b970458eafcfcf177629c, type: 3}
   playerShotSfx: {fileID: 8300000, guid: 2ce52e578b5724b47b0498cd4b07edc2, type: 3}
@@ -381,7 +383,7 @@ MonoBehaviour:
   blockBreakSfx: {fileID: 8300000, guid: 89d29dc3e834dc64f9ea28d4c5b121f4, type: 3}
   lockBlockUnlockSfx: {fileID: 8300000, guid: 03a074e0f8c05564db1fabdefd9e7dcf, type: 3}
   portalSfx: {fileID: 8300000, guid: 44917561838ae2841b6ee5a8d2815979, type: 3}
-  minuteChimeSfx: {fileID: 8300000, guid: b1d353d1975cf6a4a965183a45115f01, type: 3}
+  timeChimeSfx: {fileID: 8300000, guid: b1d353d1975cf6a4a965183a45115f01, type: 3}
   secondsLeftSfx: {fileID: 8300000, guid: 5309bc35e3a7b654b9c981699f85cecd, type: 3}
 --- !u!114 &5350930047110465486
 MonoBehaviour:

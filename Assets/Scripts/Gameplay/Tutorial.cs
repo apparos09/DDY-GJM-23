@@ -87,6 +87,11 @@ namespace DDY_GJM_23
                     pages = GetHealthItemTutorial();
                     break;
 
+                case trlType.weaponRefill:
+                    alreadyUsed = usedWeaponRefill;
+                    pages = GetWeaponRefillTutorial();
+                    break;
+
 
                     // WEAPONS
                 case trlType.punch:
@@ -267,7 +272,7 @@ namespace DDY_GJM_23
             List<string> pages = new List<string>()
             {
                 "You got the punch weapon. This is an infinite use weapon that damages the targets in front of you.",
-                "If you have multiple weapons, you can switch between them using the the left and right arrows."
+                "If you have multiple weapons, you can switch between them using the left and right arrows."
             };
 
             usedPunch = true;
@@ -283,7 +288,7 @@ namespace DDY_GJM_23
             List<string> pages = new List<string>()
             {
                 "You got the S-Type Blaster! This blaster fires a slow shot that does major damage.",
-                " If you have multiple weapons, you can switch between them using the the left and right arrows."
+                " If you have multiple weapons, you can switch between them using the left and right arrows."
             };
 
             usedGunSlow = true;
@@ -299,7 +304,7 @@ namespace DDY_GJM_23
             List<string> pages = new List<string>()
             {
                 "You got the M-Type Blaster! This blaster fires moderately fast shots that do decent damage." +
-                " If you have multiple weapons, you can switch between them using the the left and right arrows."
+                " If you have multiple weapons, you can switch between them using the left and right arrows."
             };
 
             usedGunMid = true;
@@ -315,7 +320,7 @@ namespace DDY_GJM_23
             List<string> pages = new List<string>()
             {
                 "You got the F-Type Blaster! This blaster fires fast shots that do little damage." +
-                " If you have multiple weapons, you can switch between them using the the left and right arrows."
+                " If you have multiple weapons, you can switch between them using the left and right arrows."
             };
 
             usedGunFast = true;
@@ -331,7 +336,7 @@ namespace DDY_GJM_23
             List<string> pages = new List<string>()
             {
                 "You got the Run Gear! When equipped, you run faster, but you can only attack by punching." +
-                " If you have multiple weapons, you can switch between them using the the left and right arrows."
+                " If you have multiple weapons, you can switch between them using the left and right arrows."
             };
 
             usedRunPower = true;
@@ -347,7 +352,7 @@ namespace DDY_GJM_23
             List<string> pages = new List<string>()
             {
                 "You got the Swim Gear. This gear allows you to swim faster, and makes you immune to poison damage." +
-                " If you have multiple weapons, you can switch between them using the the left and right arrows."
+                " If you have multiple weapons, you can switch between them using the left and right arrows."
             };
 
             usedSwimPower = true;

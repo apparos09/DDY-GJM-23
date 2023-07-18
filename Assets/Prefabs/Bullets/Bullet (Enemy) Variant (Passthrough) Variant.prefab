@@ -61,23 +61,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 81991851382654437, guid: 4efa8d2cf647d624ab8506175930d200, type: 3}
       propertyPath: lifeTimeTimer
-      value: 3.5
+      value: 3.25
       objectReference: {fileID: 0}
     - target: {fileID: 81991851382654443, guid: 4efa8d2cf647d624ab8506175930d200, type: 3}
       propertyPath: m_Name
-      value: Bullet (Enemy) Variant (Passthrough)
+      value: Bullet (Enemy) Variant (Passthrough) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 81991852291066816, guid: 4efa8d2cf647d624ab8506175930d200, type: 3}
       propertyPath: m_Color.b
-      value: 0.003203924
+      value: 0.060590927
       objectReference: {fileID: 0}
     - target: {fileID: 81991852291066816, guid: 4efa8d2cf647d624ab8506175930d200, type: 3}
       propertyPath: m_Color.g
-      value: 0.8490566
+      value: 0.8679245
       objectReference: {fileID: 0}
     - target: {fileID: 81991852291066816, guid: 4efa8d2cf647d624ab8506175930d200, type: 3}
       propertyPath: m_Color.r
-      value: 0.5158847
+      value: 0.57275295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4efa8d2cf647d624ab8506175930d200, type: 3}

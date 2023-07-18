@@ -1442,6 +1442,7 @@ MonoBehaviour:
   area: {fileID: 0}
   renderer: {fileID: 0}
   animator: {fileID: 0}
+  gameManager: {fileID: 0}
   rigidbody: {fileID: 0}
   collider: {fileID: 0}
   health: 100
@@ -1609,6 +1610,7 @@ MonoBehaviour:
   area: {fileID: 0}
   renderer: {fileID: 0}
   animator: {fileID: 0}
+  gameManager: {fileID: 0}
   rigidbody: {fileID: 0}
   collider: {fileID: 0}
   health: 100
@@ -3053,6 +3055,7 @@ MonoBehaviour:
   area: {fileID: 0}
   renderer: {fileID: 0}
   animator: {fileID: 0}
+  gameManager: {fileID: 0}
   id: 0
   destroyOnGet: 0
   itemTimer: 0

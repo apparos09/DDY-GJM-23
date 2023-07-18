@@ -26,7 +26,7 @@ PrefabInstance:
     - target: {fileID: 1269456625271267570, guid: b3cfad62156ec3c49b127e6a3d03a50d, type: 3}
       propertyPath: bulletPrefab
       value: 
-      objectReference: {fileID: 5555349478679152095, guid: 9c0c4a209145f8e4e839898fda980e85, type: 3}
+      objectReference: {fileID: 6634119292633788896, guid: 666f8cfe51076044d987751eeaec4ec6, type: 3}
     - target: {fileID: 1269456625271267570, guid: b3cfad62156ec3c49b127e6a3d03a50d, type: 3}
       propertyPath: idleAnimation
       value: Shooter L3 - Idle Animation

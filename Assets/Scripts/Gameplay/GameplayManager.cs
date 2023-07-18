@@ -86,13 +86,13 @@ namespace DDY_GJM_23
         private bool pausedGame = false;
 
         // The rate the time chime goes off at.
-        public const float TIME_CHIME_RATE = 60;
+        public const float TIME_CHIME_RATE = 60; // Time in seconds.
 
         // The time when the BGM starts to speed up.
-        public const float BGM_SPEED_UP_TIME = 30;
+        public const float BGM_SPEED_UP_TIME = 30; // Time in seconds.
 
         // The point in time where the 'seconds left' SFX starts to play.
-        public const float TIME_SECONDS_LEFT_START = 10;
+        public const float TIME_SECONDS_LEFT_START = 5; // Time in seconds.
 
         // Constructor
         private GameplayManager()

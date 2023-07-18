@@ -21,7 +21,7 @@ namespace DDY_GJM_23
         private bool calledPostStart = false;
 
         // A countdown for the post start delay.
-        private int postStartDelayTimer = 2;
+        private int postStartDelayTimer = 3;
 
         // THe game settings.
         public GameSettings settings;
@@ -69,10 +69,11 @@ namespace DDY_GJM_23
 
         [Header("Time")]
 
-        // The maximum time for the game.
-        public float maxTime = 300.0F;
+        // The maximum time for the game (in seconds)
+        // TODO: 5 Minutes (300 seconds) or 7 Minutes (420 Seconds)
+        public float timerMax = 300.0F;
 
-        // The game timer (in seconds) - 5 Minutes (300 Seconds)
+        // The game timer (in seconds)
         public float timer = 300.0F;
 
         // The amount of time that has passed since the game has started.
@@ -165,6 +166,8 @@ namespace DDY_GJM_23
                 if (tutorial == null)
                     tutorial = gameObject.AddComponent<Tutorial>();
             }
+
+            timer = timerMax;
         }
 
         // Gets the instance.
@@ -540,13 +543,14 @@ namespace DDY_GJM_23
                     {
                         // If a minute has passed, play the minute chime.
                         // Only do so if it's not the start of the game.
-                        if (oldTime != maxTime && 
+                        if (oldTime != timerMax && 
                             Mathf.Floor(oldTime / TIME_CHIME_RATE) != Mathf.Floor(timer / TIME_CHIME_RATE))
                         {
                             gameAudio.PlayTimeChimeSfx();
                         }
+                        
                         // Play the seconds left time sounds if the time threshold has been passed.
-                        else if(timer <= TIME_SECONDS_LEFT_START && !gameAudio.sfxLoopSource.isPlaying)
+                        if(timer <= TIME_SECONDS_LEFT_START && !gameAudio.sfxLoopSource.isPlaying)
                         {
                             gameAudio.PlaySecondsLeftSfx();
                         }

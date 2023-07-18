@@ -528,9 +528,24 @@ namespace DDY_GJM_23
                 // Return to home base.
                 transform.position = gameManager.homeBase.transform.position;
 
-                // Activates all areas so that the area triggers go off.
-                // FIXME: this could probably be optimized.
-                gameManager.world.ActivateAllAreas();
+                // Checks if the world has optimization on. If it does, then the areas will need to be activated.
+                // If the world isn't optimized, the whole world stays loaded up. If the world is optimzied...
+                // Then only the areas around the player are active. As such, the destination area needs to be activated.
+                if(World.OPTIMIZE_WORLD)
+                {
+                    // Checks if the home base area is set.
+                    if(gameManager.homeBase.area != null)
+                    {
+                        // Set the home base.
+                        gameManager.world.SetCurrentArea(gameManager.homeBase.area);
+                    }
+                    else
+                    {
+                        // Activates all areas so that the area triggers go off.
+                        gameManager.world.ActivateAllAreas();
+                    }
+
+                }
             }
 
             // Attempts to activate the tutorial.

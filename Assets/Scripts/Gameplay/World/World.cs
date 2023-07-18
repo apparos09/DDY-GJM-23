@@ -361,6 +361,7 @@ namespace DDY_GJM_23
         // Sets the current area.
         public void SetCurrentArea(WorldArea newArea)
         {
+
             // Exited the current area.
             if (currentArea != null)
                 currentArea.OnAreaExit();

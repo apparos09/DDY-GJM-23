@@ -1,8 +1,6 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
-using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
 namespace DDY_GJM_23
@@ -185,12 +183,9 @@ namespace DDY_GJM_23
             // The page to be returned.
             List<string> pages = new List<string>()
             {
-                "Welcome to the outside world. You'll need to get as many scraps as you can and bring them back to base while your life support system lasts." + 
-                " The timer above shows how long you have. You want to make sure that you're in the base before time runs out." + 
-                " For help with navigation, you can view the map by pressing the (" + player.mapKey.ToString() + ") key.",
-                "If you want to end early, open the map screen to get the option. Keep in mind that you can only end early if you're currently in the base." + 
-                " Use WASD to move, and the space bar to attack. If you ever need to restore your health, return to the home base.",
-                "That's all, so good luck scavenger."
+                "Welcome to the outside world! Your job is to collect as many scraps as you can and bring them back to home base while your life support system lasts. The timer above shows how long you have until your suit fails. Make sure that you're in the base before time runs out.",
+                "Use the <b>WASD keys</b> to move, the <b>space bar</b> to attack, and the <b>up arrow</b> key to open the map. In the map window, you have the option to end early, but you can only do so if you're in the base area. The map can be closed by pressing the <b>up arrow key</b> again.",
+                "If you ever need to restore your health and/or replenish your weapons, just return to the home base. And if you want to change the game settings, use the escape key to toggle the settings window. That's all, so good luck, scavenger!"
             };
 
             // The opening has been used.
@@ -206,8 +201,7 @@ namespace DDY_GJM_23
             // Loads the pages.
             List<string> pages = new List<string>()
             {
-                "You found some scrap! You can carry as much scrap as you want, but make sure to bring it all back to the base at some point.",
-                "If you die, you'll lose the scrap you have, so keep a close eye on your health.",
+                "You found some <b>scrap</b>! You can carry an unlimited amount of scrap, but make sure to bring it all back to the home base at some point. If you die, you'll lose all of the scrap that you're holding, so keep a close eye on your health."
             };
 
             usedScrapItem = true;
@@ -222,8 +216,7 @@ namespace DDY_GJM_23
             // Loads the pages.
             List<string> pages = new List<string>()
             {
-                "This is a key! You can use it to unlock lock boxes to access more areas! " +
-                "Keys are used automatically upon touching a locked object.",
+               "This is a <b>key</b>! Keys are used to remove lock blocks."
             };
 
             usedKeyItem = true;
@@ -238,8 +231,7 @@ namespace DDY_GJM_23
             // Loads the pages.
             List<string> pages = new List<string>()
             {
-                "This is a health pack, which restores health. To use the health pack, use the (" 
-                + GameplayManager.Instance.player.healKey.ToString() + ") key.",
+                "This is a <b>health pack</b>, which restores some of your health upon being used. To use a health pack, press the down arrow key."
             };
 
             usedHealthItem = true;
@@ -254,7 +246,7 @@ namespace DDY_GJM_23
             // Loads the pages.
             List<string> pages = new List<string>()
             {
-                "You get a weapon refill. This restores the uses for your current weapon. If your current weapon has all its uses, this is passed to the next weapon in your list."
+                "You got a <b>weapon refill</b>! This replenishes your current weapon. If your current weapon doesn't need to be replenished, the refill is given to another one of your weapons."
             };
 
             usedWeaponRefill = true;
@@ -271,8 +263,7 @@ namespace DDY_GJM_23
             // Loads the pages.
             List<string> pages = new List<string>()
             {
-                "You got the punch weapon. This is an infinite use weapon that damages the targets in front of you.",
-                "If you have multiple weapons, you can switch between them using the left and right arrows."
+                "You got the <b>punch move</b>! This is an infinite use move that attacks the targets in front of you. If you have multiple weapons, use the left and right arrow keys to switch between them."
             };
 
             usedPunch = true;
@@ -287,8 +278,7 @@ namespace DDY_GJM_23
             // Loads the pages.
             List<string> pages = new List<string>()
             {
-                "You got the S-Type Blaster! This blaster fires a slow shot that does major damage.",
-                " If you have multiple weapons, you can switch between them using the left and right arrows."
+                "You got the <b>S-Type Blaster</b>! This blaster fires slow, powerful shots. If you have multiple weapons, use the left and right arrow keys to switch between them."
             };
 
             usedGunSlow = true;
@@ -303,8 +293,7 @@ namespace DDY_GJM_23
             // Loads the pages.
             List<string> pages = new List<string>()
             {
-                "You got the M-Type Blaster! This blaster fires moderately fast shots that do decent damage." +
-                " If you have multiple weapons, you can switch between them using the left and right arrows."
+                "You got the <b>M-Type Blaster</b>! This blaster fires moderately fast, decently strong shots. If you have multiple weapons, use the left and right arrow keys to switch between them."
             };
 
             usedGunMid = true;
@@ -319,8 +308,7 @@ namespace DDY_GJM_23
             // Loads the pages.
             List<string> pages = new List<string>()
             {
-                "You got the F-Type Blaster! This blaster fires fast shots that do little damage." +
-                " If you have multiple weapons, you can switch between them using the left and right arrows."
+                "You got the <b>F-Type Blaster</b>! This blaster fires fast, weak shots. If you have multiple weapons, use the left and right arrow keys to switch between them."
             };
 
             usedGunFast = true;
@@ -335,8 +323,7 @@ namespace DDY_GJM_23
             // Loads the pages.
             List<string> pages = new List<string>()
             {
-                "You got the Run Gear! When equipped, you run faster, but you can only attack by punching." +
-                " If you have multiple weapons, you can switch between them using the left and right arrows."
+                "You got the <b>R-Gear</b>! This gear allows you to run faster on solid surfaces when equipped, but you can only attack by punching. If you have multiple weapons, use the left and right arrow keys to switch between them."
             };
 
             usedRunPower = true;
@@ -351,8 +338,7 @@ namespace DDY_GJM_23
             // Loads the pages.
             List<string> pages = new List<string>()
             {
-                "You got the Swim Gear. This gear allows you to swim faster, and makes you immune to poison damage." +
-                " If you have multiple weapons, you can switch between them using the left and right arrows."
+                "You got the <b>S-Gear</b>! When equipped, this gear allows you to run faster on liquid surfaces, and makes you immune to poison hazards. However, you can only attack by punching when this gear is active. If you have multiple weapons, use the left and right arrow keys to switch between them."
             };
 
             usedSwimPower = true;
@@ -369,7 +355,7 @@ namespace DDY_GJM_23
             // Loads the pages.
             List<string> pages = new List<string>()
             {
-                "This is a soft block! This block can be broken by any kind of weapon."
+                "This is a <b>soft block</b>! This block can be broken by any kind of weapon."
             };
 
             usedSoftBlock = true;
@@ -384,7 +370,7 @@ namespace DDY_GJM_23
             // Loads the pages.
             List<string> pages = new List<string>()
             {
-                "This is a hard block! This block can only be broken by blaster weapons."
+                "This is a <b>hard block</b>! This block can only be broken by blaster weapons."
             };
 
             usedHardBlock = true;
@@ -399,7 +385,7 @@ namespace DDY_GJM_23
             // Loads the pages.
             List<string> pages = new List<string>()
             {
-                "You encountered a lock block! Lock blocks can only be removed using a key."
+                 "This is a <b>lock block</b>! Lock blocks can only be removed using a key."
             };
 
             usedLockBlock = true;
@@ -414,7 +400,7 @@ namespace DDY_GJM_23
             // Loads the pages.
             List<string> pages = new List<string>()
             {
-                "You encountered a portal! These are teleportation ports that take you to other areas on the map."
+                "You encountered a <b>portal</b>! It'll take you to another area in the world. Make sure to use the map to see where you are."
             };
 
             usedPortal = true;
@@ -431,8 +417,7 @@ namespace DDY_GJM_23
             // Loads the pages.
             List<string> pages = new List<string>()
             {
-                "You died. The scraps you were holding have been lost, but the ones at the base are okay.",
-                "You've lost your keys and health packs as well, but you still have the weapons that you collected."
+                "<b>You died.</b> The scraps you were holding have been lost, but the ones already at the base are okay. You've also lost your keys and health packs, but you still have the weapons that you collected."
             };
 
             usedDeath = true;

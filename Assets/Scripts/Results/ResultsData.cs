@@ -30,6 +30,9 @@ namespace DDY_GJM_23
 
         [Header("Goals")]
 
+        // The scrap goal.
+        public int scrapGoal = 0;
+
         // Gets set to 'true' if the scrap goal has been reached.
         public bool scrapGoalReached = false;
 

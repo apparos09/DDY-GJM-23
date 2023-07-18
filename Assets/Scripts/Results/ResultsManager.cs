@@ -180,8 +180,72 @@ namespace DDY_GJM_23
             swimPowerIcon.color = results.gotSwimPower ? activeColor : inactiveColor;
 
 
-            // Survive
-            ratingText.text = (results.survived) ? "You survived!" : "You did not survive!";
+            // RATINGS
+            // Old
+            // ratingText.text = (results.survived) ? "You survived!" : "You did not survive!";
+            string ratingMessage = "...";
+            int scrapsTotal = results.scrapsTotal;
+            int scrapGoal = results.scrapGoal;
+
+            // New
+            switch(results.survived)
+            {
+                // The player survived.
+                default:
+                case true:
+                    // Checks the scrap total in reference to the scrap goal.
+                    if(scrapsTotal == 0) // No scraps.
+                    {
+                        ratingMessage = "You survived, but you didn't collect any scraps! What happened? The base can't go on if days are wasted like this.";
+                    }
+                    else if(scrapsTotal < scrapGoal) // Under goal.
+                    {
+                        ratingMessage = "You survived, but you didn't collect many scraps. Maybe next time around you'll be able to collect more.";
+                    }
+                    else if(scrapsTotal == scrapGoal) // Met goal.
+                    {
+                        ratingMessage = "You survived, and you collected a good amount of scraps! It was a pretty productive day.";
+                    }
+                    else if(scrapsTotal > scrapGoal) // Over goal.
+                    {
+                        ratingMessage = "You survived, and you collected a lot of scraps! You're great at this!";
+                    }
+                    else
+                    {
+                        ratingMessage = "You survived!";
+                    }
+
+                break;
+
+                    // The player did not survive.
+                case false:
+                    // Checks the scrap total in reference to the scrap goal.
+                    if (scrapsTotal == 0) // No scraps.
+                    {
+                        ratingMessage = "You didn't survive, and you didn't collect any scraps... Someone else will have to take up the job now...";
+                    }
+                    else if (scrapsTotal < scrapGoal) // Under goal.
+                    {
+                        ratingMessage = "You didn't survive, and you didn't collect many scraps... Someone else will have to take up the job now...";
+                    }
+                    else if (scrapsTotal == scrapGoal) // Met goal.
+                    {
+                        ratingMessage = "You didn't survive, but you collected a good amount of scraps. Someone else will have to take up the job now though...";
+                    }
+                    else if (scrapsTotal > scrapGoal) // Over goal.
+                    {
+                        ratingMessage = "You didn't survive, but you did collect a lot of scraps! Your work was greatly appreciated.";
+                    }
+                    else
+                    {
+                        ratingMessage = "You did not survive!";
+                    }
+
+                    break;
+            }
+
+            // Set the ratings message.
+            ratingText.text = ratingMessage;
 
             // Destroys the results game object.
             Destroy(results.gameObject);

@@ -484,6 +484,7 @@ namespace DDY_GJM_23
             results.gameLength = elapsedGameTime;
 
             // Goals
+            results.scrapGoal = scrapGoal;
             results.scrapGoalReached = GetScrapGoalReached();
 
             // Weapons

@@ -1383,7 +1383,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1000, y: 380}
+  m_SizeDelta: {x: 950, y: 380}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &479623562
 MonoBehaviour:
@@ -1405,24 +1405,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'The world has been ravaged by a long war against an invasive alien faction.
-    This has left Earth covered with toxic materials, and monsters that roam the
-    streets. Most of humanity has gone underground to escape the toxic hazards until
-    they can be properly dealt with. But to find a solution, scraps must be gathered
-    from the surface world for research to continue. That''s where you come in!
-
-
-
-    Your
-    job is to gather as many scraps as you can and bring them back to base. However,
-    not only are the monsters vicious, but scrap scavengers can also only stay outside
-    for a short period of time, lest they become infected and fall to the toxic chemicals
-    in the environment. As such, you <b>must be at home base before your time runs
-    out if you hope to survive</b>. You won''t be let into the base if you''re infected,
-    and people can''t wait for you. Scavenging is a tough job, but someone''s got
-    to do it, and today that person is you!
-
-'
+  m_text: "This world has been ravaged by a long war against an invasive alien faction.
+    This has left Earth littered with toxic materials, and teeming with violent monsters.
+    Most of humanity has gone underground to escape the toxic hazards, but excursions
+    to the outside world are still necessary to gather resources, which is where
+    you come in! \n\nYou're a scavenger, and it's your job to bring useful materials
+    back to the base. The world is a dangerous place, and life support systems can
+    only last for so long, so scavengers need to do their jobs as efficiently as
+    possible. If your life support system fails while you're outside, your body will
+    become infected with toxic chemicals, and no one will come to save you. It's
+    a tough job, but someone's got to do it."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3024,7 +3016,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 240}
-  m_SizeDelta: {x: 1000, y: 50}
+  m_SizeDelta: {x: 950, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1089937524
 MonoBehaviour:
@@ -4427,7 +4419,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Controls/Instructions
+  m_text: Controls
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4931,7 +4923,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 240}
-  m_SizeDelta: {x: 1000, y: 40}
+  m_SizeDelta: {x: 950, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1637687062
 MonoBehaviour:
@@ -5066,7 +5058,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1000, y: 400}
+  m_SizeDelta: {x: 950, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1641271568
 MonoBehaviour:
@@ -5091,40 +5083,28 @@ MonoBehaviour:
   m_text: '<u><b>WASD</b> - Movement</u>
 
 
-    <u><b>Space Bar</b> - Attack</u>
-
-    The
-    type of attack depends on the equipped weapon.
+    <u><b>Space Bar</b> - Attack/Use Weapon</u>
 
 
-    <u><b>Left Arrow/Right Arrow</b>
-    - Switch Weapon</u>
-
-    Extra weapons must be found in the environment.
-
-    Weapons
-    with limited uses get replenished when you visit the base.
+    <u><b>Left
+    Arrow/Right Arrow</b> - Switch Weapon (if Available)</u>
 
 
-    <u><b>Up Arrow</b></u>
-    - View Map
+    <u><b>Up Arrow</b>
+    - Open/Close Map</u>
 
 
-    <u><b>Down Arrow</b></u> - Use Health Pack (if Available)
+    <u><b>Down Arrow</b> - Use Health Pack (if Available)</u>
 
 
     <u><b>Escape
-    Key</b></u> - Open Settings (In-Game Only)
+    Key</b> - Open Settings (In-Game Only)</u>
 
 
-    You must bring the scraps (stars)
-    you collect back to the base. When you visit the base, your health and weapon
-    energy get completely restored. If you die, you will return to base, but will
-    lose everything in your posession.
 
-
-    If you aren''t at the base when the
-    game ends, you will die, and only the scraps already at the base will count.'
+    You must collect as many scraps
+    as you can and bring them back to the home base before time runs out. Turn on
+    ''tutorials'' in the settings window to get helpful pop-ups during gameplay.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5151,8 +5131,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6255,6 +6235,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5887653958431781671, guid: 58d70b85785c8184180d0cdfb3c2f407, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1935051043}
+    - target: {fileID: 6410448745018426915, guid: 58d70b85785c8184180d0cdfb3c2f407, type: 3}
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1935051043}

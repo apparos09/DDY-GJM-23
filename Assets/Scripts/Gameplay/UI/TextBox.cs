@@ -184,13 +184,30 @@ namespace DDY_GJM_23
                 if(Input.GetKeyDown(KeyCode.LeftArrow) ||  Input.GetKeyDown(KeyCode.A))
                 {
                     // If there is a previous page, go there.
-                    PreviousPage();
+                    if (prevPageButton != null)
+                    {
+                        // Click the button.
+                        prevPageButton.onClick.Invoke();
+                    }
+                    else 
+                    {
+                        PreviousPage();
+                    }
+                    
                 }
                 // Right key input.
                 else if(Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
                 {
                     // If there is a next page, go there.
-                    NextPage();
+                    if (nextPageButton != null)
+                    {
+                        // Click the button.
+                        nextPageButton.onClick.Invoke();
+                    }
+                    else
+                    {
+                        NextPage();
+                    }
                 }
             }
         }

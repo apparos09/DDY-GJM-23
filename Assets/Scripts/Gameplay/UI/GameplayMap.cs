@@ -104,6 +104,18 @@ namespace DDY_GJM_23
                 // Closes the game map.
                 gameManager.CloseMap();
             }
+
+
+            // Gets the end early button.
+            Button endEarly = gameManager.gameUI.endEarlyButton;
+
+            // If the space bar has been pressed, and the end early button is interactable.
+            if (Input.GetKeyDown(KeyCode.Space) && endEarly.interactable)
+            {
+                // Invoke the button.
+                gameManager.gameUI.endEarlyButton.onClick.Invoke();
+            }
+
         }
     }
 }

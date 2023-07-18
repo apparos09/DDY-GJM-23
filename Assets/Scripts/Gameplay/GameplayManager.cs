@@ -15,7 +15,7 @@ namespace DDY_GJM_23
         private bool instantiated = false;
 
         // If 'true', the results scene is loaded asynchronously.
-        private bool ASYNC_LOAD_RESULTS_SCENE = true;
+        private bool ASYNC_LOAD_SCENES = true;
 
         // Gets set to 'true', when the first update has been called.
         private bool calledPostStart = false;
@@ -365,6 +365,43 @@ namespace DDY_GJM_23
         }
 
 
+        // SCENES //
+        // Goes to the provided scene. Checks ASYNC_LOAD_SCENES to see what load time to use.
+        public void ToScene(string sceneName)
+        {
+            ToScene(sceneName, ASYNC_LOAD_SCENES);
+        }
+
+        // Go to the provided scene.
+        public void ToScene(string sceneName, bool asyncLoad)
+        {
+            // Checks if the next scene should be loaded asynchronously or not.
+            if (asyncLoad) // Async Load
+            {
+                // Creates then next scene object, and has it not be destroyed on load.
+                GameObject newObject = new GameObject("Next Scene Load");
+                DontDestroyOnLoad(newObject);
+
+                // Goes to the next scene.
+                NextSceneLoad nextScene = newObject.AddComponent<NextSceneLoad>();
+                nextScene.nextScene = sceneName;
+
+                // Goes to the loading scene.
+                SceneManager.LoadScene("LoadingScene");
+            }
+            else // Normal Load
+            {
+                SceneManager.LoadScene(sceneName);
+            }
+        }
+
+        // Goes to the title scene.
+        public void ToTitleScene()
+        {
+            ToScene("TitleScene");
+        }
+
+
         // Called to end the game.
         public void ToResultsScene()
         {
@@ -432,32 +469,10 @@ namespace DDY_GJM_23
             results.gotSwimPower = player.HasWeapon(player.swimPower);
 
 
-            // LOADING THE RESULTS SCENE //
-            // The game scene.
-            string resultsScene = "ResultsScene";
-
-            // Gets the loading type.
-            bool asyncLoad = ASYNC_LOAD_RESULTS_SCENE;
-
-            // Checks if the game should be loaded asynchronously or not.
-            if (asyncLoad) // Async Load
-            {
-                // Creates then next scene object, and has it not be destroyed on load.
-                GameObject newObject = new GameObject("Next Scene Load");
-                DontDestroyOnLoad(newObject);
-
-                // Goes to the next scene.
-                NextSceneLoad nextScene = newObject.AddComponent<NextSceneLoad>();
-                nextScene.nextScene = resultsScene;
-
-                // Goes to the loading scene.
-                SceneManager.LoadScene("LoadingScene");
-            }
-            else // Normal Load
-            {
-                SceneManager.LoadScene(resultsScene);
-            }
+            // Loads the results scene.
+            ToScene("ResultsScene");
         }
+
 
         // Update is called once per frame
         void Update()

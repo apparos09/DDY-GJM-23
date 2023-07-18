@@ -1693,6 +1693,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3553282580713116785}
   - component: {fileID: 3553282580713116786}
+  - component: {fileID: 8850809815419480835}
   m_Layer: 5
   m_Name: Mute Toggle
   m_TagString: Untagged
@@ -1782,6 +1783,21 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
+--- !u!114 &8850809815419480835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3553282580713116784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 808d36915ca6b934b983c01f5516ec70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggle: {fileID: 3553282580713116786}
+  audioSource: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: cc722494b733f3649a7db8bb8f81165a, type: 3}
 --- !u!1 &3553282580763410986
 GameObject:
   m_ObjectHideFlags: 0
@@ -2478,6 +2494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8356443546467499524}
   - component: {fileID: 6097226349248536066}
+  - component: {fileID: 4700992131034022885}
   m_Layer: 5
   m_Name: Tutorial Toggle
   m_TagString: Untagged
@@ -2567,6 +2584,21 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
+--- !u!114 &4700992131034022885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6477071664354231498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 808d36915ca6b934b983c01f5516ec70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggle: {fileID: 6097226349248536066}
+  audioSource: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: cc722494b733f3649a7db8bb8f81165a, type: 3}
 --- !u!1001 &3553282581034834617
 PrefabInstance:
   m_ObjectHideFlags: 0

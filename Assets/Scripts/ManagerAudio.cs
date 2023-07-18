@@ -17,6 +17,7 @@ namespace DDY_GJM_23
         // Start is called before the first frame update
         protected virtual void Start()
         {
+            // BUTTONS
             // Finds the button audios.
             ButtonAudio[] buttonAudios = FindObjectsOfType<ButtonAudio>();
 
@@ -27,6 +28,34 @@ namespace DDY_GJM_23
                 if (buttonAudio.audioSource == null)
                 {
                     buttonAudio.audioSource = sfxSource;
+                }
+            }
+
+            // TOGGLES
+            // Finds the toggle audios.
+            ToggleAudio[] toggleAudios = FindObjectsOfType<ToggleAudio>();
+
+            // Goes through each toggle.
+            foreach (ToggleAudio toggleAudio in toggleAudios)
+            {
+                // Gives the SFX sources.
+                if (toggleAudio.audioSource == null)
+                {
+                    toggleAudio.audioSource = sfxSource;
+                }
+            }
+
+            // SLIDERS
+            // Finds the button audios.
+            SliderAudio[] sliderAudios = FindObjectsOfType<SliderAudio>();
+
+            // Goes through each slider.
+            foreach (SliderAudio sliderAudio in sliderAudios)
+            {
+                // Gives the SFX sources.
+                if (sliderAudio.audioSource == null)
+                {
+                    sliderAudio.audioSource = sfxSource;
                 }
             }
         }

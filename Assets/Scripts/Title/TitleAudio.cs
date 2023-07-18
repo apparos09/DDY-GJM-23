@@ -16,6 +16,9 @@ namespace DDY_GJM_23
         // The button source effect.
         public AudioClip buttonSfx;
 
+        // The slider source effect.
+        public AudioClip sliderSfx;
+
         // Start is called before the first frame update
         protected override void Start()
         {
@@ -31,6 +34,13 @@ namespace DDY_GJM_23
         {
             // Plays the button sound effect.
             sfxSource.PlayOneShot(buttonSfx);
+        }
+
+        // Plays the menu slider SFX.
+        public void PlaySliderSfx()
+        {
+            // Plays the slider sound effect.
+            sfxSource.PlayOneShot(sliderSfx);
         }
     }
 }

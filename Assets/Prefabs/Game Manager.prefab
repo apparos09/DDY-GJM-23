@@ -187,9 +187,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5309bc35e3a7b654b9c981699f85cecd, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -298,8 +298,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4199920089561037638}
   - component: {fileID: 4199920089561037641}
-  - component: {fileID: 5350930047110465486}
   - component: {fileID: 7977187342063502828}
+  - component: {fileID: 5350930047110465486}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Manager
@@ -350,6 +350,39 @@ MonoBehaviour:
   timer: 300
   elapsedGameTime: 0
   pausedTimers: 0
+--- !u!114 &7977187342063502828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4199920089561037640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee281c57a4ddeaa4d838189381d90e3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmSource: {fileID: 789588520073819644}
+  sfxSource: {fileID: 5530205476138597401}
+  manager: {fileID: 4199920089561037641}
+  sfxLoopSource: {fileID: 1030959612014383995}
+  buttonSfx: {fileID: 8300000, guid: cc722494b733f3649a7db8bb8f81165a, type: 3}
+  sliderSfx: {fileID: 0}
+  playerWeaponSwitchSfx: {fileID: 8300000, guid: 57350ee3c7a71b54683bb386d3f32a96, type: 3}
+  playerPunchSfx: {fileID: 8300000, guid: 3c869cfd323b970458eafcfcf177629c, type: 3}
+  playerShotSfx: {fileID: 8300000, guid: 2ce52e578b5724b47b0498cd4b07edc2, type: 3}
+  playerHurtSfx: {fileID: 8300000, guid: 384a313ff8795264b93f0d3569100c7a, type: 3}
+  playerItemPickupSfx: {fileID: 8300000, guid: 35c71e87f0a496e4f8075a029af7f29f, type: 3}
+  playerItemUseSfx: {fileID: 8300000, guid: 93dfade119ec8a14ca7c5812bc1a3361, type: 3}
+  playerMapSfx: {fileID: 8300000, guid: 5781132df59db0b4081f4076603369ec, type: 3}
+  playerDeathSfx: {fileID: 8300000, guid: c7ec8d2b0f61e82478083de54fd33cc4, type: 3}
+  enemyShotSfx: {fileID: 8300000, guid: e53691f6cce0e2945b281631ee5a9313, type: 3}
+  enemyHurtSfx: {fileID: 8300000, guid: 97f1ae69ade9f0247923cce641e5ae6c, type: 3}
+  blockBreakSfx: {fileID: 8300000, guid: 89d29dc3e834dc64f9ea28d4c5b121f4, type: 3}
+  lockBlockUnlockSfx: {fileID: 8300000, guid: 03a074e0f8c05564db1fabdefd9e7dcf, type: 3}
+  portalSfx: {fileID: 8300000, guid: 44917561838ae2841b6ee5a8d2815979, type: 3}
+  minuteChimeSfx: {fileID: 8300000, guid: b1d353d1975cf6a4a965183a45115f01, type: 3}
+  secondsLeftSfx: {fileID: 8300000, guid: 5309bc35e3a7b654b9c981699f85cecd, type: 3}
 --- !u!114 &5350930047110465486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,23 +411,6 @@ MonoBehaviour:
   usedLockBlock: 0
   usedPortal: 0
   usedDeath: 0
---- !u!114 &7977187342063502828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4199920089561037640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee281c57a4ddeaa4d838189381d90e3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bgmSource: {fileID: 789588520073819644}
-  sfxSource: {fileID: 5530205476138597401}
-  buttonSfx: {fileID: 0}
-  manager: {fileID: 4199920089561037641}
-  sfxLoopSource: {fileID: 1030959612014383995}
 --- !u!1 &4856560382551025140
 GameObject:
   m_ObjectHideFlags: 0

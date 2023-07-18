@@ -2180,6 +2180,7 @@ MonoBehaviour:
   sfxSource: {fileID: 1935051043}
   manager: {fileID: 798157166}
   buttonSfx: {fileID: 8300000, guid: cc722494b733f3649a7db8bb8f81165a, type: 3}
+  sliderSfx: {fileID: 0}
 --- !u!1 &868656404
 GameObject:
   m_ObjectHideFlags: 0
@@ -6245,9 +6246,25 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4700992131034022885, guid: 58d70b85785c8184180d0cdfb3c2f407, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1935051043}
     - target: {fileID: 5542149417108127152, guid: 58d70b85785c8184180d0cdfb3c2f407, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5887653958431781671, guid: 58d70b85785c8184180d0cdfb3c2f407, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1935051043}
+    - target: {fileID: 6829325218850343217, guid: 58d70b85785c8184180d0cdfb3c2f407, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1935051043}
+    - target: {fileID: 8850809815419480835, guid: 58d70b85785c8184180d0cdfb3c2f407, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1935051043}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58d70b85785c8184180d0cdfb3c2f407, type: 3}

@@ -211,6 +211,7 @@ MonoBehaviour:
   area: {fileID: 0}
   renderer: {fileID: 5650137135605877728}
   animator: {fileID: 4771059270034918184}
+  gameManager: {fileID: 0}
   rigidbody: {fileID: 5650137135599239530}
   collider: {fileID: 5650137135599239531}
   health: 150
@@ -225,7 +226,6 @@ MonoBehaviour:
   emptyEffectAnim: Empty Effect
   damageAnim: Damage
   iFrameAnim: Invincibility Frames
-  gameManager: {fileID: 0}
   deaths: 0
   scrapCount: 0
   keyCount: 0

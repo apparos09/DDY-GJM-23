@@ -41,6 +41,12 @@ namespace DDY_GJM_23
                 // Increase the visits count.
                 visits++;
 
+                // Plays the item use sound effect if the player has scraps on hand.
+                if(gameManager.player.scrapCount != 0)
+                {
+                    gameManager.gameAudio.PlayPlayerItemUseSfx();
+                }
+
                 // Add to the scrap total.
                 gameManager.scrapTotal += gameManager.player.scrapCount;
                 gameManager.player.scrapCount = 0;

@@ -374,7 +374,7 @@ MonoBehaviour:
   playerPunchSfx: {fileID: 8300000, guid: 3c869cfd323b970458eafcfcf177629c, type: 3}
   playerShotSfx: {fileID: 8300000, guid: 2ce52e578b5724b47b0498cd4b07edc2, type: 3}
   playerHurtSfx: {fileID: 8300000, guid: 384a313ff8795264b93f0d3569100c7a, type: 3}
-  playerItemPickupSfx: {fileID: 8300000, guid: 35c71e87f0a496e4f8075a029af7f29f, type: 3}
+  playerItemGetSfx: {fileID: 8300000, guid: 35c71e87f0a496e4f8075a029af7f29f, type: 3}
   playerItemUseSfx: {fileID: 8300000, guid: 93dfade119ec8a14ca7c5812bc1a3361, type: 3}
   playerMapSfx: {fileID: 8300000, guid: 5781132df59db0b4081f4076603369ec, type: 3}
   playerDeathSfx: {fileID: 8300000, guid: c7ec8d2b0f61e82478083de54fd33cc4, type: 3}

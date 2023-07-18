@@ -242,6 +242,9 @@ namespace DDY_GJM_23
 
             // Only active if player is in the base.
             endEarlyButton.interactable = gameManager.homeBase.IsPlayerInBase();
+
+            // Play the map sound.
+            gameManager.gameAudio.PlayPlayerMapSfx();
         }
 
         // Close the map.
@@ -255,6 +258,9 @@ namespace DDY_GJM_23
 
             // Deactivate the map object.
             map.gameObject.SetActive(false);
+
+            // Play the map sound.
+            gameManager.gameAudio.PlayPlayerMapSfx();
         }
 
         // Toggles the map on and off
@@ -285,6 +291,9 @@ namespace DDY_GJM_23
         // Opens the text box.
         public void OpenTextBox(List<string> pages)
         {
+            // Set time scale to 0.
+            Time.timeScale = 0.0F;
+
             // Disable the player inputs and the component.
             gameManager.player.enableInputs = false;
             gameManager.player.enabled = false;
@@ -301,6 +310,9 @@ namespace DDY_GJM_23
         // If 'clearPages' is true, the text box elements are cleared out.
         public void CloseTextBox(bool clearPages = false)
         {
+            // Set time scale to 1.
+            Time.timeScale = 1.0F;
+
             // Enable the player component and the inputs.
             gameManager.player.enabled = true;
             gameManager.player.enableInputs = true;
@@ -330,7 +342,7 @@ namespace DDY_GJM_23
                 CloseMap();
 
             // Stop the game.
-            Time.timeScale = 1.0F;
+            Time.timeScale = 0.0F;
 
             // Stop the player inputs, and disable the player component.
             gameManager.player.enableInputs = false;
@@ -338,6 +350,9 @@ namespace DDY_GJM_23
 
             // Open the settings.
             settings.gameObject.SetActive(true);
+
+            // Play the button sfx.
+            gameManager.gameAudio.PlayButtonSfx();
         }
 
         // Call to close the settings.
@@ -356,15 +371,23 @@ namespace DDY_GJM_23
 
             // Close the settings window.
             settings.gameObject.SetActive(false);
+
+            // Play the button sfx.
+            gameManager.gameAudio.PlayButtonSfx();
         }
-
-
 
         // Ends the game early by going to the results scene.
         public void EndGame()
         {
             gameManager.ToResultsScene();
         }
+
+        // Goes to the title screen.
+        public void ToTitleScene()
+        {
+            gameManager.ToTitleScene();
+        }
+
 
         // Update is called once per frame
         void Update()

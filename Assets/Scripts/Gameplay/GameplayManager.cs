@@ -87,6 +87,9 @@ namespace DDY_GJM_23
         // The rate the time chime goes off at.
         public const float TIME_CHIME_RATE = 60;
 
+        // The time when the BGM starts to speed up.
+        public const float BGM_SPEED_UP_TIME = 30;
+
         // The point in time where the 'seconds left' SFX starts to play.
         public const float TIME_SECONDS_LEFT_START = 10;
 
@@ -546,6 +549,13 @@ namespace DDY_GJM_23
                         else if(timer <= TIME_SECONDS_LEFT_START && !gameAudio.sfxLoopSource.isPlaying)
                         {
                             gameAudio.PlaySecondsLeftSfx();
+                        }
+
+
+                        // Speeds up the music at the specified time to indicate the game is almost over.  
+                        if(timer <= BGM_SPEED_UP_TIME && !gameAudio.IsBgmFastSpeed())
+                        {
+                            gameAudio.SetBgmFastSpeed();
                         }
                     }
                 }

@@ -356,6 +356,10 @@ namespace DDY_GJM_23
             // If the camera isn't fixed, follow the player.
             gameManager.worldCamera.followPlayer = !fixedCamera;
 
+
+            // Set the player's area.
+            gameManager.player.area = this;
+
             // Spawns dynamic entities.
             SpawnEntities();
         }

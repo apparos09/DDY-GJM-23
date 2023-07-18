@@ -69,6 +69,12 @@ namespace DDY_GJM_23
 
             // Called when the weapon was used.
             OnUseWeapon(1);
+
+
+            // SFX
+            // Grabs the game audio and plays the shot SFX.
+            GameplayAudio gameAudio = owner.gameManager.gameAudio;
+            gameAudio.PlayPlayerShotSfx();
         }
 
         // Update is called once per frame

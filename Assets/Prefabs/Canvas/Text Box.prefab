@@ -377,6 +377,7 @@ GameObject:
   - component: {fileID: 6605199440710140466}
   - component: {fileID: 3398572724614027011}
   - component: {fileID: 8169147720385829402}
+  - component: {fileID: 4852693399479376039}
   m_Layer: 5
   m_Name: Left Arrow Button
   m_TagString: Untagged
@@ -499,6 +500,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4852693399479376039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3688239814811694118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80594acd49a818e429fe4a938343bfc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 8169147720385829402}
+  audioSource: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: cc722494b733f3649a7db8bb8f81165a, type: 3}
 --- !u!1 &4242541366223967957
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,6 +527,7 @@ GameObject:
   - component: {fileID: 6378365727026068654}
   - component: {fileID: 8232329279732074570}
   - component: {fileID: 291877155506010074}
+  - component: {fileID: 423520829557801907}
   m_Layer: 5
   m_Name: Right Arrow Button
   m_TagString: Untagged
@@ -633,6 +650,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &423520829557801907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4242541366223967957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80594acd49a818e429fe4a938343bfc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 291877155506010074}
+  audioSource: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: cc722494b733f3649a7db8bb8f81165a, type: 3}
 --- !u!1 &8185207120720141538
 GameObject:
   m_ObjectHideFlags: 0

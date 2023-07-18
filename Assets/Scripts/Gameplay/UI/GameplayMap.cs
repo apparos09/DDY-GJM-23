@@ -47,11 +47,11 @@ namespace DDY_GJM_23
             UpdateScrapDisplay();
         }
 
-        // Places the player marker on the map. (TODO: NOT GETTING CALLED FOR SOME REASON).
-        public void PlacePlayerMarker()
+        // Place the provided marker using the current world map cell.
+        private void PlaceMarker(Image marker)
         {
-            // Set player marker to zero pos.
-            playerMarker.transform.localPosition = Vector3.zero;
+            // Set  marker to zero pos.
+            marker.transform.localPosition = Vector3.zero;
 
             // Gets the final position, starting off relative to cell0_0.
             Vector3 finalPos = cell0_0;
@@ -65,7 +65,14 @@ namespace DDY_GJM_23
             finalPos.y += offsetDirec.y * offset.y * cell[0];
 
             // Set local position of the player marker.
-            playerMarker.transform.localPosition = finalPos;
+            marker.transform.localPosition = finalPos;
+        }
+
+
+        // Places the player marker on the map.
+        public void PlacePlayerMarker()
+        {
+            PlaceMarker(playerMarker);
         }
 
         // Updates the scrap display.

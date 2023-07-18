@@ -15,6 +15,12 @@ namespace DDY_GJM_23
         // Audio source for sound effects that are meant to loop.
         public AudioSource sfxLoopSource;
 
+        // The BGM normal pitch.
+        public const float BGM_NORMAL_PITCH = 1.0F;
+
+        // THE BGM fast pitch.
+        public const float BGM_FAST_PITCH = 1.1F;
+
         [Header("Gameplay/Audio Clips")]
         // The button source effect.
         public AudioClip buttonSfx;
@@ -37,7 +43,7 @@ namespace DDY_GJM_23
         public AudioClip playerHurtSfx;
 
         // Player Item Pickup
-        public AudioClip playerItemPickupSfx;
+        public AudioClip playerItemGetSfx;
 
         // Player Item Use
         public AudioClip playerItemUseSfx;
@@ -83,6 +89,37 @@ namespace DDY_GJM_23
                 manager = GameplayManager.Instance;
         }
 
+        // BGM //
+        // Checks if the BGM is going at a normal speed.
+        public bool IsBgmNormalSpeed()
+        {
+            bool result = bgmSource.pitch == BGM_NORMAL_PITCH;
+            return result;
+        }
+
+        // Plays the BGM at normal speed.
+        public void SetBgmNormalSpeed()
+        {
+            // Normal pitch.
+            bgmSource.pitch = BGM_NORMAL_PITCH;
+        }
+
+        // Checks if the BGM is going at a fast speed.
+        public bool IsBgmFastSpeed()
+        {
+            bool result = bgmSource.pitch == BGM_FAST_PITCH;
+            return result;
+        }
+
+        // Sets the BGM to play fast.
+        public void SetBgmFastSpeed()
+        {
+            // Faster pitch.
+            bgmSource.pitch = BGM_FAST_PITCH;
+        }
+
+
+        // SFX //
         // UI/Normal
 
         // Plays the menu button SFX.
@@ -135,9 +172,9 @@ namespace DDY_GJM_23
         }
 
         // Player picked up item
-        public void PlayPlayerItemPickupSfx()
+        public void PlayPlayerItemGetSfx()
         {
-            sfxSource.PlayOneShot(playerItemPickupSfx);
+            sfxSource.PlayOneShot(playerItemGetSfx);
         }
 
         // Player used item

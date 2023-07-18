@@ -10,6 +10,9 @@ namespace DDY_GJM_23
         // Item identification.
         public enum itemId { none, scrap, weapon, weaponUses, key, health };
 
+        [Header("World Item")]
+        public GameplayManager gameManager;
+
         // The id of the world item.
         public itemId id;
 
@@ -32,6 +35,10 @@ namespace DDY_GJM_23
         protected override void Start()
         {
             base.Start();
+
+            // If the game manager is not set, set it.
+            if(gameManager == null)
+                gameManager = GameplayManager.Instance;
         }
 
         // Trigger2D - checks the trigger collision.
@@ -59,6 +66,9 @@ namespace DDY_GJM_23
         // Called when the item is gotten by the player.
         protected virtual void OnItemGet()
         {
+            // Plays the item pickup sfx.
+            gameManager.gameAudio.PlayPlayerItemGetSfx();
+
             // Checks if the item should be destroyed upon being received.
             if(destroyOnGet)
             {

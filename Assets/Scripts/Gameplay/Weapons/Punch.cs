@@ -165,6 +165,12 @@ namespace DDY_GJM_23
 
             // Called when the weapon was used.
             OnUseWeapon(0);
+
+
+            // SFX
+            // Grabs the game audio and plays the punch SFX.
+            GameplayAudio gameAudio = owner.gameManager.gameAudio;
+            gameAudio.PlayPlayerPunchSfx();
         }
 
         // Called when the punch is finished.

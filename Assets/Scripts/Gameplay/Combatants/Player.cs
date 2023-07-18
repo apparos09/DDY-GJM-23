@@ -412,6 +412,14 @@ namespace DDY_GJM_23
             // Update the weapon.
             if (gameUI != null)
                 gameUI.UpdateWeaponInfo();
+
+
+            // Play the sound effect.
+            GameplayAudio gameAudio = gameManager.gameAudio;
+
+            // Play the weapon switch SFX.
+            if (gameAudio != null)
+                gameManager.gameAudio.PlayPlayerWeaponSwitchSfx();
         }
 
         // Organizes the weapons in the list based on their IDs.
@@ -543,6 +551,9 @@ namespace DDY_GJM_23
 
             // Attempts to activate the tutorial.
             gameManager.ActivateTutorial(Tutorial.trlType.death);
+
+            // Plays the sound effect.
+            gameManager.gameAudio.PlayPlayerDeathSfx();
         }
 
         // Updates the inputs for the player.
@@ -751,6 +762,9 @@ namespace DDY_GJM_23
                     healCount--;
                     healsUsed++;
                     health += maxHealth * HEAL_PERCENT;
+
+                    // Play the item use SFX.
+                    gameManager.gameAudio.PlayPlayerItemUseSfx();
                 }
             }
 
@@ -770,6 +784,15 @@ namespace DDY_GJM_23
         }
 
         // ANIMATION //
+        // Plays the damage animation.
+        public override void PlayDamageAnimation()
+        {
+            base.PlayDamageAnimation();
+
+            // Play the hurt audio.
+            gameManager.gameAudio.PlayPlayerHurtSfx();
+        }
+
         // Updates the player's animation.
         public void UpdateAnimations()
         {

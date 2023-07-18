@@ -118,7 +118,7 @@ Confirmed to be copyright free by GameSounds.xyz, even for commercial purposes.
 
 
 
-=== Player Item Pickup ===
+=== Player Item Get ===
 Sound Title:  Button 37
 Source(s): GameSounds.xyz
 Link: https://gamesounds.xyz/?dir=Sound%20Effects/Buttons

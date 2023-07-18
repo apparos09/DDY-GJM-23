@@ -159,6 +159,24 @@ namespace DDY_GJM_23
 
             // Set the audio credits.
             credits.audioCredits.audioCredits = audioCredits;
+
+
+            // SFXs //
+            // Sound Effects
+            ac = new AudioCredit();
+            ac.title = "Sound Effects (Sourced)";
+            ac.artists = "Unknown Artists";
+            ac.collection = "Sound Effects";
+            ac.source = "GameSounds.xyz";
+            ac.link1 = "https://gamesounds.xyz/?dir=Sound%20Effects";
+            ac.link2 = "";
+
+            ac.copyright = "Confirmed to be copyright free by GameSounds.xyz, even for commercial purposes.";
+
+            audioCredits.Add(ac);
+
+            // Set the audio credits.
+            credits.audioCredits.audioCredits = audioCredits;
         }
 
         // Gets the instance.

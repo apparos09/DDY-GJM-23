@@ -8,8 +8,13 @@ namespace DDY_GJM_23
     // Manages audio for the title screen.
     public class TitleAudio : ManagerAudio
     {
+        [Header("Title")]
+
         // The results manager
         public TitleManager manager;
+
+        // The button source effect.
+        public AudioClip buttonSfx;
 
         // Start is called before the first frame update
         protected override void Start()
@@ -21,5 +26,11 @@ namespace DDY_GJM_23
                 manager = TitleManager.Instance;
         }
 
+        // Plays the menu button SFX.
+        public void PlayButtonSfx()
+        {
+            // Plays the button sound effect.
+            sfxSource.PlayOneShot(buttonSfx);
+        }
     }
 }

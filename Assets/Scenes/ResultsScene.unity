@@ -587,6 +587,7 @@ GameObject:
   - component: {fileID: 192704989}
   - component: {fileID: 192704988}
   - component: {fileID: 192704987}
+  - component: {fileID: 192704990}
   m_Layer: 5
   m_Name: Title Screen Button
   m_TagString: Untagged
@@ -709,6 +710,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 192704985}
   m_CullTransparentMesh: 1
+--- !u!114 &192704990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192704985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80594acd49a818e429fe4a938343bfc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
+  audioSource: {fileID: 285535451}
+  audioClip: {fileID: 8300000, guid: cc722494b733f3649a7db8bb8f81165a, type: 3}
 --- !u!1 &285535448
 GameObject:
   m_ObjectHideFlags: 0
@@ -2045,8 +2061,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmSource: {fileID: 761339283}
   sfxSource: {fileID: 285535451}
-  buttonSfx: {fileID: 0}
   manager: {fileID: 1262072287}
+  buttonSfx: {fileID: 8300000, guid: cc722494b733f3649a7db8bb8f81165a, type: 3}
 --- !u!1 &1336888811
 GameObject:
   m_ObjectHideFlags: 0

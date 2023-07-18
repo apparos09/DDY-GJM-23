@@ -407,7 +407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 0}
   audioSource: {fileID: 1935051043}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: cc722494b733f3649a7db8bb8f81165a, type: 3}
 --- !u!1 &47814251
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 0}
   audioSource: {fileID: 1935051043}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: cc722494b733f3649a7db8bb8f81165a, type: 3}
 --- !u!1 &83228762
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,7 +977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 0}
   audioSource: {fileID: 1935051043}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: cc722494b733f3649a7db8bb8f81165a, type: 3}
 --- !u!1 &307519849
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,7 +1211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 0}
   audioSource: {fileID: 1935051043}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: cc722494b733f3649a7db8bb8f81165a, type: 3}
 --- !u!1 &343937456
 GameObject:
   m_ObjectHideFlags: 0
@@ -2108,7 +2108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 0}
   audioSource: {fileID: 1935051043}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: cc722494b733f3649a7db8bb8f81165a, type: 3}
 --- !u!1 &798157164
 GameObject:
   m_ObjectHideFlags: 0
@@ -2178,8 +2178,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmSource: {fileID: 539278281}
   sfxSource: {fileID: 1935051043}
-  buttonSfx: {fileID: 0}
   manager: {fileID: 798157166}
+  buttonSfx: {fileID: 8300000, guid: cc722494b733f3649a7db8bb8f81165a, type: 3}
 --- !u!1 &868656404
 GameObject:
   m_ObjectHideFlags: 0
@@ -2405,7 +2405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 0}
   audioSource: {fileID: 1935051043}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: cc722494b733f3649a7db8bb8f81165a, type: 3}
 --- !u!1 &907388286
 GameObject:
   m_ObjectHideFlags: 0
@@ -2768,7 +2768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 0}
   audioSource: {fileID: 1935051043}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: cc722494b733f3649a7db8bb8f81165a, type: 3}
 --- !u!1 &1036328675
 GameObject:
   m_ObjectHideFlags: 0
@@ -2986,7 +2986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 0}
   audioSource: {fileID: 1935051043}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: cc722494b733f3649a7db8bb8f81165a, type: 3}
 --- !u!1 &1089937522
 GameObject:
   m_ObjectHideFlags: 0
@@ -3590,7 +3590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 0}
   audioSource: {fileID: 1935051043}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: cc722494b733f3649a7db8bb8f81165a, type: 3}
 --- !u!1 &1220479804
 GameObject:
   m_ObjectHideFlags: 0
@@ -4652,7 +4652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 0}
   audioSource: {fileID: 1935051043}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: cc722494b733f3649a7db8bb8f81165a, type: 3}
 --- !u!1 &1620451055
 GameObject:
   m_ObjectHideFlags: 0
@@ -5695,7 +5695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 0}
   audioSource: {fileID: 1935051043}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: cc722494b733f3649a7db8bb8f81165a, type: 3}
 --- !u!1 &1905627636
 GameObject:
   m_ObjectHideFlags: 0
@@ -6244,6 +6244,10 @@ PrefabInstance:
     - target: {fileID: 4484545782045288827, guid: 58d70b85785c8184180d0cdfb3c2f407, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5542149417108127152, guid: 58d70b85785c8184180d0cdfb3c2f407, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58d70b85785c8184180d0cdfb3c2f407, type: 3}

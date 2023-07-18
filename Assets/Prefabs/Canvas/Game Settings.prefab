@@ -956,7 +956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 3553282579860887399}
   audioSource: {fileID: 0}
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: cc722494b733f3649a7db8bb8f81165a, type: 3}
 --- !u!1 &3553282580087083996
 GameObject:
   m_ObjectHideFlags: 0

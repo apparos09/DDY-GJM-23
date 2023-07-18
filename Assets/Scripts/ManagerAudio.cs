@@ -14,9 +14,6 @@ namespace DDY_GJM_23
         // The SFX source.
         public AudioSource sfxSource;
 
-        // The button source effect.
-        public AudioClip buttonSfx;
-
         // Start is called before the first frame update
         protected virtual void Start()
         {
@@ -32,13 +29,6 @@ namespace DDY_GJM_23
                     buttonAudio.audioSource = sfxSource;
                 }
             }
-        }
-
-        // Plays the menu button SFX.
-        public void PlayButtonSfx()
-        {
-            // Plays the button sound effect.
-            sfxSource.PlayOneShot(buttonSfx);
         }
     }
 }

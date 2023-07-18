@@ -7,8 +7,13 @@ namespace DDY_GJM_23
     // Audio for the results screen.
     public class ResultsAudio : ManagerAudio
     {
+        [Header("Results")]
+
         // The results manager
         public ResultsManager manager;
+
+        // The button source effect.
+        public AudioClip buttonSfx;
 
         // Start is called before the first frame update
         protected override void Start()
@@ -18,6 +23,13 @@ namespace DDY_GJM_23
             // Grabs the instance.
             if (manager == null)
                 manager = ResultsManager.Instance;
+        }
+
+        // Plays the menu button SFX.
+        public void PlayButtonSfx()
+        {
+            // Plays the button sound effect.
+            sfxSource.PlayOneShot(buttonSfx);
         }
 
     }

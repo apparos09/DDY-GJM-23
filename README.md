@@ -9,6 +9,10 @@ All sourced audio provided is copyright free.
 All audio components have been modified in some way for better usage in the game.
 Some audio pieces were taken from one website, but originate from another website (said details will be specified where applicable).
 
+The audio has been primarily sourced from the following websites. 
+* GameSound.xyz (https://gamesounds.xyz/)
+* FreePD (https://freepd.com/)
+
 
 
 = Title (BGM) =
@@ -26,7 +30,7 @@ https://creativecommons.org/licenses/by/4.0/
 
 
 
-= Loading Screen =
+= Loading Screen (BGM) =
 Song Title: Rapture
 Artist(s): Ross Bugden
 Source(s): GameSounds.xyz, YouTube

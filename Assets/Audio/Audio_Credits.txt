@@ -9,7 +9,13 @@ All sourced audio provided is copyright free.
 All audio components have been modified in some way for better usage in the game.
 Some audio pieces were taken from one website, but originate from another website (said details will be specified where applicable).
 
-= Title (BGM) =
+The audio has been primarily sourced from the following websites. 
+* GameSound.xyz (https://gamesounds.xyz/)
+* FreePD (https://freepd.com/)
+
+
+= Background Music (BGM) =
+== Title ==
 Song Title: Dawn of the Apocalypse
 Artist(s): Rafael Krux
 Source(s): FreePD
@@ -17,14 +23,14 @@ Link (Free PD Page): https://freepd.com/horror.php
 Link (Orchestralis.net): https://music.orchestralis.net/track/28566414
 Copyright: CC 4.0
 
-== Copyright ==
+=== Copyright ===
 "Dawn of the Apocalypse" by Rafael Krux (orchestralis.net)
 Licensed under Creative Commons: By Attribution 4.0 International (CC BY 4.0)
 https://creativecommons.org/licenses/by/4.0/
 
 
 
-= Loading Screen =
+== Loading Screen ==
 Song Title: Rapture
 Artist(s): Ross Bugden
 Source(s): GameSounds.xyz, YouTube
@@ -33,13 +39,13 @@ Link (YouTube): https://www.youtube.com/watch?v=vja87ZXejyk
 Link (YouTube Music): https://youtube.com/watch?v=5YWTlsyFVnY
 Link (Artist): https://soundcloud.com/rossbugden
 
-== Copyright ==
+=== Copyright ===
 "Rapture" by Ross Bugden (https://youtu.be/vja87ZXejyk)
 Confirmed to be free to copy, modify, distribute, and perform for work, even for commercial purposes, all without asking permission.
 
 
 
-= Gameplay (BGM) =
+== Gameplay ==
 Song Title: Mysterious Lights
 Artist(s): Bryan Teoh
 Source(s): FreePD
@@ -48,14 +54,14 @@ Link (Soundcloud Artist): https://soundcloud.com/bryanteoh
 Link (Personal Website): https://www.bryanteoh.com/
 Copyright: CC 1.0
 
-== Copyright ==
+=== Copyright ===
 Mysterious Lights" by Bryan Teoh
 Licensed under Creative Commons: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
 https://creativecommons.org/publicdomain/zero/1.0/
 
 
 
-= Results (BGM) =
+== Results ==
 Song Title: No Winners
 Artist(s): Ross Bugden
 Source(s): GameSounds.xyz, YouTube
@@ -71,71 +77,165 @@ Confirmed to be free to copy, modify, distribute, and perform for work, even for
 
 
 
-= Menu Button (SFX) =
-Song Title: Button 42
-Artist(s): Unknown
+= Sound Effects (SFXs) =
+== Enemies ==
+=== Enemy Hurt ===
+Sound Title: Button 4 
 Source(s): GameSounds.xyz
-Link (GameSounds.xyz): https://gamesounds.xyz/?dir=Sound%20Effects/Buttons
-Copyright: copyright free (no specific attribution format given).
+Link: https://gamesounds.xyz/?dir=Sound%20Effects/Buttons
 
-== Copyright ==
-Confirmed to be copyright free for copying, modifying, distributing, and performing, even for commercial purposes, by GameSounds.xyz.
+==== Copyright ====
+Confirmed to be copyright free by GameSounds.xyz, even for commercial purposes.
 
 
-= Item Switch Button (SFX) =
-Song Title: Button 33
-Artist(s): Unknown
+
+=== Enemy Shot ===
+Sound Title: Button 2
 Source(s): GameSounds.xyz
-Link (GameSounds.xyz): https://gamesounds.xyz/?dir=Sound%20Effects/Buttons
-Copyright: copyright free (no specific attribution format given).
+Link: https://gamesounds.xyz/?dir=Sound%20Effects/Buttons
 
-== Copyright ==
-Confirmed to be copyright free for copying, modifying, distributing, and performing, even for commercial purposes, by GameSounds.xyz.
+==== Copyright ====
+Confirmed to be copyright free by GameSounds.xyz, even for commercial purposes.
 
-
-
-= Select Item (SFX) =
-Song Title: Button 20
-Artist(s): Unknown
+== Player ==
+=== Player Death ===
+Sound Title: Button 12
 Source(s): GameSounds.xyz
-Link (GameSounds.xyz): https://gamesounds.xyz/?dir=Sound%20Effects/Buttons
-Copyright: copyright free (no specific attribution format given).
+Link: https://gamesounds.xyz/?dir=Sound%20Effects/Buttons
 
-== Copyright ==
-Confirmed to be copyright free for copying, modifying, distributing, and performing, even for commercial purposes, by GameSounds.xyz.
-
+==== Copyright ====
+Confirmed to be copyright free by GameSounds.xyz, even for commercial purposes.
 
 
-= Shot (SFX) =
-Song Title: Door Close 10
-Artist(s): Unknown
+
+=== Player Hurt ===
+Sound Title:  Button 4
 Source(s): GameSounds.xyz
-Link (GameSounds.xyz): https://gamesounds.xyz/?dir=Sound%20Effects/Buttons
-Copyright: copyright free (no specific attribution format given).
+Link: https://gamesounds.xyz/?dir=Sound%20Effects/Buttons
 
-== Copyright ==
-Confirmed to be copyright free for copying, modifying, distributing, and performing, even for commercial purposes, by GameSounds.xyz.
-
+==== Copyright ====
+Confirmed to be copyright free by GameSounds.xyz, even for commercial purposes.
 
 
-= Damage - Player, Damage - Target (SFX) =
-Song Title: Button 4
-Artist(s): Unknown
+
+=== Player Item Pickup ===
+Sound Title:  Button 37
 Source(s): GameSounds.xyz
-Link (GameSounds.xyz): https://gamesounds.xyz/?dir=Sound%20Effects/Buttons
-Copyright: copyright free (no specific attribution format given).
+Link: https://gamesounds.xyz/?dir=Sound%20Effects/Buttons
 
-== Copyright ==
-Confirmed to be copyright free for copying, modifying, distributing, and performing, even for commercial purposes, by GameSounds.xyz.
-
+==== Copyright ====
+Confirmed to be copyright free by GameSounds.xyz, even for commercial purposes.
 
 
-= Death =
-Song Title: Button 12
-Artist(s): Unknown
+
+=== Player Item Use === 
+Sound Title: Button 35
 Source(s): GameSounds.xyz
-Link (GameSounds.xyz): https://gamesounds.xyz/?dir=Sound%20Effects/Buttons
-Copyright: copyright free (no specific attribution format given).
+Link: https://gamesounds.xyz/?dir=Sound%20Effects/Buttons
 
-== Copyright ==
-Confirmed to be copyright free for copying, modifying, distributing, and performing, even for commercial purposes, by GameSounds.xyz.
+==== Copyright ====
+Confirmed to be copyright free by GameSounds.xyz, even for commercial purposes.
+
+=== Player Map Open, Close ===
+Sound Title: Button 20
+Source(s): GameSounds.xyz
+Link: https://gamesounds.xyz/?dir=Sound%20Effects/Buttons
+
+==== Copyright ====
+Confirmed to be copyright free by GameSounds.xyz, even for commercial purposes.
+
+=== Player Punch ===
+Sound Title: Smack 1
+Source(s): GameSounds.xyz
+Link: https://gamesounds.xyz/?dir=Sound%20Effects
+
+==== Copyright ====
+Confirmed to be copyright free by GameSounds.xyz, even for commercial purposes.
+
+
+
+=== Player Shot ===
+Sound Title: Button 2
+Source(s): GameSounds.xyz
+Link: https://gamesounds.xyz/?dir=Sound%20Effects/Buttons
+
+==== Copyright ====
+Confirmed to be copyright free by GameSounds.xyz, even for commercial purposes.
+
+=== Player Weapon Switch ===
+Sound Title: Button 33
+Source(s): GameSounds.xyz
+Link: https://gamesounds.xyz/?dir=Sound%20Effects/Buttons
+
+==== Copyright ====
+Confirmed to be copyright free by GameSounds.xyz, even for commercial purposes.
+
+== UI ==
+
+=== Button Menu ===
+Sound Title: Button 42
+Source(s): GameSounds.xyz
+Link: https://gamesounds.xyz/?dir=Sound%20Effects/Buttons
+
+==== Copyright ====
+Confirmed to be copyright free by GameSounds.xyz, even for commercial purposes.
+
+=== Slider Menu ===
+Sound Title: Button 16
+Source(s): GameSounds.xyz
+Link: https://gamesounds.xyz/?dir=Sound%20Effects/Buttons
+
+==== Copyright ====
+Confirmed to be copyright free by GameSounds.xyz, even for commercial purposes.
+
+
+
+== World ==
+
+=== Block Break ===
+Sound Title: Shoveling Snow 1
+Source(s): GameSounds.xyz
+Link: https://gamesounds.xyz/?dir=Sound%20Effects
+
+==== Copyright ====
+Confirmed to be copyright free by GameSounds.xyz, even for commercial purposes.
+
+
+
+=== Lock Block Unlock ===
+Sound Title: Door Lock 1
+Source(s): GameSounds.xyz
+Link: https://gamesounds.xyz/?dir=Sound%20Effects/Doors%20and%20Floors
+
+==== Copyright ====
+Confirmed to be copyright free by GameSounds.xyz, even for commercial purposes.
+
+
+
+=== Minute Chime ===
+Sound Title: Doorbell 1
+Source(s): GameSounds.xyz
+Link: https://gamesounds.xyz/?dir=Sound%20Effects/Doors%20and%20Floors
+
+==== Copyright ====
+Confirmed to be copyright free by GameSounds.xyz, even for commercial purposes.
+
+
+
+=== Portal ===
+Sound Title: Button 43
+Source(s): GameSounds.xyz
+Link: https://gamesounds.xyz/?dir=Sound%20Effects/Buttons
+
+==== Copyright ====
+Confirmed to be copyright free by GameSounds.xyz, even for commercial purposes.
+
+
+
+=== Seconds Left ===
+Sound Title: Clock Ticking 5
+Source(s): GameSounds.xyz
+Link: https://gamesounds.xyz/?dir=Sound%20Effects/Clock
+
+==== Copyright ====
+Confirmed to be copyright free by GameSounds.xyz, even for commercial purposes.

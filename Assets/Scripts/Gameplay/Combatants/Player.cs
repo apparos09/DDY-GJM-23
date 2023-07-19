@@ -761,7 +761,9 @@ namespace DDY_GJM_23
                 {
                     healCount--;
                     healsUsed++;
-                    health += maxHealth * HEAL_PERCENT;
+                    
+                    // Add to health (clamped by max health).
+                    AddHealthClamped(maxHealth * HEAL_PERCENT);
 
                     // Play the item use SFX.
                     gameManager.gameAudio.PlayPlayerItemUseSfx();

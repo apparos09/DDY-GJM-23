@@ -184,7 +184,7 @@ namespace DDY_GJM_23
             List<string> pages = new List<string>()
             {
                 "Welcome to the outside world! Your job is to collect as many scraps as you can and bring them back to home base while your life support system lasts. The timer above shows how long you have until your suit fails. Make sure that you're in the base before time runs out.",
-                "Use the <b>WASD keys</b> to move, the <b>space bar</b> to attack, and the <b>up arrow</b> key to open the map. In the map window, you have the option to end early, but you can only do so if you're in the base area. The map can be closed by pressing the <b>up arrow key</b> again.",
+                "Use the <b>WASD keys</b> to move, the <b>space bar</b> to attack, and the <b>up arrow key</b> to open the map. In the map window, you have the option to end early, but you can only do so if you're in the base area. The map can be closed by pressing the <b>up arrow key</b> again.",
                 "If you ever need to restore your health and/or replenish your weapons, just return to the home base. And if you want to change the game settings, use the <b>escape key</b> to toggle the settings window. That's all, so good luck, scavenger!"
             };
 

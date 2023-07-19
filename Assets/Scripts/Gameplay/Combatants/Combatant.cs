@@ -93,6 +93,29 @@ namespace DDY_GJM_23
             }
         }
 
+
+        // Adds to the current health, clamped by the max health.
+        public void AddHealthClamped(float amount)
+        {
+            // Adds to the current health, clamped by max health.
+            health = Mathf.Clamp(health + amount, 0, maxHealth);
+        }
+
+        // Sets the health, clamped by the max health.
+        public void SetHealthClamped(float amount)
+        {
+            health = Mathf.Clamp(amount, 0, maxHealth);
+        }
+
+
+        // Sets the health as a percentage of the max health.
+        public void SetHealthAsPercentOfMaxHealth(float percent)
+        {
+            float value = Mathf.Clamp01(percent);
+            health = maxHealth * value;
+        }
+
+
         // TILES
         // Gets the number of non-liquid tiles being touched.
         public int GetSolidTileCount()

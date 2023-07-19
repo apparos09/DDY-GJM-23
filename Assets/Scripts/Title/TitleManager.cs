@@ -137,7 +137,7 @@ namespace DDY_GJM_23
             ac.link1 = "https://freepd.com/horror.php";
             ac.link2 = "https://www.bryanteoh.com/";
 
-            ac.copyright = "Mysterious Lights\" by Bryan Teoh" +
+            ac.copyright = "\"Mysterious Lights\" by Bryan Teoh" +
                 "\nLicensed under Creative Commons: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication" +
                 "\nhttps://creativecommons.org/publicdomain/zero/1.0/";
 

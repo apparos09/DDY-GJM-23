@@ -375,7 +375,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 84ca19e036c70324ea13256b5eab7016, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c081ea31dbbbe894e828664020600296, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5087,14 +5087,14 @@ MonoBehaviour:
 
 
     <u><b>Left
-    Arrow/Right Arrow</b> - Switch Weapon (if Available)</u>
+    Arrow/Right Arrow</b> - Switch Weapon (If Available)</u>
 
 
     <u><b>Up Arrow</b>
     - Open/Close Map</u>
 
 
-    <u><b>Down Arrow</b> - Use Health Pack (if Available)</u>
+    <u><b>Down Arrow</b> - Use Health Pack (If Available)</u>
 
 
     <u><b>Escape
@@ -5644,7 +5644,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 84ca19e036c70324ea13256b5eab7016, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c081ea31dbbbe894e828664020600296, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5932,7 +5932,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -105}
-  m_SizeDelta: {x: 810, y: 50}
+  m_SizeDelta: {x: 820, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2045242790
 MonoBehaviour:
@@ -5947,7 +5947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 0.392}
+  m_Color: {r: 0.09803922, g: 0.09803922, b: 0.09803922, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

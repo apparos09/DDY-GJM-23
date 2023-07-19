@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 3553282579329163126}
   - component: {fileID: 3553282579329163125}
   - component: {fileID: 3553282579329163124}
+  - component: {fileID: 5816321402759518426}
   m_Layer: 5
   m_Name: Screen Size Dropdown
   m_TagString: Untagged
@@ -365,6 +366,21 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_AlphaFadeSpeed: 0.15
+--- !u!114 &5816321402759518426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3553282579329163130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 318d8967423ecc445bacea603318edea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropdown: {fileID: 3553282579329163124}
+  audioSource: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 094ea46383e841f40b35677d38d8573a, type: 3}
 --- !u!1 &3553282579394813190
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,6 +29,8 @@ namespace util
                 slider = GetComponent<Slider>();
             }
 
+            // Add to the onValueChanged function.
+            AddOnValueChanged();
         }
 
         // Add OnValueChanged Delegate

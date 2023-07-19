@@ -29,6 +29,8 @@ namespace util
                 toggle = GetComponent<Toggle>();
             }
 
+            // Add to the onValueChanged function.
+            AddOnValueChanged();
         }
 
         // Add OnValueChanged Delegate

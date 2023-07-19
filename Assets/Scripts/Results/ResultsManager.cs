@@ -196,7 +196,7 @@ namespace DDY_GJM_23
                     // Checks the scrap total in reference to the scrap goal.
                     if(scrapsTotal == 0) // No scraps.
                     {
-                        ratingMessage = "You survived, but you didn't collect any scraps! What happened? The base can't go on if days are wasted like this.";
+                        ratingMessage = "You survived, but you didn't collect any scraps! What happened? The base can't go on if days are wasted like this...";
                     }
                     else if(scrapsTotal < scrapGoal) // Under goal.
                     {
@@ -222,11 +222,11 @@ namespace DDY_GJM_23
                     // Checks the scrap total in reference to the scrap goal.
                     if (scrapsTotal == 0) // No scraps.
                     {
-                        ratingMessage = "You didn't survive, and you didn't collect any scraps... Someone else will have to take up the job now...";
+                        ratingMessage = "You didn't survive, and you didn't bring back any scraps... Something horrible must've happened out there...";
                     }
                     else if (scrapsTotal < scrapGoal) // Under goal.
                     {
-                        ratingMessage = "You didn't survive, and you didn't collect many scraps... Someone else will have to take up the job now...";
+                        ratingMessage = "You didn't survive, and you collected very few scraps... I guess you just weren't cut out for this job...";
                     }
                     else if (scrapsTotal == scrapGoal) // Met goal.
                     {

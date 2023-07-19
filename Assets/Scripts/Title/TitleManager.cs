@@ -33,8 +33,8 @@ namespace DDY_GJM_23
         // The settings subwindow.
         public GameObject settingsWindow;
 
-        // The liscences subwindow.
-        public GameObject liscencesWindow;
+        // The licenses subwindow.
+        public GameObject licensesWindow;
 
         // The quit button for the game.
         public Button quitButton;
@@ -224,7 +224,7 @@ namespace DDY_GJM_23
             storyWindow.SetActive(false);
             controlsWindow.SetActive(false);
             settingsWindow.SetActive(false);
-            liscencesWindow.SetActive(false);
+            licensesWindow.SetActive(false);
         }
 
 
@@ -256,11 +256,11 @@ namespace DDY_GJM_23
             settingsWindow.SetActive(true);
         }
 
-        // Activate liscences window.
-        public void OpenLiscencesWindow()
+        // Activate licenses window.
+        public void OpenLicensesWindow()
         {
             CloseAllWindows();
-            liscencesWindow.SetActive(true);
+            licensesWindow.SetActive(true);
         }
 
         // GAME //

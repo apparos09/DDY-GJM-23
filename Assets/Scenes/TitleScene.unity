@@ -2152,7 +2152,7 @@ MonoBehaviour:
   storyWindow: {fileID: 910955686}
   controlsWindow: {fileID: 1162053388}
   settingsWindow: {fileID: 1182830008}
-  liscencesWindow: {fileID: 1905627636}
+  licensesWindow: {fileID: 1905627636}
   quitButton: {fileID: 263777936}
   titleAudio: {fileID: 798157167}
   credits: {fileID: 1905627639}
@@ -4583,7 +4583,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 798157166}
         m_TargetAssemblyTypeName: DDY_GJM_23.TitleManager, Assembly-CSharp
-        m_MethodName: OpenLiscencesWindow
+        m_MethodName: OpenLicensesWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5689,7 +5689,7 @@ GameObject:
   - component: {fileID: 1905627638}
   - component: {fileID: 1905627639}
   m_Layer: 5
-  m_Name: Licences
+  m_Name: Licenses
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -82,30 +82,36 @@ namespace DDY_GJM_23
             tutorialToggle.isOn = settings.useTutorial;
 
 
-            // Checks the screen resolution.
-            if(Screen.fullScreen)
+            // Set the dropdown if this isn't a WebGL application.
+            // If you change the resolution in a WebGL build it screws up the screen.
+            if (Application.platform != RuntimePlatform.WebGLPlayer)
             {
-                // Set to full screen value.
-                screenSizeDropdown.value = 3;
-            }
-            else
-            {
-                // Checks the current resolution (checks via height)
-                switch (Screen.currentResolution.height)
+                // Checks the screen resolution.
+                if (Screen.fullScreen)
                 {
-                    case 576: // 1024 X 576
-                        screenSizeDropdown.value = 0;
-                        break;
+                    // Set to full screen value.
+                    screenSizeDropdown.value = 3;
+                }
+                else
+                {
+                    // Checks the current resolution (checks via height)
+                    switch (Screen.currentResolution.height)
+                    {
+                        case 576: // 1024 X 576
+                            screenSizeDropdown.value = 0;
+                            break;
 
-                    case 720: // 1280 X 720
-                        screenSizeDropdown.value = 1;
-                        break;
+                        case 720: // 1280 X 720
+                            screenSizeDropdown.value = 1;
+                            break;
 
-                    case 1080: // 1920 X 1080
-                        screenSizeDropdown.value = 2;
-                        break;
+                        case 1080: // 1920 X 1080
+                            screenSizeDropdown.value = 2;
+                            break;
+                    }
                 }
             }
+
         }
 
         // AUDIO //

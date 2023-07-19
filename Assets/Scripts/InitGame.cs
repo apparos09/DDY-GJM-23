@@ -16,7 +16,7 @@ namespace DDY_GJM_23
             Application.targetFrameRate = 30;
 
             // Set the screen size to 720x1280.
-            // Do NOT change the game resolution in code when using WebGL. THis bre
+            // Do NOT change the game resolution in code when using WebGL. This breaks the program.
             // if(!(Application.platform == RuntimePlatform.WebGLPlayer))
             //     GameSettings.Instance.SetScreenSize1280x720();
 
